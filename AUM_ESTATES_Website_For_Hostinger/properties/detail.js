@@ -95,16 +95,22 @@ function representativeImage(o){
 function representativeLabel(o){const c=representativeCategory(o);return ({villa:'Villa / House',farmhouse:'Farmhouse','builder-floor':'Builder Floor',apartment:'Apartment',plot:'Plot / Land',shop:'Shop / Retail',office:'Office',building:'Building / Office Building',commercial:'Commercial'})[c]||'Apartment';}
 const name=data.website_display_name||data.listing_title||data.project_name||'Property';
 document.title=`${name} | AUM ESTATES`;
+const bc=document.getElementById('breadcrumb-title'); if(bc) bc.textContent=name;
 document.getElementById('detail-title').textContent=name;
 document.getElementById('detail-location').textContent=[data.locality,data.sector,data.city].filter(Boolean).filter((v,i,a)=>a.indexOf(v)===i).join(', ');
 document.getElementById('detail-type').textContent=representativeLabel(data);
 document.getElementById('detail-price').textContent=price(data);
 document.getElementById('detail-photo').style.backgroundImage=`url('../assets/property-images/${representativeImage(data)}')`;
-document.getElementById('detail-photo').querySelector('.representative-badge').textContent=/asya smartliving|sukoon/i.test([data.listing_title,data.project_name,data.locality].join(' '))?'Project photo supplied by AUM ESTATES':'*RP';
+const isProjectPhoto=/asya smartliving|sukoon/i.test([data.listing_title,data.project_name,data.locality].join(' '));
+document.getElementById('detail-badge').textContent=isProjectPhoto?'Project Photo':'Representative Image';
 document.getElementById('detail-description').textContent=data.public_description||data.key_features||'Property details available on enquiry.';
 const facts=[['Configuration',data.configuration],['BHK',data.bedrooms?`${data.bedrooms} BHK`:'' ],['Area',area(data)],['Floor',data.floor],['Facing',data.facing],['Road Width',data.road_width],['Furnishing',data.furnishing],['Possession / Availability',data.possession_status],['Transaction',data.transaction_type]].filter(x=>x[1]);
-document.getElementById('detail-grid').innerHTML=facts.map(([k,v])=>`<div class="detail-fact"><span>${esc(k)}</span><strong>${esc(v)}</strong></div>`).join('');
+document.getElementById('detail-grid').innerHTML=facts.map(([k,v])=>`<div class="detail-spec"><span>${esc(k)}</span><strong>${esc(v)}</strong></div>`).join('');
 const feats=(data.public_features||data.key_features||'').split(';').map(x=>x.trim()).filter(Boolean);
-document.getElementById('detail-features').innerHTML=feats.length?feats.map(x=>`<span>${esc(x)}</span>`).join(''):'<span>Details available on enquiry.</span>';
-const waLines=['AUM ESTATES – PROPERTY ENQUIRY','',`Property ID: ${data.property_id||'N/A'}`,`Property: ${name}`,data.project_name?`Project: ${data.project_name}`:'',`Location: ${[data.locality,data.sector,data.city].filter(Boolean).filter((v,i,a)=>a.indexOf(v)===i).join(', ')||'N/A'}`,`Transaction: ${data.transaction_type||'Sale'}`,`Property Type: ${data.property_type||'N/A'}`,data.configuration?`Configuration: ${data.configuration}`:'',area(data)?`Area: ${area(data)}`:'',`Price: ${price(data)}`,'','I am interested in this property. Please share further details and availability.'].filter(Boolean); const wa=document.querySelector('.detail-actions .result-contact'); if(wa) wa.href='https://wa.me/919873813595?text='+encodeURIComponent(waLines.join('\n'));
+if(feats.length){
+  const fw=document.getElementById('features-wrapper'); if(fw) fw.style.display='block';
+  document.getElementById('detail-features').innerHTML=feats.map(x=>`<span>${esc(x)}</span>`).join('');
+}
+const waLines=['AUM ESTATES – PROPERTY ENQUIRY','',`Property ID: ${data.property_id||'N/A'}`,`Property: ${name}`,data.project_name?`Project: ${data.project_name}`:'',`Location: ${[data.locality,data.sector,data.city].filter(Boolean).filter((v,i,a)=>a.indexOf(v)===i).join(', ')||'N/A'}`,`Transaction: ${data.transaction_type||'Sale'}`,`Property Type: ${data.property_type||'N/A'}`,data.configuration?`Configuration: ${data.configuration}`:'',area(data)?`Area: ${area(data)}`:'',`Price: ${price(data)}`,'','Hello AUM ESTATES, I am interested in this property. Please share further details, layout, and availability.'].filter(Boolean);
+const waBtn=document.getElementById('detail-wa-btn'); if(waBtn) waBtn.href='https://wa.me/919873813595?text='+encodeURIComponent(waLines.join('\n'));
 })();

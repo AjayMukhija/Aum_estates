@@ -61,8 +61,26 @@
         <a class="wa" href="https://wa.me/919873813595?text=Hello%20AUM%20ESTATES,%20I%20would%20like%20to%20enquire%20about%20property%20advisory%20in%20Gurgaon." target="_blank" rel="noopener">
           <span>WhatsApp Advisory</span>
         </a>
+        <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
       </div>
     </div>
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile Navigation">
+      <a class="active" href="index.html">Home</a>
+      <a href="properties/index.html?mode=buy">Buy Properties</a>
+      <a href="properties/index.html?mode=rent">Rent / Lease</a>
+      <a href="properties/index.html?category=commercial">Commercial</a>
+      <a href="properties/index.html?category=plot">Plots &amp; Land</a>
+      <a href="projects/index.html">New Projects</a>
+      <a href="locations/index.html">Locations</a>
+      <a href="about/index.html">About AUM ESTATES</a>
+      <a href="contact/index.html">Contact &amp; Office</a>
+      <div class="mobile-actions">
+        <a class="call btn" href="tel:+919873813595">☎ Call +91 98738 13595</a>
+        <a class="wa btn" href="https://wa.me/919873813595?text=Hello%20AUM%20ESTATES,%20I%20would%20like%20to%20enquire%20about%20property%20advisory%20in%20Gurgaon." target="_blank" rel="noopener">WhatsApp Advisory Desk</a>
+      </div>
+    </nav>
   </header>
 
   <main>
@@ -606,19 +624,21 @@
     const money = o => o.price_text || o.price || 'Price on request';
 
     const card = o => {
+      const label = o.image_label && o.image_label !== '*RP' ? esc(o.image_label) : 'Curated Selection';
+      const detailLink = o.property_id ? `properties/detail.html?id=${encodeURIComponent(o.property_id)}` : 'properties/index.html';
       const img = o.image
         ? `<div class="approved-card-photo photo" style="background-image:url('${esc(o.image)}')">
-             <span class="photo-label">Verified Opportunity</span>
+             <span class="photo-label">${label}</span>
            </div>`
         : `<div class="approved-card-photo photo" style="background-color:#e2e8f0;">
-             <span class="photo-label">Curated Selection</span>
+             <span class="photo-label">${label}</span>
            </div>`;
 
       const waText = encodeURIComponent([
         'AUM ESTATES – PROPERTY INQUIRY',
         '',
         `Property ID: ${o.property_id || 'N/A'}`,
-        `Property: ${o.name || 'Approved Property'}`,
+        `Property: ${o.name || 'Featured Property'}`,
         `Location: ${o.location || 'Gurgaon'}`,
         `Type: ${o.type || 'N/A'}`,
         `Price: ${money(o)}`,
@@ -633,10 +653,13 @@
           ${img}
           <div class="cardbody">
             <div class="loc">${esc(o.location || 'Gurgaon, Haryana')}</div>
-            <h3>${esc(o.name || 'Verified Property')}</h3>
+            <h3>${esc(o.name || 'Featured Property')}</h3>
             <p>${esc(o.description || 'Verified property opportunity represented directly by AUM ESTATES.')}</p>
             <div class="price">${esc(money(o))}</div>
-            <a class="btn" href="${wa}" target="_blank" rel="noopener">Inquire on WhatsApp →</a>
+            <div style="display:flex;gap:10px;margin-top:auto;">
+              <a class="view-details" style="flex:1;text-align:center;" href="${detailLink}">View Details</a>
+              <a class="result-contact" style="flex:1;text-align:center;" href="${wa}" target="_blank" rel="noopener">WhatsApp</a>
+            </div>
           </div>
         </article>
       `;
@@ -685,6 +708,17 @@
       const pCount = projects.filter(x => x && x.project_category === 'New Project').length || 14;
       projElem.textContent = `${pCount} projects`;
     }
+  })();
+
+  // Mobile navigation drawer toggle
+  (function(){
+    const toggle = document.getElementById('menu-toggle');
+    const nav = document.getElementById('mobile-nav');
+    if (!toggle || !nav) return;
+    toggle.addEventListener('click', function(){
+      const isOpen = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(isOpen));
+    });
   })();
   </script>
 </body>

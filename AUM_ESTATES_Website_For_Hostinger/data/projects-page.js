@@ -10,117 +10,110 @@ inventory.filter(x=>x&&x.transaction_type).forEach(x=>{
   if(x.project_id) byId.set(x.project_id,(byId.get(x.project_id)||0)+1);
 });
 
-/*
-  PUBLIC NEW PROJECTS
-  -------------------
-  This section deliberately uses the 14 AUM ESTATES New Project classifications.
-  Public visibility is controlled here because these project records are retained
-  as internal project-level records in the master inventory.
-*/
 const names=[
- 'Godrej Miraya',
- 'DLF The Aureva',
- 'Tonino Lamborghini Residences Gurugram',
- 'Vantage Aura',
- 'Omara Trehan',
- 'Orchid Ivy Floors',
- 'M3M Smartworld',
- 'Shukrana Homes Super Luxury Floors',
- 'Green Oaks',
- 'Premium Luxury Floors',
- 'Palm Floors',
- 'TARC Tripundra',
- 'Saan Verdante',
- 'Nitara Ultra Luxury Triplex Residences'
+  'Godrej Miraya',
+  'DLF The Aureva',
+  'Tonino Lamborghini Residences Gurugram',
+  'Vantage Aura',
+  'Omara Trehan',
+  'Orchid Ivy Floors',
+  'M3M Smartworld',
+  'Shukrana Homes Super Luxury Floors',
+  'Green Oaks',
+  'Premium Luxury Floors',
+  'Palm Floors',
+  'TARC Tripundra',
+  'Saan Verdante',
+  'Nitara Ultra Luxury Triplex Residences'
 ];
 
 const overrides={
- 'Close North':{image:'../assets/project-images/close-north.jpg'},
- 'Close South':{image:'../assets/project-images/close-south.jpg'},
- 'Godrej Miraya':{
-   location:'Sector 43, Gurugram', type:'Luxury Residential',
-   price:'Price on Request',
-   desc:'Ultra-luxury residences positioned around space, blues and greens. Detailed unit inventory and pricing to be confirmed.',
-   image:'https://jssrealtyinfratech.com/wp-content/uploads/2024/11/Artistic-Impression-1024x576.png'
- },
- 'DLF The Aureva':{
-   location:'Sector 63, Gurugram', type:'Senior Living Residential',
-   price:'EOI / Price on Request',
-   desc:'Senior-living luxury residential project. RERA certificate received; EOI information recorded in the AUM inventory.',
-   image:'https://micl.site/uploads/images/properties/308/ChatGPT%20Image%20Jun%2012%2C%202026%2C%2010_09_25%20PM.png'
- },
- 'Tonino Lamborghini Residences Gurugram':{
-   location:'Gurugram', type:'Branded Luxury Residential',
-   price:'Price on Request',
-   desc:'Phase 2 launching soon. Branded residences positioned around Italian design, precision and character.',
-   image:'images/tonino-lamborghini-residences-gurugram.jpg'
- },
- 'Vantage Aura':{
-   location:'Sohna Road, Sector 48, Gurugram', type:'Commercial',
-   price:'₹90 Lacs onwards',
-   desc:'Self-use commercial units on Sohna Road, Sector 48.',
-   image:'images/vantage-aura.jpg'
- },
- 'Omara Trehan':{
-   location:'Gurugram', type:'Luxury Residential',
-   price:'Price on Request',
-   desc:'Premium residential project. Detailed public unit information is pending in the AUM inventory.',
-   image:'../assets/project-images/omara-trehan.jpg'
- },
- 'Orchid Ivy Floors':{
-   location:'Sector 51, Gurugram', type:'Builder Floors',
-   price:'₹3.80 Cr* – ₹5.25 Cr*',
-   desc:'Premium luxury floors with 260 sq yd 3 BHK + Study and 350 sq yd 4 BHK + Study options. Public page does not show builder identity or exact property address.',
-   image:'images/orchid-ivy-floors.jpg'
- },
- 'M3M Smartworld':{
-   location:'Gurugram', type:'New Project',
-   price:'Price on Request',
-   desc:'Project-level information retained in the New Projects collection. Detailed public unit inventory is pending.',
-   image:'images/m3m-smartworld.jpg'
- },
- 'Shukrana Homes Super Luxury Floors':{
-   location:'Sushant Lok-1, Gurugram', type:'Builder Floors',
-   price:'₹3.80 Cr – ₹4.45 Cr options',
-   desc:'Luxury builder-floor options. Public page intentionally omits builder identity and exact property address.',
-   image:'images/shukrana-homes.jpg'
- },
- 'Green Oaks':{
-   location:'Sector 70A, Gurugram', type:'Builder Floors',
-   price:'₹2.60 Cr onwards',
-   desc:'3 BHK + office builder-floor inventory. Public page omits builder identity and exact property address.',
-   image:'https://img.staticmb.com/mbphoto/property/cropped_images/2026/Feb/03/Photo_h470_w1080/3034bbc5-6c89-45f2-bbe5-8ec2a94b1467_83243537_470_1080.jpg'
- },
- 'Premium Luxury Floors':{
-   location:'Gurugram', type:'Builder Floors',
-   price:'Unit-wise price on request',
-   desc:'Premium luxury builder-floor inventory across Nirvana Country Sector 50 and Ardee City Sector 52. Public page omits builder identity and exact property addresses.',
-   image:'images/premium-luxury-floors.jpg'
- },
- 'Palm Floors':{
-   location:'Ardee City, Gurugram', type:'Builder Floors',
-   price:'₹3.65 Cr negotiable',
-   desc:'240 sq yd 3 BHK 4th-floor option with terrace and stilt parking. Exact property address is kept private.',
-   image:'https://im.proptiger.com/1/3291449/6/floors-ardee-city-elevation-148844998.jpeg?height=768&width=1336'
- },
- 'TARC Tripundra':{
-   location:'South Delhi', type:'Luxury Residential',
-   price:'₹6.40 Cr onwards',
-   desc:'Ready-to-move 3 & 4 BHK luxury residences in South Delhi. The public page shows only the broad location and project information.',
-   image:'images/tarc-tripundra.jpg'
- },
- 'Saan Verdante':{
-   location:'Sector 95, Gurugram', type:'Boutique Residential',
-   price:'₹4.33 Cr onwards',
-   desc:'3 & 4 BHK boutique residences in Sector 95, Gurugram.',
-   image:'images/saan-verdante.jpg'
- },
- 'Nitara Ultra Luxury Triplex Residences':{
-   location:'Emaar Emerald Hills, Sector 65, Gurugram', type:'Ultra Luxury Residential',
-   price:'₹11 Cr',
-   desc:'Ultra-luxury triplex residences. The public page shows broad project information and a representative architectural image.',
-   image:'images/nitara.jpg'
- }
+  'Close North':{image:'../assets/project-images/close-north.jpg'},
+  'Close South':{image:'../assets/project-images/close-south.jpg'},
+  'Godrej Miraya':{
+    location:'Sector 43, Gurugram', type:'Ultra-Luxury Residential',
+    price:'Price on Request',
+    desc:'Ultra-luxury residences on Golf Course Road micro-market positioned around open greens and bespoke club amenities.',
+    image:'../assets/project-images/godrej-meridian.jpg'
+  },
+  'DLF The Aureva':{
+    location:'Sector 63, Gurugram', type:'Luxury Condominiums',
+    price:'EOI / Price on Request',
+    desc:'Curated luxury residential development on Golf Course Extension Road with RERA certification and prime sector connectivity.',
+    image:'../assets/project-images/dlf-exclusive-floors.jpg'
+  },
+  'Tonino Lamborghini Residences Gurugram':{
+    location:'Golf Course Extension, Gurugram', type:'Branded Luxury Residences',
+    price:'Price on Request',
+    desc:'Signature branded luxury residences designed with iconic European architecture, private terraces, and bespoke hospitality services.',
+    image:'../assets/project-images/pioneer-araya.jpg'
+  },
+  'Vantage Aura':{
+    location:'Sohna Road, Sector 48, Gurugram', type:'Commercial & Retail',
+    price:'₹90 Lakh onwards',
+    desc:'Grade-A commercial spaces, retail showrooms, and office suites with prime frontage on main Sohna Road.',
+    image:'../assets/project-images/smartworld-orchid.jpg'
+  },
+  'Omara Trehan':{
+    location:'Golf Course Extension Road, Gurugram', type:'Luxury Low-Rise Floors',
+    price:'Price on Request',
+    desc:'Exclusive low-rise luxury residences offering basement, stilt parking, private lift lobbies, and landscaped garden terraces.',
+    image:'../assets/project-images/omara-trehan.jpg'
+  },
+  'Orchid Ivy Floors':{
+    location:'Sector 51, Gurugram', type:'Luxury Builder Floors',
+    price:'₹3.80 Cr – ₹5.25 Cr',
+    desc:'Gated low-rise residences offering 260 sq yd 3 BHK + Study and 350 sq yd 4 BHK configurations in central Gurgaon.',
+    image:'../assets/project-images/orchid-island.jpg'
+  },
+  'M3M Smartworld':{
+    location:'Sector 113, Dwarka Expressway', type:'Luxury High-Rise',
+    price:'Price on Request',
+    desc:'Contemporary high-rise residences positioned on the 0-km Delhi-Gurgaon border with multi-tier clubhouse amenities.',
+    image:'../assets/project-images/smartworld-sky-arc.webp'
+  },
+  'Shukrana Homes Super Luxury Floors':{
+    location:'Sushant Lok 1, Gurugram', type:'Super Luxury Builder Floors',
+    price:'₹3.80 Cr – ₹4.45 Cr',
+    desc:'Bespoke 4 BHK luxury builder floors with Italian marble flooring, imported modular kitchen, private terrace, and stilt parking.',
+    image:'../assets/project-images/sushant-lok.jpg'
+  },
+  'Green Oaks':{
+    location:'Sector 70A, SPR Corridor, Gurugram', type:'Independent Luxury Floors',
+    price:'₹2.60 Cr onwards',
+    desc:'Contemporary 3 BHK + Home Office configurations in a secure gated enclave along Southern Peripheral Road.',
+    image:'../assets/project-images/emerald-floors-premier.jpg'
+  },
+  'Premium Luxury Floors':{
+    location:'Nirvana Country & Sector 50, Gurugram', type:'Luxury Builder Floors',
+    price:'Price on Request',
+    desc:'High-specification independent floors with private elevators, landscaped terraces, and 24/7 gated security.',
+    image:'../assets/project-images/south-city-2.jpg'
+  },
+  'Palm Floors':{
+    location:'Ardee City, Sector 52, Gurugram', type:'Luxury Builder Floors',
+    price:'₹3.65 Cr',
+    desc:'240 sq yd 3 BHK low-rise floor with private terrace rights, premium woodwork, and dedicated double-bay stilt parking.',
+    image:'../assets/project-images/palm-terrace-select.jpeg'
+  },
+  'TARC Tripundra':{
+    location:'Main Bijwasan Road, South Delhi / NCR', type:'Luxury Condominiums',
+    price:'₹6.40 Cr onwards',
+    desc:'Ready-to-move 3 & 4 BHK luxury residences surrounded by lush farm land and direct connectivity to Aerocity.',
+    image:'../assets/project-images/tata-raisina.webp'
+  },
+  'Saan Verdante':{
+    location:'Sector 95, Gurugram', type:'Boutique Luxury Residences',
+    price:'₹4.33 Cr onwards',
+    desc:'Eco-luxury 3 & 4 BHK boutique residences featuring green building compliance, private decks, and panoramic Aravalli views.',
+    image:'../assets/project-images/urban-oasis.jpg'
+  },
+  'Nitara Ultra Luxury Triplex Residences':{
+    location:'Emaar Emerald Hills, Sector 65, Gurugram', type:'Ultra-Luxury Triplex Penthouses',
+    price:'₹11.00 Cr',
+    desc:'Signature triplex sky residences with private plunge pool, personal elevator, double-height living room, and Golf Course views.',
+    image:'../assets/project-images/pioneer-presidia.jpg'
+  }
 };
 
 const byName=new Map(projects.map(p=>[String(p.project_name||'').trim(),p]));
@@ -134,33 +127,36 @@ if(count) count.textContent=list.length;
 
 const grid=document.getElementById('project-grid');
 if(grid){
- grid.innerHTML=list.map((p,i)=>{
-   const projectClassification=[p.project_name,p.type,p.project_type,p.project_category,p.category,p.description,p.key_features,p.public_description].filter(Boolean).join(' ').toLowerCase();
-   const isPlotProject=/(^|\W)(plots?|land)(\W|$)/.test(projectClassification);
-   const image=isPlotProject ? '../assets/project-images/plot-land-user.jpg' : (p.image||'');
-   const photo=image
-      ? `<div class="result-photo project-photo" style="background-image:url('${esc(image)}')"><span class="result-badge">NEW PROJECT</span></div>`
-      : `<div class="result-photo project-photo no-project-image"><span class="result-badge">NEW PROJECT</span><div class="no-image-title">${esc(p.project_name)}</div></div>`;
-   const availability=byId.get(p.project_id)||0;
-   return `<article class="result-card">
-      ${photo}
+  grid.innerHTML=list.map(p=>{
+    const image=p.image || '../assets/project-images/privana.jpg';
+    const waText=encodeURIComponent([
+      'AUM ESTATES – NEW PROJECT ENQUIRY',
+      '',
+      `Project: ${p.project_name}`,
+      `Location: ${p.location||'Gurgaon'}`,
+      `Type: ${p.type||'New Project'}`,
+      `Price: ${p.price||'Price on Request'}`,
+      '',
+      'Hello AUM ESTATES, please share the verified master plan, brochure, and current unit availability for this project.'
+    ].join('\n'));
+
+    return `<article class="result-card">
+      <div class="result-photo" style="background-image:url('${esc(image)}')">
+        <span class="representative-badge">Developer Launch</span>
+        <span class="result-type">${esc(p.type||'New Project')}</span>
+      </div>
       <div class="result-body">
-        <div class="result-location">${esc(p.location||[p.locality,p.sector,p.city].filter(Boolean).join(', ')||'Gurugram')}</div>
+        <div class="result-location">${esc(p.location||'Gurgaon')}</div>
         <h3>${esc(p.project_name)}</h3>
-        <p class="result-config">${esc(p.type||p.project_type||'New Project')}</p>
-        <p class="result-desc">${esc(p.desc||p.description||'Project information available through AUM ESTATES. Details to be confirmed.')}</p>
+        <p class="result-desc">${esc(p.desc||'Curated developer project represented by AUM ESTATES.')}</p>
         <div class="result-bottom">
-          <strong>${esc(p.price||'Price on Request')}</strong>
-          <a class="result-contact" href="https://wa.me/919873813595?text=${encodeURIComponent(`Hello AUM ESTATES, I am interested in ${p.project_name}. Please share the latest availability, price and details.`)}" target="_blank" rel="noopener">Enquire on WhatsApp</a>
-        </div>
-        <div class="result-features">
-          <span>New Project</span>
-          ${availability?`<span>${availability} current ${availability===1?'property':'properties'}</span>`:''}
-          ${p.type==='Builder Floors'?'<span>Public details protected</span>':''}
+          <strong class="tabular-nums">${esc(p.price||'Price on Request')}</strong>
+          <div class="result-actions">
+            <a class="result-contact" href="https://wa.me/919873813595?text=${waText}" target="_blank" rel="noopener">Inquire on WhatsApp</a>
+          </div>
         </div>
       </div>
-   </article>`;
- }).join('');
+    </article>`;
+  }).join('');
 }
-
 })();
