@@ -9,8 +9,10 @@
   <meta name="robots" content="index,follow" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/styles.css" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="alternate icon" href="favicon.ico" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -38,27 +40,124 @@
 <body>
 
   <!-- ======================================================================
-       Site Header (Integrated Dark Luxury Glass)
+       Site Header with Silky Dropdown Menus
        ====================================================================== -->
   <header class="header">
     <div class="container nav">
       <a class="brand-lockup" href="index.html" aria-label="AUM ESTATES home">
-        <div class="brand-emblem-wrap">
-          <img src="assets/aum-estates-hero-green.png" alt="AUM ESTATES" class="brand-emblem-img" />
-        </div>
+        <svg class="brand-crest-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="48" height="48" rx="8" fill="#1c0b10" stroke="#c5a059" stroke-width="1.2" stroke-opacity="0.5" />
+          <circle cx="24" cy="14" r="4.5" fill="#5d1420" stroke="#c5a059" stroke-width="0.8" />
+          <circle cx="17" cy="18" r="3.8" fill="#4a0e17" stroke="#c5a059" stroke-width="0.8" />
+          <circle cx="31" cy="18" r="3.8" fill="#4a0e17" stroke="#c5a059" stroke-width="0.8" />
+          <circle cx="13" cy="23" r="3.2" fill="#340910" stroke="#c5a059" stroke-width="0.7" />
+          <circle cx="35" cy="23" r="3.2" fill="#340910" stroke="#c5a059" stroke-width="0.7" />
+          <path d="M24 20L24 40" stroke="#c5a059" stroke-width="2.2" stroke-linecap="round" />
+          <path d="M24 23L16 19M24 25L32 21" stroke="#c5a059" stroke-width="1.4" stroke-linecap="round" />
+          <path d="M24 35H28M24 38H29" stroke="#c5a059" stroke-width="2" stroke-linecap="round" />
+        </svg>
         <div class="brand-copy">
           <span class="brand-name">AUM ESTATES</span>
-          <span class="brand-tagline">Private Property Advisory · Est. 2002</span>
+          <span class="brand-tagline">Private Advisory · Est. 2002</span>
         </div>
       </a>
 
+      <!-- Desktop Navigation with Dropdowns -->
       <nav class="menu" aria-label="Main Navigation">
-        <a class="active" href="index.html">Home</a>
-        <a href="properties/index.html">Portfolio</a>
-        <a href="locations/index.html">Corridors</a>
-        <a href="projects/index.html">New Projects</a>
-        <a href="about/index.html">The Advisory</a>
-        <a href="contact/index.html">Contact &amp; Office</a>
+        <a class="nav-link active" href="index.html">Home</a>
+
+        <!-- Portfolio Dropdown -->
+        <div class="nav-item">
+          <a class="nav-link" href="properties/index.html">
+            Portfolio <span class="caret" aria-hidden="true">▾</span>
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="properties/index.html?mode=buy">
+              <strong>Buy Residences</strong>
+              <span>Condominiums, penthouses &amp; floors</span>
+            </a>
+            <a class="dropdown-item" href="properties/index.html?category=builder-floor">
+              <strong>DLF Builder Floors</strong>
+              <span>Gated independent floors in Phase 1–5</span>
+            </a>
+            <a class="dropdown-item" href="properties/index.html?category=plot">
+              <strong>Plots &amp; Land</strong>
+              <span>HSVP/HUDA residential &amp; institutional</span>
+            </a>
+            <a class="dropdown-item" href="properties/index.html?category=commercial">
+              <strong>Commercial &amp; Retail</strong>
+              <span>Pre-leased assets &amp; corporate offices</span>
+            </a>
+            <a class="dropdown-item" href="properties/index.html?mode=rent">
+              <strong>Rent &amp; Lease</strong>
+              <span>Executive &amp; corporate leasing</span>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="properties/index.html">
+              <strong>Browse Complete Inventory →</strong>
+              <span>View all 347 vetted records</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Corridors Dropdown -->
+        <div class="nav-item">
+          <a class="nav-link" href="locations/index.html">
+            Corridors <span class="caret" aria-hidden="true">▾</span>
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="properties/index.html?q=Golf+Course+Road">
+              <strong>Golf Course Road &amp; DLF 5</strong>
+              <span>Aralias, Magnolias, Park Place, Belaire</span>
+            </a>
+            <a class="dropdown-item" href="properties/index.html?q=DLF">
+              <strong>DLF Phase 1–4</strong>
+              <span>Gated luxury floors &amp; approved plots</span>
+            </a>
+            <a class="dropdown-item" href="properties/index.html?q=Nirvana">
+              <strong>Nirvana Country &amp; Sector 50</strong>
+              <span>Low-density villas &amp; AUM Estates HQ</span>
+            </a>
+            <a class="dropdown-item" href="properties/index.html?q=Golf+Course+Ext+Road">
+              <strong>Golf Course Extn &amp; SPR</strong>
+              <span>Elevate, Arbour, Grand Arch &amp; cyber hubs</span>
+            </a>
+            <a class="dropdown-item" href="properties/index.html?q=Dwarka+Expressway">
+              <strong>Dwarka Expressway</strong>
+              <span>Airport corridor &amp; integrated townships</span>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="locations/index.html">
+              <strong>Corridor Market Intelligence →</strong>
+              <span>Micro-market analysis &amp; inventory maps</span>
+            </a>
+          </div>
+        </div>
+
+        <a class="nav-link" href="projects/index.html">New Projects</a>
+
+        <!-- Advisory Dropdown -->
+        <div class="nav-item">
+          <a class="nav-link" href="about/index.html">
+            The Advisory <span class="caret" aria-hidden="true">▾</span>
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="about/index.html">
+              <strong>About Ajay Mukhija</strong>
+              <span>Founder perspective &amp; 22-year pedigree</span>
+            </a>
+            <a class="dropdown-item" href="about/index.html#diligence">
+              <strong>Verification Protocol</strong>
+              <span>Forensic title &amp; HSVP due diligence</span>
+            </a>
+            <a class="dropdown-item" href="contact/index.html">
+              <strong>Office &amp; Directions</strong>
+              <span>C-210 Nirvana Courtyard, Sector 50</span>
+            </a>
+          </div>
+        </div>
+
+        <a class="nav-link" href="contact/index.html">Contact</a>
       </nav>
 
       <div class="actions">
@@ -74,6 +173,7 @@
       </div>
     </div>
 
+    <!-- Mobile Drawer -->
     <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile Navigation">
       <a class="active" href="index.html">Home</a>
       <a href="properties/index.html?mode=buy">Buy Residences</a>
@@ -82,9 +182,9 @@
       <a href="properties/index.html?category=plot">Plots &amp; Land</a>
       <a href="projects/index.html">New Projects</a>
       <a href="locations/index.html">Locations &amp; Corridors</a>
-      <a href="about/index.html">About AUM ESTATES</a>
+      <a href="about/index.html">About Ajay Mukhija</a>
       <a href="contact/index.html">Contact &amp; Office</a>
-      <div class="mobile-actions">
+      <div style="display:flex;flex-direction:column;gap:10px;margin-top:14px;">
         <a class="call btn" href="tel:+919873813595">☎ Call +91 98738 13595</a>
         <a class="wa btn" href="https://wa.me/919873813595?text=Hello%20AUM%20ESTATES,%20I%20would%20like%20to%20enquire%20about%20private%20property%20advisory%20in%20Gurgaon." target="_blank" rel="noopener">WhatsApp Advisory Desk</a>
       </div>
@@ -93,14 +193,14 @@
 
   <main>
     <!-- ====================================================================
-         Cinematic Hero Section
+         Cinematic Hero Section (Confident, Restrained, Old-Money Pedigree)
          ==================================================================== -->
     <section class="hero">
       <div class="container hero-inner">
         <div class="hero-copy">
-          <div class="hero-eyebrow-pill">HERITAGE PROPERTY ADVISORY · GURGAON &amp; NCR · EST. 2002</div>
-          <h1>Discreet Advisory for Exceptional NCR Residences</h1>
-          <h2>Twenty-two years of fiduciary property stewardship, verified title intelligence, and bespoke acquisition representation across DLF Phase 1–5, Golf Course Road, and prime Gurgaon enclaves.</h2>
+          <div class="hero-eyebrow-pill">ESTABLISHED 2002 · GURGAON</div>
+          <h1>Quiet Advisory for Discerning Property Acquisitions</h1>
+          <h2>Twenty-two years of fiduciary property stewardship across Golf Course Road, DLF Phase 1–5, and prime Gurgaon enclaves.</h2>
           <p class="coverage">Golf Course Road · DLF Phase 1–5 · Nirvana Country · Golf Course Extn · Sohna Road · Dwarka Expressway</p>
         </div>
 
@@ -134,7 +234,7 @@
     </section>
 
     <!-- ====================================================================
-         Bespoke Luxury Search Console
+         Luxury Search Console (Progressive Disclosure Architecture)
          ==================================================================== -->
     <div class="search-stack">
       <div class="container">
@@ -151,6 +251,7 @@
             <input type="hidden" name="mode" id="search-mode-input" value="buy" />
             <input type="hidden" name="category" id="search-cat-input" value="" />
 
+            <!-- Primary 4-Field Row -->
             <div class="search-row">
               <select class="search-field" name="location" id="search-location" aria-label="Select Location Corridor">
                 <option value="">All Gurgaon Corridors</option>
@@ -187,15 +288,35 @@
               </button>
             </div>
 
-            <div class="quick-tags">
-              <span class="quick-tag-label">Signature Enclaves:</span>
-              <button type="button" class="quick-tag" data-q="Golf Course Road">Golf Course Road</button>
-              <button type="button" class="quick-tag" data-q="DLF">DLF Phase 1–5</button>
-              <button type="button" class="quick-tag" data-q="The Arbour">DLF The Arbour</button>
-              <button type="button" class="quick-tag" data-q="Park Place">DLF Park Place</button>
-              <button type="button" class="quick-tag" data-q="Nirvana">Nirvana Country</button>
-              <button type="button" class="quick-tag" data-q="Dwarka Expressway">Dwarka Expressway</button>
-              <button type="button" class="quick-tag" data-q="Commercial">Pre-Leased Commercial</button>
+            <!-- Gradual Reveal Toggle & Quick Chips -->
+            <div class="search-expand-bar">
+              <div class="quick-tags">
+                <span class="quick-tag-label">Signature Enclaves:</span>
+                <button type="button" class="quick-tag" data-q="Golf Course Road">Golf Course Road</button>
+                <button type="button" class="quick-tag" data-q="DLF">DLF Phase 1–5</button>
+                <button type="button" class="quick-tag" data-q="The Arbour">DLF The Arbour</button>
+                <button type="button" class="quick-tag" data-q="Park Place">DLF Park Place</button>
+                <button type="button" class="quick-tag" data-q="Nirvana">Nirvana Country</button>
+              </div>
+
+              <button type="button" class="filter-expand-toggle" id="filter-expand-toggle">
+                <span>+ Keyword &amp; Specific Filters</span>
+              </button>
+            </div>
+
+            <!-- Expandable Advanced Drawer (Revealed on Click) -->
+            <div class="filter-advanced-drawer" id="filter-advanced-drawer">
+              <input class="search-field" type="text" name="q" id="home-keyword-input" placeholder="Keyword (e.g. Park Facing, Corner, Duplex)..." />
+              <select class="search-field" name="facing" aria-label="Select Facing Direction">
+                <option value="">Any Direction Facing</option>
+                <option value="Park Facing">Park Facing</option>
+                <option value="East Facing">East Facing</option>
+                <option value="Corner">Corner Plot / Unit</option>
+                <option value="North Facing">North Facing</option>
+              </select>
+              <button type="submit" class="btn" style="background:var(--oxblood);color:#fff;height:48px;">
+                Apply Advanced Filters →
+              </button>
             </div>
           </form>
         </div>
@@ -209,9 +330,9 @@
       <div class="container">
         <div class="head">
           <div>
-            <div class="eyebrow">CURATED NCR VERTICALS</div>
+            <div class="eyebrow">CURATED VERTICALS</div>
             <h2>Explore by Property Architecture</h2>
-            <p>Vetted opportunities across core residential, commercial, and land categories in Gurgaon.</p>
+            <p>Vetted opportunities across Gurgaon's core residential, commercial, and land verticals.</p>
           </div>
           <a class="view" href="properties/index.html">View Complete Portfolio →</a>
         </div>
@@ -221,7 +342,7 @@
             <div class="cat-img" style="background-image:url('assets/property-images/dlf-park-place.jpg');"></div>
             <div class="cat-content">
               <h3>Residential <span class="cat-count" data-cat-count="residential">—</span></h3>
-              <p>High-rise luxury condominiums, penthouses, and gated residences.</p>
+              <p>Condominiums, penthouses, and gated residences.</p>
             </div>
           </a>
 
@@ -229,7 +350,7 @@
             <div class="cat-img" style="background-image:url('assets/project-images/smartworld-orchid.jpg');"></div>
             <div class="cat-content">
               <h3>Commercial <span class="cat-count" data-cat-count="commercial">—</span></h3>
-              <p>Pre-leased institutional assets, corporate offices, and prime retail.</p>
+              <p>Pre-leased institutional assets and retail.</p>
             </div>
           </a>
 
@@ -237,7 +358,7 @@
             <div class="cat-img" style="background-image:url('assets/project-images/plot-land-user.jpg');"></div>
             <div class="cat-content">
               <h3>Plots &amp; Land <span class="cat-count" data-cat-count="plot">—</span></h3>
-              <p>Verified HSVP/HUDA residential plots and institutional land parcels.</p>
+              <p>Verified HSVP/HUDA residential &amp; institutional plots.</p>
             </div>
           </a>
 
@@ -245,7 +366,7 @@
             <div class="cat-img" style="background-image:url('assets/property-images/dlf-arbour.jpg');"></div>
             <div class="cat-content">
               <h3>New Projects <span class="cat-count" data-project-count="">—</span></h3>
-              <p>Curated developer launches and premium under-construction assets.</p>
+              <p>Curated developer launches and premium construction.</p>
             </div>
           </a>
 
@@ -253,7 +374,7 @@
             <div class="cat-img" style="background-image:url('assets/property-images/nirvana-villa.jpg');"></div>
             <div class="cat-content">
               <h3>Private Estates <span class="cat-count" data-cat-count="farmhouse">—</span></h3>
-              <p>Gated independent villas, private country estates, and holiday homes.</p>
+              <p>Independent villas and private country estates.</p>
             </div>
           </a>
         </div>
@@ -267,9 +388,9 @@
       <div class="container">
         <div class="head">
           <div>
-            <div class="eyebrow">DISTINGUISHED RESIDENCES &amp; ASSETS</div>
+            <div class="eyebrow">DISTINGUISHED RESIDENCES</div>
             <h2>Featured Acquisitions &amp; Current Opportunities</h2>
-            <p>Hand-selected residential and commercial assets vetted for clean title provenance, institutional due diligence, and direct transaction readiness.</p>
+            <p>Hand-selected assets vetted for clean title provenance, institutional diligence, and immediate transaction readiness.</p>
           </div>
           <a class="view" href="properties/index.html">View All Active Listings →</a>
         </div>
@@ -301,21 +422,31 @@
     </section>
 
     <!-- ====================================================================
-         Founder & Heritage Showcase (Ajay Mukhija · Since 2002)
+         Founder & Heritage Showcase (Gradual Reveal Accordion Architecture)
          ==================================================================== -->
     <section class="section warm">
       <div class="container founder-heritage-wrap">
-        <!-- Heraldic Crest Card -->
+        <!-- Heraldic Crest Card in Oxblood -->
         <div class="founder-crest-card">
           <div class="crest-emblem">
-            <img src="assets/aum-estates-hero-green.png" alt="AUM ESTATES Heraldic Crest" style="width:100%;height:100%;object-fit:contain;" />
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
+              <rect width="48" height="48" rx="10" fill="#1c0b10" stroke="#c5a059" stroke-width="1.5" />
+              <circle cx="24" cy="14" r="5" fill="#5d1420" stroke="#c5a059" stroke-width="0.8" />
+              <circle cx="16" cy="18" r="4.2" fill="#4a0e17" stroke="#c5a059" stroke-width="0.8" />
+              <circle cx="32" cy="18" r="4.2" fill="#4a0e17" stroke="#c5a059" stroke-width="0.8" />
+              <circle cx="12" cy="24" r="3.5" fill="#340910" stroke="#c5a059" stroke-width="0.7" />
+              <circle cx="36" cy="24" r="3.5" fill="#340910" stroke="#c5a059" stroke-width="0.7" />
+              <path d="M24 20L24 40" stroke="#c5a059" stroke-width="2.5" stroke-linecap="round" />
+              <path d="M24 24L15 19M24 26L33 21" stroke="#c5a059" stroke-width="1.5" stroke-linecap="round" />
+              <path d="M24 35H29M24 38H30" stroke="#c5a059" stroke-width="2" stroke-linecap="round" />
+            </svg>
           </div>
           <h4>AUM ESTATES</h4>
           <div class="crest-meta">ESTABLISHED 2002 · GURGAON</div>
-          <p>Twenty-two years of fiduciary property stewardship, verified title intelligence, and bespoke acquisition representation across Delhi NCR.</p>
+          <p>Twenty-two years of fiduciary property stewardship and verified title intelligence across Delhi NCR.</p>
         </div>
 
-        <!-- Founder Quote & Philosophy -->
+        <!-- Founder Quote & Interactive Accordion -->
         <div class="founder-quote-area">
           <div class="eyebrow">FOUNDER'S PERSPECTIVE · AJAY MUKHIJA</div>
           <h2>“Over twenty-two years in Gurgaon, our focus has remained steadfast — protecting our clients' family capital, verifying every title with forensic rigor, and building enduring relationships built on trust.”</h2>
@@ -327,23 +458,32 @@
             </div>
           </div>
 
-          <div class="founder-pillars-grid">
-            <div class="founder-pillar">
-              <h5>Forensic Title Diligence</h5>
-              <p>Direct verification of HSVP/HUDA records, registry status, encumbrances, and approved sanctions on every transaction.</p>
-            </div>
-            <div class="founder-pillar">
-              <h5>Confidential Off-Market Access</h5>
-              <p>Trusted representation for prime DLF builder floors, penthouses, and land mandates held discreetly without public listing.</p>
-            </div>
-            <div class="founder-pillar">
-              <h5>Physical Advisory Presence</h5>
-              <p>Established headquarters at C-210 Nirvana Courtyard, Sector 50, Gurgaon since 2002. Permanent, verifiable presence.</p>
-            </div>
+          <!-- Progressive Disclosure Accordion -->
+          <div class="pillars-accordion">
+            <details class="pillar-item" open>
+              <summary class="pillar-summary">Forensic Title &amp; Document Diligence</summary>
+              <div class="pillar-content">
+                Direct verification of HSVP/HUDA records, registry status, non-encumbrance certificates, and approved sanctions prior to client presentation.
+              </div>
+            </details>
+
+            <details class="pillar-item">
+              <summary class="pillar-summary">Confidential Off-Market Access</summary>
+              <div class="pillar-content">
+                Discreet representation for prime DLF builder floors, penthouses, and land mandates held without public exposure to protect family privacy.
+              </div>
+            </details>
+
+            <details class="pillar-item">
+              <summary class="pillar-summary">Permanent Nirvana Country Headquarters</summary>
+              <div class="pillar-content">
+                Stationed at C-210 Nirvana Courtyard, Sector 50, Gurgaon since inception. Permanent, verifiable physical presence where clients meet directly with principal advisors.
+              </div>
+            </details>
           </div>
 
-          <div style="margin-top:32px;display:flex;gap:14px;flex-wrap:wrap;">
-            <a class="btn" style="background:var(--accent);color:#ffffff;border:1px solid rgba(197,168,128,0.35);" href="https://wa.me/919873813595?text=Hello%20Ajay%20Mukhija,%20I%20would%20like%20to%20schedule%20a%20private%20property%20consultation." target="_blank" rel="noopener">Schedule Advisory Consultation with Ajay Mukhija →</a>
+          <div style="margin-top:28px;display:flex;gap:14px;flex-wrap:wrap;">
+            <a class="btn" style="background:var(--oxblood);color:#ffffff;border:1px solid rgba(197,160,89,0.4);" href="https://wa.me/919873813595?text=Hello%20Ajay%20Mukhija,%20I%20would%20like%20to%20schedule%20a%20private%20property%20consultation." target="_blank" rel="noopener">Schedule Advisory Consultation →</a>
             <a class="btn" style="background:#ffffff;border:1px solid var(--border-subtle);color:var(--text-main);" href="tel:+919873813595">Call Office Desk: +91 98738 13595</a>
           </div>
         </div>
@@ -356,13 +496,13 @@
     <section class="mandate-concierge-strip">
       <div class="container mandate-concierge-inner">
         <div class="mandate-concierge-copy">
-          <div class="eyebrow" style="color:var(--gold-metallic);">PRIVATE ADVISORY MANDATE DESK</div>
+          <div class="eyebrow" style="color:var(--gold-metallic);">PRIVATE CLIENT DESK</div>
           <h3>Have a Specific Acquisition or Divestment Mandate?</h3>
-          <p>Whether acquiring a multi-crore residence on Golf Course Road, divesting an off-market builder floor in DLF, or structuring commercial property capital — consult directly with Ajay Mukhija.</p>
+          <p>Confidential representation for acquisitions, divestments, or commercial capital exceeding ₹3 Cr across Gurgaon.</p>
         </div>
         <div class="mandate-concierge-actions">
-          <a class="btn" style="background:var(--accent);color:#ffffff;border:1px solid rgba(197,168,128,0.4);" href="https://wa.me/919873813595?text=Hello%20AUM%20ESTATES,%20I%20have%20a%20private%20property%20mandate%20to%20discuss." target="_blank" rel="noopener">Inquire via WhatsApp Desk →</a>
-          <a class="btn" style="background:rgba(255,255,255,0.08);color:#ffffff;border:1px solid rgba(255,255,255,0.2);" href="contact/index.html">Office Directions &amp; Meeting</a>
+          <a class="btn" style="background:var(--oxblood);color:#ffffff;border:1px solid rgba(197,160,89,0.4);" href="https://wa.me/919873813595?text=Hello%20AUM%20ESTATES,%20I%20have%20a%20private%20property%20mandate%20to%20discuss." target="_blank" rel="noopener">Inquire via WhatsApp Desk →</a>
+          <a class="btn" style="background:rgba(255,255,255,0.06);color:#ffffff;border:1px solid rgba(255,255,255,0.18);" href="contact/index.html">Office Directions</a>
         </div>
       </div>
     </section>
@@ -377,7 +517,7 @@
         <div class="footer-brand">AUM ESTATES</div>
         <div class="footer-tagline">Private Property Advisory · Gurgaon</div>
         <p>C-210, Nirvana Courtyard, Nirvana Country,<br/>Sector 50, Gurgaon, Haryana – 122018</p>
-        <p style="font-size:12.5px;color:#718096;margin-top:14px;">Haryana RERA Registered Brokerage.<br/>Principled real estate advisory serving Gurgaon, Golf Course Road, and Delhi NCR since 2002.</p>
+        <p style="font-size:12.5px;color:#8c787c;margin-top:14px;">Haryana RERA Registered Brokerage.<br/>Principled real estate advisory serving Gurgaon, Golf Course Road, and Delhi NCR since 2002.</p>
       </div>
 
       <div>
@@ -424,7 +564,7 @@
   <script src="data/approved_properties.js"></script>
 
   <script>
-  // Search Form Mode & Category Tab Handling
+  // Search Form Mode, Category & Gradual Reveal Handling
   (function(){
     const form = document.getElementById('home-search-form');
     if (!form) return;
@@ -457,9 +597,19 @@
         window.location.href = `properties/index.html?q=${encodeURIComponent(query)}`;
       });
     });
+
+    // Expandable Drawer Toggle
+    const toggleBtn = document.getElementById('filter-expand-toggle');
+    const drawer = document.getElementById('filter-advanced-drawer');
+    if (toggleBtn && drawer) {
+      toggleBtn.addEventListener('click', () => {
+        const isOpen = drawer.classList.toggle('open');
+        toggleBtn.querySelector('span').textContent = isOpen ? '− Hide Advanced Filters' : '+ Keyword & Specific Filters';
+      });
+    }
   })();
 
-  // Render Curated Portfolio Cards (Architectural Quality)
+  // Render Curated Portfolio Cards (Architectural Quality · No Filler Text)
   (function(){
     const approved = Array.isArray(window.AUM_APPROVED_PROPERTIES) ? window.AUM_APPROVED_PROPERTIES : [];
     const host = document.getElementById('approved-properties-grid');
@@ -491,7 +641,7 @@
         `Location: ${o.location || 'Gurgaon'}`,
         `Price: ${money(o)}`,
         '',
-        'Hello Ajay Mukhija, I would like to request confidential particulars, verified documentation, and arrange a private site visit for this property.'
+        'Hello Ajay Mukhija, I would like to request confidential particulars and arrange a private site visit for this property.'
       ].join('\n'));
 
       const wa = `https://wa.me/919873813595?text=${waText}`;
@@ -503,11 +653,10 @@
             <div class="loc">${esc(o.location || 'Gurgaon, Haryana')}</div>
             <h3>${esc(o.name || 'Featured Property')}</h3>
             ${specHtml}
-            <p>${esc(o.description || 'Verified property opportunity represented directly by AUM ESTATES.')}</p>
             <div class="price tabular-nums">${esc(money(o))}</div>
             <div class="card-actions">
               <a class="view-details" style="flex:1;text-align:center;" href="${detailLink}">View Dossier →</a>
-              <a class="result-contact" style="flex:1.2;text-align:center;" href="${wa}" target="_blank" rel="noopener">Inquire on WhatsApp</a>
+              <a class="result-contact" style="flex:1.2;text-align:center;" href="${wa}" target="_blank" rel="noopener">Inquire via WhatsApp</a>
             </div>
           </div>
         </article>
@@ -520,7 +669,7 @@
         <div class="approved-empty">
           <div class="eyebrow">Direct Advisory Portfolio</div>
           <h3>Private &amp; Off-Market Listings Available on Request</h3>
-          <p>We represent exclusive residential and commercial mandates that are held confidentially. Contact our principal advisory desk to receive a private shortlist aligned with your requirements.</p>
+          <p>We represent exclusive residential and commercial mandates held confidentially. Contact our principal advisory desk for a private shortlist.</p>
           <a class="btn" style="display:inline-block;max-width:260px;" href="https://wa.me/919873813595?text=Hello%20AUM%20ESTATES,%20I%20would%20like%20to%20enquire%20about%20off-market%20properties." target="_blank" rel="noopener">Request Private Portfolio</a>
         </div>
       `;
@@ -609,7 +758,7 @@
               <b class="tabular-nums">${esc(price(o))}</b>
             </a>
           `).join('')
-        : `<div style="padding:12px;font-size:12px;color:#94a3b8;">Active listings coming soon to this micro-market.</div>`;
+        : `<div style="padding:10px;font-size:12px;color:#8c787c;">Active listings coming soon to this micro-market.</div>`;
 
       host.insertAdjacentHTML('beforeend', `
         <article class="location-panel">

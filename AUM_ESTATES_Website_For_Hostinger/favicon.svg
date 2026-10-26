@@ -1,17 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="14" fill="#070b10"/>
-  <rect x="2" y="2" width="60" height="60" rx="12" fill="none" stroke="#c5a880" stroke-width="1.5" stroke-opacity="0.4"/>
-  <!-- Tree of Life Foliage in Racing Green & Gold -->
-  <circle cx="32" cy="18" r="6" fill="#0a2e22" stroke="#c5a880" stroke-width="1"/>
-  <circle cx="23" cy="23" r="5" fill="#0a2e22" stroke="#c5a880" stroke-width="1"/>
-  <circle cx="41" cy="23" r="5" fill="#0a2e22" stroke="#c5a880" stroke-width="1"/>
-  <circle cx="17" cy="30" r="4.5" fill="#0d3d2e" stroke="#c5a880" stroke-width="0.8"/>
-  <circle cx="47" cy="30" r="4.5" fill="#0d3d2e" stroke="#c5a880" stroke-width="0.8"/>
-  <circle cx="28" cy="27" r="5.5" fill="#0a2e22"/>
-  <circle cx="36" cy="27" r="5.5" fill="#0a2e22"/>
-  <!-- Key Trunk in Antique Gold -->
-  <path d="M32 26 L32 52" stroke="#c5a880" stroke-width="3" stroke-linecap="round"/>
-  <path d="M32 30 L22 25 M32 32 L42 27" stroke="#c5a880" stroke-width="2" stroke-linecap="round"/>
+  <rect width="64" height="64" rx="14" fill="#120609"/>
+  <rect x="2" y="2" width="60" height="60" rx="12" fill="none" stroke="#c5a059" stroke-width="1.5" stroke-opacity="0.45"/>
+  <!-- Tree of Life Foliage in Imperial Oxblood & Antique Brass -->
+  <circle cx="32" cy="18" r="6" fill="#5d1420" stroke="#c5a059" stroke-width="1"/>
+  <circle cx="23" cy="23" r="5" fill="#4a0e17" stroke="#c5a059" stroke-width="1"/>
+  <circle cx="41" cy="23" r="5" fill="#4a0e17" stroke="#c5a059" stroke-width="1"/>
+  <circle cx="17" cy="30" r="4.5" fill="#340910" stroke="#c5a059" stroke-width="0.8"/>
+  <circle cx="47" cy="30" r="4.5" fill="#340910" stroke="#c5a059" stroke-width="0.8"/>
+  <circle cx="28" cy="27" r="5.5" fill="#4a0e17"/>
+  <circle cx="36" cy="27" r="5.5" fill="#4a0e17"/>
+  <!-- Antique Key Trunk in Antique Gold -->
+  <path d="M32 26 L32 52" stroke="#c5a059" stroke-width="3" stroke-linecap="round"/>
+  <path d="M32 30 L22 25 M32 32 L42 27" stroke="#c5a059" stroke-width="2" stroke-linecap="round"/>
   <!-- Key Bit -->
-  <path d="M32 46 L37 46 M32 50 L38 50" stroke="#c5a880" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M32 46 L37 46 M32 50 L38 50" stroke="#c5a059" stroke-width="2.5" stroke-linecap="round"/>
 </svg>
