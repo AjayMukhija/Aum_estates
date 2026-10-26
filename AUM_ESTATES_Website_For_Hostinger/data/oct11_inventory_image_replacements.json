@@ -1,0 +1,102 @@
+{
+  "purpose": "Replace matching-name AUM ESTATES inventory/project photos using user-supplied images.",
+  "source_baseline": "AUM_ESTATES_Website_OCT11_20_PROJECT_IMAGES_REPLACED.zip",
+  "images": [
+    {
+      "uploaded_file": "tata raisina.webp",
+      "project_key": "tata-raisina",
+      "asset": "assets/property-images/tata-raisina.webp",
+      "project_asset": "assets/project-images/tata-raisina.webp"
+    },
+    {
+      "uploaded_file": "paras the florett.jpg",
+      "project_key": "paras-the-florett",
+      "asset": "assets/property-images/paras-the-florett.jpg",
+      "project_asset": "assets/project-images/paras-the-florett.jpg"
+    },
+    {
+      "uploaded_file": "ireo uptown.jpg",
+      "project_key": "ireo-uptown",
+      "asset": "assets/property-images/ireo-uptown.jpg",
+      "project_asset": "assets/project-images/ireo-uptown.jpg"
+    },
+    {
+      "uploaded_file": "The Aspen.webp",
+      "project_key": "the-aspen",
+      "asset": "assets/property-images/the-aspen.webp",
+      "project_asset": "assets/project-images/the-aspen.webp"
+    },
+    {
+      "uploaded_file": "araya.jpg",
+      "project_key": "pioneer-araya",
+      "asset": "assets/property-images/pioneer-araya.jpg",
+      "project_asset": "assets/project-images/pioneer-araya.jpg"
+    },
+    {
+      "uploaded_file": "smartworld sky arc.webp",
+      "project_key": "smartworld-sky-arc",
+      "asset": "assets/property-images/smartworld-sky-arc.webp",
+      "project_asset": "assets/project-images/smartworld-sky-arc.webp"
+    },
+    {
+      "uploaded_file": "harmony.jpg",
+      "project_key": "harmony",
+      "asset": "assets/property-images/harmony.jpg",
+      "project_asset": "assets/project-images/harmony.jpg"
+    },
+    {
+      "uploaded_file": "urban oasis.jpg",
+      "project_key": "urban-oasis",
+      "asset": "assets/property-images/urban-oasis.jpg",
+      "project_asset": "assets/project-images/urban-oasis.jpg"
+    },
+    {
+      "uploaded_file": "palm terraces select.jpeg",
+      "project_key": "palm-terrace-select",
+      "asset": "assets/property-images/palm-terrace-select.jpeg",
+      "project_asset": "assets/project-images/palm-terrace-select.jpeg"
+    },
+    {
+      "uploaded_file": "pioneer presidia.jpg",
+      "project_key": "pioneer-presidia",
+      "asset": "assets/property-images/pioneer-presidia.jpg",
+      "project_asset": "assets/project-images/pioneer-presidia.jpg"
+    },
+    {
+      "uploaded_file": "rigdewood estate.jpg",
+      "project_key": "ridgewood-estate",
+      "asset": "assets/property-images/ridgewood-estate.jpg",
+      "project_asset": "assets/project-images/ridgewood-estate.jpg"
+    },
+    {
+      "uploaded_file": "arrossim(1).jpg",
+      "project_key": "arrossim",
+      "asset": "assets/property-images/arrossim.jpg",
+      "project_asset": "assets/project-images/arrossim.jpg"
+    },
+    {
+      "uploaded_file": "user-supplied final.jpg.jpeg (Sushant Lok 1 A Block 350 sq yd upper ground)",
+      "project_key": "sushant-lok",
+      "asset": "assets/property-images/sushant-lok-1-a-block-350-upper-ground.jpg",
+      "project_asset": "assets/project-images/sushant-lok.jpg"
+    },
+    {
+      "uploaded_file": "m3m-capital-113 (1)-33089.webp",
+      "project_key": "m3m-capital-113",
+      "asset": "assets/property-images/m3m-capital-113.webp",
+      "project_asset": "assets/project-images/m3m-capital-113.webp"
+    },
+    {
+      "uploaded_file": "south city 2.jpg",
+      "project_key": "south-city-2",
+      "asset": "assets/property-images/south-city-2.jpg",
+      "project_asset": "assets/project-images/south-city-2.jpg"
+    },
+    {
+      "uploaded_file": "vipul world",
+      "project_key": "vipul-world",
+      "asset": "assets/property-images/vipul-world.jpg",
+      "project_asset": "assets/project-images/vipul-world.jpg"
+    }
+  ]
+}

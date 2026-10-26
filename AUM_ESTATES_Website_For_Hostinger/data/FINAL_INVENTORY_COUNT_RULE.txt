@@ -1,0 +1,7 @@
+AUM ESTATES PUBLIC INVENTORY COUNT RULE (26 OCT 2026)
+
+Current inventory metadata in data/inventory_data_meta.json declares 347 public available records. Category totals in that metadata: Residential 193; Commercial 49; Plots & Land 104; Farmhouses 1. Total: 347.
+
+New Projects is an overlapping curated project collection (14 records) and must not be added to the 347 public listing total. Category counts are metadata values and should be verified against the live public feed before changing any displayed totals.
+
+This file supersedes older count instructions referring to the 218-record inventory. Public contact: +91 98738 13595.

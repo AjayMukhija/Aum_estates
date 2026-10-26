@@ -1,0 +1,90 @@
+{
+  "inventory_records": 347,
+  "active_inventory_records": 347,
+  "public_inventory_records": 347,
+  "source_master": "AUM_ESTATES_Master_Inventory_v13_Broker_Inventory_10Oct2026.xlsx",
+  "source_datasheet": "AUM_ESTATES_Website_Inventory_Datasheet_Updated_10Oct2026_v2.xlsx",
+  "mode": "public known-source inventory",
+  "last_updated": "2026-10-10",
+  "reverification_cycle_months": 4,
+  "public_contact": "+91 98738 13595",
+  "category_counts": {
+    "Residential": 193,
+    "Commercial": 49,
+    "Plots & Land": 104,
+    "Farmhouses": 1
+  },
+  "new_project_records": 14,
+  "new_project_names": [
+    {
+      "name": "DLF The Aureva",
+      "section": "New Projects",
+      "notes": "Current designated New Project list"
+    },
+    {
+      "name": "Nitara Ultra Luxury Triplex Residences",
+      "section": "New Projects",
+      "notes": "Current designated New Project list"
+    },
+    {
+      "name": "TARC Tripundra",
+      "section": "New Projects",
+      "notes": "Current designated New Project list"
+    },
+    {
+      "name": "Palm Floors",
+      "section": "New Projects",
+      "notes": "Current designated New Project list"
+    },
+    {
+      "name": "Green Oaks Sector 70A",
+      "section": "New Projects",
+      "notes": "Current designated New Project list"
+    },
+    {
+      "name": "Shukrana Homes Super Luxury Floors",
+      "section": "New Projects",
+      "notes": "Current designated New Project list"
+    },
+    {
+      "name": "Orchid Ivy",
+      "section": "New Projects",
+      "notes": "Current designated New Project list"
+    },
+    {
+      "name": "Vantage Aura",
+      "section": "New Projects",
+      "notes": "Current designated New Project list"
+    },
+    {
+      "name": "SKGP Floors",
+      "section": "New Projects",
+      "notes": "Current designated New Project list"
+    },
+    {
+      "name": "Saan Verdante",
+      "section": "New Projects",
+      "notes": "Current designated New Project list"
+    },
+    {
+      "name": "Tonino Lamborghini Residences Gurugram",
+      "section": "New Projects",
+      "notes": "Current designated New Project list"
+    },
+    {
+      "name": "Godrej Miraya",
+      "section": "New Projects",
+      "notes": "Current designated New Project list"
+    },
+    {
+      "name": "Omara Trehan",
+      "section": "New Projects",
+      "notes": "Current designated New Project list"
+    },
+    {
+      "name": "M3M Smartworld",
+      "section": "New Projects",
+      "notes": "Current designated New Project list"
+    }
+  ]
+}
