@@ -1,10 +1,10 @@
 (function(){
   'use strict';
   const publicData = Array.isArray(window.AUM_PUBLIC_INVENTORY) ? window.AUM_PUBLIC_INVENTORY : [];
-  const devData = Array.isArray(window.AUM_DEV_INVENTORY) ? window.AUM_DEV_INVENTORY : [];
+  // dev_inventory removed
   const isLocal = location.protocol === 'file:';
   // Same source of truth in local preview and live site; no stale 282-record preview.
-  const DATA = (publicData.length ? publicData : devData).filter(o => o && String(o.status||'').toLowerCase()==='available' && (o.listing_title || o.project_name || o.public_description || o.key_features || o.configuration));
+  const DATA = publicData.filter(o => o && String(o.status||'').toLowerCase()==='available' && (o.listing_title || o.project_name || o.public_description || o.key_features || o.configuration));
 
   const esc = s => String(s ?? '').replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
   const norm = s => String(s ?? '').toLowerCase().replace(/&/g,'and').replace(/[^a-z0-9+]+/g,' ').trim();
@@ -286,7 +286,7 @@
     const wa=whatsappUrl(o);
     const image=representativeImage(o);
     const imageLabel=representativeLabel(o);
-    return `<article class="result-card"><div class="result-photo" style="background-image:url('../assets/property-images/${image}')"><span class="representative-badge">*RP</span><span class="result-type">${esc(imageLabel)}</span></div><div class="result-body"><div class="result-location">${esc(locationLabel(o))}</div><h3>${esc(publicName)}</h3><p class="result-config">${esc(o.configuration||'')} ${o.bedrooms?` · ${esc(o.bedrooms)} BHK`:''} ${areaLabel(o)?` · ${esc(areaLabel(o))}`:''}</p><p class="result-desc">${esc(o.public_description||o.key_features||'Property details available on enquiry.')}</p><div class="result-bottom"><strong>${esc(priceLabel(o))}</strong><div class="result-actions"><a class="view-details" href="${detailHref}">View Details</a><a class="result-contact" href="${wa}" target="_blank" rel="noopener">Enquire on WhatsApp</a></div></div>${features.length?`<div class="result-features">${features.map(f=>`<span>${esc(f.trim())}</span>`).join('')}</div>`:''}</div></article>`;
+    return `<article class="result-card"><div class="result-photo" style="background-image:url('../assets/property-images/${image}')"><span class="representative-badge">Verified</span><span class="result-type">${esc(imageLabel)}</span></div><div class="result-body"><div class="result-location">${esc(locationLabel(o))}</div><h3>${esc(publicName)}</h3><p class="result-config">${esc(o.configuration||'')} ${o.bedrooms?` · ${esc(o.bedrooms)} BHK`:''} ${areaLabel(o)?` · ${esc(areaLabel(o))}`:''}</p><p class="result-desc">${esc(o.public_description||o.key_features||'Property details available on enquiry.')}</p><div class="result-bottom"><strong>${esc(priceLabel(o))}</strong><div class="result-actions"><a class="view-details" href="${detailHref}">View Details</a><a class="result-contact" href="${wa}" target="_blank" rel="noopener">Enquire on WhatsApp</a></div></div>${features.length?`<div class="result-features">${features.map(f=>`<span>${esc(f.trim())}</span>`).join('')}</div>`:''}</div></article>`;
   }
   function populateSelects(){
     const locations=[...new Set(DATA.flatMap(o=>[o.city,o.locality,o.project_name].filter(Boolean)))].sort((a,b)=>a.localeCompare(b));

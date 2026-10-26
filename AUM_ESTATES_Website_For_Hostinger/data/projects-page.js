@@ -65,7 +65,7 @@ const overrides={
    location:'Gurugram', type:'Luxury Residential',
    price:'Price on Request',
    desc:'Premium residential project. Detailed public unit information is pending in the AUM inventory.',
-   image:'https://static.squareyards.com/resources/images/gurgaon/project-image/trehan-iris-omara-project-project-large-image1-4922-opt-301729.jpg'
+   image:'../assets/project-images/omara-trehan.jpg'
  },
  'Orchid Ivy Floors':{
    location:'Sector 51, Gurugram', type:'Builder Floors',
