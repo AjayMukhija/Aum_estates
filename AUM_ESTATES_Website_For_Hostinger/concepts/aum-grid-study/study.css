@@ -1,0 +1,160 @@
+/*
+ * AUM ESTATES / Study 03
+ * An isolated, reversible design experiment. The task grid's geometry is unchanged.
+ * Each palette and type system consists of explicit tokens: no per-tile decoration.
+ */
+:root {
+  --font-display: "IBM Plex Sans", Arial, sans-serif;
+  --font-tile: "IBM Plex Sans", Arial, sans-serif;
+  --search-surface: #eaebe5;
+  --footer-surface: #e9eae4;
+  --cta-hover: #552632;
+}
+
+html[data-palette="plaster"] {
+  --paper:#f4eee9; --surface:#fcf8f3; --ink:#2d2526; --muted:#716464;
+  --line:#cfc2bc; --line-dark:#a99b95; --clay:#ebdfd9; --oxblood:#702d3d;
+  --search-surface:#e9dcd7; --footer-surface:#e9dfd9; --cta-hover:#52202c;
+}
+html[data-palette="butter"] {
+  --paper:#f4eed9; --surface:#fff9e7; --ink:#291c25; --muted:#695d5b;
+  --line:#cbbdad; --line-dark:#9e8c7d; --clay:#e9ddc5; --oxblood:#7d233f;
+  --search-surface:#eee1c7; --footer-surface:#e9dfc9; --cta-hover:#5c192e;
+}
+html[data-palette="mist"] {
+  --paper:#e9eeeb; --surface:#f6f8f5; --ink:#202c2d; --muted:#5d6b69;
+  --line:#b8c7c2; --line-dark:#8ea29c; --clay:#dbe5df; --oxblood:#74263e;
+  --search-surface:#e2e8e3; --footer-surface:#dfe7e1; --cta-hover:#551a2c;
+}
+html[data-palette="lime"] {
+  --paper:#ecf0cf; --surface:#f8fae7; --ink:#28212a; --muted:#655d65;
+  --line:#b8c29e; --line-dark:#8f9c78; --clay:#dfe8ba; --oxblood:#733348;
+  --search-surface:#e6edbf; --footer-surface:#e1e9c0; --cta-hover:#512031;
+}
+html[data-palette="cobalt"] {
+  --paper:#dee5f1; --surface:#f4f6fa; --ink:#1b2852; --muted:#596582;
+  --line:#b2bdd0; --line-dark:#8799b5; --clay:#ced9eb; --oxblood:#78293f;
+  --search-surface:#d2dbea; --footer-surface:#d0daec; --cta-hover:#571d2e;
+}
+
+html[data-type="instrument"] {
+  --font-ui:"Instrument Sans", Arial, sans-serif;
+  --font-display:"Instrument Sans", Arial, sans-serif;
+  --font-tile:"Instrument Sans", Arial, sans-serif;
+  --font-mono:"DM Mono", monospace;
+}
+html[data-type="space"] {
+  --font-ui:"Space Grotesk", Arial, sans-serif;
+  --font-display:"Space Grotesk", Arial, sans-serif;
+  --font-tile:"Space Grotesk", Arial, sans-serif;
+  --font-mono:"Space Mono", monospace;
+}
+html[data-type="dm"] {
+  --font-ui:"DM Sans", Arial, sans-serif;
+  --font-display:"DM Sans", Arial, sans-serif;
+  --font-tile:"DM Sans", Arial, sans-serif;
+  --font-mono:"DM Mono", monospace;
+}
+html[data-type="mono"] {
+  --font-ui:"IBM Plex Sans", Arial, sans-serif;
+  --font-display:"IBM Plex Mono", monospace;
+  --font-tile:"IBM Plex Mono", monospace;
+  --font-mono:"IBM Plex Mono", monospace;
+}
+html[data-type="origins"] {
+  --font-ui:"DM Sans", Arial, sans-serif;
+  --font-display:"Bodoni Moda", Georgia, serif;
+  --font-tile:"DM Sans", Arial, sans-serif;
+  --font-mono:"DM Mono", monospace;
+}
+
+/* Apply system tokens to the original grid and its subsequent destinations. */
+.search-cell { background:var(--search-surface); }
+.site-footer { background:var(--footer-surface); }
+.hub-search button:hover { background:var(--cta-hover); }
+.hub-intro-copy h1,
+.search-cell-main h2,
+.utility-heading h1,
+.results-heading h1 { font-family:var(--font-display); }
+.tile-main strong,
+.place-grid button strong,
+.contact-choice-grid a strong { font-family:var(--font-tile); }
+html[data-type="space"] .cell-top,
+html[data-type="space"] .kicker,
+html[data-type="space"] .eyebrow,
+html[data-type="space"] .hub-after,
+html[data-type="space"] .wordmark-copy small { font-size:12px; }
+html[data-type="mono"] .hub-intro-copy h1 {font-size:35px;line-height:44px;letter-spacing:-.075em}
+html[data-type="mono"] .search-cell-main h2 {font-size:31px;line-height:41px;letter-spacing:-.065em}
+html[data-type="mono"] .tile-main strong {font-size:20px;line-height:29px;letter-spacing:-.065em}
+html[data-type="mono"] .utility-heading h1,
+html[data-type="mono"] .results-heading h1 {font-size:35px;line-height:45px;letter-spacing:-.075em}
+html[data-type="origins"] .hub-intro-copy h1 {font-size:53px;line-height:56px;font-weight:400;letter-spacing:-.055em}
+html[data-type="origins"] .search-cell-main h2 {font-size:47px;line-height:50px;font-weight:400;letter-spacing:-.057em}
+html[data-type="origins"] .utility-heading h1,
+html[data-type="origins"] .results-heading h1 {font-size:49px;line-height:55px;font-weight:400;letter-spacing:-.055em}
+html[data-type="origins"] .tile-main strong {letter-spacing:-.045em}
+@media(max-width:650px) {
+  html[data-type="mono"] .hub-intro-copy h1 {font-size:29px;line-height:39px}
+  html[data-type="mono"] .search-cell-main h2 {font-size:26px;line-height:35px}
+  html[data-type="mono"] .tile-main strong {font-size:18px;line-height:26px}
+  html[data-type="origins"] .hub-intro-copy h1 {font-size:49px;line-height:53px}
+  html[data-type="origins"] .search-cell-main h2 {font-size:42px;line-height:47px}
+  html[data-type="origins"] .utility-heading h1,
+  html[data-type="origins"] .results-heading h1 {font-size:43px;line-height:49px}
+}
+
+/* Study controls live in the existing annotation ribbon, never over search cells. */
+.study-tab {
+  display:inline-flex;align-items:center;justify-content:space-between;gap:10px;
+  padding:0 0 1px;border:0;border-bottom:1px solid #ceb3b9;
+  color:#f8edf0;background:transparent;font:500 11px/17px "IBM Plex Mono",monospace;
+  white-space:nowrap;
+}
+.study-tab:hover,.study-tab:focus-visible {background:transparent;border-color:#fff;color:#fff}
+.concept-ribbon {padding-right:65px}
+.concept-ribbon .study-tab {position:static;right:auto;flex:none;font:500 11px/17px "IBM Plex Mono",monospace}
+.concept-ribbon #dismissRibbon {position:absolute;right:26px}
+.study-panel[hidden] {display:none}
+.study-panel {
+  position:fixed;z-index:55;right:28px;top:39px;width:min(430px,calc(100vw - 36px));
+  max-height:min(790px,calc(100dvh - 110px));overflow-y:auto;overscroll-behavior:contain;
+  border:1px solid var(--ink);background:var(--surface);color:var(--ink);
+  box-shadow:0 20px 48px #1b1c1827;
+  padding:24px 25px 20px;
+}
+.study-panel-head {display:flex;justify-content:space-between;align-items:start;gap:22px}
+.study-panel-head p {font:500 11px/16px "IBM Plex Mono",monospace;letter-spacing:.07em;color:var(--oxblood)}
+.study-panel-head h2 {font:500 25px/30px "IBM Plex Sans",sans-serif;letter-spacing:-.04em;margin-top:9px}
+.study-panel-head button {border:1px solid var(--line);background:transparent;color:var(--ink);font:400 25px/25px "IBM Plex Sans",sans-serif;width:31px;height:31px;flex:none}
+.study-intro {font:400 13px/19px "IBM Plex Sans",sans-serif;color:var(--muted);margin:16px 0 25px;max-width:340px}
+.study-group {border-top:1px solid var(--line-dark);padding:14px 0 20px}
+.study-group-heading {display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:14px}
+.study-group-heading h3 {font:500 12px/18px "IBM Plex Mono",monospace;letter-spacing:.04em;color:var(--ink)}
+.study-group-heading span {font:400 12px/18px "IBM Plex Sans",sans-serif;color:var(--muted);text-align:right}
+.palette-options,.type-options {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+.palette-options button,.type-options button {min-width:0;display:flex;align-items:center;gap:9px;text-align:left;background:transparent;border:1px solid var(--line);color:var(--ink);padding:7px 8px;min-height:51px;font:500 12px/17px "IBM Plex Sans",sans-serif}
+.palette-options button:hover,.type-options button:hover {background:var(--clay)}
+.palette-options button[aria-pressed="true"],.type-options button[aria-pressed="true"] {border:1px solid var(--oxblood);box-shadow:inset 0 0 0 1px var(--oxblood);background:var(--paper)}
+.color-sample {display:flex;width:39px;height:33px;flex:none;border:1px solid #27222230;background:linear-gradient(90deg,var(--sample-paper) 0 48%,var(--sample-ink) 48% 75%,var(--sample-accent) 75% 100%)}
+.type-options button {min-height:68px}
+.type-sample {display:flex;align-items:center;justify-content:center;width:40px;flex:none;color:var(--ink);font-size:23px;line-height:28px;letter-spacing:-.08em}
+.type-options button span:last-child {min-width:0;display:flex;flex-direction:column;gap:3px}
+.type-options strong {font:600 12px/16px "IBM Plex Sans",sans-serif}
+.type-options small {font:400 11px/15px "IBM Plex Sans",sans-serif;color:var(--muted)}
+.study-actions {display:grid;grid-template-columns:1fr 1fr;gap:7px;padding-top:15px;border-top:1px solid var(--line-dark)}
+.study-actions button {border:1px solid var(--oxblood);min-height:42px;padding:9px 10px;background:transparent;color:var(--oxblood);font:600 12px/17px "IBM Plex Sans",sans-serif}
+.study-actions button:last-child {background:var(--oxblood);color:#fff}
+.study-actions button:hover {filter:brightness(.9)}
+.study-feedback {font:400 11px/16px "IBM Plex Mono",monospace;color:var(--muted);margin-top:12px}
+@media(max-width:650px) {
+  .concept-ribbon {justify-content:space-between;padding:8px 40px 8px 18px;gap:12px}
+  .concept-ribbon > span:nth-child(2) {display:none}
+  .concept-ribbon #dismissRibbon {right:12px}
+  .study-panel {right:12px;top:48px;max-height:calc(100dvh - 135px);padding:19px 18px 16px}
+  .palette-options button,.type-options button {padding:6px;font-size:11px}
+  .type-options button {gap:6px}
+  .type-sample {width:32px;font-size:21px}
+}
+@media(prefers-reduced-motion:reduce) {.study-tab,.study-panel,.palette-options button,.type-options button{transition:none}}
+@media print {.study-tab,.study-panel{display:none!important}}
