@@ -135,8 +135,12 @@
       </nav>
 
       <div class="actions">
-        <a class="call tabular-nums" href="tel:+919873813595" title="Direct Telephone Line">
-          <span>☎</span> +91 98738 13595
+        <a class="nav-search-btn" href="index.html?focus=search" title="Search Portfolio">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span>Search</span>
+        </a>
+        <a class="call tabular-nums" href="tel:+919811157018" title="Direct Advisory Line (Ajay Mukhija)">
+          <span>☎</span> +91 98111 57018
         </a>
         <a class="wa" href="https://wa.me/919873813595?text=Hello%20AUM%20ESTATES,%20I%20would%20like%20to%20enquire%20about%20private%20property%20advisory%20in%20Gurgaon." target="_blank" rel="noopener">
           <span>Private Advisory Desk</span>
@@ -149,6 +153,14 @@
 
     <!-- Mobile Drawer -->
     <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile Navigation">
+      <form action="index.html" method="GET" style="margin-bottom:12px;">
+        <div style="position:relative;display:flex;align-items:center;">
+          <input name="q" placeholder="Search corridor, BHK, or project..." style="width:100%;padding:10px 38px 10px 14px;background:rgba(255,255,255,0.08);border:1px solid rgba(197,160,89,0.35);border-radius:6px;color:#fff;font-size:13.5px;" />
+          <button type="submit" aria-label="Submit search" style="position:absolute;right:8px;background:none;border:none;color:var(--gold-metallic);cursor:pointer;padding:4px;display:flex;align-items:center;">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          </button>
+        </div>
+      </form>
       <a href="../index.html">Home</a>
       <a href="../properties/index.html?mode=buy">Buy Residences</a>
       <a href="../properties/index.html?mode=rent">Rent / Lease</a>
@@ -159,7 +171,7 @@
       <a href="../about/index.html">About Ajay Mukhija</a>
       <a href="../contact/index.html">Contact &amp; Office</a>
       <div style="display:flex;flex-direction:column;gap:10px;margin-top:14px;">
-        <a class="call btn" href="tel:+919873813595">☎ Call +91 98738 13595</a>
+        <a class="call btn" href="tel:+919811157018">☎ Call Ajay Mukhija (+91 98111 57018)</a>
         <a class="wa btn" href="https://wa.me/919873813595?text=Hello%20AUM%20ESTATES,%20I%20would%20like%20to%20enquire%20about%20private%20property%20advisory%20in%20Gurgaon." target="_blank" rel="noopener">WhatsApp Advisory Desk</a>
       </div>
     </nav>
@@ -169,8 +181,8 @@
     <!-- Breadcrumb Bar -->
     <div style="background:var(--bg-subtle);border-bottom:1px solid var(--border-light);padding:12px 0;">
       <div class="container" style="font-size:13px;color:var(--text-muted);">
-        <a href="../index.html" style="color:var(--text-main);">Home</a> &nbsp;/&nbsp;
-        <a href="index.html" style="color:var(--text-main);">Properties</a> &nbsp;/&nbsp;
+        <a href="../#home" style="color:var(--text-main);">Home</a> &nbsp;/&nbsp;
+        <a href="../#browse" style="color:var(--text-main);">Properties</a> &nbsp;/&nbsp;
         <span id="breadcrumb-title" style="color:var(--accent);font-weight:600;">Property Particulars</span>
       </div>
     </div>
@@ -178,7 +190,7 @@
     <!-- Detail Hero -->
     <section class="property-hero" style="padding:36px 0;">
       <div class="container">
-        <div class="eyebrow" id="detail-eyebrow" style="color:#34d399;">AUM ESTATES · VERIFIED LISTING</div>
+        <div class="eyebrow" id="detail-eyebrow" style="color:var(--gold-metallic);">AUM ESTATES · VERIFIED LISTING</div>
         <h1 id="detail-title" style="margin:4px 0 8px;">Property Particulars</h1>
         <p id="detail-location" style="color:#cbd5e1;font-size:16px;"></p>
       </div>
@@ -222,11 +234,11 @@
               <p style="font-size:13.5px;color:var(--text-muted);line-height:1.55;margin-bottom:24px;">Connect directly with our senior Gurgaon advisors for verified title deeds, floor plans, and site visit scheduling.</p>
 
               <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:24px;">
-                <a id="detail-wa-btn" class="btn" style="background:#047857;color:#fff;width:100%;height:46px;font-size:14px;" href="https://wa.me/919873813595" target="_blank" rel="noopener">
+                <a id="detail-wa-btn" class="btn btn-oxblood" style="width:100%;height:46px;font-size:14px;" href="https://wa.me/919873813595" target="_blank" rel="noopener">
                   Inquire on WhatsApp →
                 </a>
-                <a class="btn" style="background:var(--bg-page);color:var(--text-main);border-color:var(--border-light);width:100%;height:44px;" href="tel:+919873813595">
-                  ☎ Call +91 98738 13595
+                <a class="btn" style="background:var(--bg-page);color:var(--text-main);border-color:var(--border-light);width:100%;height:44px;" href="tel:+919811157018">
+                  ☎ Call Ajay Mukhija (+91 98111 57018)
                 </a>
               </div>
 
@@ -236,7 +248,7 @@
               </div>
 
               <div style="margin-top:20px;border-top:1px solid var(--border-light);padding-top:16px;">
-                <a href="index.html" style="font-size:13px;font-weight:700;color:var(--accent);display:inline-flex;align-items:center;gap:4px;">
+                <a href="../#browse" onclick="if(window.history.length>1){window.history.back();return false;}" style="font-size:13px;font-weight:700;color:var(--accent);display:inline-flex;align-items:center;gap:4px;">
                   ← Back to Property Collection
                 </a>
               </div>
@@ -285,7 +297,8 @@
 
       <div>
         <h3>Direct Contact</h3>
-        <p><a class="tabular-nums" href="tel:+919873813595">Direct Line: +91 98738 13595</a></p>
+        <p><a class="tabular-nums" href="tel:+919811157018">Ajay Mukhija: +91 98111 57018</a></p>
+        <p><a class="tabular-nums" href="tel:+919873813595">Advisory Desk: +91 98738 13595</a></p>
         <p><a href="https://wa.me/919873813595" target="_blank" rel="noopener">WhatsApp Advisory Desk</a></p>
         <p><a href="../contact/index.html">Headquarters &amp; Directions</a></p>
         <p><a href="../about/index.html">About Ajay Mukhija</a></p>

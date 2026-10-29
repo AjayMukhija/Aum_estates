@@ -1,0 +1,124 @@
+# ==============================================================================
+# AUM ESTATES — Hostinger Production Security & Optimization Directives
+# ==============================================================================
+
+# 1. Disable Directory Browsing
+Options -Indexes -MultiViews
+
+# 2. Prevent Public Access to Hidden Files, Git, Backups, and Internal System Files
+<FilesMatch "(\.(bak|backup|config|dist|fla|inc|ini|log|psd|sh|sql|swp|txt|md|jsonl|ndjson|env|git.*)|~)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order deny,allow
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# Explicitly block dotfiles (e.g. .env, .git, .DS_Store)
+<FilesMatch "^\.">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order deny,allow
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# Specifically protect internal documentation & raw source files in data/
+<Files "inventory_data_meta.json">
+    Require all denied
+</Files>
+<Files "aum_inventory_local.json">
+    Require all denied
+</Files>
+<Files "FINAL_INVENTORY_COUNT_RULE.txt">
+    Require all denied
+</Files>
+<Files "PUBLIC_INVENTORY_README.txt">
+    Require all denied
+</Files>
+<Files "README.txt">
+    Require all denied
+</Files>
+
+# 3. Force HTTPS Transport & Legacy Path Redirects
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # Redirect insecure HTTP to HTTPS
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+    # Graceful 301 Redirects for Legacy Category Paths to Dynamic Property Catalogue
+    RewriteRule ^categories/([^/]+)/?$ /properties/?category=$1 [R=301,L]
+    RewriteRule ^categories/?$ /properties/ [R=301,L]
+
+    # Graceful 301 Redirects for Legacy Area Subfolders
+    RewriteRule ^locations/areas/.*$ /locations/ [R=301,L]
+
+    # Graceful 301 Redirects for Legacy Corridor Subfolders to Dynamic Corridors
+    RewriteRule ^locations/dlf/?$ /properties/?q=DLF [R=301,L]
+    RewriteRule ^locations/sohna-road/?$ /properties/?q=Sohna+Road [R=301,L]
+    RewriteRule ^locations/dwarka-expressway/?$ /properties/?q=Dwarka+Expressway [R=301,L]
+    RewriteRule ^locations/nirvana-country/?$ /properties/?q=Nirvana [R=301,L]
+    RewriteRule ^locations/goa/?$ /properties/?q=Goa [R=301,L]
+    RewriteRule ^locations/south-goa/?$ /properties/?q=Goa [R=301,L]
+    RewriteRule ^locations/gurgaon/?$ /locations/ [R=301,L]
+    RewriteRule ^locations/south-city-2/?$ /properties/?q=South+City [R=301,L]
+    RewriteRule ^locations/uppal-south-end/?$ /properties/?q=Uppal [R=301,L]
+    RewriteRule ^locations/sohna/?$ /properties/?q=Sohna [R=301,L]
+</IfModule>
+
+# 4. Strict Security Headers
+<IfModule mod_headers.c>
+    # Prevent Clickjacking (disallow embedding in iframes from other domains)
+    Header always set X-Frame-Options "SAMEORIGIN"
+
+    # Prevent MIME Type Sniffing
+    Header always set X-Content-Type-Options "nosniff"
+
+    # Enforce Referrer Privacy
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+    # Restrict Hardware Permissions (disables unnecessary camera/mic access)
+    Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(self), payment=()"
+
+    # HTTP Strict Transport Security (HSTS) - Enforce SSL for 1 year
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+
+    # Legacy XSS Filter
+    Header always set X-XSS-Protection "1; mode=block"
+</IfModule>
+
+# 5. Compression for Luxury Performance
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css
+    AddOutputFilterByType DEFLATE application/javascript application/json application/xml
+    AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# 6. Browser Caching Headers
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresDefault "access plus 1 month"
+
+    # HTML: Cache for 1 hour to allow fresh content
+    ExpiresByType text/html "access plus 1 hour"
+
+    # Inventory Data: Cache for 10 minutes so property updates propagate quickly
+    ExpiresByType application/javascript "access plus 10 minutes"
+    ExpiresByType application/json "access plus 10 minutes"
+
+    # Static CSS and Images: Cache for 1 month
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType image/webp "access plus 1 month"
+    ExpiresByType image/svg+xml "access plus 1 month"
+    ExpiresByType image/x-icon "access plus 1 month"
+    ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>

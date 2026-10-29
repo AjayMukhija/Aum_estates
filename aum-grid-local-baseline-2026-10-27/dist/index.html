@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en" data-palette="redwhite" data-type="plex" data-architecture="international" data-fourth="none" data-depth="relief" data-presentation="study">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff" id="themeColor">
+  <meta name="description" content="AUM ESTATES architectural study: two complete real estate experiences inspired by facade design and architectural drawings, with controlled depth and material color.">
+  <title>AUM ESTATES — Architectural Grid Study</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Instrument+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./grid.css">
+  <link rel="stylesheet" href="./study.css">
+  <link rel="stylesheet" href="./architecture.css">
+  <link rel="stylesheet" href="./refinement.css">
+  <script src="./data/public_inventory.js"></script>
+  <script defer src="./main.js"></script>
+  <script defer src="./study.js"></script>
+  <script defer src="./architecture.js"></script>
+  <script defer src="./refinement.js"></script>
+</head>
+<body class="home-mode">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="concept-ribbon"><span>DESIGN STUDY / 06</span><span>Architecture, type, materials and depth · Production unchanged</span><button class="study-tab" id="studyToggle" type="button" aria-controls="studyPanel" aria-expanded="false">TYPE + COLOR <span aria-hidden="true">↗</span></button><button id="dismissRibbon" aria-label="Hide design study notice">×</button></div>
+  <button class="preview-mode-toggle" id="previewModeToggle" type="button" aria-pressed="false" aria-label="Show the concept as a visitor would see it"><span class="preview-enter">VIEW AS VISITOR ↗</span><span class="preview-exit">RETURN TO STUDY ↗</span></button>
+  <header class="site-header" id="top"><div class="shell header-inner">
+    <a class="wordmark" href="#home" data-home aria-label="AUM ESTATES homepage"><span class="mark" aria-hidden="true">A<span class="mark-rule"></span></span><span class="wordmark-copy"><strong>AUM ESTATES</strong><small>PROPERTY ADVISORY</small></span></a>
+    <nav class="primary-nav" aria-label="Main navigation"><button data-browse="buy">Properties</button><a href="#locations" data-view="locations">Locations</a><a href="https://aumestates.com/projects/index.html" target="_blank" rel="noopener noreferrer">New projects ↗</a><a href="#about" data-view="about">About</a></nav>
+    <div class="header-action"><button class="advisor-link" data-advisor="general">Talk to an advisor <span aria-hidden="true">↗</span></button></div>
+    <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu"><span></span><span></span></button>
+  </div><nav class="mobile-nav" id="mobileMenu" hidden aria-label="Mobile navigation"><button data-browse="buy">Browse properties <span>↗</span></button><button data-view="locations">Locations <span>↗</span></button><a href="https://aumestates.com/projects/index.html" target="_blank" rel="noopener noreferrer">New projects <span>↗</span></a><button data-view="about">About <span>↗</span></button><button data-advisor="general">Talk to an advisor <span>↗</span></button></nav></header>
+
+  <section class="architecture-switcher" aria-labelledby="architectureStudyTitle">
+    <div class="shell architecture-switcher-inner">
+      <div class="architecture-switcher-intro"><p id="architectureStudyTitle">ARCHITECTURAL GRID / 02 DIRECTIONS</p><span id="architectureDescription" aria-live="polite">A continuous facade: repetition, columns, disciplined proportion.</span></div>
+      <div class="architecture-options" role="group" aria-label="Choose an architectural design concept">
+        <button type="button" data-architecture-option="international" aria-pressed="true"><span>01</span><strong>International Style</strong><small>Rhythm / facade</small></button>
+        <button type="button" data-architecture-option="elevation" aria-pressed="false"><span>02</span><strong>Architectural Elevation</strong><small>Drawing / precision</small></button>
+      </div>
+      <div class="architectural-materials" aria-label="Architectural effects">
+        <div class="material-row"><span class="material-label">04TH COLOR</span><div class="material-options" role="group" aria-label="Choose a fourth accent color">
+          <button type="button" data-fourth-option="none" aria-pressed="true" title="Three-color baseline"><i class="color-chip no-color" aria-hidden="true"></i>None</button>
+          <button type="button" data-fourth-option="cobalt" aria-pressed="false" title="Architectural cobalt"><i class="color-chip cobalt-chip" aria-hidden="true"></i>Cobalt</button>
+          <button type="button" data-fourth-option="bronze" aria-pressed="false" title="Warm architectural bronze"><i class="color-chip bronze-chip" aria-hidden="true"></i>Bronze</button>
+          <button type="button" data-fourth-option="verdigris" aria-pressed="false" title="Oxidized copper green"><i class="color-chip verdigris-chip" aria-hidden="true"></i>Patina</button>
+        </div></div>
+        <div class="material-row"><span class="material-label">DIMENSION</span><div class="depth-options" role="group" aria-label="Choose depth treatment">
+          <button type="button" data-depth-option="flat" aria-pressed="false">2-D flat</button>
+          <button type="button" data-depth-option="relief" aria-pressed="true">3-D relief</button>
+        </div></div>
+        <p class="material-note" id="materialDescription" aria-live="polite">Three colors. Raised facade edges on hover.</p>
+      </div>
+    </div>
+  </section>
+
+  <aside class="study-panel" id="studyPanel" aria-label="Compare design systems" hidden>
+    <div class="study-panel-head"><div><p>DESIGN STUDY / 06</p><h2>Explore the system.</h2></div><button id="closeStudy" type="button" aria-label="Close design lab">×</button></div>
+    <p class="study-intro">Compare both compositions with the same task model. Red / White / Ink is the architectural baseline; the older palette and typography library remains here for wider experimentation. Fourth-color details apply to the baseline only. Your selections stay in the URL.</p>
+    <section class="study-group" aria-labelledby="paletteHeading"><div class="study-group-heading"><h3 id="paletteHeading">01 / COLOR</h3><span id="paletteChoice">Red / White / Ink</span></div>
+      <div class="palette-options">
+        <button type="button" data-palette="mineral" aria-pressed="false"><span class="color-sample" style="--sample-paper:#F5F4EF;--sample-ink:#1C211E;--sample-accent:#713240"></span><span>Oxblood / Mineral</span></button>
+        <button type="button" data-palette="plaster" aria-pressed="false"><span class="color-sample" style="--sample-paper:#F4EEE9;--sample-ink:#2D2526;--sample-accent:#702D3D"></span><span>Merlot / Plaster</span></button>
+        <button type="button" data-palette="butter" aria-pressed="false"><span class="color-sample" style="--sample-paper:#F4EED9;--sample-ink:#291C25;--sample-accent:#7D233F"></span><span>Claret / Butter</span></button>
+        <button type="button" data-palette="mist" aria-pressed="false"><span class="color-sample" style="--sample-paper:#E9EEEB;--sample-ink:#202C2D;--sample-accent:#74263E"></span><span>Oxblood / Mist</span></button>
+        <button type="button" data-palette="lime" aria-pressed="false"><span class="color-sample" style="--sample-paper:#ECF0CF;--sample-ink:#28212A;--sample-accent:#733348"></span><span>Aubergine / Lime</span></button>
+        <button type="button" data-palette="cobalt" aria-pressed="false"><span class="color-sample" style="--sample-paper:#DEE5F1;--sample-ink:#1B2852;--sample-accent:#78293F"></span><span>Wine / Cobalt</span></button>
+        <button type="button" data-palette="midnight" aria-pressed="false"><span class="color-sample" style="--sample-paper:#FFFDF9;--sample-ink:#172942;--sample-accent:#C5232C"></span><span>Midnight / Butter / Signal</span></button>
+        <button type="button" data-palette="signal" aria-pressed="false"><span class="color-sample" style="--sample-paper:#F5D64B;--sample-ink:#15543D;--sample-accent:#BE2633"></span><span>Red / Yellow / Green</span></button>
+        <button type="button" data-palette="redmidnight" aria-pressed="false"><span class="color-sample" style="--sample-paper:#FFFFFF;--sample-ink:#132942;--sample-accent:#C72535"></span><span>Bold Red / Midnight</span></button>
+        <button type="button" data-palette="redfield" aria-pressed="false"><span class="color-sample" style="--sample-paper:#F04E3E;--sample-ink:#10100F;--sample-accent:#91C67B"></span><span>Red Field / Black Ink</span></button>
+        <button type="button" data-palette="redwhite" aria-pressed="true"><span class="color-sample" style="--sample-paper:#FFFFFF;--sample-ink:#151515;--sample-accent:#EF4037"></span><span>Red / White / Ink</span></button>
+      </div>
+    </section>
+    <section class="study-group" aria-labelledby="typeHeading"><div class="study-group-heading"><h3 id="typeHeading">02 / TYPOGRAPHY</h3><span id="typeChoice">IBM Plex</span></div>
+      <div class="type-options">
+        <button type="button" data-type="plex" aria-pressed="true"><span class="type-sample" style="font-family:'IBM Plex Sans',sans-serif">Aa</span><span><strong>IBM Plex</strong><small>Humanist / technical</small></span></button>
+        <button type="button" data-type="instrument" aria-pressed="false"><span class="type-sample" style="font-family:'Instrument Sans',sans-serif">Aa</span><span><strong>Instrument Sans</strong><small>Neutral / restrained</small></span></button>
+        <button type="button" data-type="space" aria-pressed="false"><span class="type-sample" style="font-family:'Space Grotesk',sans-serif">Aa</span><span><strong>Space Grotesk</strong><small>Geometric / urban</small></span></button>
+        <button type="button" data-type="dm" aria-pressed="false"><span class="type-sample" style="font-family:'DM Sans',sans-serif">Aa</span><span><strong>DM Sans + Mono</strong><small>Clarity / discipline</small></span></button>
+        <button type="button" data-type="mono" aria-pressed="false"><span class="type-sample" style="font-family:'IBM Plex Mono',monospace">Aa</span><span><strong>Mono index</strong><small>Plex Mono display</small></span></button>
+        <button type="button" data-type="origins" aria-pressed="false"><span class="type-sample" style="font-family:'Bodoni Moda',serif">Aa</span><span><strong>Editorial contrast</strong><small>Bodoni-inspired display</small></span></button>
+      </div>
+    </section>
+    <div class="study-actions"><button id="resetStudy" type="button">Reset to baseline</button><button id="copyStudy" type="button">Copy this version ↗</button></div>
+    <p class="study-feedback" id="studyFeedback" aria-live="polite">The navigation and search tasks remain unchanged.</p>
+  </aside>
+
+  <main id="main">
+    <div id="homeView">
+      <section class="hub shell" aria-labelledby="hubTitle">
+        <div class="hub-intro"><div class="hub-intro-copy"><p class="eyebrow">AUM ESTATES <span class="sep">/</span> GURUGRAM &amp; SELECTED MARKETS</p><h1 id="hubTitle">Property, <span>clearly.</span></h1></div><p class="hub-intro-note">Search by requirement, explore by intent,<br> or speak to a local advisor.</p></div>
+        <div class="hub-grid" aria-label="Choose a property task">
+          <div class="elevation-guides" aria-hidden="true"><span class="datum-top"></span><span class="datum-floor-one"></span><span class="datum-floor-two"></span><span class="datum-spine"></span><span class="datum-index">GRID / REFERENCE AXIS</span></div>
+          <section class="hub-cell search-cell" aria-labelledby="searchCellTitle">
+            <div class="cell-top"><span>01 / FIND A PROPERTY</span><span>START HERE</span></div>
+            <div class="search-cell-main"><h2 id="searchCellTitle">Know what you're<br>looking for?</h2><p>Start with the essentials. Refine the details in the next step.</p></div>
+            <form class="hub-search" id="homeSearch"><label><span>INTENT</span><select id="homeIntent"><option value="buy">Buy</option><option value="rent">Rent</option><option value="commercial">Commercial</option><option value="land">Plots &amp; Land</option></select></label><label><span>LOCATION CORRIDOR</span><select id="homeLocation"><option value="">All Gurgaon Corridors</option><option value="Golf Course Road">Golf Course Road &amp; DLF 5</option><option value="DLF">DLF Phase 1–5</option><option value="Golf Course Ext Road">Golf Course Extn &amp; SPR</option><option value="Nirvana">Nirvana Country &amp; Sector 50</option><option value="Dwarka Expressway">Dwarka Expressway (DXP)</option><option value="Sohna Road">Sohna Road Corridor</option><option value="Sushant Lok">Sushant Lok 1 &amp; 2</option><option value="South City">South City 1 &amp; 2</option><option value="Goa">Majorda / South Goa</option></select></label><button type="submit" aria-label="Explore matching properties">Explore <span aria-hidden="true">↗</span></button></form>
+          </section>
+          <button class="hub-cell route-cell buy-cell" data-browse="buy"><span class="cell-top"><span>02 / BUY</span><span class="tile-arrow">↗</span></span><span class="tile-main"><strong>Buy a home.</strong><small>Apartments · Floors · Villas</small></span><span class="tile-reveal">Browse homes <span aria-hidden="true">↗</span></span></button>
+          <button class="hub-cell route-cell rent-cell" data-browse="rent"><span class="cell-top"><span>03 / RENT</span><span class="tile-arrow">↗</span></span><span class="tile-main"><strong>Find a rental.</strong><small>Homes and spaces to lease</small></span><span class="tile-reveal">Browse rentals <span aria-hidden="true">↗</span></span></button>
+          <button class="hub-cell route-cell commercial-cell" data-browse="commercial"><span class="cell-top"><span>04 / COMMERCIAL</span><span class="tile-arrow">↗</span></span><span class="tile-main"><strong>Business space.</strong><small>Office · Retail · Investment</small></span><span class="tile-reveal">Explore commercial <span aria-hidden="true">↗</span></span></button>
+          <button class="hub-cell route-cell land-cell" data-browse="land"><span class="cell-top"><span>05 / PLOTS &amp; LAND</span><span class="tile-arrow">↗</span></span><span class="tile-main"><strong>Land &amp; plots.</strong><small>Opportunities by use and area</small></span><span class="tile-reveal">Explore land <span aria-hidden="true">↗</span></span></button>
+          <button class="hub-cell route-cell location-cell" data-view="locations"><span class="cell-top"><span>06 / BY PLACE</span><span class="tile-arrow">↗</span></span><span class="tile-main"><strong>Explore locations.</strong><small>Start with the neighbourhood</small></span><span class="tile-reveal">Browse areas <span aria-hidden="true">↗</span></span></button>
+          <button class="hub-cell route-cell list-cell" data-advisor="listing"><span class="cell-top"><span>07 / FOR OWNERS</span><span class="tile-arrow">↗</span></span><span class="tile-main"><strong>List a property.</strong><small>Sell or lease with us</small></span><span class="tile-reveal">Start a listing <span aria-hidden="true">↗</span></span></button>
+          <button class="hub-cell route-cell advice-cell" data-advisor="general"><span class="cell-top"><span>08 / HUMAN ADVICE</span><span class="tile-arrow">↗</span></span><span class="tile-main"><strong>Speak to us.</strong><small>For questions beyond a filter</small></span><span class="tile-reveal">Talk to an advisor <span aria-hidden="true">↗</span></span></button>
+        </div>
+        <div class="hub-after"><span>GURUGRAM-BASED ADVISORY / LED BY AJAY MUKHIJA</span><button data-browse="buy">View selected public inventory <span>↗</span></button></div>
+      </section>
+    </div>
+
+    <section class="results-section shell" id="resultsView" aria-labelledby="resultsTitle" hidden>
+      <div class="section-index results-index"><span>PROPERTY INDEX / 347 VERIFIED MANDATES</span><button class="back-link" data-home>← Back to overview</button></div>
+      <div class="results-heading"><div><p class="kicker">BROWSE PORTFOLIO</p><h1 id="resultsTitle">Find your next residence.</h1><p class="results-deck">Curated luxury apartments, DLF builder floors, penthouses, HSVP plots, and commercial assets across Gurgaon's premier corridors.</p></div><p class="result-count" id="resultCount" aria-live="polite"></p></div>
+      <div class="mobile-filter-bar"><button id="openFilters" aria-controls="filterPanel" aria-expanded="false">Filters <span aria-hidden="true">☰</span></button><span id="mobileResultCount"></span></div>
+      <div class="results-layout"><aside class="filter-panel" id="filterPanel" aria-label="Filter properties"><div class="filter-head"><h2>Refine search</h2><button id="closeFilters" aria-label="Close filters">×</button></div>
+        <div class="filter-block"><label for="filterIntent">PURPOSE</label><select id="filterIntent"><option value="buy">Buy</option><option value="rent">Rent</option><option value="commercial">Commercial</option><option value="land">Plots &amp; Land</option></select></div>
+        <div class="filter-block"><label for="filterLocation">LOCATION CORRIDOR</label><select id="filterLocation"><option value="">All corridors</option><option value="Golf Course Road">Golf Course Road &amp; DLF 5</option><option value="DLF">DLF Phase 1–5</option><option value="Golf Course Ext Road">Golf Course Extn &amp; SPR</option><option value="Nirvana">Nirvana Country &amp; Sector 50</option><option value="Dwarka Expressway">Dwarka Expressway (DXP)</option><option value="Sohna Road">Sohna Road</option><option value="Sushant Lok">Sushant Lok 1 &amp; 2</option><option value="South City">South City 1 &amp; 2</option><option value="Sector 46">Sector 45 &amp; 46</option><option value="Sector 57">Sector 57</option><option value="Udyog Vihar">Udyog Vihar</option><option value="Goa">Majorda / South Goa</option></select></div>
+        <div class="filter-block"><label for="filterType">PROPERTY TYPE</label><select id="filterType"><option value="">All property types</option><option value="Apartment">Luxury Condominiums</option><option value="builder-floor">DLF &amp; Luxury Builder Floors</option><option value="Villa">Independent Villas &amp; Kothis</option><option value="plot">HSVP Plots &amp; Land</option><option value="Commercial">Commercial Offices &amp; Buildings</option><option value="shop">Retail Shops &amp; Booths</option><option value="farmhouse">Private Farmhouses</option></select></div>
+        <div class="filter-block"><label for="filterBudget">BUDGET</label><select id="filterBudget"><option value="">Any budget</option><option value="< 3 Cr">Under ₹3 Cr</option><option value="3–7 Cr">₹3 Cr – ₹7 Cr</option><option value="7–15 Cr">₹7 Cr – ₹15 Cr</option><option value="15–30 Cr">₹15 Cr – ₹30 Cr</option><option value="30+ Cr">Above ₹30 Cr</option><option value="known">Disclosed price only</option></select><p>Undisclosed prices are excluded when a price limit is applied.</p></div>
+        <div class="filter-buttons"><button id="resetFilters">Reset all</button><button id="applyFilters">Show results <span>→</span></button></div></aside>
+        <div class="results-content"><div class="results-toolbar"><div id="activeChips" class="active-chips" aria-label="Active filters"></div><label>Sort <select id="sortResults"><option value="default">Selected order</option><option value="price-asc">Price: Low to High</option><option value="price-desc">Price: High to Low</option><option value="az">Name A–Z</option><option value="za">Name Z–A</option></select></label></div><div class="result-grid" id="resultsGrid"></div><div class="empty-results" id="emptyResults" hidden><h2>No properties match the current criteria.</h2><p>AUM ESTATES represents discrete private mandates not listed online. Contact Ajay Mukhija directly to discuss your specific requirements.</p><button id="emptyReset">Reset filters →</button><button data-advisor="general">Speak to Ajay Mukhija ↗</button></div><p class="representation-note">Verified Gurgaon inventory represented by AUM ESTATES (Est. 2002). Haryana RERA Registered Brokerage. Floor plans and complete title dossiers provided upon advisory inquiry.</p></div>
+      </div>
+    </section>
+
+    <section class="utility-view shell" id="locationsView" aria-labelledby="locationsTitle" hidden>
+      <div class="section-index"><span>LOCATION INDEX / 06 PLACES</span><button class="back-link" data-home>← Overview</button></div>
+      <div class="utility-heading"><div><p class="kicker">BROWSE BY PLACE</p><h1 id="locationsTitle">Start with the map<br>in your mind.</h1></div><p>Choose an area to view matching examples. Full inventory and availability should be confirmed with AUM ESTATES.</p></div>
+      <div class="place-grid">
+        <button data-location="DLF"><span>01 / GURUGRAM</span><strong>DLF Phase 1–5</strong><small>Explore area ↗</small></button>
+        <button data-location="Golf Course Road"><span>02 / GURUGRAM</span><strong>Golf Course Road</strong><small>Explore area ↗</small></button>
+        <button data-location="Nirvana"><span>03 / GURUGRAM</span><strong>Nirvana Country &amp; Sec 50</strong><small>Explore area ↗</small></button>
+        <button data-location="Dwarka Expressway"><span>04 / GROWTH CORRIDOR</span><strong>Dwarka Expressway (DXP)</strong><small>Explore area ↗</small></button>
+        <button data-location="Sohna Road"><span>05 / SOUTH GURUGRAM</span><strong>Sohna Road Corridor</strong><small>Explore area ↗</small></button>
+        <button data-location="Golf Course Ext Road"><span>06 / PRIME EXPANSION</span><strong>Golf Course Extn &amp; SPR</strong><small>Explore area ↗</small></button>
+      </div>
+      <div class="utility-bottom"><span>THE RIGHT ADDRESS BEGINS WITH THE RIGHT CONTEXT.</span><button data-advisor="general">Need help choosing an area? ↗</button></div>
+    </section>
+
+    <section class="utility-view shell" id="advisorView" aria-labelledby="advisorTitle" hidden>
+      <div class="section-index"><span>PROPERTY ADVISORY / DIRECT CONTACT</span><button class="back-link" data-home>← Overview</button></div>
+      <div class="utility-heading"><div><p class="kicker" id="advisorKicker">TALK TO A PERSON</p><h1 id="advisorTitle">A conversation<br>is a good start.</h1></div><p id="advisorDescription">Explain what you're considering. The team can help you identify the important details and next steps.</p></div>
+      <div class="contact-choice-grid">
+        <a id="buyerContact" href="https://wa.me/919873813595" target="_blank" rel="noopener noreferrer"><span>01 / BUY OR RENT</span><strong>Find the right property.</strong><small>Start a WhatsApp enquiry ↗</small></a>
+        <a id="ownerContact" href="https://wa.me/919873813595" target="_blank" rel="noopener noreferrer"><span>02 / SELL OR LEASE</span><strong>List your property.</strong><small>Share property details ↗</small></a>
+        <a id="businessContact" href="https://wa.me/919873813595" target="_blank" rel="noopener noreferrer"><span>03 / COMMERCIAL &amp; LAND</span><strong>Discuss a requirement.</strong><small>Start a WhatsApp enquiry ↗</small></a>
+        <a href="tel:+919811157018"><span>04 / DIRECT ADVISORY</span><strong>+91 98111 57018</strong><small>Call Ajay Mukhija ↗</small></a>
+      </div>
+      <div class="utility-bottom office-bottom"><span>OFFICE / C-210, NIRVANA COURTYARD, NIRVANA COUNTRY, SECTOR 50, GURUGRAM 122018</span><button data-view="about">About the practice ↗</button></div>
+    </section>
+
+    <section class="utility-view shell" id="aboutView" aria-labelledby="aboutTitle" hidden>
+      <div class="section-index"><span>ABOUT / AUM ESTATES</span><button class="back-link" data-home>← Overview</button></div>
+      <div class="utility-heading"><div><p class="kicker">THE PRACTICE</p><h1 id="aboutTitle">Real estate is local.<br>Advice is personal.</h1></div><p>AUM ESTATES is an independent Gurugram-based luxury property advisory practice founded in 2002 by Ajay Mukhija. Its work covers residential condominiums, DLF builder floors, penthouses, HSVP plots, and commercial mandates in Gurgaon and selected markets.</p></div>
+      <div class="about-index"><div><span>01 / APPROACH</span><h2>Fiduciary guidance &amp; integrity.</h2><p>Zero misleading listings. Complete transparency on title verification, floor pricing, and institutional market context.</p></div><div><span>02 / HEADQUARTERS</span><h2>Visit or consult in person.</h2><address>C-210, Nirvana Courtyard<br>Nirvana Country, Sector 50<br>Gurugram, Haryana 122018</address><button data-advisor="general">Contact Ajay Mukhija ↗</button></div><div><span>03 / CREDENTIALS</span><h2>Haryana RERA Registered.</h2><p>Serving Gurgaon luxury buyers, HNIs, family offices, and NRI investors continuously since 2002.</p><a href="tel:+919811157018">Direct Advisory: +91 98111 57018 ↗</a></div></div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="shell footer-content"><div class="footer-identity"><a class="footer-brand" href="#home" data-home>AUM ESTATES<span>Real estate advisory.</span></a><p>Clear information. Fiduciary guidance.<br>Principled Gurgaon advisory since 2002.</p></div><div><h2>Explore</h2><button data-browse="buy">Buy</button><button data-browse="rent">Rent</button><button data-browse="commercial">Commercial</button><button data-browse="land">Plots &amp; Land</button></div><div><h2>Company</h2><button data-view="about">About</button><button data-view="locations">Locations</button><a href="https://aumestates.com/projects/index.html" target="_blank" rel="noopener noreferrer">New projects ↗</a><button data-advisor="general">Contact</button></div><div><h2>Direct Advisory</h2><a href="tel:+919811157018">+91 98111 57018 (Ajay Mukhija)</a><a href="tel:+919873813595">+91 98738 13595 (Advisory Desk)</a><a href="https://wa.me/919873813595" target="_blank" rel="noopener noreferrer">WhatsApp Advisory ↗</a><p>C-210, Nirvana Courtyard<br>Sector 50, Gurgaon 122018</p></div></div><div class="shell footer-bottom"><span>© 2002–2026 AUM ESTATES — PRIVATE ADVISORY</span><span>Haryana RERA Registered Brokerage · Gurgaon, Haryana</span><a href="#top">Back to top ↑</a></div></footer>
+</body>
+</html>

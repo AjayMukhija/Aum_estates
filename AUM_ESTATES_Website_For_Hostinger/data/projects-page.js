@@ -3,7 +3,7 @@
 function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 
 const projects=Array.isArray(window.AUM_PROJECTS_LOCAL)?window.AUM_PROJECTS_LOCAL:[];
-const inventory=Array.isArray(window.AUM_DEV_INVENTORY)?window.AUM_DEV_INVENTORY:[];
+const inventory=Array.isArray(window.AUM_PUBLIC_INVENTORY)?window.AUM_PUBLIC_INVENTORY:(window.AUM_DEV_INVENTORY||[]);
 
 const byId=new Map();
 inventory.filter(x=>x&&x.transaction_type).forEach(x=>{
