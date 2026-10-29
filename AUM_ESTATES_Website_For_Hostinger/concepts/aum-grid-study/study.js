@@ -55,12 +55,16 @@
         button.setAttribute('aria-pressed',String(button.dataset.type === type)));
       safeStorage.write({palette,type});
       if(updateLink) {
-        const url = new URL(window.location.href);
-        if(palette === 'redwhite') url.searchParams.delete('palette');
-        else url.searchParams.set('palette',palette);
-        if(type === 'plex') url.searchParams.delete('type');
-        else url.searchParams.set('type',type);
-        history.replaceState(history.state,'',`${url.pathname}${url.search}${url.hash}`);
+        try {
+          const url = new URL(window.location.href);
+          if(palette === 'redwhite') url.searchParams.delete('palette');
+          else url.searchParams.set('palette',palette);
+          if(type === 'plex') url.searchParams.delete('type');
+          else url.searchParams.set('type',type);
+          history.replaceState(history.state,'',`${url.pathname}${url.search}${url.hash}`);
+        } catch (e) {
+          /* Fallback for file:// or restricted iframe sandbox */
+        }
       }
       feedback.textContent = `${palettes[palette].label} × ${typeSystems[type]}`;
     }

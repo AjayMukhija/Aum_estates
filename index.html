@@ -3,20 +3,30 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AUM ESTATES — Architectural Grid</title>
-  <meta http-equiv="refresh" content="0; url=aum-grid-local-baseline-2026-10-27/dist/">
-  <script>window.location.replace("aum-grid-local-baseline-2026-10-27/dist/");</script>
+  <title>AUM ESTATES — Architectural Grid Explorer</title>
+  <meta http-equiv="refresh" content="0; url=aum-grid-local-baseline-2026-10-27/dist/index.html">
+  <script>
+    if (window.location.protocol === 'file:' || window.location.pathname.endsWith('index.html') || window.location.pathname === '/') {
+      window.location.replace("aum-grid-local-baseline-2026-10-27/dist/index.html");
+    }
+  </script>
 </head>
-<body style="font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif;background:#151515;color:#ffffff;display:flex;align-items:center;justify-content:center;height:100vh;margin:0;">
-  <div style="text-align:center;padding:24px;">
-    <h1 style="font-size:24px;letter-spacing:0.08em;margin-bottom:8px;">AUM ESTATES</h1>
-    <p style="color:#d4b2b6;font-size:14px;margin-bottom:16px;">Private Property Advisory · Est. 2002</p>
-    <p style="font-size:13px;color:#888;">Opening Architectural Grid UI...</p>
-    <p style="margin-top:20px;">
-      <a href="aum-grid-local-baseline-2026-10-27/dist/" style="color:#EF4037;text-decoration:none;font-weight:600;font-size:14px;border-bottom:1px solid #EF4037;padding-bottom:2px;">
+<body style="font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif;background:#151515;color:#ffffff;display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0;padding:20px;box-sizing:border-box;">
+  <div style="text-align:center;max-width:440px;background:#1c1c1c;border:1px solid #333;border-radius:16px;padding:32px 24px;box-shadow:0 20px 40px rgba(0,0,0,0.5);">
+    <div style="width:48px;height:48px;margin:0 auto 16px;background:rgba(239,64,55,0.15);border:1px solid rgba(239,64,55,0.3);border-radius:12px;display:flex;align-items:center;justify-content:center;color:#EF4037;font-weight:bold;font-size:20px;font-family:serif;">A</div>
+    <h1 style="font-size:22px;letter-spacing:0.04em;margin:0 0 6px;">AUM ESTATES</h1>
+    <p style="color:#d4b2b6;font-size:13px;margin:0 0 24px;">Private Property Advisory · Est. 2002</p>
+
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <a href="aum-grid-local-baseline-2026-10-27/dist/index.html" style="background:#EF4037;color:#ffffff;text-decoration:none;font-weight:600;font-size:14px;padding:12px 20px;border-radius:8px;display:block;transition:0.2s;">
         Launch Architectural Grid Explorer →
       </a>
-    </p>
+      <a href="AUM_ESTATES_Website_For_Hostinger/index.html" style="background:#2a2a2a;color:#d1d5db;text-decoration:none;font-weight:500;font-size:13px;padding:11px 20px;border-radius:8px;display:block;border:1px solid #444;transition:0.2s;">
+        Open Production Website (Imperial Oxblood) →
+      </a>
+    </div>
+
+    <p style="font-size:11px;color:#777;margin:20px 0 0;">347 verified mandates · Fast static architecture</p>
   </div>
 </body>
 </html>

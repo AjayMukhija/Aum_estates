@@ -4,16 +4,16 @@
   "description": "Production website and secure data pipeline for AUM ESTATES Gurgaon (Est. 2002)",
   "private": true,
   "scripts": {
-    "start": "npm run serve",
+    "start": "node scripts/serve.js",
+    "serve": "node scripts/serve.js",
+    "serve:hostinger": "node scripts/serve.js",
     "test": "node --test aum-grid-local-baseline-2026-10-27/study-controls.test.cjs aum-grid-local-baseline-2026-10-27/production-verification.test.cjs",
     "build": "node scripts/sanitize_and_build.js",
     "verify": "node scripts/verify_site.js",
     "manage": "node scripts/manage_inventory.js",
     "add": "node scripts/manage_inventory.js interactive",
     "rollback": "node scripts/manage_inventory.js rollback",
-    "package": "node scripts/package_release.js",
-    "serve": "node -e 'const http = require(\"http\"), fs = require(\"fs\"), path = require(\"path\"); const base = path.resolve(\"aum-grid-local-baseline-2026-10-27/dist\"); const mimes = {\".html\":\"text/html\",\".css\":\"text/css\",\".js\":\"application/javascript\",\".json\":\"application/json\",\".jpg\":\"image/jpeg\",\".jpeg\":\"image/jpeg\",\".png\":\"image/png\",\".webp\":\"image/webp\",\".svg\":\"image/svg+xml\"}; http.createServer((req,res) => { let p = path.join(base, req.url.split(\"?\")[0]); if (fs.existsSync(p) && fs.statSync(p).isDirectory()) p = path.join(p, \"index.html\"); if (!fs.existsSync(p)) { res.writeHead(404); res.end(\"Not found\"); return; } res.writeHead(200, {\"Content-Type\": mimes[path.extname(p)] || \"application/octet-stream\"}); fs.createReadStream(p).pipe(res); }).listen(8000, () => console.log(\"\\nAUM ESTATES preview running at: http://localhost:8000/\\n\"));'",
-    "serve:hostinger": "node -e 'const http = require(\"http\"), fs = require(\"fs\"), path = require(\"path\"); const base = path.resolve(\"AUM_ESTATES_Website_For_Hostinger\"); const mimes = {\".html\":\"text/html\",\".css\":\"text/css\",\".js\":\"application/javascript\",\".json\":\"application/json\",\".jpg\":\"image/jpeg\",\".jpeg\":\"image/jpeg\",\".png\":\"image/png\",\".webp\":\"image/webp\",\".svg\":\"image/svg+xml\"}; http.createServer((req,res) => { let p = path.join(base, req.url.split(\"?\")[0]); if (fs.existsSync(p) && fs.statSync(p).isDirectory()) p = path.join(p, \"index.html\"); if (!fs.existsSync(p)) { res.writeHead(404); res.end(\"Not found\"); return; } res.writeHead(200, {\"Content-Type\": mimes[path.extname(p)] || \"application/octet-stream\"}); fs.createReadStream(p).pipe(res); }).listen(8080, () => console.log(\"\\nAUM ESTATES Hostinger tree preview running at: http://localhost:8080/\\n\"));'"
+    "package": "node scripts/package_release.js"
   },
   "keywords": [
     "aum-estates",

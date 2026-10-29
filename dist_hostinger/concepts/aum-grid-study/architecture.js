@@ -69,14 +69,18 @@
         'Fourth-color details appear in Red / White / Ink only. ' : materials[fourth].label + ' ') + depthDescription;
       saveChoice({architecture:choice,fourth,depth});
       if(updateUrl) {
-        const url = new URL(window.location.href);
-        if(choice === 'international') url.searchParams.delete('architecture');
-        else url.searchParams.set('architecture',choice);
-        if(fourth === 'none') url.searchParams.delete('fourth');
-        else url.searchParams.set('fourth',fourth);
-        if(depth === 'relief') url.searchParams.delete('depth');
-        else url.searchParams.set('depth',depth);
-        window.history.replaceState(window.history.state,'',`${url.pathname}${url.search}${url.hash}`);
+        try {
+          const url = new URL(window.location.href);
+          if(choice === 'international') url.searchParams.delete('architecture');
+          else url.searchParams.set('architecture',choice);
+          if(fourth === 'none') url.searchParams.delete('fourth');
+          else url.searchParams.set('fourth',fourth);
+          if(depth === 'relief') url.searchParams.delete('depth');
+          else url.searchParams.set('depth',depth);
+          window.history.replaceState(window.history.state,'',`${url.pathname}${url.search}${url.hash}`);
+        } catch (e) {
+          /* Fallback for file:// or restricted iframe sandbox */
+        }
       }
     }
 

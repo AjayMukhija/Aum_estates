@@ -27,10 +27,14 @@
       }
       try { localStorage.setItem(key, preview ? 'preview' : 'study'); } catch { /* Controls remain functional. */ }
       if(updateUrl) {
-        const url = new URL(location.href);
-        if(preview) url.searchParams.set('presentation','1');
-        else url.searchParams.delete('presentation');
-        history.replaceState(history.state, '', `${url.pathname}${url.search}${url.hash}`);
+        try {
+          const url = new URL(location.href);
+          if(preview) url.searchParams.set('presentation','1');
+          else url.searchParams.delete('presentation');
+          history.replaceState(history.state, '', `${url.pathname}${url.search}${url.hash}`);
+        } catch (e) {
+          /* Fallback for file:// or restricted iframe sandbox */
+        }
       }
     }
 

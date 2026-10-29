@@ -625,7 +625,11 @@
     document.body.classList.toggle('home-mode', view === 'home');
     closeMobileMenu();
     closeFilters();
-    if (push) history.pushState({ view }, '', `#${view}`);
+    try {
+      if (push) history.pushState({ view }, '', `#${view}`);
+    } catch (e) {
+      /* Fallback for file:// or restricted iframe sandbox */
+    }
     window.scrollTo({ top: 0, behavior: 'instant' });
   }
 
@@ -662,7 +666,11 @@
     }
 
     displayView('advisor', false);
-    if (push) history.pushState({ view: 'advisor', purpose }, '', forOwner ? '#advisor-listing' : '#advisor');
+    try {
+      if (push) history.pushState({ view: 'advisor', purpose }, '', forOwner ? '#advisor-listing' : '#advisor');
+    } catch (e) {
+      /* Fallback for file:// or restricted iframe sandbox */
+    }
   }
 
   function resetFilters() {
