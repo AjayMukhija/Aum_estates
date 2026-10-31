@@ -1,0 +1,418 @@
+{
+  "checkedAt": "2026-10-29T10:28:49.505Z",
+  "liveCount": 347,
+  "localCount": 347,
+  "liveFeedSameAsLocal": false,
+  "rawPublicEndpointCount": 347,
+  "rawPublicSameAsLiveFeed": true,
+  "findings": [
+    {
+      "id": "AUM-WEB-000211",
+      "field": "key_features",
+      "kind": "brokerage_or_commission"
+    },
+    {
+      "id": "AUM-WEB-000211",
+      "field": "public_features",
+      "kind": "brokerage_or_commission"
+    },
+    {
+      "id": "AUM-WEB-000246",
+      "field": "key_features",
+      "kind": "brokerage_or_commission"
+    },
+    {
+      "id": "AUM-WEB-000246",
+      "field": "public_features",
+      "kind": "brokerage_or_commission"
+    },
+    {
+      "id": "AUM-WEB-000247",
+      "field": "key_features",
+      "kind": "brokerage_or_commission"
+    },
+    {
+      "id": "AUM-WEB-000247",
+      "field": "public_features",
+      "kind": "brokerage_or_commission"
+    },
+    {
+      "id": "AUM-WEB-000249",
+      "field": "key_features",
+      "kind": "brokerage_or_commission"
+    },
+    {
+      "id": "AUM-WEB-000249",
+      "field": "public_features",
+      "kind": "brokerage_or_commission"
+    }
+  ],
+  "endpoints": {
+    "home": {
+      "url": "https://aumestates.com/",
+      "status": 200,
+      "headers": {
+        "date": "Thu, 29 Oct 2026 10:27:29 GMT",
+        "content-type": "text/html",
+        "vary": "Accept-Encoding",
+        "last-modified": "Mon, 26 Oct 2026 08:00:52 GMT",
+        "etag": "W/\"4f82-6adf08b4-bfd1a6d57c6254b4;gz\"",
+        "platform": "hostinger",
+        "panel": "hpanel",
+        "content-security-policy": "upgrade-insecure-requests",
+        "server": "hcdn",
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "x-hcdn-request-id": "fe9fcfa610f97050b6c5c7e625d70947-mum-edge6",
+        "x-hcdn-cache-status": "DYNAMIC",
+        "x-hcdn-upstream-rt": "0.008"
+      }
+    },
+    "inventory": {
+      "url": "https://aumestates.com/data/public_inventory.json",
+      "status": 404,
+      "headers": {
+        "date": "Thu, 29 Oct 2026 10:27:29 GMT",
+        "content-type": "text/html",
+        "vary": "Accept-Encoding",
+        "last-modified": "Tue, 22 Apr 2025 07:41:12 GMT",
+        "etag": "W/\"119f-68074818-954fd2c0ea3a4561;gz\"",
+        "content-security-policy": "upgrade-insecure-requests",
+        "platform": "hostinger",
+        "panel": "hpanel",
+        "server": "hcdn",
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "x-hcdn-request-id": "97ebe2c812ff8c48d8868178d3a9bc7a-mum-edge7"
+      }
+    },
+    "feed": {
+      "url": "https://aumestates.com/data/public_inventory.js?v=FINAL_20261009",
+      "status": 200,
+      "headers": {
+        "date": "Thu, 29 Oct 2026 10:28:14 GMT",
+        "content-type": "application/x-javascript",
+        "vary": "Accept-Encoding",
+        "cache-control": "public, max-age=604800",
+        "expires": "Thu, 05 Nov 2026 10:28:14 GMT",
+        "last-modified": "Mon, 26 Oct 2026 08:00:51 GMT",
+        "etag": "W/\"7953b-6adf08b3-7af1b0ac65cf03bb;gz\"",
+        "platform": "hostinger",
+        "panel": "hpanel",
+        "content-security-policy": "upgrade-insecure-requests",
+        "server": "hcdn",
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "x-hcdn-request-id": "8f61c1aef208aa6dad92c36b85c31e1a-mum-edge8",
+        "x-hcdn-cache-status": "MISS",
+        "x-hcdn-upstream-rt": "0.012"
+      }
+    },
+    "contact": {
+      "url": "https://aumestates.com/contact/",
+      "status": 200,
+      "headers": {
+        "date": "Thu, 29 Oct 2026 10:27:29 GMT",
+        "content-type": "text/html",
+        "vary": "Accept-Encoding",
+        "last-modified": "Mon, 26 Oct 2026 08:00:51 GMT",
+        "etag": "W/\"111b-6adf08b3-90dc9780696816be;gz\"",
+        "platform": "hostinger",
+        "panel": "hpanel",
+        "content-security-policy": "upgrade-insecure-requests",
+        "server": "hcdn",
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "x-hcdn-request-id": "03991241b8c01f0069db8b72ee46b7f1-mum-edge8",
+        "x-hcdn-cache-status": "DYNAMIC",
+        "x-hcdn-upstream-rt": "0.011"
+      }
+    },
+    "search": {
+      "url": "https://aumestates.com/data/inventory-search.js",
+      "status": 200,
+      "headers": {
+        "date": "Thu, 29 Oct 2026 10:27:29 GMT",
+        "content-type": "application/x-javascript",
+        "vary": "Accept-Encoding",
+        "cache-control": "public, max-age=604800",
+        "expires": "Thu, 05 Nov 2026 10:27:29 GMT",
+        "last-modified": "Mon, 26 Oct 2026 08:00:51 GMT",
+        "etag": "W/\"63d1-6adf08b3-7d7e0fa5fcfde2e6;gz\"",
+        "platform": "hostinger",
+        "panel": "hpanel",
+        "content-security-policy": "upgrade-insecure-requests",
+        "server": "hcdn",
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "x-hcdn-request-id": "5374beb2a5fb2e8214ec2ebeb8beccc6-mum-edge6",
+        "x-hcdn-cache-status": "MISS",
+        "x-hcdn-upstream-rt": "0.009"
+      }
+    },
+    "detail": {
+      "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000001",
+      "status": 200,
+      "headers": {
+        "date": "Thu, 29 Oct 2026 10:27:30 GMT",
+        "content-type": "text/html",
+        "vary": "Accept-Encoding",
+        "last-modified": "Mon, 26 Oct 2026 08:00:51 GMT",
+        "etag": "W/\"b5d-6adf08b3-434694e9e7d913fc;gz\"",
+        "platform": "hostinger",
+        "panel": "hpanel",
+        "content-security-policy": "upgrade-insecure-requests",
+        "server": "hcdn",
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "x-hcdn-request-id": "533c9868035a2e839b72629db2f8ac56-mum-edge7",
+        "x-hcdn-cache-status": "DYNAMIC",
+        "x-hcdn-upstream-rt": "0.006"
+      }
+    },
+    "detailjs": {
+      "url": "https://aumestates.com/properties/detail.js",
+      "status": 200,
+      "headers": {
+        "date": "Thu, 29 Oct 2026 10:28:15 GMT",
+        "content-type": "application/x-javascript",
+        "vary": "Accept-Encoding",
+        "cache-control": "public, max-age=604800",
+        "expires": "Thu, 05 Nov 2026 10:28:15 GMT",
+        "last-modified": "Mon, 26 Oct 2026 08:00:51 GMT",
+        "etag": "W/\"2582-6adf08b3-43aab52a3cfcf84c;gz\"",
+        "platform": "hostinger",
+        "panel": "hpanel",
+        "content-security-policy": "upgrade-insecure-requests",
+        "server": "hcdn",
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "x-hcdn-request-id": "b4b237e68e48207e2044bcee2e1f8fd5-mum-edge6",
+        "x-hcdn-cache-status": "MISS",
+        "x-hcdn-upstream-rt": "0.010"
+      }
+    },
+    "concept": {
+      "url": "https://aumestates.com/concepts/aum-grid-study/",
+      "status": 404,
+      "headers": {
+        "date": "Thu, 29 Oct 2026 10:27:30 GMT",
+        "content-type": "text/html",
+        "vary": "Accept-Encoding",
+        "last-modified": "Tue, 22 Apr 2025 07:41:12 GMT",
+        "etag": "W/\"119f-68074818-954fd2c0ea3a4561;gz\"",
+        "platform": "hostinger",
+        "panel": "hpanel",
+        "server": "hcdn",
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "x-hcdn-request-id": "a540d37ff26c0b0c3de9be292a426835-mum-edge4"
+      }
+    },
+    "raw": {
+      "url": "https://aumestates.com/data/aum_inventory_local.json",
+      "status": 200,
+      "headers": {
+        "date": "Thu, 29 Oct 2026 10:28:16 GMT",
+        "content-type": "application/json",
+        "vary": "Accept-Encoding",
+        "last-modified": "Mon, 26 Oct 2026 08:00:51 GMT",
+        "etag": "W/\"91b7d-6adf08b3-4540b9d2a4b21c06;gz\"",
+        "platform": "hostinger",
+        "panel": "hpanel",
+        "content-security-policy": "upgrade-insecure-requests",
+        "server": "hcdn",
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "x-hcdn-request-id": "36527f036c5cc8656f2232a209eeb8b3-mum-edge5",
+        "x-hcdn-cache-status": "DYNAMIC",
+        "x-hcdn-upstream-rt": "0.006"
+      }
+    },
+    "dev": {
+      "url": "https://aumestates.com/data/dev_inventory.js",
+      "status": 404,
+      "headers": {
+        "date": "Thu, 29 Oct 2026 10:28:15 GMT",
+        "content-type": "text/html",
+        "vary": "Accept-Encoding",
+        "last-modified": "Tue, 22 Apr 2025 07:41:12 GMT",
+        "etag": "W/\"119f-68074818-954fd2c0ea3a4561;gz\"",
+        "content-security-policy": "upgrade-insecure-requests",
+        "platform": "hostinger",
+        "panel": "hpanel",
+        "server": "hcdn",
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "x-hcdn-request-id": "c213622e34062e7c479a35553f0ec524-mum-edge8"
+      }
+    },
+    "properties": {
+      "url": "https://aumestates.com/properties/",
+      "status": 200,
+      "headers": {
+        "date": "Thu, 29 Oct 2026 10:28:15 GMT",
+        "content-type": "text/html",
+        "vary": "Accept-Encoding",
+        "last-modified": "Mon, 26 Oct 2026 08:00:51 GMT",
+        "etag": "W/\"1687-6adf08b3-c34fb4cc34685f46;gz\"",
+        "platform": "hostinger",
+        "panel": "hpanel",
+        "content-security-policy": "upgrade-insecure-requests",
+        "server": "hcdn",
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "x-hcdn-request-id": "4ecce8ab480cdaf1b200ada1bd4a89a4-mum-edge4",
+        "x-hcdn-cache-status": "DYNAMIC",
+        "x-hcdn-upstream-rt": "0.009"
+      }
+    },
+    "projectsfeed": {
+      "url": "https://aumestates.com/data/projects_local.js",
+      "status": 200,
+      "headers": {
+        "date": "Thu, 29 Oct 2026 10:33:54 GMT",
+        "content-type": "application/x-javascript",
+        "vary": "Accept-Encoding",
+        "cache-control": "public, max-age=604800",
+        "expires": "Thu, 05 Nov 2026 10:33:54 GMT",
+        "last-modified": "Mon, 26 Oct 2026 08:00:51 GMT",
+        "etag": "W/\"129cf-6adf08b3-f44c1640163b647b;gz\"",
+        "platform": "hostinger",
+        "panel": "hpanel",
+        "content-security-policy": "upgrade-insecure-requests",
+        "server": "hcdn",
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "x-hcdn-request-id": "f9c7a34286a6f46ea9a8590a0d06d085-mum-edge9",
+        "x-hcdn-cache-status": "MISS",
+        "x-hcdn-upstream-rt": "0.008"
+      }
+    },
+    "readme": {
+      "url": "https://aumestates.com/data/README.txt",
+      "status": 200,
+      "headers": {
+        "date": "Thu, 29 Oct 2026 10:33:54 GMT",
+        "content-type": "text/plain",
+        "vary": "Accept-Encoding",
+        "last-modified": "Mon, 26 Oct 2026 08:00:51 GMT",
+        "etag": "W/\"28d-6adf08b3-1b7c5567982166ec;gz\"",
+        "platform": "hostinger",
+        "panel": "hpanel",
+        "content-security-policy": "upgrade-insecure-requests",
+        "server": "hcdn",
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "x-hcdn-request-id": "ad34fcffd2cd67f4f2f51012c8d2515b-mum-edge8",
+        "x-hcdn-cache-status": "DYNAMIC",
+        "x-hcdn-upstream-rt": "0.007"
+      }
+    },
+    "http": {
+      "url": "http://aumestates.com/",
+      "status": 301,
+      "headers": {
+        "date": "Thu, 29 Oct 2026 10:33:54 GMT",
+        "content-type": "text/html",
+        "content-length": "795",
+        "connection": "keep-alive",
+        "location": "https://aumestates.com/",
+        "platform": "hostinger",
+        "panel": "hpanel",
+        "content-security-policy": "upgrade-insecure-requests",
+        "server": "hcdn",
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "x-hcdn-request-id": "6ff20772fee8e2f408020c9a4a94ad36-mum-edge6",
+        "x-hcdn-cache-status": "EXPIRED",
+        "x-hcdn-upstream-rt": "0.000"
+      }
+    }
+  },
+  "otherReadOnlyChecks": [
+    {
+      "path": "/.git/config",
+      "status": 403
+    },
+    {
+      "path": "/.env",
+      "status": 403
+    },
+    {
+      "path": "/data/",
+      "status": 403
+    },
+    {
+      "path": "/private_master_store/aum_inventory_local.json",
+      "status": 404
+    }
+  ],
+  "projectVisibility": {
+    "YES": 110,
+    "Private": 1,
+    "No": 12,
+    "NO": 21
+  },
+  "browserChecks": {
+    "liveCatalogueRecords": 347,
+    "liveDlfSearchCards": 71,
+    "localDlfSearchCards": 71,
+    "liveDossierRendered": true,
+    "whatsappLinkObserved": true,
+    "whatsappMessageSent": false
+  },
+  "localServerChecks": {
+    "listeners": [
+      "*:8000",
+      "*:8080"
+    ],
+    "requests": [
+      {
+        "url": "http://127.0.0.1:8000/package.json",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:8000/private_master_store/aum_inventory_local.json",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:8000/.git/config",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:8080/../package.json",
+        "status": 200,
+        "pathAsIs": true
+      }
+    ],
+    "cors": "*"
+  },
+  "paymentTermReview": {
+    "local": {
+      "listings": 21,
+      "fields": 24
+    },
+    "production": {
+      "listings": 21,
+      "fields": 34
+    },
+    "note": "Keyword review of cheque/cash/white/black; determine marketing suitability, not proof every match is confidential."
+  },
+  "compiledAt": "2026-10-29T10:38:12.597Z",
+  "repository": {
+    "branch": "redesign-clean",
+    "commit": "1135c35",
+    "applicationFilesModifiedByAudit": false
+  },
+  "baselineVerification": {
+    "npmTest": {
+      "tests": 7,
+      "passed": 7,
+      "failed": 0
+    },
+    "npmRunVerify": {
+      "checks": 45,
+      "passed": 45,
+      "failed": 0
+    },
+    "javascriptSyntax": {
+      "files": 18,
+      "failed": 0
+    },
+    "focusedCredentialPatternSearch": {
+      "matchingFiles": 0,
+      "gitHistoryAudited": false
+    },
+    "bundle": {
+      "files": 266,
+      "includedFileContentDifferencesFromSource": 0
+    }
+  }
+}

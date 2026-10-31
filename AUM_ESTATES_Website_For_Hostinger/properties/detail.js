@@ -2,11 +2,36 @@
 'use strict';
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const money=v=>{if(v==null||v==='')return '';const n=Number(v);if(!Number.isFinite(n))return String(v);if(n>=1e7)return `₹${(n/1e7).toFixed(n%1e7?2:0)} Cr`;if(n>=1e5)return `₹${(n/1e5).toFixed(n%1e5?1:0)} Lakh`;return `₹${Math.round(n).toLocaleString('en-IN')}`};
-const price=o=>{if(/rent/i.test(String(o.transaction_type||''))&&o.rent_value)return `${money(o.rent_value)} / month`;if(o.price_text)return o.price_text;if(o.price_value!=null){const u=String(o.price_unit||'').toLowerCase();if(u.includes('per sq'))return `${money(o.price_value)} / ${o.price_unit.replace(/per\s*/i,'')}`;if(u==='cr'||u.includes('crore'))return `₹${o.price_value} Cr`;if(u.includes('lakh'))return `₹${o.price_value} Lakh`;return money(o.price_value)}return 'Price on request'};
+function sanitizePriceText(pt){
+  if(!pt) return '';
+  const s = String(pt).trim();
+  if(/^(mp|market\s*rates?)$/i.test(s)) return 'Market Price on Request';
+  if(/confirm\s*unit|keys\s*in\s*hand|max\s*cheque|no\s*premium|price\s*not\s*supplied|verify|differ/i.test(s)) {
+    return 'Price on Request';
+  }
+  if(/^price\s*on\s*call/i.test(s)) return 'Price on Request';
+  return s;
+}
+function cleanTitle(s){
+  if(!s) return 'Featured Property';
+  return String(s)
+    .replace(/\s+MP$/i, '')
+    .replace(/\s+OC tower$/i, ' (OC Received)')
+    .replace(/\s+#\d+$/i, '')
+    .trim();
+}
+const price=o=>{if(/rent/i.test(String(o.transaction_type||''))&&o.rent_value)return `${money(o.rent_value)} / month`;if(o.price_text){const san=sanitizePriceText(o.price_text);if(san)return san;}if(o.price_value!=null){const u=String(o.price_unit||'').toLowerCase();if(u.includes('per sq'))return `${money(o.price_value)} / ${o.price_unit.replace(/per\s*/i,'')}`;if(u==='cr'||u.includes('crore'))return `₹${o.price_value} Cr`;if(u.includes('lakh'))return `₹${o.price_value} Lakh`;return money(o.price_value)}return 'Price on Request'};
 const area=o=>o.area_value?`${o.area_value} ${o.area_unit||''}`.trim():'';
 const p=new URLSearchParams(location.search); const id=p.get('id');
-const source=location.protocol==='file:'?(window.AUM_DEV_INVENTORY||[]):(window.AUM_PUBLIC_INVENTORY||[]); const data=source.find(x=>x&&x.property_id===id);
-if(!data){document.getElementById('detail-title').textContent='Property not found';document.getElementById('detail-location').textContent='Please return to the property collection.';return;}
+const source=Array.isArray(window.AUM_PUBLIC_INVENTORY)?window.AUM_PUBLIC_INVENTORY:(window.AUM_DEV_INVENTORY||[]); const data=source.find(x=>x&&x.property_id===id);
+if(!data){
+  const titleEl=document.getElementById('detail-title'); if(titleEl) titleEl.textContent='Property Not Found';
+  const locEl=document.getElementById('detail-location'); if(locEl) locEl.textContent='The requested property dossier is not available or has been archived.';
+  const photoEl=document.getElementById('detail-photo'); if(photoEl) photoEl.style.display='none';
+  const priceEl=document.getElementById('detail-price'); if(priceEl) priceEl.style.display='none';
+  const descEl=document.getElementById('detail-description'); if(descEl) descEl.innerHTML='Please browse our <a href="index.html" style="color:var(--gold-metallic, #c5a059);text-decoration:underline;font-weight:600;">complete collection of verified properties</a> or contact our advisory desk directly.';
+  return;
+}
 
 function representativeCategory(o){
 const p=String(o.property_type||'').toLowerCase().trim();
@@ -93,18 +118,82 @@ function representativeImage(o){
   return ({villa:'villa.jpg',farmhouse:'villa.jpg','builder-floor':'builder-floor.jpg',apartment:'apartment.jpg',plot:'plot.jpg',shop:'shop.jpg',office:'office.jpg',building:'building.jpg',commercial:'commercial.jpg'})[c] || 'apartment.jpg';
 }
 function representativeLabel(o){const c=representativeCategory(o);return ({villa:'Villa / House',farmhouse:'Farmhouse','builder-floor':'Builder Floor',apartment:'Apartment',plot:'Plot / Land',shop:'Shop / Retail',office:'Office',building:'Building / Office Building',commercial:'Commercial'})[c]||'Apartment';}
-const name=data.website_display_name||data.listing_title||data.project_name||'Property';
+const name=cleanTitle(data.website_display_name||data.listing_title||data.project_name||'Property');
 document.title=`${name} | AUM ESTATES`;
+const bc=document.getElementById('breadcrumb-title'); if(bc) bc.textContent=name;
 document.getElementById('detail-title').textContent=name;
 document.getElementById('detail-location').textContent=[data.locality,data.sector,data.city].filter(Boolean).filter((v,i,a)=>a.indexOf(v)===i).join(', ');
 document.getElementById('detail-type').textContent=representativeLabel(data);
 document.getElementById('detail-price').textContent=price(data);
 document.getElementById('detail-photo').style.backgroundImage=`url('../assets/property-images/${representativeImage(data)}')`;
-document.getElementById('detail-photo').querySelector('.representative-badge').textContent=/asya smartliving|sukoon/i.test([data.listing_title,data.project_name,data.locality].join(' '))?'Project photo supplied by AUM ESTATES':'*RP';
+const isProjectPhoto=/asya smartliving|sukoon/i.test([data.listing_title,data.project_name,data.locality].join(' '));
+document.getElementById('detail-badge').textContent=isProjectPhoto?'Project Photo':'Representative Image';
 document.getElementById('detail-description').textContent=data.public_description||data.key_features||'Property details available on enquiry.';
 const facts=[['Configuration',data.configuration],['BHK',data.bedrooms?`${data.bedrooms} BHK`:'' ],['Area',area(data)],['Floor',data.floor],['Facing',data.facing],['Road Width',data.road_width],['Furnishing',data.furnishing],['Possession / Availability',data.possession_status],['Transaction',data.transaction_type]].filter(x=>x[1]);
-document.getElementById('detail-grid').innerHTML=facts.map(([k,v])=>`<div class="detail-fact"><span>${esc(k)}</span><strong>${esc(v)}</strong></div>`).join('');
+document.getElementById('detail-grid').innerHTML=facts.map(([k,v])=>`<div class="detail-spec"><span>${esc(k)}</span><strong>${esc(v)}</strong></div>`).join('');
 const feats=(data.public_features||data.key_features||'').split(';').map(x=>x.trim()).filter(Boolean);
-document.getElementById('detail-features').innerHTML=feats.length?feats.map(x=>`<span>${esc(x)}</span>`).join(''):'<span>Details available on enquiry.</span>';
-const waLines=['AUM ESTATES – PROPERTY ENQUIRY','',`Property ID: ${data.property_id||'N/A'}`,`Property: ${name}`,data.project_name?`Project: ${data.project_name}`:'',`Location: ${[data.locality,data.sector,data.city].filter(Boolean).filter((v,i,a)=>a.indexOf(v)===i).join(', ')||'N/A'}`,`Transaction: ${data.transaction_type||'Sale'}`,`Property Type: ${data.property_type||'N/A'}`,data.configuration?`Configuration: ${data.configuration}`:'',area(data)?`Area: ${area(data)}`:'',`Price: ${price(data)}`,'','I am interested in this property. Please share further details and availability.'].filter(Boolean); const wa=document.querySelector('.detail-actions .result-contact'); if(wa) wa.href='https://wa.me/919873813595?text='+encodeURIComponent(waLines.join('\n'));
+if(feats.length){
+  const fw=document.getElementById('features-wrapper'); if(fw) fw.style.display='block';
+  document.getElementById('detail-features').innerHTML=feats.map(x=>`<span>${esc(x)}</span>`).join('');
+}
+const locLabel = [data.locality, data.sector, data.city].filter(Boolean).filter((v, i, a) => a.indexOf(v) === i).join(', ') || 'Gurgaon';
+const waMsg = `Hi Ajay, I am interested in ${name} (Ref: ${data.property_id || 'N/A'}) in ${locLabel}, listed around ${price(data)}. Please share the complete dossier.`;
+const waBtn = document.getElementById('detail-wa-btn');
+
+// Global CRM bridge definition
+if (typeof window.AUM_CRM_HOOK !== 'function') {
+  window.AUM_CRM_HOOK = function(actionOrPayload, maybePayload) {
+    const payload = (typeof actionOrPayload === 'string')
+      ? Object.assign({ action: actionOrPayload, timestamp: new Date().toISOString() }, maybePayload || {})
+      : Object.assign({ timestamp: new Date().toISOString() }, actionOrPayload || {});
+    if (window._AUM_CRM_LISTENER) {
+      try { window._AUM_CRM_LISTENER(payload); } catch (e) { console.error('CRM hook error:', e); }
+    }
+    window.dispatchEvent(new CustomEvent('aum:lead', { detail: payload }));
+    const act = String(payload.action || '');
+    if ((act === 'inquire_whatsapp' || act === 'register_mandate' || act === 'advisor_inquiry') && typeof fetch === 'function' && /^https?:$/i.test(location.protocol)) {
+      fetch('/api/public/inquiries', {
+        method: 'POST',
+        keepalive: true,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          client_name: payload.name || 'Website Visitor',
+          client_phone: payload.phone || null,
+          preferred_location: payload.corridor || payload.location || 'Gurugram',
+          budget_text: payload.budget || payload.price || null,
+          property_id: payload.property_id || null,
+          source_channel: act,
+          source_page: payload.source || location.pathname,
+          message: payload.notes || (payload.title ? `Inquiry regarding ${payload.title} (${payload.property_id || 'Web'})` : null)
+        })
+      }).catch(() => {});
+    }
+  };
+}
+
+if (waBtn) {
+  waBtn.href = 'https://wa.me/919873813595?text=' + encodeURIComponent(waMsg);
+  waBtn.addEventListener('click', function() {
+    window.AUM_CRM_HOOK({
+      action: 'inquire_whatsapp',
+      source: 'property_detail_view',
+      property_id: data.property_id || '',
+      title: name,
+      price: price(data),
+      location: locLabel,
+      timestamp: new Date().toISOString()
+    });
+  });
+}
+
+// Fire page dossier view hook for tracking
+window.AUM_CRM_HOOK({
+  action: 'view_dossier',
+  source: 'property_detail_view',
+  property_id: data.property_id || '',
+  title: name,
+  price: price(data),
+  location: locLabel,
+  timestamp: new Date().toISOString()
+});
 })();
