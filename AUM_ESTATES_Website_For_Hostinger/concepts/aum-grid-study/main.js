@@ -23,13 +23,40 @@
     q: ''
   };
 
-  // Structured CRM Hook for client intake bot and Airtable database
-  window.AUM_CRM_HOOK = function (action, payload) {
+  // Structured CRM Hook for Master SQLite CRM, client intake bot, and event listeners
+  window.AUM_CRM_HOOK = function (actionOrPayload, maybePayload) {
+    const detail = (typeof actionOrPayload === 'string')
+      ? Object.assign({ action: actionOrPayload, timestamp: new Date().toISOString() }, maybePayload || {})
+      : Object.assign({ timestamp: new Date().toISOString() }, actionOrPayload || {});
     try {
-      const event = new CustomEvent('aum:lead_inquiry', {
-        detail: { action, payload, timestamp: new Date().toISOString() }
-      });
-      window.dispatchEvent(event);
+      if (typeof window._AUM_CRM_LISTENER === 'function') {
+        window._AUM_CRM_LISTENER(detail);
+      }
+      window.dispatchEvent(new CustomEvent('aum:lead', { detail }));
+      window.dispatchEvent(new CustomEvent('aum:lead_inquiry', {
+        detail: { action: detail.action, payload: detail, timestamp: detail.timestamp }
+      }));
+      const act = String(detail.action || '');
+      if ((act === 'inquire_whatsapp' || act === 'register_mandate' || act === 'advisor_inquiry') && typeof fetch === 'function') {
+        const href = String((window.location && window.location.href) || '');
+        if (/^https?:\/\//i.test(href)) {
+          fetch('/api/public/inquiries', {
+            method: 'POST',
+            keepalive: true,
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              client_name: detail.name || detail.client_name || 'Website Visitor',
+              client_phone: detail.phone || detail.client_phone || null,
+              preferred_location: detail.corridor || detail.location || 'Gurugram',
+              budget_text: detail.budget || detail.price || null,
+              property_id: detail.property_id || null,
+              source_channel: act,
+              source_page: detail.source || 'architectural_grid_concept',
+              message: detail.notes || (detail.title ? `Inquiry regarding ${detail.title} (${detail.property_id || 'Web'})` : null)
+            })
+          }).catch(() => {});
+        }
+      }
     } catch (e) {}
   };
 
@@ -437,7 +464,7 @@
         <img src="assets/property-images/${image}" alt="${safeText(title)}" loading="lazy" onerror="this.onerror=null;this.src='https://aumestates.com/assets/property-images/${image}';">
         <span class="property-badge">${safeText(badgeText)}</span>
       </a>
-      <p class="property-number">REF / ${id} · ${safeText(catLabel)}</p>
+      <p class="property-number">REF / ${safeText(id)} · ${safeText(catLabel)}</p>
       <div class="property-meta">
         <span class="location">${safeText(loc)}</span>
         <span class="type">${safeText(catLabel)}</span>
@@ -458,6 +485,7 @@
   function currentFiltered() {
     const dataset = getInventory();
     let items = dataset.filter(item => {
+      if (!item || String(item.status || 'Available').toLowerCase() !== 'available') return false;
       if (!matchesMode(item, state.intent)) return false;
       if (state.location && !matchesLocation(item, state.location)) return false;
       if (state.type && !matchesCategory(item, state.type)) return false;
@@ -713,12 +741,33 @@
 
     if (buyerContact) {
       buyerContact.href = `https://wa.me/${WHATSAPP_DESK}?text=${encodeURIComponent('Hi Ajay, I am looking for a luxury property in Gurgaon. Can we schedule a private advisory consultation?')}`;
+      buyerContact.addEventListener('click', () => window.AUM_CRM_HOOK('advisor_inquiry', { source: 'grid_buyer_cta', notes: 'Buyer private advisory consultation' }));
     }
     if (ownerContact) {
       ownerContact.href = `https://wa.me/${WHATSAPP_DESK}?text=${encodeURIComponent('Hi Ajay, I own a property in Gurgaon and would like to discuss private listing and representation with AUM ESTATES.')}`;
+      ownerContact.addEventListener('click', () => window.AUM_CRM_HOOK('advisor_inquiry', { source: 'grid_owner_cta', notes: 'Owner private representation inquiry' }));
     }
     if (businessContact) {
       businessContact.href = `https://wa.me/${WHATSAPP_DESK}?text=${encodeURIComponent('Hi Ajay, I would like to discuss commercial office / retail investment opportunities in Gurgaon.')}`;
+      businessContact.addEventListener('click', () => window.AUM_CRM_HOOK('advisor_inquiry', { source: 'grid_business_cta', notes: 'Commercial / retail investment inquiry' }));
+    }
+
+    const resultsGridEl = $('#resultsGrid');
+    if (resultsGridEl) {
+      resultsGridEl.addEventListener('click', event => {
+        const waLink = event.target && event.target.closest ? event.target.closest('.whatsapp-link') : null;
+        if (!waLink) return;
+        const card = waLink.closest('.property-card');
+        if (card) {
+          window.AUM_CRM_HOOK('inquire_whatsapp', {
+            source: 'architectural_grid_card',
+            property_id: card.dataset.propertyId || '',
+            title: card.dataset.title || '',
+            price: card.dataset.price || '',
+            location: card.dataset.location || ''
+          });
+        }
+      });
     }
 
     const homeSearch = $('#homeSearch');

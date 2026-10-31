@@ -1,14 +1,16 @@
 {
   "name": "aum-estates",
-  "version": "1.0.0",
-  "description": "Production website and secure data pipeline for AUM ESTATES Gurgaon (Est. 2002)",
+  "version": "2.0.0",
+  "description": "Master SQLite Backend, Dual-Surface Search Engine, Fiduciary Advisory CRM & Static Hostinger Publisher for AUM ESTATES Gurgaon (Est. 2002)",
   "private": true,
   "scripts": {
-    "start": "node scripts/serve.js",
+    "start": "node backend/server.js",
+    "crm": "node backend/server.js",
     "serve": "node scripts/serve.js",
     "serve:hostinger": "node scripts/serve.js",
-    "test": "node --test aum-grid-local-baseline-2026-10-27/study-controls.test.cjs aum-grid-local-baseline-2026-10-27/production-verification.test.cjs",
+    "test": "node --test aum-grid-local-baseline-2026-10-27/study-controls.test.cjs aum-grid-local-baseline-2026-10-27/production-verification.test.cjs backend/backend-crm.test.cjs",
     "build": "node scripts/sanitize_and_build.js",
+    "publish": "node scripts/sanitize_and_build.js",
     "verify": "node scripts/verify_site.js",
     "manage": "node scripts/manage_inventory.js",
     "add": "node scripts/manage_inventory.js interactive",
@@ -18,7 +20,9 @@
   "keywords": [
     "aum-estates",
     "gurgaon-real-estate",
-    "luxury-property-advisory"
+    "luxury-property-advisory",
+    "real-estate-crm",
+    "fts5-search"
   ],
   "author": "AUM ESTATES Engineering Team",
   "license": "UNLICENSED"

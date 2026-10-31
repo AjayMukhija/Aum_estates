@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="AUM Estates property advisory in Gurugram. Find properties, inspect the details and speak directly with a professional.">
+  <title>AUM Estates — Property Index</title>
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./brand.css">
+  <script src="./public_inventory.js" defer></script>
+  <script src="./app.js" defer></script>
+  <script src="./brand.js" defer></script>
+</head>
+<body data-brand="datum">
+  <a class="skip" href="#primary">Skip to content</a>
+  <main id="primary">
+    <section id="index" class="screen index-screen active" aria-label="Find properties">
+      <header class="site-header">
+        <button type="button" class="brand" data-nav="index">AUM ESTATES<small>PROPERTY ADVISORY · GURUGRAM</small></button>
+        <nav class="site-nav" aria-label="Property Index navigation">
+          <button type="button" data-nav="index" aria-current="page">Properties</button>
+          <button type="button" data-nav="locations">Areas</button>
+          <button type="button" data-nav="about" class="nav-wide">About</button>
+        </nav>
+        <div class="header-actions"><button type="button" class="shortlist-trigger" data-shortlist hidden>Saved <span class="saved-count">0</span></button><button type="button" class="advisor-action" data-nav="consult">Speak with Ajay ↗</button><button type="button" class="menu-trigger" data-menu-open aria-expanded="false">Menu ＋</button></div>
+      </header>
+      <div class="index-main">
+        <div class="index-intro">
+          <div class="intro-statement"><p class="eyebrow">AUM ESTATES / GURUGRAM</p><h1>Find a home.<br>Know the details.</h1><div class="brand-field" aria-hidden="true"><canvas id="brand-field-canvas"></canvas><span class="brand-field-symbol">A/E</span><span class="brand-field-axis"></span></div></div>
+          <section class="hero-discovery" id="index-search" aria-label="Search property inventory">
+            <label class="eyebrow" for="inventory-purpose">WHAT ARE YOU LOOKING FOR?</label>
+            <div class="purpose-select-wrap"><select id="inventory-purpose" aria-label="Property category"><option value="Buy">Properties for sale</option><option value="Rent">Properties to rent</option><option value="Commercial">Commercial spaces</option><option value="Land">Land &amp; plots</option></select><span aria-hidden="true">⌄</span></div>
+            <div class="hero-fields">
+              <div class="index-control"><label for="index-query">Project or locality</label><input id="index-query" type="search" placeholder="Project, sector, GCR, kothi, SCO or keyword" autocomplete="off"></div>
+              <div class="index-control"><label for="index-area">Area</label><select id="index-area"><option value="Gurugram">Gurugram</option><option value="All areas">All areas</option><option value="Golf Course Road">Golf Course Road</option><option value="Golf Course Extension">Golf Course Extension</option><option value="Dwarka Expressway">Dwarka Expressway</option><option value="Southern Peripheral Road (SPR)">Southern Peripheral Road (SPR)</option><option value="New Gurgaon">New Gurgaon</option><option value="Central Gurgaon &amp; HUDA Sectors">Central Gurgaon &amp; HUDA Sectors</option><option value="Sohna &amp; Aravalli Belt">Sohna &amp; Aravalli Belt</option><option value="Nirvana Country">Nirvana Country</option><option value="South Goa">South Goa</option></select></div>
+            </div>
+            <div class="hero-tools"><button type="button" class="text-control" id="filter-toggle" aria-expanded="false" aria-controls="filter-panel">More filters ＋</button><button type="button" class="text-control" id="filter-clear" hidden>Clear filters</button></div>
+          </section>
+        </div>
+        <div id="filter-panel" class="filter-panel" hidden>
+          <div class="filter-fields">
+            <div class="field"><label for="filter-bedrooms">Configuration</label><select id="filter-bedrooms"><option value="Any">Any</option><option value="1">1 BHK</option><option value="2">2 BHK</option><option value="3">3 BHK</option><option value="4">4 BHK</option><option value="5">5+ BHK</option></select></div>
+            <div class="field"><label for="filter-budget">Published budget</label><select id="filter-budget"><option value="Any">Any / price on request</option><option value="0-5">Below ₹5 Cr</option><option value="5-10">₹5–10 Cr</option><option value="10+">Above ₹10 Cr</option></select></div>
+            <div class="field"><label for="filter-sort">Sort</label><select id="filter-sort"><option value="featured">Selected order</option><option value="price_asc">Price: Low to High</option><option value="price_desc">Price: High to Low</option><option value="area_desc">Area: Largest first</option><option value="name">Name A–Z</option><option value="location">Location A–Z</option></select></div>
+          </div>
+          <p class="source-note">Budget filters show only references with a published price. “Price on request” references cannot be compared against a budget range.</p>
+        </div>
+        <section id="index-properties" aria-label="Selected property references">
+          <div class="index-heading">
+            <div><h2 id="result-title">Property index</h2><p id="result-context" class="result-context"></p></div>
+            <div class="results-meta"><p id="list-count" aria-live="polite"></p></div>
+          </div>
+          <div id="property-list" aria-label="Property references grouped by type"></div>
+          <div class="list-empty" id="list-empty" hidden>
+            <h3 id="empty-title">No matching reference in this study.</h3>
+            <p id="empty-message">The sample is deliberately limited. That does not mean properties are unavailable in the actual market. We can discuss your requirement directly.</p>
+            <div class="empty-actions"><button type="button" class="solid-button" data-nav="consult" id="empty-contact">Ask Ajay about your requirement ↗</button><button type="button" class="underlined" id="empty-reset">Clear search and filters</button></div>
+          </div>
+          <p class="source-note">These are selected public references, not a live feed. Prices, availability, images and other details must be confirmed before use. <a data-source-link href="https://aumestates.com/approved-properties/index.html">See the original inventory ↗</a></p>
+        </section>
+        <section class="service-principles" aria-label="How AUM Estates approaches a property decision"><div class="principles-intro"><p class="eyebrow">AUM ESTATES / AN ADVISORY APPROACH</p><h2>Good property advice begins before the viewing.</h2><p>Different people have different constraints. The search should account for them, and the information should hold up to scrutiny.</p><button type="button" class="underlined" data-nav="consult">Discuss a decision with Ajay ↗</button></div><div class="principle-list"><div><span class="principle-number">01</span><div><h3>Understand the person.</h3><p>Budget, commute, family needs, timing and non-negotiables come first—before another list of properties.</p></div></div><div><span class="principle-number">02</span><div><h3>Compare the complete cost.</h3><p>Purchase or rental terms, recurring expenses, usable space and practical compromises—not a headline price alone.</p></div></div><div><span class="principle-number">03</span><div><h3>Say what still needs checking.</h3><p>Published information is a starting point. Specific units, documents, terms and availability need independent confirmation.</p></div></div></div></section>
+      </div>
+      <footer class="site-footer"><div class="footer-lead"><strong>AUM ESTATES</strong><p>Practical property advice. Clearer decisions.</p></div><div><h3>Explore</h3><button data-nav="buy">Buy</button><button data-nav="rent">Rent</button><button data-nav="locations">Locations</button></div><div><h3>Company</h3><button data-nav="about">About</button><button data-nav="consult">Speak with Ajay</button><button data-nav="disclaimer">Source & disclaimer</button></div><div><h3>Contact</h3><a href="tel:+919873813595">+91 98738 13595</a><p>C-210, Nirvana Courtyard<br>Sector 50, Gurugram</p></div></footer>
+    </section>
+
+    <section id="view" class="screen view-screen" aria-label="Property details" hidden>
+      <header class="site-header">
+        <button type="button" class="brand" data-nav="index">AUM ESTATES<small>PROPERTY ADVISORY · GURUGRAM</small></button>
+        <nav class="site-nav" aria-label="Property detail navigation">
+          <button type="button" data-nav="index">Properties</button>
+          <button type="button" data-nav="locations">Areas</button>
+          <button type="button" data-nav="about" class="nav-wide">About</button>
+        </nav>
+        <div class="header-actions"><button type="button" class="shortlist-trigger" data-shortlist hidden>Saved <span class="saved-count">0</span></button><button type="button" class="advisor-action" data-nav="consult">Speak with Ajay ↗</button><button type="button" class="menu-trigger" data-menu-open aria-expanded="false">Menu ＋</button></div>
+      </header>
+      <div class="view-main">
+        <div class="view-intro">
+          <div><button type="button" class="underlined detail-back" data-nav="index">← All properties</button></div>
+        </div>
+        <section class="gallery-shell" id="view-gallery" aria-label="Property details and questions">
+          <nav class="gallery-list" id="gallery-list" aria-label="Choose a property"></nav>
+          <div class="gallery-identity" aria-live="polite">
+            <p class="overline" id="gallery-area"></p>
+            <h1 id="gallery-name"></h1>
+          </div>
+          <figure class="gallery-figure">
+            <div class="gallery-image-wrap"><img class="gallery-image" id="gallery-image" src="" alt=""><div class="image-fallback" id="gallery-image-fallback" hidden>Image unavailable from source</div><span class="image-index" id="gallery-position">01 / 06</span></div>
+            <figcaption><span id="gallery-image-note"></span><span class="gallery-arrows"><button type="button" id="gallery-prev" aria-label="Previous property">← Previous</button><button type="button" id="gallery-next" aria-label="Next property">Next →</button></span></figcaption>
+          </figure>
+          <div class="gallery-information" aria-live="polite">
+            <div class="property-fact-register">
+              <h2 class="register-label">PUBLISHED REFERENCE</h2>
+              <dl class="summary-facts">
+                <div><dt>Property type</dt><dd id="gallery-kind"></dd></div>
+                <div><dt>Published details</dt><dd id="gallery-detail"></dd></div>
+                <div><dt>Published price</dt><dd class="price" id="gallery-price"></dd></div>
+              </dl>
+            </div>
+            <div class="verification-summary"><span class="verification-label"><span class="verification-dot" aria-hidden="true"></span> STILL TO CONFIRM</span><p>Exact unit, current availability, total terms and documents.</p></div>
+            <div class="gallery-actions"><button type="button" class="solid-button" id="gallery-enquire">Ask Ajay to confirm details ↗</button><div class="gallery-secondary-actions"><button type="button" class="underlined" id="gallery-save" aria-pressed="false">Save to compare</button><button type="button" class="quiet-action" id="gallery-share">Copy property link</button></div></div>
+            <div class="gallery-tabs" role="tablist" aria-label="Property information"><button id="tab-checks" role="tab" type="button" data-gallery-tab="checks" aria-controls="gallery-tab-content" aria-selected="true">What to check</button><button id="tab-facts" role="tab" type="button" data-gallery-tab="facts" aria-controls="gallery-tab-content" aria-selected="false">Sources</button><button id="tab-notes" role="tab" type="button" data-gallery-tab="notes" aria-controls="gallery-tab-content" aria-selected="false">My notes</button></div>
+            <div id="gallery-tab-content" class="gallery-tab-content" role="tabpanel"></div>
+          </div>
+        </section>
+      </div>
+      <footer class="site-footer"><div class="footer-lead"><strong>AUM ESTATES</strong><p>Practical property advice. Clearer decisions.</p></div><div><h3>Explore</h3><button data-nav="index">Property index</button><button data-nav="locations">Locations</button></div><div><h3>Company</h3><button data-nav="about">About</button><button data-nav="consult">Speak with Ajay</button><button data-nav="disclaimer">Source & disclaimer</button></div><div><h3>Contact</h3><a href="tel:+919873813595">+91 98738 13595</a><p>C-210, Nirvana Courtyard<br>Sector 50, Gurugram</p></div></footer>
+    </section>
+  </main>
+  <aside class="mega" id="mega" hidden aria-label="Site menu"><div class="mega-inner"><div class="mega-top"><p class="eyebrow">AUM ESTATES / EXPLORE</p><button type="button" class="underlined" id="menu-close">Close ×</button></div><div class="mega-columns"><div><span class="mega-label">FIND A PROPERTY</span><button data-nav="buy">Buy a home <span>↗</span></button><button data-nav="rent">Rent a home <span>↗</span></button><button data-nav="commercial">Commercial spaces <span>↗</span></button><button data-nav="land">Plots & land <span>↗</span></button></div><div><span class="mega-label">ADVICE & COMPANY</span><button data-nav="locations">Browse locations <span>↗</span></button><button data-nav="approach">How we work <span>↗</span></button><button data-nav="about">About AUM Estates <span>↗</span></button><button data-nav="consult">Speak with Ajay <span>↗</span></button></div><div class="mega-contact"><span class="mega-label">YOUR CONTACT</span><strong>Ajay Mukhija</strong><a href="tel:+919873813595">+91 98738 13595</a><p>C-210, Nirvana Courtyard<br>Sector 50, Gurugram</p><button class="underlined" data-nav="disclaimer">Study notes & sources ↗</button></div></div></div></aside>
+  <div class="sheet-backdrop" id="sheet-backdrop" hidden></div><aside class="detail-sheet" id="detail-sheet" hidden role="dialog" aria-modal="true" aria-label="More information"><div class="sheet-header"><span class="eyebrow">AUM ESTATES / INFORMATION</span><button type="button" id="sheet-close" aria-label="Close panel">Close ×</button></div><div id="sheet-content"></div></aside>
+  <section class="brand-studio" id="brand-studio" aria-label="Private brand concept study">
+    <div class="studio-panel" id="studio-panel" hidden>
+      <header class="studio-header"><div><span class="studio-overline">AUM ESTATES / BRAND STUDY</span><h2>Five identities. One clear experience.</h2></div><button type="button" class="studio-close" id="studio-close" aria-label="Close brand study">×</button></header>
+      <div class="studio-preview" aria-hidden="true"><canvas id="studio-preview-canvas"></canvas><span class="studio-preview-mark" id="studio-preview-mark">A/E</span><span class="studio-preview-label" id="studio-preview-label">01 / ARCHITECTURAL DATUM</span></div>
+      <p class="studio-description" id="studio-description"></p>
+      <div class="studio-choices" role="group" aria-label="Choose a brand direction">
+        <button type="button" data-brand-option="datum" aria-pressed="true"><span class="choice-index">01</span><span><strong>Datum</strong><small>Architectural precision</small></span><span class="choice-sample sample-datum" aria-hidden="true"></span></button>
+        <button type="button" data-brand-option="sun" aria-pressed="false"><span class="choice-index">02</span><span><strong>Sun</strong><small>Light and shallow relief</small></span><span class="choice-sample sample-sun" aria-hidden="true"></span></button>
+        <button type="button" data-brand-option="atlas" aria-pressed="false"><span class="choice-index">03</span><span><strong>Atlas</strong><small>Contour and place</small></span><span class="choice-sample sample-atlas" aria-hidden="true"></span></button>
+        <button type="button" data-brand-option="screen" aria-pressed="false"><span class="choice-index">04</span><span><strong>Screen</strong><small>Perforation and shadow</small></span><span class="choice-sample sample-screen" aria-hidden="true"></span></button>
+        <button type="button" data-brand-option="imprint" aria-pressed="false"><span class="choice-index">05</span><span><strong>Imprint</strong><small>Editorial materiality</small></span><span class="choice-sample sample-imprint" aria-hidden="true"></span></button>
+      </div>
+      <a class="studio-board-link" id="studio-board-link" href="./brand-board.html">View complete brand applications <span aria-hidden="true">↗</span></a>
+      <a class="studio-board-link" id="studio-responsive-link" href="./responsive-lab.html">Inspect phone &amp; tablet layouts <span aria-hidden="true">↗</span></a>
+      <div class="studio-footnote"><span>Private study only · Sources and property details are unchanged.</span><span id="studio-tech">CSS / vector rules</span></div>
+    </div>
+    <button type="button" class="studio-trigger" id="studio-trigger" aria-controls="studio-panel" aria-expanded="false"><span class="studio-trigger-label">BRAND STUDIO</span><span id="studio-current">01 / DATUM</span><span class="studio-trigger-icon" aria-hidden="true">＋</span></button>
+  </section>
+</body>
+</html>

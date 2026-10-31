@@ -142,11 +142,32 @@ const waBtn = document.getElementById('detail-wa-btn');
 
 // Global CRM bridge definition
 if (typeof window.AUM_CRM_HOOK !== 'function') {
-  window.AUM_CRM_HOOK = function(payload) {
+  window.AUM_CRM_HOOK = function(actionOrPayload, maybePayload) {
+    const payload = (typeof actionOrPayload === 'string')
+      ? Object.assign({ action: actionOrPayload, timestamp: new Date().toISOString() }, maybePayload || {})
+      : Object.assign({ timestamp: new Date().toISOString() }, actionOrPayload || {});
     if (window._AUM_CRM_LISTENER) {
       try { window._AUM_CRM_LISTENER(payload); } catch (e) { console.error('CRM hook error:', e); }
     }
     window.dispatchEvent(new CustomEvent('aum:lead', { detail: payload }));
+    const act = String(payload.action || '');
+    if ((act === 'inquire_whatsapp' || act === 'register_mandate' || act === 'advisor_inquiry') && typeof fetch === 'function' && /^https?:$/i.test(location.protocol)) {
+      fetch('/api/public/inquiries', {
+        method: 'POST',
+        keepalive: true,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          client_name: payload.name || 'Website Visitor',
+          client_phone: payload.phone || null,
+          preferred_location: payload.corridor || payload.location || 'Gurugram',
+          budget_text: payload.budget || payload.price || null,
+          property_id: payload.property_id || null,
+          source_channel: act,
+          source_page: payload.source || location.pathname,
+          message: payload.notes || (payload.title ? `Inquiry regarding ${payload.title} (${payload.property_id || 'Web'})` : null)
+        })
+      }).catch(() => {});
+    }
   };
 }
 

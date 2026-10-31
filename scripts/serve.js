@@ -1,18 +1,22 @@
 #!/usr/bin/env node
 /**
- * AUM ESTATES — Unified Dual Preview Server
- * Simultaneously serves:
- *   - Port 8000: Architectural Grid Explorer (default route) & workspace tree
- *   - Port 8080: Hostinger Production Tree (aumestates.com)
+ * AUM ESTATES — Contained Loopback Preview Server
+ * Binds strictly to 127.0.0.1 by default (override via AUM_HOST) and enforces
+ * realpath directory containment so workspace internals (.git, private_master_store,
+ * backups, parent directories) are never exposed over HTTP.
  */
 
-const http = require('http');
-const fs = require('fs');
-const path = require('path');
+'use strict';
+
+const http = require('node:http');
+const fs = require('node:fs');
+const path = require('node:path');
 
 const ROOT_DIR = path.resolve(__dirname, '..');
 const GRID_DIR = path.join(ROOT_DIR, 'aum-grid-local-baseline-2026-10-27', 'dist');
 const HOSTINGER_DIR = path.join(ROOT_DIR, 'AUM_ESTATES_Website_For_Hostinger');
+const V16_DIR = path.join(ROOT_DIR, 'AUM_Estates_Brand_Study_v16_Local', 'dist');
+const BIND_HOST = process.env.AUM_HOST || '127.0.0.1';
 
 const MIMES = {
   '.html': 'text/html; charset=utf-8',
@@ -25,69 +29,94 @@ const MIMES = {
   '.webp': 'image/webp',
   '.svg': 'image/svg+xml',
   '.ico': 'image/x-icon',
+  '.xml': 'application/xml; charset=utf-8',
   '.woff': 'font/woff',
   '.woff2': 'font/woff2'
 };
 
-function serveFile(req, res, filePath) {
-  if (fs.existsSync(filePath)) {
-    const stat = fs.statSync(filePath);
-    if (stat.isDirectory()) {
-      const idx = path.join(filePath, 'index.html');
-      if (fs.existsSync(idx)) {
-        return serveFile(req, res, idx);
-      }
-    } else if (stat.isFile()) {
-      const ext = path.extname(filePath).toLowerCase();
-      res.writeHead(200, {
-        'Content-Type': MIMES[ext] || 'application/octet-stream',
-        'Cache-Control': 'no-cache',
-        'Access-Control-Allow-Origin': '*'
-      });
-      fs.createReadStream(filePath).pipe(res);
-      return;
-    }
+const SECURITY_HEADERS = {
+  'X-Content-Type-Options': 'nosniff',
+  'X-Frame-Options': 'SAMEORIGIN',
+  'Referrer-Policy': 'strict-origin-when-cross-origin',
+  'Cache-Control': 'no-cache'
+};
+
+function resolveContainedFile(baseDir, relUrlPath) {
+  if (!fs.existsSync(baseDir)) return null;
+  let decoded;
+  try {
+    decoded = decodeURIComponent(relUrlPath || '/');
+  } catch {
+    return null;
   }
-  res.writeHead(404, { 'Content-Type': 'text/plain' });
-  res.end(`404 Not Found: ${req.url}`);
+  if (decoded.includes('\0')) return null;
+
+  const segments = decoded.split('/').filter(Boolean);
+  for (const seg of segments) {
+    if (seg === '.' || seg === '..') return null;
+    if (seg.startsWith('.')) return null;
+    if (seg.toLowerCase() === 'backups' || seg.toLowerCase() === 'private_master_store') return null;
+    if (/\.(?:bak|backup|md|txt|jsonl|sqlite|db)$/i.test(seg)) return null;
+  }
+
+  const realBase = fs.realpathSync(baseDir);
+  let candidate = path.resolve(realBase, segments.join(path.sep));
+  if (candidate !== realBase && !candidate.startsWith(realBase + path.sep)) return null;
+  if (!fs.existsSync(candidate)) return null;
+
+  const st = fs.statSync(candidate);
+  if (st.isDirectory()) {
+    candidate = path.join(candidate, 'index.html');
+    if (!fs.existsSync(candidate)) return null;
+  }
+
+  const realCandidate = fs.realpathSync(candidate);
+  if (realCandidate !== realBase && !realCandidate.startsWith(realBase + path.sep)) return null;
+  if (!fs.statSync(realCandidate).isFile()) return null;
+  return realCandidate;
 }
 
-// 1. Architectural Grid Explorer Server (Port 8000)
+function sendStatic(res, resolvedPath) {
+  if (!resolvedPath) {
+    res.writeHead(404, { ...SECURITY_HEADERS, 'Content-Type': 'text/plain; charset=utf-8' });
+    res.end('404 Not Found');
+    return;
+  }
+  const ext = path.extname(resolvedPath).toLowerCase();
+  res.writeHead(200, {
+    ...SECURITY_HEADERS,
+    'Content-Type': MIMES[ext] || 'application/octet-stream'
+  });
+  fs.createReadStream(resolvedPath).pipe(res);
+}
+
+// 1. Architectural Grid Explorer Server (Port 8000, strictly contained)
 const server8000 = http.createServer((req, res) => {
-  const reqPath = req.url.split('?')[0];
+  const reqPath = (req.url || '/').split('?')[0];
 
-  // If root requested, serve Architectural Grid Explorer directly
-  if (reqPath === '/' || reqPath === '/index.html') {
-    return serveFile(req, res, path.join(GRID_DIR, 'index.html'));
+  if (reqPath.startsWith('/v16/')) {
+    return sendStatic(res, resolveContainedFile(V16_DIR, reqPath.slice('/v16/'.length)));
   }
-
-  // If path starts with /aum-grid..., resolve relative to ROOT
   if (reqPath.startsWith('/aum-grid-local-baseline-2026-10-27/dist/')) {
-    const sub = reqPath.replace('/aum-grid-local-baseline-2026-10-27/dist/', '');
-    return serveFile(req, res, path.join(GRID_DIR, sub));
+    return sendStatic(res, resolveContainedFile(GRID_DIR, reqPath.slice('/aum-grid-local-baseline-2026-10-27/dist/'.length)));
   }
-
-  // If path starts with /AUM_ESTATES..., resolve relative to ROOT
   if (reqPath.startsWith('/AUM_ESTATES_Website_For_Hostinger/')) {
-    const sub = reqPath.replace('/AUM_ESTATES_Website_For_Hostinger/', '');
-    return serveFile(req, res, path.join(HOSTINGER_DIR, sub));
+    return sendStatic(res, resolveContainedFile(HOSTINGER_DIR, reqPath.slice('/AUM_ESTATES_Website_For_Hostinger/'.length)));
+  }
+  if (reqPath.startsWith('/assets/') || reqPath.startsWith('/properties/')) {
+    const inGrid = resolveContainedFile(GRID_DIR, reqPath);
+    if (inGrid) return sendStatic(res, inGrid);
+    return sendStatic(res, resolveContainedFile(HOSTINGER_DIR, reqPath));
   }
 
-  // Default: check inside GRID_DIR first, then ROOT_DIR
-  const gridPath = path.join(GRID_DIR, reqPath);
-  if (fs.existsSync(gridPath)) {
-    return serveFile(req, res, gridPath);
-  }
-
-  const rootPath = path.join(ROOT_DIR, reqPath);
-  return serveFile(req, res, rootPath);
+  return sendStatic(res, resolveContainedFile(GRID_DIR, reqPath === '/' ? 'index.html' : reqPath));
 });
 
-server8000.listen(8000, () => {
-  console.log('✓ [PORT 8000] Architectural Grid Explorer: http://localhost:8000/');
+server8000.listen(8000, BIND_HOST, () => {
+  console.log(`✓ [PORT 8000] Architectural Grid Explorer: http://${BIND_HOST}:8000/`);
 });
 
-server8000.on('error', err => {
+server8000.on('error', (err) => {
   if (err.code === 'EADDRINUSE') {
     console.warn('! [PORT 8000] Already in use, assuming active.');
   } else {
@@ -95,18 +124,17 @@ server8000.on('error', err => {
   }
 });
 
-// 2. Hostinger Website Server (Port 8080)
+// 2. Hostinger Production Website Server (Port 8080, strictly contained)
 const server8080 = http.createServer((req, res) => {
-  const reqPath = req.url.split('?')[0];
-  const hostingerPath = path.join(HOSTINGER_DIR, reqPath);
-  serveFile(req, res, hostingerPath);
+  const reqPath = (req.url || '/').split('?')[0];
+  return sendStatic(res, resolveContainedFile(HOSTINGER_DIR, reqPath === '/' ? 'index.html' : reqPath));
 });
 
-server8080.listen(8080, () => {
-  console.log('✓ [PORT 8080] Hostinger Production Website: http://localhost:8080/');
+server8080.listen(8080, BIND_HOST, () => {
+  console.log(`✓ [PORT 8080] Hostinger Production Website: http://${BIND_HOST}:8080/`);
 });
 
-server8080.on('error', err => {
+server8080.on('error', (err) => {
   if (err.code === 'EADDRINUSE') {
     console.warn('! [PORT 8080] Already in use, assuming active.');
   } else {

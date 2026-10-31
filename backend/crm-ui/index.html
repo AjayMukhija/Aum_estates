@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AUM ESTATES — Advisory CRM &amp; Master Inventory Vault</title>
+  <link rel="stylesheet" href="/crm/crm.css">
+  <script src="/crm/crm.js" defer></script>
+</head>
+<body>
+  <!-- Authentication Gate -->
+  <section id="auth-screen" class="auth-screen" hidden>
+    <div class="auth-card">
+      <div class="auth-brand">
+        <span class="brand-mark">A/E</span>
+        <div>
+          <strong>AUM ESTATES</strong>
+          <small>ADVISORY CRM &amp; FIDUCIARY VAULT · GURUGRAM</small>
+        </div>
+      </div>
+      <h1>Advisor Sign In</h1>
+      <p class="auth-lead">Access the private master database, off-market mandates, WhatsApp/Excel intake gatekeeper, and buyer deal pipeline.</p>
+      <form id="login-form" class="stack-form">
+        <div class="field">
+          <label for="login-email">Advisor Email</label>
+          <input id="login-email" name="email" type="email" required autocomplete="username" value="ajay@aumestates.com">
+        </div>
+        <div class="field">
+          <label for="login-password">Password</label>
+          <input id="login-password" name="password" type="password" required autocomplete="current-password" value="AumAdvisory@2026">
+        </div>
+        <p id="login-error" class="form-error" role="alert" hidden></p>
+        <button type="submit" class="btn btn-primary btn-block" id="login-submit">Enter Advisory Desk →</button>
+      </form>
+      <p class="auth-footnote">Bound to loopback · Strict table-level isolation between Public Catalogue and Private Fiduciary Vault.</p>
+    </div>
+  </section>
+
+  <!-- Main Authenticated CRM Workspace -->
+  <div id="app-shell" class="app-shell" hidden>
+    <aside class="sidebar" aria-label="CRM Primary Navigation">
+      <div class="sidebar-brand">
+        <span class="brand-mark">A/E</span>
+        <div>
+          <strong>AUM ESTATES</strong>
+          <small>MASTER DB &amp; CRM</small>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <button type="button" class="nav-btn active" data-tab="overview">
+          <span>01</span> Advisory Desk
+          <b class="badge" id="nav-badge-pending" hidden>0</b>
+        </button>
+        <button type="button" class="nav-btn" data-tab="inventory">
+          <span>02</span> Master Inventory
+          <b class="badge badge-muted" id="nav-badge-total">0</b>
+        </button>
+        <button type="button" class="nav-btn" data-tab="intake">
+          <span>03</span> Intake Studio
+        </button>
+        <button type="button" class="nav-btn" data-tab="leads">
+          <span>04</span> Leads &amp; Matcher
+          <b class="badge" id="nav-badge-leads" hidden>0</b>
+        </button>
+        <button type="button" class="nav-btn" data-tab="contacts">
+          <span>05</span> Contacts Vault
+        </button>
+        <button type="button" class="nav-btn" data-tab="publish">
+          <span>06</span> Publish &amp; Audit
+        </button>
+      </nav>
+
+      <div class="sidebar-links">
+        <span class="eyebrow">LIVE FRONTENDS</span>
+        <a href="/v16/" target="_blank" rel="noopener">Brand Study v16 (Live API) ↗</a>
+        <a href="/grid/" target="_blank" rel="noopener">Architectural Grid 06 ↗</a>
+        <a href="/" target="_blank" rel="noopener">Production Hostinger Site ↗</a>
+      </div>
+
+      <div class="sidebar-user">
+        <div>
+          <strong id="user-name">Ajay Mukhija</strong>
+          <small id="user-role">Principal Advisor</small>
+        </div>
+        <button type="button" class="btn-link" id="logout-btn">Sign out</button>
+      </div>
+    </aside>
+
+    <main class="workspace" id="main-workspace">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow" id="topbar-eyebrow">AUM ESTATES / OPERATIONS</p>
+          <h1 id="topbar-title">Advisory Desk</h1>
+        </div>
+        <div class="topbar-actions">
+          <button type="button" class="btn btn-secondary" id="quick-new-mandate">＋ New Mandate</button>
+          <button type="button" class="btn btn-primary" id="quick-publish-btn">Sync Public Feeds</button>
+        </div>
+      </header>
+
+      <div id="toast-banner" class="toast-banner" role="status" aria-live="polite" hidden></div>
+
+      <!-- TAB 1: OVERVIEW DESK -->
+      <section id="tab-overview" class="tab-panel">
+        <div class="kpi-grid" id="overview-kpis"></div>
+
+        <div class="two-col-grid">
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <span class="eyebrow">HUMAN-IN-THE-LOOP GATEKEEPER</span>
+                <h2>Pending Public Approval</h2>
+              </div>
+              <button type="button" class="btn-link" data-jump-tab="intake">Paste WhatsApp ＋</button>
+            </div>
+            <div id="overview-pending-list" class="compact-list"></div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <span class="eyebrow">INBOUND &amp; ADVISORY PIPELINE</span>
+                <h2>Recent Buyer &amp; Client Leads</h2>
+              </div>
+              <button type="button" class="btn-link" data-jump-tab="leads">Open Pipeline →</button>
+            </div>
+            <div id="overview-leads-list" class="compact-list"></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <span class="eyebrow">DATA FRESHNESS &amp; EVIDENTIARY INTEGRITY</span>
+              <h2>Mandates Requiring Confirmation / 120-Day Reverification</h2>
+            </div>
+            <button type="button" class="btn-link" id="view-all-reverify">Filter in Master Inventory →</button>
+          </div>
+          <div id="overview-reverify-list" class="compact-list"></div>
+        </div>
+      </section>
+
+      <!-- TAB 2: MASTER INVENTORY & FIDUCIARY VAULT -->
+      <section id="tab-inventory" class="tab-panel" hidden>
+        <div class="filter-bar card">
+          <div class="search-input-wrap">
+            <label for="inv-q" class="sr-only">Search Master Database</label>
+            <input id="inv-q" type="search" placeholder="Search title, sector, owner name, phone (98110...), unit #, cheque note, or WhatsApp text (Press /)">
+          </div>
+          <div class="filter-row">
+            <select id="inv-pub" aria-label="Publication State">
+              <option value="all">All Publication States</option>
+              <option value="approved_public">Approved Public (Web)</option>
+              <option value="private_off_market">Private Off-Market Vault</option>
+              <option value="pending_approval">Pending Approval</option>
+              <option value="draft">Draft</option>
+              <option value="archived">Archived</option>
+            </select>
+            <select id="inv-avail" aria-label="Availability State">
+              <option value="all">All Availability</option>
+              <option value="available">Available</option>
+              <option value="under_offer">Under Offer</option>
+              <option value="sold">Sold</option>
+              <option value="leased">Leased</option>
+              <option value="withdrawn">Withdrawn</option>
+            </select>
+            <select id="inv-corridor" aria-label="Corridor">
+              <option value="all">All Corridors</option>
+              <option value="Golf Course Road">Golf Course Road</option>
+              <option value="DLF Phase 1–5">DLF Phase 1–5</option>
+              <option value="Golf Course Ext & SPR">Golf Course Ext &amp; SPR</option>
+              <option value="Nirvana Country & Sohna Road">Nirvana Country &amp; Sohna Road</option>
+              <option value="Sushant Lok & Central Gurgaon">Sushant Lok &amp; Central Gurgaon</option>
+              <option value="Dwarka Expressway & New Gurgaon">Dwarka Expressway &amp; New Gurgaon</option>
+              <option value="South Goa">South Goa</option>
+            </select>
+            <select id="inv-category" aria-label="Asset Category">
+              <option value="all">All Categories</option>
+              <option value="apartment">Apartments</option>
+              <option value="builder-floor">Builder Floors</option>
+              <option value="villa">Villas / Houses</option>
+              <option value="plot">Plots &amp; Land</option>
+              <option value="commercial">Commercial</option>
+              <option value="farmhouse">Farmhouses</option>
+            </select>
+            <label class="checkbox-pill">
+              <input type="checkbox" id="inv-reverify">
+              <span>Needs Confirmation / Reverify</span>
+            </label>
+            <button type="button" class="btn-link" id="inv-reset">Reset</button>
+          </div>
+        </div>
+
+        <div class="table-meta">
+          <span id="inv-count" class="tabular">0 mandates</span>
+          <span class="fineprint">Click any row to edit public specifications or open the confidential Fiduciary Seller/Broker Vault.</span>
+        </div>
+
+        <div class="table-card card">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Property &amp; Micro-Market</th>
+                <th>Specs</th>
+                <th>Public Price</th>
+                <th>Private Vault Summary</th>
+                <th>State</th>
+              </tr>
+            </thead>
+            <tbody id="inv-tbody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- TAB 3: INTAKE STUDIO (WHATSAPP PARSER & EXCEL/CSV IMPORTER) -->
+      <section id="tab-intake" class="tab-panel" hidden>
+        <div class="two-col-grid">
+          <div class="card">
+            <span class="eyebrow">CHANNEL 1 · TWO-PASS CONVERSATIONAL PARSER</span>
+            <h2>WhatsApp Broadcast Intake</h2>
+            <p class="card-desc">Paste an unstructured broker or owner WhatsApp message. Pass 1 extracts clean public specs; Pass 2 quarantines phones, exact unit numbers, floor prices, commission splits, and cheque notes into the Private Vault.</p>
+
+            <div class="stack-form">
+              <div class="field">
+                <div class="label-row">
+                  <label for="wa-source">Source Group / Broker Syndicate</label>
+                  <button type="button" class="btn-link" id="wa-load-sample">Load Sample Broadcast</button>
+                </div>
+                <input id="wa-source" type="text" value="GCR Luxury Realtors WhatsApp">
+              </div>
+              <div class="field">
+                <label for="wa-raw">Raw WhatsApp Message</label>
+                <textarea id="wa-raw" rows="5" placeholder="e.g. DLF The Belaire Sec 54 | 4BHK + Servant 3065 sqft | Higher floor Tower D 172 | North East facing | Asking 9.25 Cr closer 8.85 Cr | 70:30 cheque | 1% side by side | Keys with Rohit 98110 45678"></textarea>
+              </div>
+              <div class="btn-row">
+                <button type="button" class="btn btn-secondary" id="wa-preview-btn">Extract &amp; Quarantine (Preview)</button>
+                <button type="button" class="btn btn-primary" id="wa-commit-btn">Stage in Pending Approval →</button>
+              </div>
+            </div>
+
+            <div id="wa-preview-box" class="intake-preview" hidden></div>
+          </div>
+
+          <div class="card">
+            <span class="eyebrow">CHANNEL 2 · MASTER WORKBOOK &amp; BATCH SYNC</span>
+            <h2>Excel (.xlsx), CSV &amp; JSON Importer</h2>
+            <p class="card-desc">Upload a Master Inventory Excel workbook (<code>.xlsx</code>), <code>.csv</code>, or <code>.json</code> export. Owner names, seller mobiles, floor prices, and cheque notes are automatically routed into <code>property_private</code>. Always runs a safe dry-run first.</p>
+
+            <div class="stack-form">
+              <div class="field">
+                <label for="import-file">Select Workbook or Data File (.xlsx, .csv, .tsv, .json)</label>
+                <input id="import-file" type="file" accept=".xlsx,.csv,.tsv,.json">
+              </div>
+              <div class="btn-row">
+                <button type="button" class="btn btn-secondary" id="import-dryrun-btn">1. Run Dry-Run Validation</button>
+                <button type="button" class="btn btn-primary" id="import-commit-btn" disabled>2. Commit to Master DB</button>
+              </div>
+            </div>
+
+            <div id="import-preview-box" class="intake-preview" hidden></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 4: LEADS, DEAL PIPELINE & AUTO-MATCHER -->
+      <section id="tab-leads" class="tab-panel" hidden>
+        <div class="toolbar-row">
+          <div class="stage-pills" id="lead-stage-pills"></div>
+          <button type="button" class="btn btn-primary" id="new-lead-btn">＋ Register Buyer / Lead</button>
+        </div>
+
+        <div class="table-card card">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Lead ID</th>
+                <th>Client &amp; Contact</th>
+                <th>Brief &amp; Target Corridor</th>
+                <th>Stated Budget</th>
+                <th>Stage</th>
+                <th>Source</th>
+              </tr>
+            </thead>
+            <tbody id="leads-tbody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- TAB 5: CONTACTS DIRECTORY -->
+      <section id="tab-contacts" class="tab-panel" hidden>
+        <div class="toolbar-row">
+          <div class="filter-row">
+            <input id="cnt-q" type="search" placeholder="Search name, family office, syndicate, or phone...">
+            <select id="cnt-type" aria-label="Contact Type">
+              <option value="all">All Contact Roles</option>
+              <option value="buyer">Buyers &amp; Investors</option>
+              <option value="seller_owner">Property Owners / Sellers</option>
+              <option value="channel_broker">Channel Partner Brokers</option>
+              <option value="family_office">Family Offices</option>
+            </select>
+          </div>
+          <button type="button" class="btn btn-primary" id="new-contact-btn">＋ Add Contact</button>
+        </div>
+
+        <div class="table-card card">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name &amp; Firm / Syndicate</th>
+                <th>Role</th>
+                <th>Phone &amp; Email</th>
+                <th>Linked Mandates</th>
+                <th>Linked Leads</th>
+              </tr>
+            </thead>
+            <tbody id="contacts-tbody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- TAB 6: PUBLISH & AUDIT LOG -->
+      <section id="tab-publish" class="tab-panel" hidden>
+        <div class="card publish-card">
+          <div>
+            <span class="eyebrow">ATOMIC STATIC COMPILER &amp; FIDUCIARY FIREWALL</span>
+            <h2>Synchronize Public Feeds &amp; Hostinger Release</h2>
+            <p class="card-desc">Compiles only <code>approved_public</code> + <code>available</code> records from the Master Database, runs the stateless PII/phone/commission/cheque firewall across every field, reconciles featured cards and projects, and atomically updates all 4 static frontend targets.</p>
+          </div>
+          <button type="button" class="btn btn-primary" id="publish-run-btn">Compile &amp; Publish Clean Feeds →</button>
+        </div>
+
+        <div id="publish-result-box" class="card" hidden></div>
+
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <span class="eyebrow">ACCOUNTABILITY &amp; TRACEABILITY</span>
+              <h2>Immutable Audit Trail</h2>
+            </div>
+          </div>
+          <div class="table-card">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Timestamp (UTC)</th>
+                  <th>Actor</th>
+                  <th>Entity</th>
+                  <th>Action</th>
+                  <th>Summary</th>
+                </tr>
+              </thead>
+              <tbody id="audit-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- SLIDE-OVER DRAWER FOR PROPERTY DOSSIER / LEAD AUTO-MATCHER / NEW CONTACT -->
+  <div id="drawer-backdrop" class="drawer-backdrop" hidden></div>
+  <aside id="drawer" class="drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-title" hidden>
+    <header class="drawer-header">
+      <div>
+        <span class="eyebrow" id="drawer-eyebrow">RECORD</span>
+        <h2 id="drawer-title">Details</h2>
+      </div>
+      <button type="button" class="drawer-close" id="drawer-close" aria-label="Close panel">Close ×</button>
+    </header>
+    <div id="drawer-body" class="drawer-body"></div>
+  </aside>
+</body>
+</html>

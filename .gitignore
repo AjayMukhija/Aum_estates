@@ -1,0 +1,21 @@
+# Dependencies & OS artifacts
+node_modules/
+.DS_Store
+*.log
+
+# Environment & Secrets
+.env
+.env.*
+
+# Confidential Master SQLite CRM Vault, Sessions & Release Snapshots
+private_master_store/db/
+private_master_store/releases/
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm
+
+# Local Backups & Temp files
+**/backups/
+*.bak
+*.backup
+*.tmp.*

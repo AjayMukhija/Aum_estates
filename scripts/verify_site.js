@@ -56,16 +56,17 @@ assertCheck('Inventory threshold count (>= 340 verified mandates)', inventory.le
 
 // Scan each record for private field leaks or sensitive strings
 const ALLOWED_FIELDS = new Set([
-  'property_id', 'status', 'project_name', 'locality', 'sector', 'city',
-  'micro_location', 'property_type', 'transaction_type', 'listing_title',
-  'configuration', 'bedrooms', 'bathrooms', 'area_value', 'area_unit',
-  'facing', 'road_width', 'price_value', 'price_unit', 'price_text',
-  'rent_value', 'rent_unit', 'key_features', 'public_description',
-  'public_features', 'image_label', 'slug', 'url'
+  'property_id', 'status', 'project_id', 'project_name', 'locality', 'sector', 'city',
+  'micro_location', 'corridor', 'property_type', 'category', 'transaction_type', 'listing_title',
+  'configuration', 'bedrooms', 'bathrooms', 'area_value', 'area_unit', 'area_sqft_norm',
+  'facing', 'road_width', 'price_value', 'price_unit', 'price_text', 'price_inr_norm',
+  'rent_value', 'rent_unit', 'rent_inr_monthly_norm', 'key_features', 'public_description',
+  'public_features', 'image_file', 'image_label', 'verification_status', 'last_verified',
+  'things_to_confirm', 'slug', 'url'
 ]);
 
-const LEAK_REGEX = /\b(?:commission|brokerage|broker\s*cut|payout|\d{2}\s*[\/:]\s*\d{2}\s*(?:white|black)|owner\s*mob|owner\s*name)\b/i;
-const PHONE_REGEX = /(?:\+91[\s-]?)?[6-9]\d{9}\b/;
+const LEAK_REGEX = /\b(?:commission|brokerage|broker\s*cut|payout|cheque|cash\s*(?:part|deal|component)|white\s*(?:deal|entry|component|part|ratio)|\d{1,3}\s*[\/:]\s*\d{1,3}\s*(?:white|black|cheque|cash)|owner\s*(?:mob|name|phone)|keys?\s*in\s*hand)\b/i;
+const PHONE_GLOBAL_REGEX = /(?:₹|rs\.?\s*|inr\s*)?(?:\+?91[\s.-]?|0)?([6-9]\d(?:[\s.-]?\d){8})\b/gi;
 const OFFICIAL_PHONES = ['9873813595', '9811157018'];
 
 let unwhitelistedKeysFound = 0;
@@ -84,8 +85,11 @@ inventory.forEach(item => {
   Object.entries(item).forEach(([k, v]) => {
     if (typeof v === 'string') {
       if (LEAK_REGEX.test(v)) leaksFound++;
-      const match = v.match(PHONE_REGEX);
-      if (match && !OFFICIAL_PHONES.some(p => v.includes(p))) leaksFound++;
+      for (const m of v.matchAll(PHONE_GLOBAL_REGEX)) {
+        if (/^(?:₹|rs|inr)/i.test(m[0].trim())) continue;
+        const digits = m[1].replace(/\D/g, '');
+        if (digits.length === 10 && !OFFICIAL_PHONES.includes(digits)) leaksFound++;
+      }
     }
   });
 });

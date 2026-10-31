@@ -5,17 +5,17 @@ window.AUM_APPROVED_PROPERTIES = [
     "location": "Golf Course Extension Road, Sector 63, Gurgaon",
     "type": "Luxury High-Rise Condominium",
     "description": "Prestigious 4 BHK luxury condominium in DLF's signature low-density development. Sprawling green landscapes, multi-tier waterbodies, private clubhouse, and state-of-the-art wellness amenities.",
-    "price_text": "₹8.50 Cr",
-    "price_value": "8.50 Cr",
+    "price_text": "₹25 lakh premium",
+    "price_value": "25 lakh premium",
     "features": "4 BHK + Staff Suite · 3,950 sq ft · Triple Height Lobby",
     "image": "assets/property-images/dlf-arbour.jpg",
     "transaction_type": "Sale",
     "category": "Residential",
-    "slug": "dlf-the-arbour-sector-63",
+    "slug": "privana-south-tower-a-unit-1",
     "image_label": "Architectural Visual"
   },
   {
-    "property_id": "AUM-WEB-000078",
+    "property_id": "AUM-WEB-000151",
     "name": "DLF Park Place · Golf Course Road",
     "location": "DLF Phase 5, Golf Course Road, Gurgaon",
     "type": "Ultra-Luxury High-Rise Residence",
@@ -24,24 +24,24 @@ window.AUM_APPROVED_PROPERTIES = [
     "price_value": "8.75 Cr",
     "features": "4 BHK + Servant · 2,282 sq ft · Aravalli & Pool Facing",
     "image": "assets/property-images/dlf-park-place.jpg",
-    "transaction_type": "Sale",
+    "transaction_type": "Rent",
     "category": "Residential",
-    "slug": "dlf-park-place-golf-course-road",
+    "slug": "dlf-park-place-2282-aravalli",
     "image_label": "Actual Site Photograph"
   },
   {
-    "property_id": "AUM-WEB-DLF-GROVE",
+    "property_id": "AUM-WEB-000135",
     "name": "DLF The Grove · DLF Phase 5",
     "location": "DLF Phase 5, Gurgaon",
     "type": "Luxury Independent Floor",
     "description": "Gated low-rise luxury living in DLF Phase 5. Independent floor with private basement storage, dedicated staff quarters, covered stilt parking, and multi-tier access control.",
-    "price_text": "₹13.50 Cr",
-    "price_value": "13.50 Cr",
+    "price_text": "₹13.5 Cr",
+    "price_value": "13.5 Cr",
     "features": "4 BHK + Office · 500 sq yds plot · Gated DLF Phase 5",
     "image": "assets/property-images/dlf-grove.jpg",
     "transaction_type": "Sale",
     "category": "Residential",
-    "slug": "dlf-the-grove-dlf-phase-5",
+    "slug": "dlf-grove-500-sq-yd-4-bhk-office",
     "image_label": "Actual Site Photograph"
   },
   {
@@ -56,7 +56,7 @@ window.AUM_APPROVED_PROPERTIES = [
     "image": "assets/property-images/elevate-by-hines.webp",
     "transaction_type": "Sale",
     "category": "Residential",
-    "slug": "conscient-elevate-sector-59",
+    "slug": "conscient-elevate-2595-sq-ft-3-bhk-servant",
     "image_label": "Architectural Visual"
   },
   {
@@ -71,7 +71,7 @@ window.AUM_APPROVED_PROPERTIES = [
     "image": "assets/property-images/nirvana-villa.jpg",
     "transaction_type": "Sale",
     "category": "Residential",
-    "slug": "nirvana-deerwood-independent-villa",
+    "slug": "aum-web-000002-nirvana-deerwood",
     "image_label": "Actual Site Photograph"
   },
   {
@@ -84,9 +84,9 @@ window.AUM_APPROVED_PROPERTIES = [
     "price_value": "11.50 Cr",
     "features": "4 BHK + Family Lounge · 6,000 sq ft · Private Elevator",
     "image": "assets/property-images/paras-quartier.jpg",
-    "transaction_type": "Sale",
+    "transaction_type": "Rent",
     "category": "Residential",
-    "slug": "paras-quartier-gwal-pahari",
+    "slug": "ridgewood-estate-rental-option-2",
     "image_label": "Actual Site Photograph"
   },
   {
@@ -101,11 +101,11 @@ window.AUM_APPROVED_PROPERTIES = [
     "image": "assets/property-images/pioneer-presidia.jpg",
     "transaction_type": "Sale",
     "category": "Residential",
-    "slug": "pioneer-presidia-sector-62",
+    "slug": "pioneer-presidia-3-bhk-servant-2595",
     "image_label": "Actual Site Photograph"
   },
   {
-    "property_id": "AUM-WEB-000054",
+    "property_id": "AUM-WEB-000253",
     "name": "DLF The Belaire · Golf Course Road",
     "location": "DLF Phase 5, Golf Course Road, Gurgaon",
     "type": "Luxury Condominium",
@@ -116,7 +116,7 @@ window.AUM_APPROVED_PROPERTIES = [
     "image": "assets/property-images/dlf-the-belaire.webp",
     "transaction_type": "Sale",
     "category": "Residential",
-    "slug": "dlf-the-belaire-golf-course-road",
+    "slug": "dlf-the-Belaire-dlf-Belaire-54-3065-sq-ft-4-bhk-servant",
     "image_label": "Actual Site Photograph"
   },
   {
@@ -131,22 +131,22 @@ window.AUM_APPROVED_PROPERTIES = [
     "image": "assets/property-images/indiabulls-enigma.jpg",
     "transaction_type": "Sale",
     "category": "Residential",
-    "slug": "indiabulls-enigma-sector-110",
+    "slug": "indiabulls-enigma-renovated-furnished-4-bhk-servant",
     "image_label": "Actual Site Photograph"
   },
   {
-    "property_id": "AUM-APP-0001",
+    "property_id": "AUM-WEB-000019",
     "name": "Sukoon by ASYA · Majorda, Goa",
     "location": "Majorda, South Goa",
     "type": "Private Luxury Villa Estate",
     "description": "Curated collection of 9 bespoke private pool villas nestled in serene Majorda, South Goa. Private plunge pool, landscaped courtyard, and concierge-managed lifestyle for secondary home buyers.",
     "price_text": "₹7.00 Cr – ₹9.00 Cr",
-    "price_value": "7.00 Cr",
+    "price_value": "7.00 Cr – ₹9.00 Cr",
     "features": "3 & 4 BHK Private Pool Villas · Curated Gated Enclave",
     "image": "assets/sukoon-asya-project-photo.png",
     "transaction_type": "Sale",
     "category": "Residential",
-    "slug": "sukoon-by-asya-majorda-goa",
+    "slug": "aum-web-000019-asya-smartliving",
     "image_label": "Architectural Visual"
   },
   {
@@ -155,13 +155,13 @@ window.AUM_APPROVED_PROPERTIES = [
     "location": "Udyog Vihar Phase 4, Gurgaon",
     "type": "Pre-Leased Institutional Commercial Building",
     "description": "Grade-A institutional corporate building on prime commercial land. High-yield corporate tenancy, strong rental yield, passenger lifts, and 100% power backup.",
-    "price_text": "₹50.00 Cr",
-    "price_value": "50.00 Cr",
+    "price_text": "₹50 Cr",
+    "price_value": "50 Cr",
     "features": "Pre-Rented Corporate Building · High Institutional Yield",
     "image": "assets/property-images/building.jpg",
     "transaction_type": "Sale",
     "category": "Commercial",
-    "slug": "udyog-vihar-phase-4-pre-rented-building",
+    "slug": "aum-web-000296-udyog-vihar-phase-4-pre-rented-building",
     "image_label": "Representative Visual"
   },
   {
@@ -170,13 +170,13 @@ window.AUM_APPROVED_PROPERTIES = [
     "location": "Sector 48, Main Sohna Road, Gurgaon",
     "type": "Prime Commercial Showroom Suites",
     "description": "High-visibility retail and commercial units on main Sohna Road. Multi-tier retail atrium, wide road frontage, and immediate possession readiness.",
-    "price_text": "₹90 Lakh onwards",
-    "price_value": "90 Lakh",
+    "price_text": "₹90 Lacs onwards",
+    "price_value": "90 Lacs onwards",
     "features": "Retail Showrooms & Offices · Main Sohna Road Frontage",
     "image": "assets/project-images/smartworld-orchid.jpg",
     "transaction_type": "Sale",
     "category": "Commercial",
-    "slug": "vantage-aura-self-use-commercial-units",
+    "slug": "User-provided Vantage Aura creative 16 Sep 2026",
     "image_label": "Architectural Visual"
   },
   {
@@ -200,13 +200,13 @@ window.AUM_APPROVED_PROPERTIES = [
     "location": "Shahtoot Marg, DLF Phase 1, Gurgaon",
     "type": "Freehold Residential Estate Plot",
     "description": "Rare 1,022 sq yds trophy residential land holding on prestigious Shahtoot Marg. Clear title provenance, mature trees, and approved FAR for a bespoke family estate.",
-    "price_text": "₹60.00 Cr",
-    "price_value": "60.00 Cr",
+    "price_text": "₹60 Cr",
+    "price_value": "60 Cr",
     "features": "1,022 Sq Yds · Shahtoot Marg · Prestigious Enclave",
     "image": "assets/property-images/plot-land-user.jpg",
     "transaction_type": "Sale",
     "category": "Plots & Land",
-    "slug": "dlf-phase-1-shahtoot-marg-1022-sq-yd-plot-1",
+    "slug": "aum-web-000339-dlf-phase-1-shahtoot-marg-1022-sq-yd-plot-1",
     "image_label": "Actual Site Photograph"
   },
   {
@@ -215,13 +215,13 @@ window.AUM_APPROVED_PROPERTIES = [
     "location": "Akashneem Marg, DLF Phase 2, Gurgaon",
     "type": "Map-Approved Residential Plot",
     "description": "500 sq yds prime residential plot with approved sanction (Naksha Pass) on premier Akashneem Marg. Minutes from CyberCity and Rapid Metro connectivity.",
-    "price_text": "₹30.00 Cr",
-    "price_value": "30.00 Cr",
+    "price_text": "₹30 Cr",
+    "price_value": "30 Cr",
     "features": "500 Sq Yds · Naksha Pass · Akashneem Marg",
     "image": "assets/property-images/plot-land-user.jpg",
     "transaction_type": "Sale",
     "category": "Plots & Land",
-    "slug": "dlf-phase-2-akashneem-marg-500-sq-yd-plot-naksha-pass-2",
+    "slug": "aum-web-000354-dlf-phase-2-akashneem-marg-500-sq-yd-plot-naksha-pass-2",
     "image_label": "Actual Site Photograph"
   },
   {
