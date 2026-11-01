@@ -1,3 +1,5 @@
+> **Implementation status — 1 November 2026:** This document is the original architecture roadmap, not the current operating contract. SQLite CRM, authenticated APIs, imports, approval, matching, client shortlists and synchronized publishing are implemented. The current authority is README.md and deploy/README.md. Do not use historical credential, JSON-editing, atomicity or production-certification claims below as operational instructions.
+
 # AUM ESTATES — Backend System Specification & Strategic Architecture Roadmap
 
 **Document Version:** 1.0.0  

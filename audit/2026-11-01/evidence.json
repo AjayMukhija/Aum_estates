@@ -1,0 +1,40 @@
+{
+  "review_date": "2026-11-01",
+  "commit": "81d5e0f",
+  "node_version": "v26.5.0",
+  "scope": "Local repository, isolated in-memory HTTP probes, temporary package copies and local browser inspection. No live writes.",
+  "checks": {
+    "npm_test": { "passed": 12, "failed": 0 },
+    "npm_verify": { "passed": 45, "failed": 0 },
+    "isolated_packaging": { "exit": 0, "bundled_files": 266 },
+    "old_audit_probes": {
+      "predicates_reporting_reproduction": 0,
+      "total": 23,
+      "limitations": [
+        "Old failure injection no longer targets temporary-file writes.",
+        "Old packaging fixture converts symlinks during copying and fails before testing intended canaries."
+      ]
+    },
+    "inventory_copies": { "checked": 5, "identical_sha256_prefix": "205723788e33" }
+  },
+  "confirmed_probes": [
+    { "name": "draft_disclosure_via_client_shortlist", "draft_create_status": 201, "shortlist_create_status": 201, "public_get_status": 200, "synthetic_private_phone_exposed": true },
+    { "name": "analyst_can_approve_publication", "status": 200 },
+    { "name": "valid_cookie_and_invalid_session_header_bypass_csrf", "contact_create_status": 201, "cross_origin_browser_exploit_tested": false },
+    { "name": "partial_release_promotion", "injected_failure": "promotion of primary public_inventory.js", "json_price_text_after_failure": "₹6.75 Cr", "javascript_price_text_after_failure": "₹5.50 Cr" },
+    { "name": "rollback_diverges_from_database", "update_exit": 0, "rollback_exit": 0, "rollback_restored_previous_feed": true, "subsequent_build_exit": 0, "subsequent_build_reinstated_undone_price": 6.75 }
+  ],
+  "featured_identity_conflicts": [
+    { "id": "AUM-WEB-000142", "featured_name": "DLF The Arbour · Sector 63", "master_title": "Privana South Tower A Unit 1" },
+    { "id": "AUM-WEB-000095", "featured_name": "Paras Quartier · Gwal Pahari", "master_title": "Ridgewood Estate rental option 2" }
+  ],
+  "browser": {
+    "homepage_mobile_viewport_width": 390,
+    "homepage_mobile_document_width": 564,
+    "v16_mobile_viewport_width": 390,
+    "v16_mobile_document_width": 375,
+    "featured_dossier_identity_verified": "AUM-WEB-000142 opens Privana South Tower A Unit 1"
+  },
+  "production_verification": { "verified": false, "reason": "Web tool could not access the domain; sandbox shell could not resolve host. No conclusion about public uptime." },
+  "repository_changes": "Assessment report and evidence only."
+}

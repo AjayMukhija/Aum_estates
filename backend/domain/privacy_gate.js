@@ -1,7 +1,7 @@
 'use strict';
 
 const { OFFICIAL_PHONES, ALLOWED_PUBLIC_FIELDS } = require('../config');
-const { cleanWhitespace } = require('./normalizer');
+const { cleanWhitespace, cleanListingTitle, slugify } = require('./normalizer');
 
 const PROPERTY_ID_REGEX = /^[A-Z0-9][A-Z0-9-]{2,47}$/;
 
@@ -236,6 +236,10 @@ function validateAndProjectPublicRecord(row) {
   const projected = {};
   for (const field of ALLOWED_PUBLIC_FIELDS) {
     let val = row[field];
+    if (field === 'listing_title') val = cleanListingTitle(val, row.project_name);
+    if (field === 'url') val = `https://aumestates.com/properties/detail.html?id=${encodeURIComponent(id || '')}`;
+    if (field === 'image_file' && val != null && !/^[A-Za-z0-9_.-]+\.(?:jpe?g|png|webp|svg|avif)$/i.test(val)) errors.push('Invalid public image filename');
+    if (field === 'slug') val = slugify(`${id}-${cleanListingTitle(row.listing_title, row.project_name)}`);
 
     if (field === 'status') {
       val = availState === 'available' ? 'Available' : availState;
@@ -245,12 +249,14 @@ function validateAndProjectPublicRecord(row) {
       if (typeof val === 'string') {
         try {
           const parsed = JSON.parse(val);
-          val = Array.isArray(parsed) ? parsed.map((x) => cleanWhitespace(x)).filter(Boolean) : [];
+          if (!Array.isArray(parsed) || parsed.some((x) => typeof x !== 'string')) errors.push('things_to_confirm must contain only strings');
+          val = Array.isArray(parsed) ? parsed.filter((x) => typeof x === 'string').map((x) => cleanWhitespace(x)).filter(Boolean) : [];
         } catch {
           val = val ? [cleanWhitespace(val)] : [];
         }
       } else if (Array.isArray(val)) {
-        val = val.map((x) => cleanWhitespace(x)).filter(Boolean);
+        if (val.some((x) => typeof x !== 'string')) errors.push('things_to_confirm must contain only strings');
+        val = val.filter((x) => typeof x === 'string').map((x) => cleanWhitespace(x)).filter(Boolean);
       } else {
         val = [];
       }

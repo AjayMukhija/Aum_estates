@@ -876,7 +876,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "south-city-1-o-block-358-8-sq-yd",
+    "slug": "aum-web-000083-south-city-1-o-block-358-8-sq-yd",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000083"
   },
   {
@@ -920,7 +920,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "sahara-mall-shop-065-gf",
+    "slug": "aum-web-000084-sahara-mall-shop-065-gf",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000084"
   },
   {
@@ -964,7 +964,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "sector-37c-huda-hsvp-165-sq-yd-plot",
+    "slug": "aum-web-000085-sector-37c-huda-hsvp-165-sq-yd-plot",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000085"
   },
   {
@@ -1008,7 +1008,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "sushant-lok-1-a-block-350-sq-yd-upper-ground",
+    "slug": "aum-web-000086-sushant-lok-1-a-block-350-sq-yd-upper-ground",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000086"
   },
   {
@@ -1052,7 +1052,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "greenwood-city-sector-45-c-block-351-sq-yd",
+    "slug": "aum-web-000087-greenwood-city-sector-45-c-block-351-sq-yd",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000087"
   },
   {
@@ -1096,7 +1096,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "sector-31-old-built-up-house-286-sq-yd",
+    "slug": "aum-web-000088-sector-31-old-built-up-house-286-sq-yd",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000088"
   },
   {
@@ -1140,7 +1140,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "valley-view-estate-2-bhk-1100-sq-ft",
+    "slug": "aum-web-000089-valley-view-estate-2-bhk-1100-sq-ft",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000089"
   },
   {
@@ -1184,7 +1184,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "ridgewood-estate-sale-option-1",
+    "slug": "aum-web-000090-ridgewood-estate-sale-option-1",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000090"
   },
   {
@@ -1228,7 +1228,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "ridgewood-estate-sale-option-2",
+    "slug": "aum-web-000091-ridgewood-estate-sale-option-2",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000091"
   },
   {
@@ -1272,7 +1272,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "ridgewood-estate-sale-option-3",
+    "slug": "aum-web-000092-ridgewood-estate-sale-option-3",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000092"
   },
   {
@@ -1316,7 +1316,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "ridgewood-estate-sale-option-4",
+    "slug": "aum-web-000093-ridgewood-estate-sale-option-4",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000093"
   },
   {
@@ -1360,7 +1360,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "ridgewood-estate-rental-option-1",
+    "slug": "aum-web-000094-ridgewood-estate-rental-option-1",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000094"
   },
   {
@@ -1404,7 +1404,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "ridgewood-estate-rental-option-2",
+    "slug": "aum-web-000095-ridgewood-estate-rental-option-2",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000095"
   },
   {
@@ -1448,7 +1448,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "ridgewood-estate-rental-option-3",
+    "slug": "aum-web-000096-ridgewood-estate-rental-option-3",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000096"
   },
   {
@@ -1492,7 +1492,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "ridgewood-estate-rental-option-4",
+    "slug": "aum-web-000097-ridgewood-estate-rental-option-4",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000097"
   },
   {
@@ -1536,7 +1536,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "ridgewood-estate-rental-option-5",
+    "slug": "aum-web-000098-ridgewood-estate-rental-option-5",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000098"
   },
   {
@@ -1580,7 +1580,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "ridgewood-estate-rental-option-6",
+    "slug": "aum-web-000099-ridgewood-estate-rental-option-6",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000099"
   },
   {
@@ -1624,7 +1624,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "ridgewood-estate-rental-option-7",
+    "slug": "aum-web-000100-ridgewood-estate-rental-option-7",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000100"
   },
   {
@@ -1668,7 +1668,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "malibu-town-575-sq-yd-plot",
+    "slug": "aum-web-000101-malibu-town-575-sq-yd-plot",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000101"
   },
   {
@@ -1712,7 +1712,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "nirvana-country-360-sq-yd-plot",
+    "slug": "aum-web-000102-nirvana-country-360-sq-yd-plot",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000102"
   },
   {
@@ -1756,7 +1756,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "sector-42-8-marla-map-approved-plot",
+    "slug": "aum-web-000103-sector-42-8-marla-map-approved-plot",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000103"
   },
   {
@@ -1800,7 +1800,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "sector-52-10-marla-map-approved-plot",
+    "slug": "aum-web-000104-sector-52-10-marla-map-approved-plot",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000104"
   },
   {
@@ -1844,7 +1844,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "sector-15-part-1-8-marla-plot",
+    "slug": "aum-web-000105-sector-15-part-1-8-marla-plot",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000105"
   },
   {
@@ -1888,7 +1888,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "pioneer-presidia-3-bhk-servant-2595",
+    "slug": "aum-web-000106-pioneer-presidia-3-bhk-servant-2595",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000106"
   },
   {
@@ -1932,7 +1932,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "palm-terrace-select-4-bhk-servant-2410",
+    "slug": "aum-web-000107-palm-terrace-select-4-bhk-servant-2410",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000107"
   },
   {
@@ -1976,7 +1976,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "close-north-3-bhk-2069-oc-tower",
+    "slug": "aum-web-000108-close-north-3-bhk-2069-oc-received",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000108"
   },
   {
@@ -2020,7 +2020,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "close-north-3-bhk-2069-mp",
+    "slug": "aum-web-000109-close-north-3-bhk-2069",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000109"
   },
   {
@@ -2064,7 +2064,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "close-north-3-bhk-servant-2605",
+    "slug": "aum-web-000110-close-north-3-bhk-servant-2605",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000110"
   },
   {
@@ -2108,7 +2108,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "close-north-3-bhk-servant-2480",
+    "slug": "aum-web-000111-close-north-3-bhk-servant-2480",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000111"
   },
   {
@@ -2152,7 +2152,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "close-south-3-bhk-servant-2480",
+    "slug": "aum-web-000112-close-south-3-bhk-servant-2480",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000112"
   },
   {
@@ -2196,7 +2196,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "urban-oasis-3-bhk-2122",
+    "slug": "aum-web-000113-urban-oasis-3-bhk-2122",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000113"
   },
   {
@@ -2240,7 +2240,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "urban-oasis-2-bhk-1500",
+    "slug": "aum-web-000114-urban-oasis-2-bhk-1500",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000114"
   },
   {
@@ -2284,7 +2284,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "harmony-3-bhk-servant",
+    "slug": "aum-web-000115-harmony-3-bhk-servant",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000115"
   },
   {
@@ -2328,7 +2328,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "harmony-4-bhk-servant",
+    "slug": "aum-web-000116-harmony-4-bhk-servant",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000116"
   },
   {
@@ -2372,7 +2372,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "bptp-park-life-3-bhk-servant-study",
+    "slug": "aum-web-000117-bptp-park-life-3-bhk-servant-study",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000117"
   },
   {
@@ -2416,7 +2416,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "smartworld-sky-arc-3-bhk",
+    "slug": "aum-web-000118-smartworld-sky-arc-3-bhk",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000118"
   },
   {
@@ -2460,7 +2460,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "smartworld-sky-arc-4-bhk",
+    "slug": "aum-web-000119-smartworld-sky-arc-4-bhk",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000119"
   },
   {
@@ -2504,7 +2504,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "adani-samsara-floor-4-bhk-servant-420-sq-yd",
+    "slug": "aum-web-000120-adani-samsara-floor-4-bhk-servant-420-sq-yd",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000120"
   },
   {
@@ -2548,7 +2548,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "pioneer-araya-block-c-4-bhk-servant-4690",
+    "slug": "aum-web-000121-pioneer-araya-block-c-4-bhk-servant-4690",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000121"
   },
   {
@@ -2592,7 +2592,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "anant-raj-estate-block-e-3-bhk-300-sq-yd",
+    "slug": "aum-web-000122-anant-raj-estate-block-e-3-bhk-300-sq-yd",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000122"
   },
   {
@@ -2636,7 +2636,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "pioneer-presidia-block-b-4-bhk-servant-3800",
+    "slug": "aum-web-000123-pioneer-presidia-block-b-4-bhk-servant-3800",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000123"
   },
   {
@@ -2680,7 +2680,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "whiteland-the-aspen-3-bhk-servant-2937",
+    "slug": "aum-web-000124-whiteland-the-aspen-3-bhk-servant-2937",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000124"
   },
   {
@@ -2724,7 +2724,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "paras-the-florett-enqlve-sector-59-3-bhk",
+    "slug": "aum-web-000125-paras-the-florett-enqlve-sector-59-3-bhk",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000125"
   },
   {
@@ -2768,7 +2768,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "ireo-uptown-4-bhk-servant-2100",
+    "slug": "aum-web-000126-ireo-uptown-4-bhk-servant-2100",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000126"
   },
   {
@@ -2812,7 +2812,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "birla-navya-amoda-1-3-bhk-servant-terrace",
+    "slug": "aum-web-000127-birla-navya-amoda-1-3-bhk-servant-terrace",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000127"
   },
   {
@@ -2856,7 +2856,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "tata-raisina-residence-sector-58-4-bhk-servant",
+    "slug": "aum-web-000128-tata-raisina-residence-sector-58-4-bhk-servant",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000128"
   },
   {
@@ -2900,7 +2900,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "uniworld-garden-1-3-bhk-servant-terrace",
+    "slug": "aum-web-000129-uniworld-garden-1-3-bhk-servant-terrace",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000129"
   },
   {
@@ -2944,7 +2944,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "tata-raisina-tower-2-3-bhk-servant",
+    "slug": "aum-web-000130-tata-raisina-tower-2-3-bhk-servant",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000130"
   },
   {
@@ -2988,7 +2988,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "nirvana-villa-deerwood-chase-4-bhk-servant",
+    "slug": "aum-web-000131-nirvana-villa-deerwood-chase-4-bhk-servant",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000131"
   },
   {
@@ -3032,7 +3032,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "eldeco-mansionz-villa-5-bhk-servant",
+    "slug": "aum-web-000132-eldeco-mansionz-villa-5-bhk-servant",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000132"
   },
   {
@@ -3076,7 +3076,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "paras-irene-sector-70a-4-bhk-servant",
+    "slug": "aum-web-000133-paras-irene-sector-70a-4-bhk-servant",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000133"
   },
   {
@@ -3120,7 +3120,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "indiabulls-enigma-renovated-furnished-4-bhk-servant",
+    "slug": "aum-web-000134-indiabulls-enigma-renovated-furnished-4-bhk-servant",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000134"
   },
   {
@@ -3164,7 +3164,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "dlf-grove-500-sq-yd-4-bhk-office",
+    "slug": "aum-web-000135-dlf-grove-500-sq-yd-4-bhk-office",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000135"
   },
   {
@@ -3208,7 +3208,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "palm-springs-plaza-sector-54-office-1200",
+    "slug": "aum-web-000136-palm-springs-plaza-sector-54-office-1200",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000136"
   },
   {
@@ -3224,7 +3224,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "property_type": "Apartment",
     "category": "apartment",
     "transaction_type": "Sale",
-    "listing_title": "DLF Arbour Tower A Unit 5",
+    "listing_title": "DLF Arbour Tower A",
     "configuration": null,
     "bedrooms": null,
     "bathrooms": null,
@@ -3252,7 +3252,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "dlf-arbour-tower-a-unit-5",
+    "slug": "aum-web-000137-dlf-arbour-tower-a",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000137"
   },
   {
@@ -3296,7 +3296,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "dlf-phase-1-c9-lane-500-sq-yd-floor",
+    "slug": "aum-web-000138-dlf-phase-1-c9-lane-500-sq-yd-floor",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000138"
   },
   {
@@ -3340,7 +3340,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aipl-autograph-ground-floor-retail",
+    "slug": "aum-web-000139-aipl-autograph-ground-floor-retail",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000139"
   },
   {
@@ -3384,7 +3384,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "lockable-office-space-2400-sq-ft",
+    "slug": "aum-web-000140-lockable-office-space-2400-sq-ft",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000140"
   },
   {
@@ -3428,7 +3428,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "sobha-aranya-3-bhk-servant-2836",
+    "slug": "aum-web-000141-sobha-aranya-3-bhk-servant-2836",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000141"
   },
   {
@@ -3444,7 +3444,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "property_type": "Apartment",
     "category": "apartment",
     "transaction_type": "Sale",
-    "listing_title": "Privana South Tower A Unit 1",
+    "listing_title": "Privana South Tower A",
     "configuration": null,
     "bedrooms": null,
     "bathrooms": null,
@@ -3472,7 +3472,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "privana-south-tower-a-unit-1",
+    "slug": "aum-web-000142-privana-south-tower-a",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000142"
   },
   {
@@ -3516,7 +3516,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "dlf-westend-heights-furnished-2600",
+    "slug": "aum-web-000143-dlf-westend-heights-furnished-2600",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000143"
   },
   {
@@ -3560,7 +3560,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "signature-global-deluxe-dxp-3-bhk-servant",
+    "slug": "aum-web-000144-signature-global-deluxe-dxp-3-bhk-servant",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000144"
   },
   {
@@ -3604,7 +3604,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "south-city-2-furnished-builder-floor-4th-terrace",
+    "slug": "aum-web-000145-south-city-2-furnished-builder-floor-4th-terrace",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000145"
   },
   {
@@ -3648,7 +3648,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "pushpanjali-farms-bijwasan-2-acre-farmhouse",
+    "slug": "aum-web-000146-pushpanjali-farms-bijwasan-2-acre-farmhouse",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000146"
   },
   {
@@ -3692,7 +3692,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "dlf-park-place-1983-semi",
+    "slug": "aum-web-000147-dlf-park-place-1983-semi",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000147"
   },
   {
@@ -3736,7 +3736,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "dlf-park-place-1983-sublease",
+    "slug": "aum-web-000148-dlf-park-place-1983-sublease",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000148"
   },
   {
@@ -3780,7 +3780,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "dlf-park-place-1983-furnished",
+    "slug": "aum-web-000149-dlf-park-place-1983-furnished",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000149"
   },
   {
@@ -3824,7 +3824,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "dlf-park-place-2282-furnished",
+    "slug": "aum-web-000150-dlf-park-place-2282-furnished",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000150"
   },
   {
@@ -3868,7 +3868,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "dlf-park-place-2282-aravalli",
+    "slug": "aum-web-000151-dlf-park-place-2282-aravalli",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000151"
   },
   {
@@ -3912,7 +3912,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "dlf-park-place-2282-furnished-2",
+    "slug": "aum-web-000152-dlf-park-place-2282-furnished-2",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000152"
   },
   {
@@ -3956,7 +3956,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "dlf-park-place-2704-aravalli",
+    "slug": "aum-web-000153-dlf-park-place-2704-aravalli",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000153"
   },
   {
@@ -4000,7 +4000,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "dlf-park-place-2704-park",
+    "slug": "aum-web-000154-dlf-park-place-2704-park",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000154"
   },
   {
@@ -4044,7 +4044,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "dlf-phase-2-325-yd-villa",
+    "slug": "aum-web-000155-dlf-phase-2-325-yd-villa",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000155"
   },
   {
@@ -4088,7 +4088,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "ireo-grand-arch-furnished-1666",
+    "slug": "aum-web-000156-ireo-grand-arch-furnished-1666",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000156"
   },
   {
@@ -4132,7 +4132,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "m3m-heights-higher-floor-1261",
+    "slug": "aum-web-000157-m3m-heights-higher-floor-1261",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000157"
   },
   {
@@ -4176,7 +4176,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "godrej-meridien-semi-3-bhk",
+    "slug": "aum-web-000158-godrej-meridien-semi-3-bhk",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000158"
   },
   {
@@ -4220,7 +4220,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "south-city-1-180-sq-yd-plot",
+    "slug": "aum-web-000159-south-city-1-180-sq-yd-plot",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000159"
   },
   {
@@ -4264,7 +4264,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "ireo-pride-park-118-sq-yd-plot",
+    "slug": "aum-web-000160-ireo-pride-park-118-sq-yd-plot",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000160"
   },
   {
@@ -4308,7 +4308,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "ireo-pride-park-127-sq-yd-plot",
+    "slug": "aum-web-000161-ireo-pride-park-127-sq-yd-plot",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000161"
   },
   {
@@ -4352,7 +4352,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "ireo-pride-park-179-sq-yd-plot",
+    "slug": "aum-web-000162-ireo-pride-park-179-sq-yd-plot",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000162"
   },
   {
@@ -4396,7 +4396,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "dlf-phase-2-215-sq-yd-independent-builder-floor",
+    "slug": "aum-web-000163-dlf-phase-2-215-sq-yd-independent-builder-floor",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000163"
   },
   {
@@ -4440,7 +4440,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "dlf-carlton-estate-3-bhk-fully-furnished",
+    "slug": "aum-web-000164-dlf-carlton-estate-3-bhk-fully-furnished",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000164"
   },
   {
@@ -4484,7 +4484,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "emaar-marbella-phase-2-350-sq-yd-plot",
+    "slug": "aum-web-000165-emaar-marbella-phase-2-350-sq-yd-plot",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000165"
   },
   {
@@ -4528,7 +4528,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "emerald-floors-premier-1975-sq-ft-4-bhk-servant",
+    "slug": "aum-web-000166-emerald-floors-premier-1975-sq-ft-4-bhk-servant",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000166"
   },
   {
@@ -4572,7 +4572,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "puri-the-aravallis-3-bhk-tower-b",
+    "slug": "aum-web-000167-puri-the-aravallis-3-bhk-tower-b",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000167"
   },
   {
@@ -4616,7 +4616,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "puri-the-aravallis-4-bhk-tower-b",
+    "slug": "aum-web-000168-puri-the-aravallis-4-bhk-tower-b",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000168"
   },
   {
@@ -4660,7 +4660,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "paras-quartier-iconic-tower-6000-sq-ft",
+    "slug": "aum-web-000169-paras-quartier-iconic-tower-6000-sq-ft",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000169"
   },
   {
@@ -4704,7 +4704,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "nirvana-country-300-sq-yd-park-facing-villa",
+    "slug": "aum-web-000170-nirvana-country-300-sq-yd-park-facing-villa",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000170"
   },
   {
@@ -4748,7 +4748,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "malibu-towne-202-sq-yd-park-facing-plot",
+    "slug": "aum-web-000171-malibu-towne-202-sq-yd-park-facing-plot",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000171"
   },
   {
@@ -4792,7 +4792,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "emaar-emerald-hills-topaz-block-758-sq-yd-plot",
+    "slug": "aum-web-000172-emaar-emerald-hills-topaz-block-758-sq-yd-plot",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000172"
   },
   {
@@ -4836,7 +4836,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "malibu-towne-200-sq-yd-built-up-kothi",
+    "slug": "aum-web-000173-malibu-towne-200-sq-yd-built-up-kothi",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000173"
   },
   {
@@ -4880,7 +4880,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "emerald-hills-amber-block-262-sq-yd-plot",
+    "slug": "aum-web-000174-emerald-hills-amber-block-262-sq-yd-plot",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000174"
   },
   {
@@ -4924,7 +4924,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "emerald-hills-jemma-block-267-sq-yd-plot",
+    "slug": "aum-web-000175-emerald-hills-jemma-block-267-sq-yd-plot",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000175"
   },
   {
@@ -4968,7 +4968,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "uppal-southend-sector-49-500-sq-yd-4-bhk-gf",
+    "slug": "aum-web-000176-uppal-southend-sector-49-500-sq-yd-4-bhk-gf",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000176"
   },
   {
@@ -5012,7 +5012,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "uppal-southend-sector-49-500-sq-yd-4-bhk-gf-corner",
+    "slug": "aum-web-000177-uppal-southend-sector-49-500-sq-yd-4-bhk-gf-corner",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000177"
   },
   {
@@ -5056,7 +5056,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "uppal-southend-sector-49-311-sq-yd",
+    "slug": "aum-web-000178-uppal-southend-sector-49-311-sq-yd",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000178"
   },
   {
@@ -5100,7 +5100,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "uppal-southend-sector-49-311-sq-yd",
+    "slug": "aum-web-000179-uppal-southend-sector-49-311-sq-yd",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000179"
   },
   {
@@ -5144,7 +5144,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "uppal-southend-sector-49-311-sq-yd",
+    "slug": "aum-web-000180-uppal-southend-sector-49-311-sq-yd",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000180"
   },
   {
@@ -5188,7 +5188,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "uppal-southend-sector-49-311-sq-yd",
+    "slug": "aum-web-000181-uppal-southend-sector-49-311-sq-yd",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000181"
   },
   {
@@ -5232,7 +5232,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "uppal-southend-sector-49-215-sq-yd",
+    "slug": "aum-web-000182-uppal-southend-sector-49-215-sq-yd",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000182"
   },
   {
@@ -5276,7 +5276,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "uppal-southend-sector-49-215-sq-yd",
+    "slug": "aum-web-000183-uppal-southend-sector-49-215-sq-yd",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000183"
   },
   {
@@ -5320,7 +5320,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "uppal-southend-sector-49-215-sq-yd",
+    "slug": "aum-web-000184-uppal-southend-sector-49-215-sq-yd",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000184"
   },
   {
@@ -5364,7 +5364,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "uppal-southend-sector-49-200-sq-yd",
+    "slug": "aum-web-000185-uppal-southend-sector-49-200-sq-yd",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000185"
   },
   {
@@ -5408,7 +5408,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "uppal-southend-sector-49-200-sq-yd",
+    "slug": "aum-web-000186-uppal-southend-sector-49-200-sq-yd",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000186"
   },
   {
@@ -5452,7 +5452,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "omaxe-the-nile-sector-49-2082-sq-ft",
+    "slug": "aum-web-000187-omaxe-the-nile-sector-49-2082-sq-ft",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000187"
   },
   {
@@ -5496,7 +5496,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "uppal-southend-sector-49-215-sq-yd",
+    "slug": "aum-web-000188-uppal-southend-sector-49-215-sq-yd",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000188"
   },
   {
@@ -5540,7 +5540,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "omaxe-the-nile-sector-49-2082-sq-ft",
+    "slug": "aum-web-000189-omaxe-the-nile-sector-49-2082-sq-ft",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000189"
   },
   {
@@ -5584,7 +5584,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "uppal-southend-sector-49-311-sq-yd",
+    "slug": "aum-web-000190-uppal-southend-sector-49-311-sq-yd",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000190"
   },
   {
@@ -5628,7 +5628,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "uppal-southend-sector-49-311-sq-yd",
+    "slug": "aum-web-000191-uppal-southend-sector-49-311-sq-yd",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000191"
   },
   {
@@ -5672,7 +5672,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "dlf-belaire-3065-sq-ft-4-bhk-servant",
+    "slug": "aum-web-000192-dlf-belaire-3065-sq-ft-4-bhk-servant",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000192"
   },
   {
@@ -5716,7 +5716,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "dlf-exclusive-floor-sector-53-1550-sq-ft-3-bhk",
+    "slug": "aum-web-000193-dlf-exclusive-floor-sector-53-1550-sq-ft-3-bhk",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000193"
   },
   {
@@ -5760,7 +5760,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "conscient-elevate-2595-sq-ft-3-bhk-servant",
+    "slug": "aum-web-000194-conscient-elevate-2595-sq-ft-3-bhk-servant",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000194"
   },
   {
@@ -5804,7 +5804,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "urban-oasis-sector-62-2410-sq-ft-3-bhk-servant",
+    "slug": "aum-web-000195-urban-oasis-sector-62-2410-sq-ft-3-bhk-servant",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000195"
   },
   {
@@ -5848,7 +5848,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "dlf-exclusive-floor-phase-5-1550-sq-ft-3-bhk",
+    "slug": "aum-web-000196-dlf-exclusive-floor-phase-5-1550-sq-ft-3-bhk",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000196"
   },
   {
@@ -5892,7 +5892,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "orchid-island-400-sq-yd-4-bhk-first-floor",
+    "slug": "aum-web-000197-orchid-island-400-sq-yd-4-bhk-first-floor",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000197"
   },
   {
@@ -5936,7 +5936,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "smartworld-orchid-sector-61-1200-sq-ft-2-bhk-terrace",
+    "slug": "aum-web-000198-smartworld-orchid-sector-61-1200-sq-ft-2-bhk-terrace",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000198"
   },
   {
@@ -5980,7 +5980,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "orchid-island-basement-office-400-sq-yd",
+    "slug": "aum-web-000199-orchid-island-basement-office-400-sq-yd",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000199"
   },
   {
@@ -6024,7 +6024,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "elevate-hines-sector-59-2300-sq-ft-3-bhk-servant",
+    "slug": "aum-web-000200-elevate-hines-sector-59-2300-sq-ft-3-bhk-servant",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000200"
   },
   {
@@ -6068,7 +6068,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "heritage-one-sector-62-1996-sq-ft-3-bhk-servant",
+    "slug": "aum-web-000201-heritage-one-sector-62-1996-sq-ft-3-bhk-servant",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000201"
   },
   {
@@ -6112,7 +6112,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "heritage-one-sector-62-2600-sq-ft-4-bhk-servant",
+    "slug": "aum-web-000202-heritage-one-sector-62-2600-sq-ft-4-bhk-servant",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000202"
   },
   {
@@ -6156,7 +6156,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "pioneer-presidia-sector-62-3890-sq-ft-4-bhk-servant",
+    "slug": "aum-web-000203-pioneer-presidia-sector-62-3890-sq-ft-4-bhk-servant",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000203"
   },
   {
@@ -6200,7 +6200,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "south-city-1-180-sq-yd-east-park-facing-plot",
+    "slug": "aum-web-000204-south-city-1-180-sq-yd-east-and-park-facing-plot",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000204"
   },
   {
@@ -6244,7 +6244,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "ireo-pride-park-118-sq-yd-plot",
+    "slug": "aum-web-000205-ireo-pride-park-118-sq-yd-plot",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000205"
   },
   {
@@ -6288,7 +6288,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "ireo-pride-park-127-sq-yd-plot",
+    "slug": "aum-web-000206-ireo-pride-park-127-sq-yd-plot",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000206"
   },
   {
@@ -6332,7 +6332,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "ireo-pride-park-179-sq-yd-plot",
+    "slug": "aum-web-000207-ireo-pride-park-179-sq-yd-plot",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000207"
   },
   {
@@ -6376,7 +6376,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "dlf-phase-2-215-sq-yd-independent-builder-floor",
+    "slug": "aum-web-000208-dlf-phase-2-215-sq-yd-independent-builder-floor",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000208"
   },
   {
@@ -6420,7 +6420,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "dlf-carlton-estate-1350-sq-ft-fully-furnished-3-bhk",
+    "slug": "aum-web-000209-dlf-carlton-estate-1350-sq-ft-fully-furnished-3-bhk",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000209"
   },
   {
@@ -6464,7 +6464,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "emaar-marbella-1-belleza-88-586-83-sq-yd-plot",
+    "slug": "aum-web-000210-emaar-marbella-1-belleza-88-586-83-sq-yd-plot",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000210"
   },
   {
@@ -6508,7 +6508,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "emerald-floors-premier-sector-65-1975-sq-ft-4-bhk-servant",
+    "slug": "aum-web-000211-emerald-floors-premier-sector-65-1975-sq-ft-4-bhk-servant",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000211"
   },
   {
@@ -6552,7 +6552,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "puri-the-aravallis-sector-61-tower-b-3-bhk-2250-sq-ft",
+    "slug": "aum-web-000212-puri-the-aravallis-sector-61-tower-b-3-bhk-2250-sq-ft",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000212"
   },
   {
@@ -6596,7 +6596,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "puri-the-aravallis-sector-61-tower-b-4-bhk-2750-sq-ft",
+    "slug": "aum-web-000213-puri-the-aravallis-sector-61-tower-b-4-bhk-2750-sq-ft",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000213"
   },
   {
@@ -6640,7 +6640,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "paras-quartier-gwal-pahari-iconic-tower-6000-sq-ft-higher-floor",
+    "slug": "aum-web-000214-paras-quartier-gwal-pahari-iconic-tower-6000-sq-ft-higher-floor",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000214"
   },
   {
@@ -6684,7 +6684,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "nirvana-country-300-sq-yd-park-facing-5-bhk-villa-for-lease",
+    "slug": "aum-web-000215-nirvana-country-300-sq-yd-park-facing-5-bhk-villa-for-lease",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000215"
   },
   {
@@ -6728,7 +6728,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "malibu-towne-202-sq-yd-corner-east-park-facing-plot",
+    "slug": "aum-web-000216-malibu-towne-202-sq-yd-corner-east-and-park-facing-plot",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000216"
   },
   {
@@ -6772,7 +6772,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "emaar-emerald-hills-topaz-block-758-sq-yd-east-facing-plot",
+    "slug": "aum-web-000217-emaar-emerald-hills-topaz-block-758-sq-yd-east-facing-plot",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000217"
   },
   {
@@ -6816,7 +6816,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "malibu-towne-200-sq-yd-stilt-4-approved-built-up-kothi",
+    "slug": "aum-web-000218-malibu-towne-200-sq-yd-stilt-4-approved-built-up-kothi",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000218"
   },
   {
@@ -6860,7 +6860,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "emaar-emerald-hills-amber-block-262-sq-yd-plot",
+    "slug": "aum-web-000219-emaar-emerald-hills-amber-block-262-sq-yd-plot",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000219"
   },
   {
@@ -6904,7 +6904,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "emaar-emerald-hills-jemma-block-267-sq-yd-plot",
+    "slug": "aum-web-000220-emaar-emerald-hills-jemma-block-267-sq-yd-plot",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000220"
   },
   {
@@ -6948,7 +6948,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "uppal-south-end-sector-49-500-sq-yd-4-bhk-gf-option-1",
+    "slug": "aum-web-000221-uppal-south-end-sector-49-500-sq-yd-4-bhk-gf-option-1",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000221"
   },
   {
@@ -6992,7 +6992,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "uppal-south-end-sector-49-500-sq-yd-4-bhk-gf-option-2",
+    "slug": "aum-web-000222-uppal-south-end-sector-49-500-sq-yd-4-bhk-gf-option-2",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000222"
   },
   {
@@ -7036,7 +7036,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "uppal-south-end-sector-49-311-sq-yd-3-bhk-gf-option-3",
+    "slug": "aum-web-000223-uppal-south-end-sector-49-311-sq-yd-3-bhk-gf-option-3",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000223"
   },
   {
@@ -7080,7 +7080,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "uppal-south-end-sector-49-311-sq-yd-3-bhk-gf-option-4",
+    "slug": "aum-web-000224-uppal-south-end-sector-49-311-sq-yd-3-bhk-gf-option-4",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000224"
   },
   {
@@ -7124,7 +7124,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "uppal-south-end-sector-49-311-sq-yd-3-bhk-1st-option-5",
+    "slug": "aum-web-000225-uppal-south-end-sector-49-311-sq-yd-3-bhk-1st-option-5",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000225"
   },
   {
@@ -7168,7 +7168,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "uppal-south-end-sector-49-311-sq-yd-3-bhk-1st-option-6",
+    "slug": "aum-web-000226-uppal-south-end-sector-49-311-sq-yd-3-bhk-1st-option-6",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000226"
   },
   {
@@ -7212,7 +7212,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "uppal-south-end-sector-49-311-sq-yd-3-bhk-2nd-roof-right-option-7",
+    "slug": "aum-web-000227-uppal-south-end-sector-49-311-sq-yd-3-bhk-2nd-roof-right-option-7",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000227"
   },
   {
@@ -7256,7 +7256,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "uppal-south-end-sector-49-311-sq-yd-3-bhk-2nd-roof-right-option-8",
+    "slug": "aum-web-000228-uppal-south-end-sector-49-311-sq-yd-3-bhk-2nd-roof-right-option-8",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000228"
   },
   {
@@ -7300,7 +7300,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "uppal-south-end-sector-49-215-sq-yd-3-bhk-2nd-roof-right-option-9",
+    "slug": "aum-web-000229-uppal-south-end-sector-49-215-sq-yd-3-bhk-2nd-roof-right-option-9",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000229"
   },
   {
@@ -7344,7 +7344,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "uppal-south-end-sector-49-215-sq-yd-3-bhk-2nd-roof-right-option-10",
+    "slug": "aum-web-000230-uppal-south-end-sector-49-215-sq-yd-3-bhk-2nd-roof-right-option-10",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000230"
   },
   {
@@ -7388,7 +7388,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "uppal-south-end-sector-49-215-sq-yd-3-bhk-1st-lift-option-11",
+    "slug": "aum-web-000231-uppal-south-end-sector-49-215-sq-yd-3-bhk-1st-lift-option-11",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000231"
   },
   {
@@ -7432,7 +7432,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "uppal-south-end-sector-49-200-sq-yd-2-study-room-1st-option-12",
+    "slug": "aum-web-000232-uppal-south-end-sector-49-200-sq-yd-2-study-room-1st-option-12",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000232"
   },
   {
@@ -7476,7 +7476,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "uppal-south-end-sector-49-200-sq-yd-2-study-room-2nd-roof-right-option-13",
+    "slug": "aum-web-000233-uppal-south-end-sector-49-200-sq-yd-2-study-room-2nd-roof-right-option-13",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000233"
   },
   {
@@ -7520,7 +7520,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "uppal-south-end-sector-49-215-sq-yd-3-bhk-gf-option-14",
+    "slug": "aum-web-000234-uppal-south-end-sector-49-215-sq-yd-3-bhk-gf-option-14",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000234"
   },
   {
@@ -7564,7 +7564,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "uppal-south-end-sector-49-311-sq-yd-3-bhk-2nd-roof-right-option-15",
+    "slug": "aum-web-000235-uppal-south-end-sector-49-311-sq-yd-3-bhk-2nd-roof-right-option-15",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000235"
   },
   {
@@ -7608,7 +7608,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "uppal-south-end-sector-49-311-sq-yd-3-bhk-2nd-roof-right-option-16",
+    "slug": "aum-web-000236-uppal-south-end-sector-49-311-sq-yd-3-bhk-2nd-roof-right-option-16",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000236"
   },
   {
@@ -7652,7 +7652,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "omaxe-the-nile-sector-49-2082-sq-ft-3-bhk-servant-3-50-cr",
+    "slug": "aum-web-000237-omaxe-the-nile-sector-49-2082-sq-ft-3-bhk-servant-3-50-cr",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000237"
   },
   {
@@ -7696,7 +7696,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "omaxe-the-nile-sector-49-2082-sq-ft-3-bhk-servant-3-25-cr",
+    "slug": "aum-web-000238-omaxe-the-nile-sector-49-2082-sq-ft-3-bhk-servant-3-25-cr",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000238"
   },
   {
@@ -7740,7 +7740,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "dlf-the-aureva-sector-63-gurugram-senior-living-luxury-residences",
+    "slug": "aum-web-000239-dlf-the-aureva-sector-63-gurugram-senior-living-luxury-residences",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000239"
   },
   {
@@ -7784,7 +7784,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "nitara-ultra-luxury-triplex-residences-emaar-emerald-hills-topaz-4500-sq-ft",
+    "slug": "aum-web-000240-nitara-ultra-luxury-triplex-residences-emaar-emerald-hills-topaz-4500-sq-ft",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000240"
   },
   {
@@ -7828,7 +7828,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "tag-tower-udyog-vihar-phase-4-1st-floor-12-500-sq-ft-furnished-office",
+    "slug": "aum-web-000241-tag-tower-udyog-vihar-phase-4-1st-floor-12-500-sq-ft-furnished-office",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000241"
   },
   {
@@ -7872,7 +7872,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "tag-tower-udyog-vihar-phase-4-7th-floor-9-200-sq-ft-furnished-office",
+    "slug": "aum-web-000242-tag-tower-udyog-vihar-phase-4-7th-floor-9-200-sq-ft-furnished-office",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000242"
   },
   {
@@ -7916,7 +7916,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "tarc-tripundra-delhi-ready-to-move-3-4-bhk-luxury-residences",
+    "slug": "aum-web-000243-tarc-tripundra-delhi-ready-to-move-3-and-4-bhk-luxury-residences",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000243"
   },
   {
@@ -7960,7 +7960,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "palm-floors-ardee-city-block-c-240-sq-yd-3-bhk-4th-floor-with-terrace",
+    "slug": "aum-web-000244-palm-floors-ardee-city-block-c-240-sq-yd-3-bhk-4th-floor-with-terrace",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000244"
   },
   {
@@ -8004,7 +8004,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "green-oaks-astaire-garden-sector-70a-3-bhk-office-builder-floor",
+    "slug": "aum-web-000245-green-oaks-astaire-garden-sector-70a-3-bhk-office-builder-floor",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000245"
   },
   {
@@ -8048,7 +8048,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "shukrana-homes-sushant-lok-1-c-302-215-sq-yd-top-floor-with-terrace",
+    "slug": "aum-web-000246-shukrana-homes-sushant-lok-1-c-302-215-sq-yd-top-floor-with-terrace",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000246"
   },
   {
@@ -8092,7 +8092,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "shukrana-homes-sushant-lok-1-c-302-215-sq-yd-3rd-floor",
+    "slug": "aum-web-000247-shukrana-homes-sushant-lok-1-c-302-215-sq-yd-3rd-floor",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000247"
   },
   {
@@ -8136,7 +8136,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "shukrana-homes-sushant-lok-1-c-302-215-sq-yd-1st-floor",
+    "slug": "aum-web-000249-shukrana-homes-sushant-lok-1-c-302-215-sq-yd-1st-floor",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000249"
   },
   {
@@ -8180,7 +8180,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "orchid-ivy-floors-sector-51-260-sq-yd-3-bhk-study",
+    "slug": "aum-web-000250-orchid-ivy-floors-sector-51-260-sq-yd-3-bhk-study",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000250"
   },
   {
@@ -8224,7 +8224,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "orchid-ivy-floors-sector-51-350-sq-yd-4-bhk-study",
+    "slug": "aum-web-000251-orchid-ivy-floors-sector-51-350-sq-yd-4-bhk-study",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000251"
   },
   {
@@ -8268,7 +8268,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "the-kasul-kasauli-exclusive-villas-5000-sq-ft-carpet-private-green-area",
+    "slug": "aum-web-000252-the-kasul-kasauli-exclusive-villas-5000-sq-ft-carpet-private-green-area",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000252"
   },
   {
@@ -8312,7 +8312,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "dlf-the-Belaire-dlf-Belaire-54-3065-sq-ft-4-bhk-servant",
+    "slug": "aum-web-000253-dlf-the-belaire-dlf-belaire-54-3065-sq-ft-4-bhk-servant",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000253"
   },
   {
@@ -8356,7 +8356,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "dlf-exclusive-floors-53-1550-sq-ft-3-bhk",
+    "slug": "aum-web-000254-dlf-exclusive-floors-53-1550-sq-ft-3-bhk",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000254"
   },
   {
@@ -8400,7 +8400,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "conscient-elevate-59-2595-sq-ft-3-bhk-servant",
+    "slug": "aum-web-000255-conscient-elevate-59-2595-sq-ft-3-bhk-servant",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000255"
   },
   {
@@ -8444,7 +8444,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "urban-oasis-62-2410-sq-ft-3-bhk-servant",
+    "slug": "aum-web-000256-urban-oasis-62-2410-sq-ft-3-bhk-servant",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000256"
   },
   {
@@ -8488,7 +8488,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "dlf-exclusive-floors-phase-5-1550-sq-ft-3-bhk",
+    "slug": "aum-web-000257-dlf-exclusive-floors-phase-5-1550-sq-ft-3-bhk",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000257"
   },
   {
@@ -8532,7 +8532,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "orchid-island-400-sq-yd-4-bhk",
+    "slug": "aum-web-000258-orchid-island-400-sq-yd-4-bhk",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000258"
   },
   {
@@ -8576,7 +8576,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "smart-world-orchid-61-1200-sq-ft-2-bhk",
+    "slug": "aum-web-000259-smart-world-orchid-61-1200-sq-ft-2-bhk",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000259"
   },
   {
@@ -8620,7 +8620,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "orchid-island-1650-sq-ft-office",
+    "slug": "aum-web-000260-orchid-island-1650-sq-ft-residential-rental",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000260"
   },
   {
@@ -8664,7 +8664,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "elevate-hines-59-2300-sq-ft-3-bhk-servant",
+    "slug": "aum-web-000261-elevate-hines-59-2300-sq-ft-3-bhk-servant",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000261"
   },
   {
@@ -8708,7 +8708,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "heritage-one-62-1996-sq-ft-3-bhk-servant",
+    "slug": "aum-web-000262-heritage-one-62-1996-sq-ft-3-bhk-servant",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000262"
   },
   {
@@ -8752,7 +8752,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "heritage-one-62-2600-sq-ft-4-bhk-servant",
+    "slug": "aum-web-000263-heritage-one-62-2600-sq-ft-4-bhk-servant",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000263"
   },
   {
@@ -8796,7 +8796,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "pioneer-presidia-62-3890-sq-ft-4-bhk-servant",
+    "slug": "aum-web-000264-pioneer-presidia-62-3890-sq-ft-4-bhk-servant",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000264"
   },
   {
@@ -8840,7 +8840,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "User-provided image: Central Park Flower Valley / Money Vista Realty",
+    "slug": "aum-web-000265-central-park-flower-valley-500-sq-yard-plot",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000265"
   },
   {
@@ -8884,7 +8884,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "User-provided image: Central Park Flower Valley / Money Vista Realty",
+    "slug": "aum-web-000266-central-park-flower-valley-250-sq-yard-plot",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000266"
   },
   {
@@ -8928,7 +8928,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "User-provided image: Central Park Flower Valley / Money Vista Realty",
+    "slug": "aum-web-000267-central-park-flower-valley-189-sq-yard-plot",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000267"
   },
   {
@@ -8972,7 +8972,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "User-provided image: Central Park Flower Valley / Money Vista Realty",
+    "slug": "aum-web-000268-central-park-flower-valley-180-sq-yard-plot",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000268"
   },
   {
@@ -9016,7 +9016,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "User-provided Vantage Aura creative 16 Sep 2026",
+    "slug": "aum-web-000269-vantage-aura-self-use-commercial-units",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000269"
   },
   {
@@ -9060,7 +9060,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "User-provided Orchid Ivy creative 16 Sep 2026",
+    "slug": "aum-web-000270-orchid-ivy-floors-260-sq-yd-3bhk-study",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000270"
   },
   {
@@ -9104,7 +9104,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "User-provided Orchid Ivy creative 16 Sep 2026",
+    "slug": "aum-web-000271-orchid-ivy-floors-350-sq-yd-4bhk-study",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000271"
   },
   {
@@ -10908,7 +10908,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000312-dlf-the-Belaire-shop-1421-sq-ft",
+    "slug": "aum-web-000312-dlf-the-belaire-shop-1421-sq-ft",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000312"
   },
   {
@@ -11056,7 +11056,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "property_type": "Retail Shop",
     "category": "commercial",
     "transaction_type": "Sale",
-    "listing_title": "DLF South Point Mall Unit 1100 Sq Ft",
+    "listing_title": "DLF South Point Mall Sq Ft",
     "configuration": "Shop / Retail",
     "bedrooms": null,
     "bathrooms": null,
@@ -11084,7 +11084,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000316-dlf-south-point-mall-unit-1100-sq-ft",
+    "slug": "aum-web-000316-dlf-south-point-mall-sq-ft",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000316"
   },
   {
@@ -11452,7 +11452,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "property_type": "Apartment",
     "category": "apartment",
     "transaction_type": "Sale",
-    "listing_title": "Elevate by Hines 3 BHK 2295 Sq Ft Resale Unit 1",
+    "listing_title": "Elevate by Hines 3 BHK 2295 Sq Ft Resale",
     "configuration": "3 BHK",
     "bedrooms": "3",
     "bathrooms": null,
@@ -11480,7 +11480,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000325-elevate-by-hines-3-bhk-2295-sq-ft-resale-unit-1",
+    "slug": "aum-web-000325-elevate-by-hines-3-bhk-2295-sq-ft-resale",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000325"
   },
   {
@@ -11496,7 +11496,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "property_type": "Apartment",
     "category": "apartment",
     "transaction_type": "Sale",
-    "listing_title": "Elevate by Hines 3 BHK 2295 Sq Ft Resale Unit 2",
+    "listing_title": "Elevate by Hines 3 BHK 2295 Sq Ft Resale",
     "configuration": "3 BHK",
     "bedrooms": "3",
     "bathrooms": null,
@@ -11524,7 +11524,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000326-elevate-by-hines-3-bhk-2295-sq-ft-resale-unit-2",
+    "slug": "aum-web-000326-elevate-by-hines-3-bhk-2295-sq-ft-resale",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000326"
   },
   {
@@ -11540,7 +11540,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "property_type": "Apartment",
     "category": "apartment",
     "transaction_type": "Sale",
-    "listing_title": "Elevate by Hines 3 BHK 2595 Sq Ft Resale Unit 3",
+    "listing_title": "Elevate by Hines 3 BHK 2595 Sq Ft Resale",
     "configuration": "3 BHK",
     "bedrooms": "3",
     "bathrooms": null,
@@ -11568,7 +11568,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000327-elevate-by-hines-3-bhk-2595-sq-ft-resale-unit-3",
+    "slug": "aum-web-000327-elevate-by-hines-3-bhk-2595-sq-ft-resale",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000327"
   },
   {
@@ -11584,7 +11584,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "property_type": "Apartment",
     "category": "apartment",
     "transaction_type": "Sale",
-    "listing_title": "Elevate by Hines 3 BHK 2595 Sq Ft Resale Unit 4",
+    "listing_title": "Elevate by Hines 3 BHK 2595 Sq Ft Resale",
     "configuration": "3 BHK",
     "bedrooms": "3",
     "bathrooms": null,
@@ -11612,7 +11612,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000328-elevate-by-hines-3-bhk-2595-sq-ft-resale-unit-4",
+    "slug": "aum-web-000328-elevate-by-hines-3-bhk-2595-sq-ft-resale",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000328"
   },
   {
@@ -11628,7 +11628,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "property_type": "Apartment",
     "category": "apartment",
     "transaction_type": "Sale",
-    "listing_title": "Elevate by Hines 3 BHK 2595 Sq Ft Resale Unit 5",
+    "listing_title": "Elevate by Hines 3 BHK 2595 Sq Ft Resale",
     "configuration": "3 BHK",
     "bedrooms": "3",
     "bathrooms": null,
@@ -11656,7 +11656,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000329-elevate-by-hines-3-bhk-2595-sq-ft-resale-unit-5",
+    "slug": "aum-web-000329-elevate-by-hines-3-bhk-2595-sq-ft-resale",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000329"
   },
   {
@@ -11672,7 +11672,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "property_type": "Apartment",
     "category": "apartment",
     "transaction_type": "Sale",
-    "listing_title": "Elevate by Hines 4 BHK 3395 Sq Ft Resale Unit 6",
+    "listing_title": "Elevate by Hines 4 BHK 3395 Sq Ft Resale",
     "configuration": "4 BHK",
     "bedrooms": "4",
     "bathrooms": null,
@@ -11700,7 +11700,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000330-elevate-by-hines-4-bhk-3395-sq-ft-resale-unit-6",
+    "slug": "aum-web-000330-elevate-by-hines-4-bhk-3395-sq-ft-resale",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000330"
   },
   {
@@ -11716,7 +11716,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "property_type": "Apartment",
     "category": "apartment",
     "transaction_type": "Sale",
-    "listing_title": "Pioneer Presidia 3 BHK 2595 Sq Ft Resale Unit 7",
+    "listing_title": "Pioneer Presidia 3 BHK 2595 Sq Ft Resale",
     "configuration": "3 BHK",
     "bedrooms": "3",
     "bathrooms": null,
@@ -11744,7 +11744,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000331-pioneer-presidia-3-bhk-2595-sq-ft-resale-unit-7",
+    "slug": "aum-web-000331-pioneer-presidia-3-bhk-2595-sq-ft-resale",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000331"
   },
   {
@@ -11760,7 +11760,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "property_type": "Apartment",
     "category": "apartment",
     "transaction_type": "Sale",
-    "listing_title": "Pioneer Presidia 3 BHK 2595 Sq Ft Resale Unit 8",
+    "listing_title": "Pioneer Presidia 3 BHK 2595 Sq Ft Resale",
     "configuration": "3 BHK",
     "bedrooms": "3",
     "bathrooms": null,
@@ -11788,7 +11788,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000332-pioneer-presidia-3-bhk-2595-sq-ft-resale-unit-8",
+    "slug": "aum-web-000332-pioneer-presidia-3-bhk-2595-sq-ft-resale",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000332"
   },
   {
@@ -11804,7 +11804,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "property_type": "Apartment",
     "category": "apartment",
     "transaction_type": "Sale",
-    "listing_title": "Pioneer Presidia 4 BHK 2985 Sq Ft Resale Unit 9",
+    "listing_title": "Pioneer Presidia 4 BHK 2985 Sq Ft Resale",
     "configuration": "4 BHK",
     "bedrooms": "4",
     "bathrooms": null,
@@ -11832,7 +11832,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000333-pioneer-presidia-4-bhk-2985-sq-ft-resale-unit-9",
+    "slug": "aum-web-000333-pioneer-presidia-4-bhk-2985-sq-ft-resale",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000333"
   },
   {
@@ -11848,7 +11848,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "property_type": "Apartment",
     "category": "apartment",
     "transaction_type": "Sale",
-    "listing_title": "Pioneer Presidia 4 BHK 4437 Sq Ft Resale Unit 10",
+    "listing_title": "Pioneer Presidia 4 BHK 4437 Sq Ft Resale",
     "configuration": "4 BHK",
     "bedrooms": "4",
     "bathrooms": null,
@@ -11876,7 +11876,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000334-pioneer-presidia-4-bhk-4437-sq-ft-resale-unit-10",
+    "slug": "aum-web-000334-pioneer-presidia-4-bhk-4437-sq-ft-resale",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000334"
   },
   {
@@ -11892,7 +11892,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "property_type": "Apartment",
     "category": "apartment",
     "transaction_type": "Sale",
-    "listing_title": "Pioneer Araya 3 BHK 3498 Sq Ft Resale Unit 11",
+    "listing_title": "Pioneer Araya 3 BHK 3498 Sq Ft Resale",
     "configuration": "3 BHK",
     "bedrooms": "3",
     "bathrooms": null,
@@ -11920,7 +11920,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000335-pioneer-araya-3-bhk-3498-sq-ft-resale-unit-11",
+    "slug": "aum-web-000335-pioneer-araya-3-bhk-3498-sq-ft-resale",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000335"
   },
   {
@@ -11936,7 +11936,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "property_type": "Apartment",
     "category": "apartment",
     "transaction_type": "Sale",
-    "listing_title": "Pioneer Araya 4 BHK 4280 Sq Ft Resale Unit 12",
+    "listing_title": "Pioneer Araya 4 BHK 4280 Sq Ft Resale",
     "configuration": "4 BHK",
     "bedrooms": "4",
     "bathrooms": null,
@@ -11964,7 +11964,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000336-pioneer-araya-4-bhk-4280-sq-ft-resale-unit-12",
+    "slug": "aum-web-000336-pioneer-araya-4-bhk-4280-sq-ft-resale",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000336"
   },
   {
@@ -11980,7 +11980,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "property_type": "Apartment",
     "category": "apartment",
     "transaction_type": "Sale",
-    "listing_title": "Pioneer Araya 4 BHK 4690 Sq Ft Resale Unit 13",
+    "listing_title": "Pioneer Araya 4 BHK 4690 Sq Ft Resale",
     "configuration": "4 BHK",
     "bedrooms": "4",
     "bathrooms": null,
@@ -12008,7 +12008,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000337-pioneer-araya-4-bhk-4690-sq-ft-resale-unit-13",
+    "slug": "aum-web-000337-pioneer-araya-4-bhk-4690-sq-ft-resale",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000337"
   },
   {
@@ -12024,7 +12024,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "property_type": "Apartment",
     "category": "apartment",
     "transaction_type": "Sale",
-    "listing_title": "Pioneer Araya 5 BHK 5514 Sq Ft Resale Unit 14",
+    "listing_title": "Pioneer Araya 5 BHK 5514 Sq Ft Resale",
     "configuration": "5 BHK",
     "bedrooms": "5",
     "bathrooms": null,
@@ -12052,7 +12052,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000338-pioneer-araya-5-bhk-5514-sq-ft-resale-unit-14",
+    "slug": "aum-web-000338-pioneer-araya-5-bhk-5514-sq-ft-resale",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000338"
   },
   {
@@ -12096,7 +12096,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000339-dlf-phase-1-shahtoot-marg-1022-sq-yd-plot-1",
+    "slug": "aum-web-000339-dlf-phase-1-shahtoot-marg-1022-sq-yd-plot",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000339"
   },
   {
@@ -12140,7 +12140,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000340-dlf-phase-1-ashoka-crescent-500-sq-yd-plot-2",
+    "slug": "aum-web-000340-dlf-phase-1-ashoka-crescent-500-sq-yd-plot",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000340"
   },
   {
@@ -12184,7 +12184,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000341-dlf-phase-1-b-block-500-sq-yd-plot-12-m-road-3",
+    "slug": "aum-web-000341-dlf-phase-1-b-block-500-sq-yd-plot-12-m-road",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000341"
   },
   {
@@ -12228,7 +12228,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000342-dlf-phase-1-a-block-500-sq-yd-plot-12-m-road-naksha-pass-4",
+    "slug": "aum-web-000342-dlf-phase-1-a-block-500-sq-yd-plot-12-m-road-naksha-pass",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000342"
   },
   {
@@ -12272,7 +12272,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000343-dlf-phase-1-unspecified-dlf-phase-1-500-sq-yd-plot-9-m-road-5",
+    "slug": "aum-web-000343-dlf-phase-1-unspecified-dlf-phase-1-500-sq-yd-plot-9-m-road",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000343"
   },
   {
@@ -12316,7 +12316,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000344-dlf-phase-1-duplex-500-sq-yd-duplex-kothi-6",
+    "slug": "aum-web-000344-dlf-phase-1-duplex-500-sq-yd-duplex-kothi",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000344"
   },
   {
@@ -12360,7 +12360,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000345-dlf-phase-1-a-block-400-sq-yd-plot-7",
+    "slug": "aum-web-000345-dlf-phase-1-a-block-400-sq-yd-plot",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000345"
   },
   {
@@ -12404,7 +12404,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000346-dlf-phase-1-unspecified-dlf-phase-1-478-sq-yd-plot-8",
+    "slug": "aum-web-000346-dlf-phase-1-unspecified-dlf-phase-1-478-sq-yd-plot",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000346"
   },
   {
@@ -12448,7 +12448,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000347-dlf-phase-1-arjun-marg-360-sq-yd-plot-9",
+    "slug": "aum-web-000347-dlf-phase-1-arjun-marg-360-sq-yd-plot",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000347"
   },
   {
@@ -12492,7 +12492,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000348-dlf-phase-1-bodhi-marg-316-sq-yd-kothi-10",
+    "slug": "aum-web-000348-dlf-phase-1-bodhi-marg-316-sq-yd-kothi",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000348"
   },
   {
@@ -12536,7 +12536,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000349-dlf-phase-1-e-block-300-sq-yd-kothi-11",
+    "slug": "aum-web-000349-dlf-phase-1-e-block-300-sq-yd-kothi",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000349"
   },
   {
@@ -12580,7 +12580,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000350-dlf-phase-1-e-block-300-sq-yd-plot-12",
+    "slug": "aum-web-000350-dlf-phase-1-e-block-300-sq-yd-plot",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000350"
   },
   {
@@ -12624,7 +12624,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000351-dlf-phase-1-unspecified-dlf-phase-1-311-sq-yd-corner-plot-13",
+    "slug": "aum-web-000351-dlf-phase-1-unspecified-dlf-phase-1-311-sq-yd-corner-plot",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000351"
   },
   {
@@ -12668,7 +12668,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000352-dlf-phase-1-near-park-200-sq-yd-near-park-14",
+    "slug": "aum-web-000352-dlf-phase-1-near-park-200-sq-yd-near-park",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000352"
   },
   {
@@ -12712,7 +12712,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000353-dlf-phase-2-akashneem-marg-500-sq-yd-plot-1",
+    "slug": "aum-web-000353-dlf-phase-2-akashneem-marg-500-sq-yd-plot",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000353"
   },
   {
@@ -12756,7 +12756,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000354-dlf-phase-2-akashneem-marg-500-sq-yd-plot-naksha-pass-2",
+    "slug": "aum-web-000354-dlf-phase-2-akashneem-marg-500-sq-yd-plot-naksha-pass",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000354"
   },
   {
@@ -12800,7 +12800,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000355-dlf-phase-2-m-block-500-sq-yd-plot-naksha-pass-3",
+    "slug": "aum-web-000355-dlf-phase-2-m-block-500-sq-yd-plot-naksha-pass",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000355"
   },
   {
@@ -12844,7 +12844,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000356-dlf-phase-2-j-block-500-sq-yd-corner-plot-4",
+    "slug": "aum-web-000356-dlf-phase-2-j-block-500-sq-yd-corner-plot",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000356"
   },
   {
@@ -12888,7 +12888,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000357-dlf-phase-2-m-block-300-sq-yd-plot-naksha-pass-5",
+    "slug": "aum-web-000357-dlf-phase-2-m-block-300-sq-yd-plot-naksha-pass",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000357"
   },
   {
@@ -12932,7 +12932,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000358-dlf-phase-2-p-block-400-sq-yd-kothi-with-lift-6",
+    "slug": "aum-web-000358-dlf-phase-2-p-block-400-sq-yd-kothi-with-lift",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000358"
   },
   {
@@ -12976,7 +12976,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000359-dlf-phase-2-unspecified-dlf-phase-2-400-sq-yd-park-facing-naksha-pass-7",
+    "slug": "aum-web-000359-dlf-phase-2-unspecified-dlf-phase-2-400-sq-yd-park-facing-naksha-pass",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000359"
   },
   {
@@ -13020,7 +13020,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000360-dlf-phase-2-m-block-400-sq-yd-kothi-8",
+    "slug": "aum-web-000360-dlf-phase-2-m-block-400-sq-yd-kothi",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000360"
   },
   {
@@ -13064,7 +13064,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000361-dlf-phase-2-unspecified-dlf-phase-2-316-sq-yd-kothi-9",
+    "slug": "aum-web-000361-dlf-phase-2-unspecified-dlf-phase-2-316-sq-yd-kothi",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000361"
   },
   {
@@ -13108,7 +13108,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000362-dlf-phase-2-k-block-300-sq-yd-corner-kothi-10",
+    "slug": "aum-web-000362-dlf-phase-2-k-block-300-sq-yd-corner-kothi",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000362"
   },
   {
@@ -13152,7 +13152,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000363-dlf-phase-2-k-block-300-sq-yd-plot-11",
+    "slug": "aum-web-000363-dlf-phase-2-k-block-300-sq-yd-plot",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000363"
   },
   {
@@ -13196,7 +13196,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000364-dlf-phase-2-unspecified-dlf-phase-2-250-sq-yd-plot-12",
+    "slug": "aum-web-000364-dlf-phase-2-unspecified-dlf-phase-2-250-sq-yd-plot",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000364"
   },
   {
@@ -13240,7 +13240,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000365-dlf-phase-2-unspecified-dlf-phase-2-215-sq-yd-park-facing-13",
+    "slug": "aum-web-000365-dlf-phase-2-unspecified-dlf-phase-2-215-sq-yd-park-facing",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000365"
   },
   {
@@ -13284,7 +13284,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000366-dlf-phase-2-q-block-200-sq-yd-plot-14",
+    "slug": "aum-web-000366-dlf-phase-2-q-block-200-sq-yd-plot",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000366"
   },
   {
@@ -13328,7 +13328,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000367-dlf-phase-4-garden-villas-316-sq-yd-park-facing-1",
+    "slug": "aum-web-000367-dlf-phase-4-garden-villas-316-sq-yd-park-facing",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000367"
   },
   {
@@ -13372,7 +13372,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000368-dlf-phase-4-unspecified-dlf-phase-4-360-sq-yd-corner-plot-2",
+    "slug": "aum-web-000368-dlf-phase-4-unspecified-dlf-phase-4-360-sq-yd-corner-plot",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000368"
   },
   {
@@ -13416,7 +13416,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000369-dlf-phase-4-green-meadows-360-sq-yd-plot-3",
+    "slug": "aum-web-000369-dlf-phase-4-green-meadows-360-sq-yd-plot",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000369"
   },
   {
@@ -13460,7 +13460,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000370-dlf-phase-4-unspecified-dlf-phase-4-360-sq-yd-north-facing-plot-4",
+    "slug": "aum-web-000370-dlf-phase-4-unspecified-dlf-phase-4-360-sq-yd-north-facing-plot",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000370"
   },
   {
@@ -13504,7 +13504,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000371-dlf-phase-4-unspecified-dlf-phase-4-360-sq-yd-plot-5",
+    "slug": "aum-web-000371-dlf-phase-4-unspecified-dlf-phase-4-360-sq-yd-plot",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000371"
   },
   {
@@ -13548,7 +13548,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000372-dlf-phase-4-unspecified-dlf-phase-4-270-sq-yd-plot-6",
+    "slug": "aum-web-000372-dlf-phase-4-unspecified-dlf-phase-4-270-sq-yd-plot",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000372"
   },
   {
@@ -13592,7 +13592,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000373-sushant-lok-1-b-block-500-sq-yd-kothi-1",
+    "slug": "aum-web-000373-sushant-lok-1-b-block-500-sq-yd-kothi",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000373"
   },
   {
@@ -13636,7 +13636,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000374-sushant-lok-1-b-block-500-sq-yd-plot-2",
+    "slug": "aum-web-000374-sushant-lok-1-b-block-500-sq-yd-plot",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000374"
   },
   {
@@ -13680,7 +13680,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000375-sushant-lok-1-c-block-418-sq-yd-corner-plot-3",
+    "slug": "aum-web-000375-sushant-lok-1-c-block-418-sq-yd-corner-plot",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000375"
   },
   {
@@ -13724,7 +13724,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000376-sushant-lok-1-unspecified-sushant-lok-1-418-sq-yd-park-facing-naksha-pass-4",
+    "slug": "aum-web-000376-sushant-lok-1-unspecified-sushant-lok-1-418-sq-yd-park-facing-naksha-pass",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000376"
   },
   {
@@ -13768,7 +13768,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000377-sushant-lok-1-a-block-467-sq-yd-park-facing-plot-5",
+    "slug": "aum-web-000377-sushant-lok-1-a-block-467-sq-yd-park-facing-plot",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000377"
   },
   {
@@ -13812,7 +13812,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000378-sushant-lok-1-b-block-378-sq-yd-corner-plot-6",
+    "slug": "aum-web-000378-sushant-lok-1-b-block-378-sq-yd-corner-plot",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000378"
   },
   {
@@ -13856,7 +13856,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000379-sushant-lok-1-c-2-block-416-sq-yd-plot-naksha-pass-7",
+    "slug": "aum-web-000379-sushant-lok-1-c-2-block-416-sq-yd-plot-naksha-pass",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000379"
   },
   {
@@ -13900,7 +13900,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000380-sushant-lok-1-c-block-300-sq-yd-duplex-kothi-8",
+    "slug": "aum-web-000380-sushant-lok-1-c-block-300-sq-yd-duplex-kothi",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000380"
   },
   {
@@ -13944,7 +13944,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000381-sushant-lok-1-b-block-corner-300-sq-yd-corner-plot-9",
+    "slug": "aum-web-000381-sushant-lok-1-b-block-corner-300-sq-yd-corner-plot",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000381"
   },
   {
@@ -13988,7 +13988,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000382-sushant-lok-1-b-block-300-sq-yd-kothi-10",
+    "slug": "aum-web-000382-sushant-lok-1-b-block-300-sq-yd-kothi",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000382"
   },
   {
@@ -14032,7 +14032,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000383-sushant-lok-1-c-block-300-sq-yd-plot-naksha-pass-11",
+    "slug": "aum-web-000383-sushant-lok-1-c-block-300-sq-yd-plot-naksha-pass",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000383"
   },
   {
@@ -14076,7 +14076,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000384-sushant-lok-1-unspecified-sushant-lok-1-215-sq-yd-plot-naksha-pass-12",
+    "slug": "aum-web-000384-sushant-lok-1-unspecified-sushant-lok-1-215-sq-yd-plot-naksha-pass",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000384"
   },
   {
@@ -14120,7 +14120,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000385-sushant-lok-1-unspecified-sushant-lok-1-215-sq-yd-east-facing-kothi-13",
+    "slug": "aum-web-000385-sushant-lok-1-unspecified-sushant-lok-1-215-sq-yd-east-facing-kothi",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000385"
   },
   {
@@ -14164,7 +14164,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000386-sushant-lok-1-unspecified-sushant-lok-1-215-sq-yd-park-facing-plot-14",
+    "slug": "aum-web-000386-sushant-lok-1-unspecified-sushant-lok-1-215-sq-yd-park-facing-plot",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000386"
   },
   {
@@ -14208,7 +14208,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000387-suncity-unspecified-suncity-360-sq-yd-park-facing-plot-1",
+    "slug": "aum-web-000387-suncity-unspecified-suncity-360-sq-yd-park-facing-plot",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000387"
   },
   {
@@ -14252,7 +14252,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000388-suncity-unspecified-suncity-316-sq-yd-two-sides-open-2",
+    "slug": "aum-web-000388-suncity-unspecified-suncity-316-sq-yd-two-sides-open",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000388"
   },
   {
@@ -14296,7 +14296,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000389-suncity-unspecified-suncity-275-sq-yd-park-facing-corner-plot-3",
+    "slug": "aum-web-000389-suncity-unspecified-suncity-275-sq-yd-park-facing-corner-plot",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000389"
   },
   {
@@ -14340,7 +14340,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000390-south-city-1-k-block-500-sq-yd-plot-1",
+    "slug": "aum-web-000390-south-city-1-k-block-500-sq-yd-plot",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000390"
   },
   {
@@ -14384,7 +14384,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000391-south-city-1-i-block-360-sq-yd-plot-2",
+    "slug": "aum-web-000391-south-city-1-i-block-360-sq-yd-plot",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000391"
   },
   {
@@ -14428,7 +14428,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000392-south-city-1-p-block-360-sq-yd-plot-naksha-pass-3",
+    "slug": "aum-web-000392-south-city-1-p-block-360-sq-yd-plot-naksha-pass",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000392"
   },
   {
@@ -14472,7 +14472,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000393-south-city-2-c-block-500-sq-yd-park-facing-plot-1",
+    "slug": "aum-web-000393-south-city-2-c-block-500-sq-yd-park-facing-plot",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000393"
   },
   {
@@ -14516,7 +14516,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000394-south-city-2-b-block-275-sq-yd-plot-2",
+    "slug": "aum-web-000394-south-city-2-b-block-275-sq-yd-plot",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000394"
   },
   {
@@ -14560,7 +14560,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000395-greenwood-city-c-block-500-sq-yd-plot-1",
+    "slug": "aum-web-000395-greenwood-city-c-block-500-sq-yd-plot",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000395"
   },
   {
@@ -14604,7 +14604,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000396-greenwood-city-a-block-275-sq-yd-kothi-2",
+    "slug": "aum-web-000396-greenwood-city-a-block-275-sq-yd-kothi",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000396"
   },
   {
@@ -14648,7 +14648,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000397-greenwood-city-a-block-275-sq-yd-corner-plot-3",
+    "slug": "aum-web-000397-greenwood-city-a-block-275-sq-yd-corner-plot",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000397"
   },
   {
@@ -14692,7 +14692,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000398-greenwood-city-b-block-240-sq-yd-plot-4",
+    "slug": "aum-web-000398-greenwood-city-b-block-240-sq-yd-plot",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000398"
   },
   {
@@ -14736,7 +14736,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000399-rosewood-city-b-block-525-sq-yd-plot-1",
+    "slug": "aum-web-000399-rosewood-city-b-block-525-sq-yd-plot",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000399"
   },
   {
@@ -14780,7 +14780,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000400-rosewood-city-unspecified-rosewood-city-400-sq-yd-kothi-with-lift-2",
+    "slug": "aum-web-000400-rosewood-city-unspecified-rosewood-city-400-sq-yd-kothi-with-lift",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000400"
   },
   {
@@ -14824,7 +14824,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000401-rosewood-city-c-block-500-sq-yd-plot-3",
+    "slug": "aum-web-000401-rosewood-city-c-block-500-sq-yd-plot",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000401"
   },
   {
@@ -14912,7 +14912,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000403-sector-45-10-marla-1",
+    "slug": "aum-web-000403-sector-45-10-marla",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000403"
   },
   {
@@ -14956,7 +14956,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000404-sector-45-10-marla-2",
+    "slug": "aum-web-000404-sector-45-10-marla",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000404"
   },
   {
@@ -15000,7 +15000,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000405-sector-45-14-marla-3",
+    "slug": "aum-web-000405-sector-45-14-marla",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000405"
   },
   {
@@ -15044,7 +15044,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000406-sector-45-14-marla-naksha-pass-4",
+    "slug": "aum-web-000406-sector-45-14-marla-naksha-pass",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000406"
   },
   {
@@ -15088,7 +15088,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000407-sector-46-14-marla-1",
+    "slug": "aum-web-000407-sector-46-14-marla",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000407"
   },
   {
@@ -15132,7 +15132,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000408-sector-46-10-marla-park-facing-2",
+    "slug": "aum-web-000408-sector-46-10-marla-park-facing",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000408"
   },
   {
@@ -15176,7 +15176,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000409-sector-46-8-marla-3",
+    "slug": "aum-web-000409-sector-46-8-marla",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000409"
   },
   {
@@ -15220,7 +15220,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000410-sector-57-14-marla-1",
+    "slug": "aum-web-000410-sector-57-14-marla",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000410"
   },
   {
@@ -15264,7 +15264,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "aum-web-000411-sector-57-8-marla-2",
+    "slug": "aum-web-000411-sector-57-8-marla",
     "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000411"
   }
 ];

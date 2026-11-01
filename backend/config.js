@@ -116,7 +116,9 @@ const SERVER_CONFIG = {
   sessionCookieName: 'aum_crm_sid',
   sessionTtlHours: 72,
   defaultAdminEmail: process.env.AUM_ADMIN_EMAIL || 'ajay@aumestates.com',
-  defaultAdminPassword: process.env.AUM_ADMIN_PASSWORD || 'AumAdvisory@2026',
+  defaultAdminPassword: process.env.AUM_ADMIN_PASSWORD || null,
+  secureCookies: process.env.NODE_ENV === 'production',
+  publicOrigin: process.env.AUM_PUBLIC_ORIGIN || null,
   defaultAdminName: 'Ajay Mukhija'
 };
 

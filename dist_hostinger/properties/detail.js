@@ -29,7 +29,7 @@ if(!data){
   const locEl=document.getElementById('detail-location'); if(locEl) locEl.textContent='The requested property dossier is not available or has been archived.';
   const photoEl=document.getElementById('detail-photo'); if(photoEl) photoEl.style.display='none';
   const priceEl=document.getElementById('detail-price'); if(priceEl) priceEl.style.display='none';
-  const descEl=document.getElementById('detail-description'); if(descEl) descEl.innerHTML='Please browse our <a href="index.html" style="color:var(--gold-metallic, #c5a059);text-decoration:underline;font-weight:600;">complete collection of verified properties</a> or contact our advisory desk directly.';
+  const descEl=document.getElementById('detail-description'); if(descEl) descEl.innerHTML='Please browse our <a href="index.html" style="color:var(--gold-metallic, #c5a059);text-decoration:underline;font-weight:600;">complete collection of public references</a> or contact our advisory desk directly.';
   return;
 }
 
@@ -141,35 +141,7 @@ const waMsg = `Hi Ajay, I am interested in ${name} (Ref: ${data.property_id || '
 const waBtn = document.getElementById('detail-wa-btn');
 
 // Global CRM bridge definition
-if (typeof window.AUM_CRM_HOOK !== 'function') {
-  window.AUM_CRM_HOOK = function(actionOrPayload, maybePayload) {
-    const payload = (typeof actionOrPayload === 'string')
-      ? Object.assign({ action: actionOrPayload, timestamp: new Date().toISOString() }, maybePayload || {})
-      : Object.assign({ timestamp: new Date().toISOString() }, actionOrPayload || {});
-    if (window._AUM_CRM_LISTENER) {
-      try { window._AUM_CRM_LISTENER(payload); } catch (e) { console.error('CRM hook error:', e); }
-    }
-    window.dispatchEvent(new CustomEvent('aum:lead', { detail: payload }));
-    const act = String(payload.action || '');
-    if ((act === 'inquire_whatsapp' || act === 'register_mandate' || act === 'advisor_inquiry') && typeof fetch === 'function' && /^https?:$/i.test(location.protocol)) {
-      fetch('/api/public/inquiries', {
-        method: 'POST',
-        keepalive: true,
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          client_name: payload.name || 'Website Visitor',
-          client_phone: payload.phone || null,
-          preferred_location: payload.corridor || payload.location || 'Gurugram',
-          budget_text: payload.budget || payload.price || null,
-          property_id: payload.property_id || null,
-          source_channel: act,
-          source_page: payload.source || location.pathname,
-          message: payload.notes || (payload.title ? `Inquiry regarding ${payload.title} (${payload.property_id || 'Web'})` : null)
-        })
-      }).catch(() => {});
-    }
-  };
-}
+// window.AUM_CRM_HOOK is supplied by assets/lead-client.js.
 
 if (waBtn) {
   waBtn.href = 'https://wa.me/919873813595?text=' + encodeURIComponent(waMsg);

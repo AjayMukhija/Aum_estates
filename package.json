@@ -15,7 +15,10 @@
     "manage": "node scripts/manage_inventory.js",
     "add": "node scripts/manage_inventory.js interactive",
     "rollback": "node scripts/manage_inventory.js rollback",
-    "package": "node scripts/package_release.js"
+    "package": "node scripts/package_release.js",
+    "setup:admin": "node scripts/setup_admin.js",
+    "backup": "node scripts/backup_database.js",
+    "verify:deployed": "node scripts/verify_deployed.js"
   },
   "keywords": [
     "aum-estates",
@@ -25,5 +28,8 @@
     "fts5-search"
   ],
   "author": "AUM ESTATES Engineering Team",
-  "license": "UNLICENSED"
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=22.16.0"
+  }
 }

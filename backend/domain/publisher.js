@@ -12,22 +12,14 @@ function sha256(content) {
   return crypto.createHash('sha256').update(content, 'utf8').digest('hex');
 }
 
-function writeAtomicSync(targetPath, content) {
-  const dir = path.dirname(targetPath);
-  fs.mkdirSync(dir, { recursive: true });
-  const tmpPath = path.join(
-    dir,
-    `.${path.basename(targetPath)}.tmp.${process.pid}.${Date.now()}.${Math.random().toString(36).slice(2, 8)}`
-  );
-  fs.writeFileSync(tmpPath, content, 'utf8');
-  fs.renameSync(tmpPath, targetPath);
-}
+const { writeAtomicSync, withReleaseLock, publishBatch } = require('./release_store');
+const { withTransaction } = require('../db/connection');
 
 /**
  * Compiles all public feeds strictly from the Master Database through the Fiduciary Firewall
- * and atomically updates every synchronized frontend data target.
+ * and recoverably updates every synchronized frontend data target.
  */
-function compileAndPublishStaticFeeds(db, options = {}) {
+function compileFeeds(db, options = {}) {
   const {
     actorUserId = null,
     actorLabel = 'system',
@@ -126,31 +118,21 @@ function compileAndPublishStaticFeeds(db, options = {}) {
     .sort((a, b) => (a.featured_sort_order || 999) - (b.featured_sort_order || 999));
 
   const publicFeatured = featuredRows.map((r) => {
-    let ov = {};
-    if (r.featured_card_override_json) {
-      try {
-        ov = JSON.parse(r.featured_card_override_json) || {};
-      } catch {}
-    }
-    const livePrice = formatPublicPriceDisplay(r);
-    const effectivePrice = livePrice && livePrice !== 'Price on Request'
-      ? livePrice
-      : (ov.price_text || 'Price on Request');
-
+    const effectivePrice = formatPublicPriceDisplay(r);
     const card = {
       property_id: r.property_id,
-      name: ov.name || r.listing_title,
-      location: ov.location || [r.locality, r.sector, r.city].filter(Boolean).join(', '),
-      type: ov.type || r.property_type,
-      description: ov.description || r.public_description || r.key_features || '',
+      name: publicRecords.find((p) => p.property_id === r.property_id).listing_title,
+      location: [...new Set([r.locality, r.sector, r.city].filter(Boolean))].join(', '),
+      type: r.property_type,
+      description: r.public_description || r.key_features || '',
       price_text: effectivePrice,
       price_value: effectivePrice.replace(/^₹/, ''),
-      features: ov.features || [r.configuration, r.area_value ? `${r.area_value} ${r.area_unit || ''}`.trim() : null].filter(Boolean).join(' · '),
-      image: ov.image || `assets/property-images/${r.image_file || 'apartment.jpg'}`,
-      transaction_type: r.transaction_type || ov.transaction_type || 'Sale',
-      category: ov.category || 'Residential',
-      slug: r.slug || ov.slug,
-      image_label: ov.image_label || r.image_label || 'Representative Visual'
+      features: [r.configuration, r.area_value ? `${r.area_value} ${r.area_unit || ''}`.trim() : null].filter(Boolean).join(' · '),
+      image: `assets/property-images/${r.image_file || 'apartment.jpg'}`,
+      transaction_type: r.transaction_type || 'Sale',
+      category: r.category === 'commercial' ? 'Commercial' : (r.category === 'plot' ? 'Plot' : 'Residential'),
+      slug: publicRecords.find((p) => p.property_id === r.property_id).slug,
+      image_label: r.image_label || 'Representative Visual'
     };
     for (const [k, v] of Object.entries(card)) {
       if (typeof v === 'string') {
@@ -173,7 +155,7 @@ function compileAndPublishStaticFeeds(db, options = {}) {
   const projectsJsStr = `window.AUM_PROJECTS_LOCAL = ${JSON.stringify(publicProjects, null, 2)};\n`;
   const featuredJsStr = `window.AUM_APPROVED_PROPERTIES = ${JSON.stringify(publicFeatured, null, 2)};\n`;
 
-  const releaseId = `REL-${new Date().toISOString().replace(/[:.]/g, '-')}`;
+  const releaseId = `REL-${new Date().toISOString().replace(/[:.]/g, '-')}-${crypto.randomBytes(4).toString('hex')}`;
   const hashes = {
     'public_inventory.json': sha256(inventoryJsonStr),
     'public_inventory.js': sha256(inventoryJsStr),
@@ -184,65 +166,39 @@ function compileAndPublishStaticFeeds(db, options = {}) {
   const writtenTargets = [];
 
   if (writeFiles) {
-    // Target 1: Primary Hostinger Source Data
-    writeAtomicSync(path.join(targetPaths.hostingerDataDir, 'public_inventory.json'), inventoryJsonStr);
-    writeAtomicSync(path.join(targetPaths.hostingerDataDir, 'public_inventory.js'), inventoryJsStr);
-    writeAtomicSync(path.join(targetPaths.hostingerDataDir, 'projects_local.js'), projectsJsStr);
-    writeAtomicSync(path.join(targetPaths.hostingerDataDir, 'approved_properties.js'), featuredJsStr);
+    const targets = [
+      [path.join(targetPaths.hostingerDataDir, 'public_inventory.json'), inventoryJsonStr],
+      [path.join(targetPaths.hostingerDataDir, 'public_inventory.js'), inventoryJsStr],
+      [path.join(targetPaths.hostingerDataDir, 'projects_local.js'), projectsJsStr],
+      [path.join(targetPaths.hostingerDataDir, 'approved_properties.js'), featuredJsStr]
+    ];
     writtenTargets.push(targetPaths.hostingerDataDir);
-
-    // Target 2: Embedded Hostinger Architectural Grid Concept Data (fixes Audit Finding #11!)
-    if (fs.existsSync(path.dirname(targetPaths.hostingerConceptDataDir))) {
-      writeAtomicSync(path.join(targetPaths.hostingerConceptDataDir, 'public_inventory.json'), inventoryJsonStr);
-      writeAtomicSync(path.join(targetPaths.hostingerConceptDataDir, 'public_inventory.js'), inventoryJsStr);
-      writtenTargets.push(targetPaths.hostingerConceptDataDir);
+    for (const [existsPath, dataDir] of [
+      [path.dirname(targetPaths.hostingerConceptDataDir), targetPaths.hostingerConceptDataDir],
+      [targetPaths.gridBaselineDir, targetPaths.gridBaselineDataDir]
+    ]) {
+      if (fs.existsSync(existsPath)) {
+        targets.push([path.join(dataDir, 'public_inventory.json'), inventoryJsonStr], [path.join(dataDir, 'public_inventory.js'), inventoryJsStr]);
+        writtenTargets.push(dataDir);
+      }
     }
-
-    // Target 3: Standalone Architectural Grid Study 06 Baseline Data
-    if (fs.existsSync(targetPaths.gridBaselineDir)) {
-      writeAtomicSync(path.join(targetPaths.gridBaselineDataDir, 'public_inventory.json'), inventoryJsonStr);
-      writeAtomicSync(path.join(targetPaths.gridBaselineDataDir, 'public_inventory.js'), inventoryJsStr);
-      writtenTargets.push(targetPaths.gridBaselineDataDir);
-    }
-
-    // Target 4: Brand Study v16 Static Fallback Feed
     if (fs.existsSync(targetPaths.v16Dir)) {
-      writeAtomicSync(path.join(targetPaths.v16Dir, 'public_inventory.js'), inventoryJsStr);
+      targets.push([path.join(targetPaths.v16Dir, 'public_inventory.js'), inventoryJsStr]);
       writtenTargets.push(targetPaths.v16Dir);
     }
-
-    // Save Release Manifest & Recoverable Snapshot outside public web root
-    fs.mkdirSync(targetPaths.releasesDir, { recursive: true });
     const manifest = {
-      release_id: releaseId,
-      published_at: new Date().toISOString(),
-      actor: actorLabel,
-      counts: {
-        public_properties: publicRecords.length,
-        public_projects: publicProjects.length,
-        featured_cards: publicFeatured.length
-      },
-      sha256: hashes,
-      targets: writtenTargets
+      release_id: releaseId, published_at: new Date().toISOString(), actor: actorLabel,
+      counts: { public_properties: publicRecords.length, public_projects: publicProjects.length, featured_cards: publicFeatured.length },
+      sha256: hashes, targets: writtenTargets
     };
-    writeAtomicSync(
-      path.join(targetPaths.releasesDir, `${releaseId}_manifest.json`),
-      `${JSON.stringify(manifest, null, 2)}\n`
+    targets.push(
+      [path.join(targetPaths.releasesDir, `${releaseId}_manifest.json`), JSON.stringify(manifest, null, 2)],
+      [path.join(targetPaths.releasesDir, 'latest_manifest.json'), JSON.stringify(manifest, null, 2)]
     );
-    writeAtomicSync(
-      path.join(targetPaths.releasesDir, 'latest_manifest.json'),
-      `${JSON.stringify(manifest, null, 2)}\n`
-    );
-
-    recordAuditLog(db, {
-      actorUserId,
-      actorLabel,
-      entityType: 'release',
-      entityId: releaseId,
-      action: 'publish_static_feeds',
-      summary: `Published ${publicRecords.length} approved properties, ${publicProjects.length} public projects, and ${publicFeatured.length} featured cards across ${writtenTargets.length} targets.`,
-      after: manifest
-    });
+    publishBatch(targetPaths.releasesDir, releaseId, targets, () => recordAuditLog(db, {
+      actorUserId, actorLabel, entityType: 'release', entityId: releaseId,
+      action: 'publish_static_feeds', summary: `Published ${publicRecords.length} approved properties`, after: manifest
+    }));
   }
 
   return {
@@ -255,6 +211,11 @@ function compileAndPublishStaticFeeds(db, options = {}) {
     hashes,
     writtenTargets
   };
+}
+
+function compileAndPublishStaticFeeds(db, options = {}) {
+  if (options.writeFiles === false) return compileFeeds(db, options);
+  return withTransaction(db, () => withReleaseLock((options.targetPaths || PATHS).releasesDir, () => compileFeeds(db, options)));
 }
 
 module.exports = {

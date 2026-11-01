@@ -7,7 +7,11 @@ const fs = require('node:fs');
 const path = require('node:path');
 const os = require('node:os');
 
+process.env.AUM_ADMIN_PASSWORD = 'Test-only-credential-2026!';
+
 const { PATHS, SERVER_CONFIG } = require('./config');
+const hasPrivateSeed = fs.existsSync(PATHS.seedInventoryJson);
+const seedCount = JSON.parse(fs.readFileSync(hasPrivateSeed ? PATHS.seedInventoryJson : path.join(PATHS.hostingerDataDir, 'public_inventory.json'), 'utf8')).length;
 const { openDatabase } = require('./db/connection');
 const { seedDatabaseIfEmpty } = require('./db/seed');
 const { normalizeAreaSqFt, normalizePriceInr, normalizeRentInr } = require('./domain/normalizer');
@@ -89,19 +93,19 @@ function injectHttp(server, { method = 'GET', url = '/', headers = {}, body = nu
 
 function createSeededMemoryDb() {
   const db = openDatabase(':memory:');
-  const seedInfo = seedDatabaseIfEmpty(db);
+  const seedInfo = seedDatabaseIfEmpty(db, { demo: true });
   assert.equal(seedInfo.seeded, true);
-  assert.equal(seedInfo.publicMandates, 347);
+  assert.equal(seedInfo.publicMandates, seedCount);
   return db;
 }
 
-test('Master SQLite seed partitions 347 public mandates, reconciles featured IDs, and quarantines 31 payment leaks', () => {
+test('Master SQLite seed isolates public mandates, reconciles featured IDs, and quarantines private fixture notes', () => {
   const db = createSeededMemoryDb();
 
   const pubCount = db.prepare(
     "SELECT COUNT(*) AS c FROM properties WHERE publication_state = 'approved_public' AND availability_state = 'available'"
   ).get().c;
-  assert.equal(pubCount, 347);
+  assert.equal(pubCount, seedCount);
 
   // Featured cards must total 16 and have zero broken FK references
   const featuredCount = db.prepare('SELECT COUNT(*) AS c FROM properties WHERE is_featured_approved = 1').get().c;
@@ -121,7 +125,7 @@ test('Master SQLite seed partitions 347 public mandates, reconciles featured IDs
   const quarantinedInVault = db.prepare(
     "SELECT COUNT(*) AS c FROM property_private WHERE COALESCE(payment_structure_notes, '') != '' OR COALESCE(internal_advisor_notes, '') != ''"
   ).get().c;
-  assert.ok(quarantinedInVault >= 30, `Expected >=30 quarantined payment/advisor notes in property_private (found ${quarantinedInVault})`);
+  assert.ok(quarantinedInVault >= (hasPrivateSeed ? 30 : 1), `Expected >=30 quarantined payment/advisor notes in property_private (found ${quarantinedInVault})`);
 
   db.close();
 });
@@ -196,8 +200,12 @@ test('Dual-Surface Search isolates confidential vault from public buyers while e
   assert.ok(crmOwnerSearch.total >= 1, 'Advisor CRM search must locate seller Vikramjit Singhania in private vault');
   assert.equal(crmOwnerSearch.items[0].property_id, 'AUM-OFF-000001');
 
+  if (!hasPrivateSeed) {
+    db.prepare("UPDATE property_private SET payment_structure_notes='Synthetic test cheque note' WHERE property_id='AUM-WEB-000001'").run();
+    require('./db/connection').syncPropertyFts(db, 'AUM-WEB-000001');
+  }
   const crmChequeSearch = searchCrmProperties(db, { q: 'cheque' });
-  assert.ok(crmChequeSearch.total >= 15, `Advisor CRM search must locate quarantined cheque notes (got ${crmChequeSearch.total})`);
+  assert.ok(crmChequeSearch.total >= (hasPrivateSeed ? 15 : 1), `Advisor CRM search must locate quarantined cheque notes (got ${crmChequeSearch.total})`);
 
   db.close();
 });
@@ -324,7 +332,7 @@ test('HTTP Server enforces path containment, Auth/CSRF, Lead Capture, Auto-Match
   // 6. Dashboard shows newly captured website lead
   const dash = await injectHttp(server, { method: 'GET', url: '/api/crm/dashboard', headers: authHeaders });
   assert.equal(dash.status, 200);
-  assert.equal(dash.json.inventory.live_public, 347);
+  assert.equal(dash.json.inventory.live_public, seedCount);
   assert.ok(dash.json.recentLeads.some((l) => l.lead_id === inq1.json.lead_id));
 
   // 7. Buyer Requirement Auto-Matcher scores both Public and Off-Market mandates (including floor-price intelligence!)
@@ -444,9 +452,152 @@ test('HTTP Server enforces path containment, Auth/CSRF, Lead Capture, Auto-Match
     body: {}
   });
   assert.equal(pubTrigger.status, 200);
-  assert.equal(pubTrigger.json.release.counts.publicProperties, 348);
+  assert.equal(pubTrigger.json.release.counts.publicProperties, seedCount + 1);
   assert.ok(fs.existsSync(path.join(customPaths.v16Dir, 'public_inventory.js')));
 
   fs.rmSync(tmpPublishDir, { recursive: true, force: true });
   db.close();
+});
+
+function isolatedTargets(t) {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'aum-regression-'));
+  t.after(() => fs.rmSync(dir, { recursive: true, force: true }));
+  return { ...PATHS, hostingerDataDir: path.join(dir, 'data'), hostingerConceptDataDir: path.join(dir, 'unused/concept/data'), gridBaselineDir: path.join(dir, 'unused/grid'), gridBaselineDataDir: path.join(dir, 'unused/grid/data'), v16Dir: path.join(dir, 'unused/v16'), releasesDir: path.join(dir, 'releases') };
+}
+
+function testSession(db, role = 'principal') {
+  const { hashPassword, createSession } = require('./auth');
+  const { hash, salt } = hashPassword('Test-only-strong-password!');
+  const result = db.prepare('INSERT INTO users(email,full_name,role,password_hash,password_salt) VALUES(?,?,?,?,?)').run(`${role}-${Date.now()}-${Math.random()}@example.invalid`, 'Regression User', role, hash, salt);
+  return createSession(db, Number(result.lastInsertRowid));
+}
+
+test('Shortlists reject drafts, confidential property text and commentary, including after a link was created', async (t) => {
+  const db = createSeededMemoryDb(); t.after(() => db.close());
+  const server = createAppServer(db); const session = testSession(db);
+  const headers = { 'x-aum-session': session.sessionId };
+  const post = (body) => injectHttp(server, { method: 'POST', url: '/api/crm/shortlists', headers, body });
+  const { upsertPropertyMaster } = require('./server');
+  upsertPropertyMaster(db, { property_id: 'AUM-TEST-DRAFT', listing_title: 'Synthetic draft', publication_state: 'draft', public_description: 'Synthetic owner 9123456789' }, { role: 'principal', label: 'test' });
+  assert.equal((await post({ property_ids: ['AUM-TEST-DRAFT'] })).status, 422);
+  assert.equal((await post({ property_ids: ['AUM-OFF-000001'], commentaries: { 'AUM-OFF-000001': 'Synthetic private number 9123456789' } })).status, 422);
+  assert.equal((await post({ property_ids: ['AUM-OFF-000001'], advisor_intro_note: '1% brokerage' })).status, 422);
+  const good = await post({ property_ids: ['AUM-OFF-000001'] });
+  assert.equal(good.status, 201);
+  const url = '/api/public/shortlists/' + good.json.share_token;
+  assert.equal((await injectHttp(server, { url })).status, 200);
+  db.prepare("UPDATE properties SET public_description='Synthetic number 9123456789' WHERE property_id='AUM-OFF-000001'").run();
+  const blocked = await injectHttp(server, { url });
+  assert.equal(blocked.status, 422); assert.ok(!blocked.text.includes('9123456789'));
+  const revoke = await injectHttp(server, { method: 'POST', url: `/api/crm/shortlists/${good.json.shortlist_id}/revoke`, headers, body: {} });
+  assert.equal(revoke.status, 200); assert.equal((await injectHttp(server, { url })).status, 404);
+});
+
+test('Analysts are read-only, advisors cannot approve directly or via generic updates/imports/publish', async (t) => {
+  const db = createSeededMemoryDb(); t.after(() => db.close());
+  const server = createAppServer(db, { targetPaths: isolatedTargets(t) });
+  const analyst = testSession(db, 'analyst'), advisor = testSession(db, 'advisor');
+  for (const url of ['/api/crm/properties/AUM-WEB-000001/approve', '/api/crm/publish', '/api/crm/contacts', '/api/crm/shortlists']) {
+    assert.equal((await injectHttp(server, { method: 'POST', url, headers: { 'x-aum-session': analyst.sessionId }, body: {} })).status, 403);
+  }
+  for (const url of ['/api/crm/properties/AUM-WEB-000001/approve', '/api/crm/publish']) {
+    assert.equal((await injectHttp(server, { method: 'POST', url, headers: { 'x-aum-session': advisor.sessionId }, body: {} })).status, 403);
+  }
+  const denied = await injectHttp(server, { method: 'POST', url: '/api/crm/properties', headers: { 'x-aum-session': advisor.sessionId }, body: { property_id: 'AUM-TEST-APPROVE', listing_title: 'Synthetic approved', publication_state: 'approved_public' } });
+  assert.equal(denied.status, 403);
+  const imported = await injectHttp(server, { method: 'POST', url: '/api/crm/intake/import', headers: { 'x-aum-session': advisor.sessionId }, body: { format: 'json', dryRun: false, text: JSON.stringify([{ property_id: 'AUM-TEST-IMPORT', listing_title: 'Synthetic import', publication_state: 'approved_public' }]) } });
+  assert.equal(imported.status, 200);
+  assert.equal(db.prepare("SELECT publication_state FROM properties WHERE property_id='AUM-TEST-IMPORT'").get().publication_state, 'pending_approval');
+});
+
+test('Cookie-authenticated writes cannot bypass CSRF by supplying an invalid session header', async (t) => {
+  const db = createSeededMemoryDb(); t.after(() => db.close()); const server = createAppServer(db);
+  const session = testSession(db); const cookie = `aum_crm_sid=${session.sessionId}`;
+  for (const url of ['/api/crm/contacts', '/api/crm/auth/logout']) {
+    assert.equal((await injectHttp(server, { method: 'POST', url, headers: { cookie, 'x-aum-session': 'invalid' }, body: { full_name: 'Synthetic' } })).status, 403);
+  }
+  assert.equal((await injectHttp(server, { method: 'POST', url: '/api/crm/contacts', headers: { cookie, 'x-csrf-token': session.csrfToken }, body: { full_name: 'Synthetic' } })).status, 201);
+  assert.equal((await injectHttp(server, { method: 'POST', url: '/api/crm/contacts', headers: { 'x-aum-session': session.sessionId }, body: { full_name: 'Synthetic API' } })).status, 201);
+});
+
+test('Failed promotion restores every previous file and manifest; a complete snapshot is retained', (t) => {
+  const db = createSeededMemoryDb(); t.after(() => db.close()); const targetPaths = isolatedTargets(t);
+  const baseline = compileAndPublishStaticFeeds(db, { targetPaths });
+  const inventory = path.join(targetPaths.hostingerDataDir, 'public_inventory.json');
+  const javascript = path.join(targetPaths.hostingerDataDir, 'public_inventory.js');
+  const manifest = path.join(targetPaths.releasesDir, 'latest_manifest.json');
+  const before = [inventory, javascript, manifest].map((p) => fs.readFileSync(p, 'utf8'));
+  assert.ok(fs.existsSync(path.join(targetPaths.releasesDir, baseline.releaseId, 'snapshot.json')));
+  db.prepare("UPDATE properties SET price_text='₹6.75 Cr' WHERE property_id='AUM-WEB-000134'").run();
+  const rename = fs.renameSync;
+  fs.renameSync = function (from, to) { if (to === javascript) throw new Error('Injected rename failure'); return rename.call(this, from, to); };
+  try { assert.throws(() => compileAndPublishStaticFeeds(db, { targetPaths }), /Injected rename failure/); }
+  finally { fs.renameSync = rename; }
+  assert.deepEqual([inventory, javascript, manifest].map((p) => fs.readFileSync(p, 'utf8')), before);
+  assert.ok(!fs.existsSync(path.join(targetPaths.releasesDir, 'pending.json')));
+});
+
+test('CLI rollback restores SQLite, survives rebuild, and refuses to overwrite later CRM edits', (t) => {
+  const db = createSeededMemoryDb(); t.after(() => db.close()); const targetPaths = isolatedTargets(t);
+  const { mutate, rollback } = require('../scripts/manage_inventory');
+  const id = 'AUM-WEB-000134'; const old = db.prepare('SELECT * FROM properties WHERE property_id=?').get(id);
+  mutate(db, { price_value: 6.75, price_unit: 'Cr', price_text: '₹6.75 Cr' }, id, { targetPaths });
+  rollback(db, { targetPaths }); compileAndPublishStaticFeeds(db, { targetPaths });
+  const restored = JSON.parse(fs.readFileSync(path.join(targetPaths.hostingerDataDir, 'public_inventory.json'))).find((x) => x.property_id === id);
+  assert.equal(restored.price_text, old.price_text);
+  mutate(db, { price_value: 7, price_text: '₹7 Cr' }, id, { targetPaths });
+  db.prepare("UPDATE properties SET price_text='₹8 Cr' WHERE property_id=?").run(id);
+  assert.throws(() => rollback(db, { targetPaths }), /changed after/);
+});
+
+test('Fresh operational seed excludes demo clients; featured identities and prices come from the master', (t) => {
+  const db = openDatabase(':memory:'); t.after(() => db.close()); seedDatabaseIfEmpty(db);
+  assert.equal(db.prepare('SELECT COUNT(*) AS c FROM contacts').get().c, 0);
+  assert.equal(db.prepare('SELECT COUNT(*) AS c FROM leads').get().c, 0);
+  assert.equal(db.prepare("SELECT COUNT(*) AS c FROM properties WHERE publication_state!='approved_public'").get().c, 0);
+  const targetPaths = isolatedTargets(t); compileAndPublishStaticFeeds(db, { targetPaths });
+  const context = { window: {} }; require('node:vm').runInNewContext(fs.readFileSync(path.join(targetPaths.hostingerDataDir, 'approved_properties.js'), 'utf8'), context);
+  for (const card of context.window.AUM_APPROVED_PROPERTIES) {
+    const row = db.prepare('SELECT * FROM properties WHERE property_id=?').get(card.property_id);
+    assert.equal(card.name, row.listing_title);
+    assert.equal(card.price_text, require('./domain/normalizer').formatPublicPriceDisplay(row));
+  }
+  assert.equal(db.prepare("SELECT is_featured_approved FROM properties WHERE property_id='AUM-WEB-000142'").get().is_featured_approved, 0);
+});
+
+test('Lead client retries with one idempotency key and rejects unsuccessful acknowledgements', async () => {
+  const vm = require('node:vm'); const code = fs.readFileSync(path.join(PATHS.hostingerDir, 'assets/lead-client.js'), 'utf8');
+  const calls = []; let fail = false;
+  const context = { window: {}, document: { addEventListener() {} }, location: { pathname: '/' }, AbortSignal, setTimeout: (fn) => fn(), console,
+    fetch: async (_url, options) => { calls.push(JSON.parse(options.body)); return fail || calls.length === 1 ? { ok: false, status: 503, json: async () => ({ ok: false }) } : { ok: true, status: 201, json: async () => ({ ok: true, lead_id: 'TEST-LEAD' }) }; } };
+  vm.runInNewContext(code, context);
+  const result = await context.window.AUM_CAPTURE_INQUIRY({ client_name: 'Synthetic' });
+  assert.equal(result.lead_id, 'TEST-LEAD'); assert.equal(calls.length, 2); assert.equal(calls[0].idempotency_key, calls[1].idempotency_key);
+  await context.window.AUM_CAPTURE_INQUIRY({ client_name: 'Synthetic' }); assert.equal(calls.length, 2);
+  fail = true; await assert.rejects(context.window.AUM_CAPTURE_INQUIRY({ client_name: 'Unavailable' }));
+});
+
+test('Interrupted publisher journal is recovered before any new release validation', (t) => {
+  const targetPaths = isolatedTargets(t);
+  const { withReleaseLock } = require('./domain/release_store');
+  const target = path.join(targetPaths.hostingerDataDir, 'public_inventory.json');
+  const before = path.join(targetPaths.releasesDir, 'before.json');
+  fs.mkdirSync(path.dirname(target), { recursive: true }); fs.mkdirSync(targetPaths.releasesDir, { recursive: true });
+  fs.writeFileSync(before, 'previous accepted release'); fs.writeFileSync(target, 'interrupted new release');
+  fs.writeFileSync(path.join(targetPaths.releasesDir, 'pending.json'), JSON.stringify({ entries: [{ target, before }] }));
+  assert.throws(() => withReleaseLock(targetPaths.releasesDir, () => { throw new Error('New candidate rejected'); }), /New candidate rejected/);
+  assert.equal(fs.readFileSync(target, 'utf8'), 'previous accepted release');
+  assert.ok(!fs.existsSync(path.join(targetPaths.releasesDir, 'pending.json')));
+  assert.ok(!fs.existsSync(path.join(targetPaths.releasesDir, '.publisher.lock')));
+});
+
+test('SQLite backup restores committed inventory and passes integrity and public projection checks', (t) => {
+  const targetPaths = isolatedTargets(t); const original = openDatabase(':memory:');
+  t.after(() => original.close()); seedDatabaseIfEmpty(original);
+  const backup = path.join(targetPaths.releasesDir, 'restore.sqlite'); fs.mkdirSync(targetPaths.releasesDir, { recursive: true });
+  original.prepare('VACUUM INTO ?').run(backup);
+  const restored = openDatabase(backup); t.after(() => restored.close());
+  assert.equal(restored.prepare('PRAGMA integrity_check').get().integrity_check, 'ok');
+  const release = compileAndPublishStaticFeeds(restored, { writeFiles: false });
+  assert.equal(release.counts.publicProperties, seedCount);
 });

@@ -1,3 +1,5 @@
+> **Integration update — 1 November 2026:** This remains a local brand study. It now consumes the approved public inventory (static fallback plus the same-origin API) and records submitted enquiries through the shared lead client when the backend is running. The six-record/no-API description below documents the original design handoff. Run the workspace's `npm start` and visit `/v16/` for the integrated experience. Identity directions are still exploratory.
+
 # AUM Estates — local brand and property-experience study
 
 **Working version:** v16, source commit `b364a085769db84d58079711d563f9a765d6e6dc` (30 October 2026)

@@ -19,7 +19,14 @@ const { execSync } = require('node:child_process');
 const ROOT_DIR = path.resolve(__dirname, '..');
 const SOURCE_DIR = path.join(ROOT_DIR, 'AUM_ESTATES_Website_For_Hostinger');
 const REAL_SOURCE_DIR = fs.realpathSync(SOURCE_DIR);
-const DIST_BUNDLE_DIR = path.join(ROOT_DIR, 'dist_hostinger');
+const RELEASE_DIR = path.join(ROOT_DIR, 'dist_hostinger');
+const DIST_BUNDLE_DIR = fs.mkdtempSync(path.join(ROOT_DIR, '.dist_hostinger.stage-'));
+const { withReleaseLock } = require('../backend/domain/release_store');
+const { PATHS } = require('../backend/config');
+const interruptedPrevious = path.join(ROOT_DIR, '.dist_hostinger.previous');
+if (!fs.existsSync(RELEASE_DIR) && fs.existsSync(interruptedPrevious)) fs.renameSync(interruptedPrevious, RELEASE_DIR);
+let promoted = false;
+process.on('exit', () => { if (!promoted) fs.rmSync(DIST_BUNDLE_DIR, { recursive: true, force: true }); });
 
 console.log('\n=============================================================');
 console.log(' AUM ESTATES — PRODUCTION DEPLOYMENT PACKAGER');
@@ -39,17 +46,15 @@ try {
 console.log('\n[STEP 2/4] Running production verification audit...');
 try {
   execSync('node scripts/verify_site.js', { stdio: 'inherit', cwd: ROOT_DIR });
+  execSync('npm test', { stdio: 'inherit', cwd: ROOT_DIR });
 } catch {
   console.error('[FATAL] Production integrity checks failed! Aborting packaging.');
   process.exit(1);
 }
 
-// 2. Prepare Clean dist_hostinger Directory
-console.log('\n[STEP 3/4] Assembling sanitized production distribution bundle...');
-if (fs.existsSync(DIST_BUNDLE_DIR)) {
-  fs.rmSync(DIST_BUNDLE_DIR, { recursive: true, force: true });
-}
-fs.mkdirSync(DIST_BUNDLE_DIR, { recursive: true });
+// Keep the last bundle intact until the staged candidate passes every check.
+withReleaseLock(PATHS.releasesDir, () => {
+console.log('\n[STEP 3/4] Assembling staged distribution...');
 
 const PRODUCTION_ENTRIES = [
   '.htaccess',
@@ -127,6 +132,12 @@ function copyRecursive(src, dest) {
   } else if (stat.isFile()) {
     const baseName = path.basename(src);
     if (isForbidden(baseName)) return;
+    if (baseName !== '.htaccess' && !/\.(?:html|css|js|json|xml|svg|jpe?g|png|webp|ico|woff2?|ttf)$/i.test(baseName)) {
+      abortPackaging(`Unsupported public artifact type: ${path.relative(SOURCE_DIR, src)}`);
+    }
+    if (/\.json$/i.test(baseName) && baseName !== 'public_inventory.json') {
+      abortPackaging(`Unapproved structured dataset: ${path.relative(SOURCE_DIR, src)}`);
+    }
     fs.copyFileSync(src, dest);
   }
 }
@@ -144,7 +155,7 @@ for (const entry of PRODUCTION_ENTRIES) {
 console.log('\n[STEP 4/4] Conducting full-tree security scan on dist_hostinger/...');
 
 const OFFICIAL_PHONES = ['9873813595', '9811157018'];
-const PRIVATE_KEY_REGEX = /"(?:owner_contact|owner_name|owner_phone|owner_email|broker_phone|internal_notes|_private_broker_metadata|commission_terms|payment_structure_notes|internal_floor_price_inr|raw_whatsapp_text)"\s*:/i;
+const PRIVATE_KEY_REGEX = /"(?:(?:owner|seller|broker)_(?:contact|name|phone|email|mobile)(?:_cache|_id)?|private_notes|internal_notes|internal_advisor_notes|exact_unit_or_plot_no|_private_broker_metadata|commission_terms|payment_structure_notes|internal_floor_price_inr|raw_whatsapp_text)"\s*:/i;
 const DATA_FEED_LEAK_REGEX = /\b(?:commission|brokerage|broker\s*cut|payout|cheque|cash\s*(?:part|deal|component)|white\s*(?:deal|entry|component|part|ratio)|\d{1,3}\s*[/:]\s*\d{1,3}\s*(?:white|black|cheque|cash)|owner\s*(?:mob|name|phone)|keys?\s*in\s*hand)\b/i;
 
 function findPrivatePhones(text) {
@@ -218,8 +229,18 @@ if (leaksDetected > 0) {
 
 console.log(`  ✓ Scanned ${filesScanned} bundled production files — 0 privacy leaks, 0 out-of-tree symlinks, 0 forbidden files.`);
 
+const previous = path.join(ROOT_DIR, '.dist_hostinger.previous');
+if (fs.existsSync(previous) && !fs.existsSync(RELEASE_DIR)) fs.renameSync(previous, RELEASE_DIR);
+if (fs.existsSync(previous)) fs.rmSync(previous, { recursive: true, force: true });
+if (fs.existsSync(RELEASE_DIR)) fs.renameSync(RELEASE_DIR, previous);
+try { fs.renameSync(DIST_BUNDLE_DIR, RELEASE_DIR); promoted = true; }
+catch (err) { if (fs.existsSync(previous)) fs.renameSync(previous, RELEASE_DIR); throw err; }
+if (fs.existsSync(previous)) fs.rmSync(previous, { recursive: true, force: true });
+
 console.log('\n=============================================================');
 console.log(' RELEASE PACKAGE READY FOR HOSTINGER');
-console.log(' Destination Directory: ' + DIST_BUNDLE_DIR);
+console.log(' Destination Directory: ' + RELEASE_DIR);
 console.log(' Total Files: ' + filesScanned);
 console.log('=============================================================\n');
+
+});

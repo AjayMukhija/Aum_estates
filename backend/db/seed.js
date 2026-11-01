@@ -20,6 +20,8 @@ const {
 const { quarantineSensitiveClauses } = require('../domain/privacy_gate');
 
 const BROKEN_FEATURED_ID_MAP = {
+  'AUM-WEB-000142': 'AUM-WEB-000137', // Arbour card must refer to Arbour
+  'AUM-WEB-000095': 'AUM-WEB-000169', // Quartier card must refer to Quartier
   'AUM-WEB-000078': 'AUM-WEB-000151',    // DLF Park Place 2282 Aravalli
   'AUM-WEB-DLF-GROVE': 'AUM-WEB-000135', // DLF Grove 500 sq yd 4 BHK + office
   'AUM-WEB-000054': 'AUM-WEB-000253',    // DLF The Belaire Sector 54 3065 sq ft 4 BHK + Servant
@@ -160,6 +162,8 @@ function ensureAdminUser(db) {
   const existing = db.prepare('SELECT user_id FROM users WHERE email = ?').get(SERVER_CONFIG.defaultAdminEmail);
   if (existing) return existing.user_id;
 
+  if (!SERVER_CONFIG.defaultAdminPassword) return null;
+  if (SERVER_CONFIG.defaultAdminPassword === 'AumAdvisory@2026' || SERVER_CONFIG.defaultAdminPassword.length < 16) throw new Error('AUM_ADMIN_PASSWORD must contain at least 16 characters');
   const { hash, salt } = hashPassword(SERVER_CONFIG.defaultAdminPassword);
   const res = db.prepare(`
     INSERT INTO users (email, full_name, role, password_hash, password_salt, is_active)
@@ -405,7 +409,7 @@ function seedDatabaseIfEmpty(db, options = {}) {
       thingsToConfirm.push('Exact floor / unit position & viewing slot');
       thingsToConfirm.push('Title documents, RERA/HSVP status & recurring charges');
 
-      const slug = cleanWhitespace(raw.slug) || slugify(`${id}-${title}`);
+      const slug = slugify(`${id}-${title}`);
       const url = `https://aumestates.com/properties/detail.html?id=${encodeURIComponent(id)}`;
 
       insertProperty.run(
@@ -470,11 +474,11 @@ function seedDatabaseIfEmpty(db, options = {}) {
         null,
         null,
         'Master Workbook v13 (10 Oct 2026)',
-        null,
+        title !== cleanWhitespace(raw.listing_title) ? cleanWhitespace(raw.listing_title) : null,
         null,
         null,
         extractedPaymentNotes,
-        verifState === 'recently_reverified' ? 1 : 0,
+        0, // Availability re-verification is not evidence of title-deed clearance.
         null,
         null,
         extractedAdvisorNotes
@@ -492,7 +496,8 @@ function seedDatabaseIfEmpty(db, options = {}) {
 
     let featuredLinked = 0;
     approvedLocal.forEach((card, idx) => {
-      const targetId = BROKEN_FEATURED_ID_MAP[card.property_id] || card.property_id;
+      const legacyConflict = (card.property_id === 'AUM-WEB-000142' && /Arbour/i.test(card.name)) || (card.property_id === 'AUM-WEB-000095' && /Quartier/i.test(card.name));
+      const targetId = ['AUM-WEB-000142', 'AUM-WEB-000095'].includes(card.property_id) && !legacyConflict ? card.property_id : (BROKEN_FEATURED_ID_MAP[card.property_id] || card.property_id);
       const overridePayload = {
         name: card.name,
         location: card.location,
@@ -511,6 +516,7 @@ function seedDatabaseIfEmpty(db, options = {}) {
       if (res.changes > 0) featuredLinked++;
     });
 
+    if (options.demo === true) {
     // 5. Seed Representative Off-Market Private Mandates & Pending Intake Draft + Contacts & CRM Sample Pipeline
     //    (Strictly private_off_market / pending_approval so public feed count stays at 347!)
     const insertContact = db.prepare(`
@@ -775,6 +781,8 @@ function seedDatabaseIfEmpty(db, options = {}) {
       'Spoke with Siddharth (18 mins). Confirmed ₹6–10 Cr liquid budget, prefers Sector 54/59/63 gated towers. Prepare curated shortlist for weekend visit.',
       adminUserId
     );
+
+    } // Explicit demo fixtures only; never seed fictional clients into an operational CRM.
 
     rebuildAllFts(db);
 

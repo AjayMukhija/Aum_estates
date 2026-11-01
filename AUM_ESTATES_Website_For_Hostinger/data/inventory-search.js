@@ -162,6 +162,7 @@
   }
 
   function categoryOf(o){
+    if (['apartment','builder-floor','villa','commercial','plot','farmhouse'].includes(o.category)) return o.category;
     const p=norm(o.property_type||'');
     const c=norm(o.configuration||'');
     const t=norm([o.listing_title,o.website_display_name,o.project_name,o.key_features].filter(Boolean).join(' '));
@@ -195,6 +196,8 @@
   function matchesLocation(o, q){
     if(!q) return true;
     const qn=norm(q);
+    const canonical = ['Golf Course Road','DLF Phase 1–5','Golf Course Ext & SPR','Nirvana Country & Sohna Road','Dwarka Expressway & New Gurgaon','Sushant Lok & Central Gurgaon','Gurugram Central & Other','South Goa'];
+    if (canonical.some((label) => norm(label) === qn)) return norm(o.corridor) === qn;
     const fields=[o.city,o.locality,o.sector,o.micro_location,o.project_name,o.listing_title].filter(Boolean).map(norm);
     const fullText=norm([o.city,o.locality,o.sector,o.micro_location,o.project_name,o.listing_title,o.public_description,o.key_features].join(' '));
 
@@ -449,35 +452,7 @@
   }
 
   // Global CRM Bridge for Master SQLite CRM, Client Bot & Analytics
-  if (typeof window.AUM_CRM_HOOK !== 'function') {
-    window.AUM_CRM_HOOK = function(actionOrPayload, maybePayload) {
-      const payload = (typeof actionOrPayload === 'string')
-        ? Object.assign({ action: actionOrPayload, timestamp: new Date().toISOString() }, maybePayload || {})
-        : Object.assign({ timestamp: new Date().toISOString() }, actionOrPayload || {});
-      if (window._AUM_CRM_LISTENER) {
-        try { window._AUM_CRM_LISTENER(payload); } catch (e) { console.error('CRM hook error:', e); }
-      }
-      window.dispatchEvent(new CustomEvent('aum:lead', { detail: payload }));
-      const act = String(payload.action || '');
-      if ((act === 'inquire_whatsapp' || act === 'register_mandate' || act === 'advisor_inquiry') && typeof fetch === 'function' && /^https?:$/i.test(location.protocol)) {
-        fetch('/api/public/inquiries', {
-          method: 'POST',
-          keepalive: true,
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            client_name: payload.name || 'Website Visitor',
-            client_phone: payload.phone || null,
-            preferred_location: payload.corridor || payload.location || 'Gurugram',
-            budget_text: payload.budget || payload.price || null,
-            property_id: payload.property_id || null,
-            source_channel: act,
-            source_page: payload.source || location.pathname,
-            message: payload.notes || (payload.title ? `Inquiry regarding ${payload.title} (${payload.property_id || 'Web'})` : null)
-          })
-        }).catch(() => {});
-      }
-    };
-  }
+  // window.AUM_CRM_HOOK is supplied by assets/lead-client.js.
 
   function resultCard(o){
     const features=(o.public_features||o.key_features||'').split(';').filter(Boolean).slice(0,3);
@@ -797,6 +772,9 @@
       if(hiddenMode) hiddenMode.value=params.mode;
       ['category','location','type','size','budget','q'].forEach(n=>{
         const el=form.querySelector(`[name=${n}]`);
+        if (el && n === 'location' && params[n] && ![...el.options].some(o => o.value === params[n])) {
+          const option = document.createElement('option'); option.value = params[n]; option.textContent = params[n]; el.append(option);
+        }
         if(el) el.value=params[n]||'';
       });
 

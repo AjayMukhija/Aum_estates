@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/styles.css" />
+  <link rel="stylesheet" href="assets/styles.css?v=20261101" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="alternate icon" href="favicon.ico" />
   <script type="application/ld+json">
@@ -36,6 +36,7 @@
     "areaServed": ["Gurgaon", "Golf Course Road", "DLF Phase 1-5", "Nirvana Country", "Sohna Road", "Dwarka Expressway", "New Delhi NCR"]
   }
   </script>
+  <script src="assets/lead-client.js?v=20261101"></script>
 </head>
 <body>
 
@@ -95,7 +96,7 @@
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="properties/index.html">
               <strong>Browse Complete Inventory →</strong>
-              <span>View all 347 vetted records</span>
+              <span>Browse current public references</span>
             </a>
             <a class="dropdown-item" href="concepts/aum-grid-study/index.html">
               <strong>Architectural Grid UI (Study 06) →</strong>
@@ -216,13 +217,13 @@
         <div class="hero-copy">
           <div class="hero-eyebrow-pill">ESTABLISHED 2002 · GURGAON</div>
           <h1>Quiet Advisory for Discerning Property Acquisitions</h1>
-          <h2>Twenty-two years of fiduciary property stewardship across Golf Course Road, DLF Phase 1–5, and prime Gurgaon enclaves.</h2>
+          <h2>Independent property advisory since 2002, with stewardship across Golf Course Road, DLF Phase 1–5, and prime Gurgaon enclaves.</h2>
           <p class="coverage">Golf Course Road · DLF Phase 1–5 · Nirvana Country · Golf Course Extn · Sohna Road · Dwarka Expressway</p>
         </div>
 
         <div class="hero-trust">
-          <b class="tabular-nums">22+</b>
-          <span>Years of Principled</span>
+          <b class="tabular-nums">2002</b>
+          <span>Established</span>
           <span>Gurgaon Advisory</span>
         </div>
       </div>
@@ -230,7 +231,7 @@
       <div class="container">
         <div class="hero-stats-strip">
           <div class="stat-item">
-            <span class="stat-value tabular-nums">22+ Years</span>
+            <span class="stat-value tabular-nums">Since 2002</span>
             <span class="stat-label">Advisory Pedigree (Since 2002)</span>
           </div>
           <div class="stat-item">
@@ -238,8 +239,8 @@
             <span class="stat-label">Transaction Volume Advised</span>
           </div>
           <div class="stat-item">
-            <span class="stat-value tabular-nums">100%</span>
-            <span class="stat-label">Verified Titles &amp; Diligence</span>
+            <span class="stat-value tabular-nums">Review</span>
+            <span class="stat-label">Title &amp; Document Diligence</span>
           </div>
           <div class="stat-item">
             <span class="stat-value">Sector 50</span>
@@ -407,7 +408,7 @@
           <div>
             <div class="eyebrow">DISTINGUISHED RESIDENCES</div>
             <h2>Featured Acquisitions &amp; Current Opportunities</h2>
-            <p>Hand-selected assets vetted for clean title provenance, institutional diligence, and immediate transaction readiness.</p>
+            <p>Selected property references. Availability, pricing and title documents must be confirmed with the advisory desk.</p>
           </div>
           <a class="view" href="properties/index.html">View All Active Listings →</a>
         </div>
@@ -460,13 +461,13 @@
           </div>
           <h4>AUM ESTATES</h4>
           <div class="crest-meta">ESTABLISHED 2002 · GURGAON</div>
-          <p>Twenty-two years of fiduciary property stewardship and verified title intelligence across Delhi NCR.</p>
+          <p>Independent property advisory since 2002, with stewardship and document diligence across Delhi NCR.</p>
         </div>
 
         <!-- Founder Quote & Interactive Accordion -->
         <div class="founder-quote-area">
           <div class="eyebrow">FOUNDER'S PERSPECTIVE · AJAY MUKHIJA</div>
-          <h2>“Over twenty-two years in Gurgaon, our focus has remained steadfast — protecting our clients' family capital, verifying every title with forensic rigor, and building enduring relationships built on trust.”</h2>
+          <h2>“Over two decades in Gurgaon, our focus has remained steadfast — protecting our clients' family capital, verifying every title with forensic rigor, and building enduring relationships built on trust.”</h2>
           
           <div class="founder-credentials">
             <div>
@@ -577,9 +578,9 @@
   <!-- ======================================================================
        Dynamic Data Scripts
        ====================================================================== -->
-  <script src="data/public_inventory.js"></script>
-  <script src="data/projects_local.js"></script>
-  <script src="data/approved_properties.js"></script>
+  <script src="data/public_inventory.js?v=20261101"></script>
+  <script src="data/projects_local.js?v=20261101"></script>
+  <script src="data/approved_properties.js?v=20261101"></script>
 
   <script>
   // Search Form Mode, Category & Gradual Reveal Handling
@@ -642,11 +643,11 @@
       const img = o.image
         ? `<div class="approved-card-photo photo" style="background-image:url('${esc(o.image)}')">
              <span class="photo-label">${label}</span>
-             <span class="photo-badge-gold">Verified Mandate</span>
+             <span class="photo-badge-gold">Public Reference</span>
            </div>`
         : `<div class="approved-card-photo photo" style="background-color:#e2e8f0;">
              <span class="photo-label">${label}</span>
-             <span class="photo-badge-gold">Verified Mandate</span>
+             <span class="photo-badge-gold">Public Reference</span>
            </div>`;
 
       const specHtml = o.features ? `<div class="spec-strip">${esc(o.features)}</div>` : '';
@@ -674,7 +675,7 @@
             <div class="price tabular-nums">${esc(money(o))}</div>
             <div class="card-actions">
               <a class="view-details" style="flex:1;text-align:center;" href="${detailLink}">View Dossier →</a>
-              <a class="result-contact" style="flex:1.2;text-align:center;" href="${wa}" target="_blank" rel="noopener">Inquire via WhatsApp</a>
+              <a class="result-contact" style="flex:1.2;text-align:center;" data-featured-inquiry="${esc(o.property_id)}" href="${wa}" target="_blank" rel="noopener">Inquire via WhatsApp</a>
             </div>
           </div>
         </article>
@@ -703,68 +704,21 @@
     const norm = s => String(s ?? '').toLowerCase().replace(/&/g,'and').replace(/[^a-z0-9]+/g,' ').trim();
 
     const locations = [
-      {
-        name: 'Golf Course Road & DLF Phase 5',
-        sub: 'Benchmark Luxury Corridor',
-        q: 'Golf Course Road',
-        match: o => {
-          const fields = norm([o.locality, o.sector, o.micro_location].filter(Boolean).join(' '));
-          const project = norm([o.project_name, o.listing_title].filter(Boolean).join(' '));
-          const named = ['dlf belaire', 'dlf park place', 'dlf magnolias', 'dlf aralias', 'dlf camellias', 'dlf crest', 'the crest', 'dlf carlton estate'];
-          return fields.includes('golf course road') || fields.includes('golf course rd') || named.some(n => project.includes(n));
-        }
-      },
-      {
-        name: 'DLF Phase 1–4 & Luxury Floors',
-        sub: 'Established Gated Enclaves',
-        q: 'DLF',
-        match: o => norm([o.project_name, o.listing_title, o.locality, o.micro_location].filter(Boolean).join(' ')).includes('dlf')
-      },
-      {
-        name: 'Nirvana Country & Sector 50',
-        sub: 'Established Low-Density Family Enclave',
-        q: 'Nirvana',
-        match: o => {
-          const fields = norm([o.locality, o.sector, o.micro_location, o.project_name, o.listing_title].filter(Boolean).join(' '));
-          return fields.includes('nirvana') || fields.includes('sector 50') || fields.includes('south city 2');
-        }
-      },
-      {
-        name: 'Golf Course Extn & SPR',
-        sub: 'High-Growth Corporate & Luxury Corridor',
-        q: 'Golf Course Road',
-        match: o => {
-          const fields = norm([o.locality, o.sector, o.micro_location].filter(Boolean).join(' '));
-          return fields.includes('sohna road') || fields.includes('sohna-road') || fields.includes('spr') || fields.includes('extension');
-        }
-      },
-      {
-        name: 'Dwarka Expressway & Global City',
-        sub: 'Airport & Diplomatic Enclave Proximity',
-        q: 'Dwarka Expressway',
-        match: o => {
-          const fields = norm([o.locality, o.sector, o.micro_location, o.project_name, o.listing_title].filter(Boolean).join(' '));
-          return fields.includes('dwarka expressway') || fields.includes('dwarka exp') || fields.includes('dlf nth sector 90');
-        }
-      },
-      {
-        name: 'Commercial & Pre-Rented Assets',
-        sub: 'High-Yield Corporate & Retail Investments',
-        q: 'Commercial',
-        match: o => {
-          const type = norm(o.property_type || '');
-          const title = norm(o.listing_title || '');
-          return type.includes('commercial') || type.includes('office') || title.includes('commercial') || title.includes('shop') || title.includes('pre-rented');
-        }
-      }
+      { name: 'Golf Course Road', sub: 'Established Luxury Corridor', corridor: 'Golf Course Road' },
+      { name: 'DLF Phase 1–5', sub: 'Established Gated Enclaves', corridor: 'DLF Phase 1–5' },
+      { name: 'Nirvana Country & Sohna Road', sub: 'Family Homes & Villas', corridor: 'Nirvana Country & Sohna Road' },
+      { name: 'Golf Course Extn & SPR', sub: 'Residential & Commercial', corridor: 'Golf Course Ext & SPR' },
+      { name: 'Dwarka Expressway & New Gurgaon', sub: 'Expressway Corridor', corridor: 'Dwarka Expressway & New Gurgaon' },
+      { name: 'Commercial & Pre-Rented Assets', sub: 'Offices & Retail', category: 'commercial' }
     ];
+
 
     const cleanName = o => o.website_display_name || o.listing_title || o.project_name || 'Verified Property';
     const locLabel = o => [o.locality, o.sector, o.city].filter(Boolean).filter((v,i,a) => a.indexOf(v)===i).join(', ');
     const price = o => o.price_text || (o.price_value != null ? `₹${o.price_value} ${o.price_unit||''}`.trim() : 'Price on request');
 
     locations.forEach(l => {
-      const rows = data.filter(o => l.match(o));
+      const rows = data.filter(o => l.category ? o.category === l.category : o.corridor === l.corridor);
       const shown = rows.slice(0, 3);
       const items = shown.length
         ? shown.map(o => `
@@ -790,7 +744,7 @@
           <div class="location-items">
             ${items}
           </div>
-          <a class="location-view" href="properties/index.html?q=${encodeURIComponent(l.q)}">
+          <a class="location-view" href="properties/index.html?${l.category ? 'category=' + encodeURIComponent(l.category) : 'location=' + encodeURIComponent(l.corridor)}">
             View ${esc(l.name)} inventory →
           </a>
         </article>
@@ -805,18 +759,7 @@
 
     const norm = v => String(v ?? '').normalize('NFKD').toLowerCase().replace(/[–—]/g, '-').replace(/[^a-z0-9+]+/g, ' ').trim();
 
-    const cat = x => {
-      const p = norm(x.property_type || '');
-      if (/\b(plot|plots|land|farm land)\b/.test(p)) return 'plot';
-      if (/\b(commercial|office|offices|shop|shops|retail|warehouse|industrial|factory)\b/.test(p)) return 'commercial';
-      if (/\bfarmhouse|farm house\b/.test(p)) return 'farmhouse';
-      if (p && !/^(property|other|unknown|residential|real estate)$/.test(p)) return 'residential';
-      const c = norm(x.configuration || '');
-      if (/\b(plot|plots|land|farm land)\b/.test(c)) return 'plot';
-      if (/\b(commercial|office|offices|shop|shops|retail|warehouse|industrial|factory)\b/.test(c)) return 'commercial';
-      if (/\bfarmhouse|farm house\b/.test(c)) return 'farmhouse';
-      return 'residential';
-    };
+    const cat = x => ['commercial', 'plot', 'farmhouse'].includes(x.category) ? x.category : 'residential';
 
     document.querySelectorAll('[data-cat-count]').forEach(e => {
       const count = active.filter(x => cat(x) === e.dataset.catCount).length;
@@ -826,7 +769,7 @@
     const projects = Array.isArray(window.AUM_PROJECTS_LOCAL) ? window.AUM_PROJECTS_LOCAL : [];
     const projElem = document.querySelector('[data-project-count]');
     if (projElem) {
-      const pCount = projects.filter(x => x && x.project_category === 'New Project').length || 14;
+      const pCount = projects.filter(x => x && x.is_new_project_curated).length;
       projElem.textContent = `${pCount} projects`;
     }
   })();

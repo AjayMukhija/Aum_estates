@@ -24,41 +24,7 @@
   };
 
   // Structured CRM Hook for Master SQLite CRM, client intake bot, and event listeners
-  window.AUM_CRM_HOOK = function (actionOrPayload, maybePayload) {
-    const detail = (typeof actionOrPayload === 'string')
-      ? Object.assign({ action: actionOrPayload, timestamp: new Date().toISOString() }, maybePayload || {})
-      : Object.assign({ timestamp: new Date().toISOString() }, actionOrPayload || {});
-    try {
-      if (typeof window._AUM_CRM_LISTENER === 'function') {
-        window._AUM_CRM_LISTENER(detail);
-      }
-      window.dispatchEvent(new CustomEvent('aum:lead', { detail }));
-      window.dispatchEvent(new CustomEvent('aum:lead_inquiry', {
-        detail: { action: detail.action, payload: detail, timestamp: detail.timestamp }
-      }));
-      const act = String(detail.action || '');
-      if ((act === 'inquire_whatsapp' || act === 'register_mandate' || act === 'advisor_inquiry') && typeof fetch === 'function') {
-        const href = String((window.location && window.location.href) || '');
-        if (/^https?:\/\//i.test(href)) {
-          fetch('/api/public/inquiries', {
-            method: 'POST',
-            keepalive: true,
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              client_name: detail.name || detail.client_name || 'Website Visitor',
-              client_phone: detail.phone || detail.client_phone || null,
-              preferred_location: detail.corridor || detail.location || 'Gurugram',
-              budget_text: detail.budget || detail.price || null,
-              property_id: detail.property_id || null,
-              source_channel: act,
-              source_page: detail.source || 'architectural_grid_06',
-              message: detail.notes || (detail.title ? `Inquiry regarding ${detail.title} (${detail.property_id || 'Web'})` : null)
-            })
-          }).catch(() => {});
-        }
-      }
-    } catch (e) {}
-  };
+  // window.AUM_CRM_HOOK is supplied by assets/lead-client.js.
 
   function getInventory() {
     if (typeof window !== 'undefined' && Array.isArray(window.AUM_PUBLIC_INVENTORY) && window.AUM_PUBLIC_INVENTORY.length > 0) {
@@ -460,7 +426,7 @@
     const desc = item.public_description || item.key_features || 'Verified specifications and private dossier available on request.';
 
     return `<article class="property-card" data-property-id="${safeText(id)}" data-title="${safeText(title)}" data-price="${safeText(priceText)}" data-location="${safeText(loc)}">
-      <a class="property-image" href="${detailHref}" aria-label="View verified dossier for ${safeText(title)}">
+      <a class="property-image" href="${detailHref}" aria-label="View property dossier for ${safeText(title)}">
         <img src="assets/property-images/${image}" alt="${safeText(title)}" loading="lazy" onerror="this.onerror=null;this.src='https://aumestates.com/assets/property-images/${image}';">
         <span class="property-badge">${safeText(badgeText)}</span>
       </a>
@@ -561,7 +527,7 @@
 
     grid.innerHTML = items.map(propertyCard).join('');
 
-    const countText = `${items.length} ${items.length === 1 ? 'verified property' : 'verified properties'}`;
+    const countText = `${items.length} ${items.length === 1 ? 'public reference' : 'public references'}`;
     const resultCountEl = $('#resultCount');
     const mobileResultCountEl = $('#mobileResultCount');
     if (resultCountEl) resultCountEl.textContent = countText;

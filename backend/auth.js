@@ -51,7 +51,8 @@ function createSession(db, userId, ipAddress = null) {
 
 function getAuthenticatedSession(db, req) {
   const cookies = parseCookies(req.headers.cookie);
-  const sid = cookies[SERVER_CONFIG.sessionCookieName] || req.headers['x-aum-session'];
+  const cookieSid = cookies[SERVER_CONFIG.sessionCookieName];
+  const sid = cookieSid || req.headers['x-aum-session'];
   if (!sid) return null;
 
   const row = db.prepare(`
@@ -75,7 +76,7 @@ function getAuthenticatedSession(db, req) {
     return null;
   }
 
-  return row;
+  return { ...row, authenticationMethod: cookieSid ? 'cookie' : 'header' };
 }
 
 function destroySession(db, req) {
@@ -91,7 +92,8 @@ function buildSessionCookie(sessionId, maxAgeSeconds) {
     `${SERVER_CONFIG.sessionCookieName}=${encodeURIComponent(sessionId)}`,
     'Path=/',
     'HttpOnly',
-    'SameSite=Lax',
+    'SameSite=Strict',
+    ...(SERVER_CONFIG.secureCookies ? ['Secure'] : []),
     `Max-Age=${maxAgeSeconds}`
   ];
   return parts.join('; ');
@@ -101,7 +103,7 @@ function verifyCsrf(req, session) {
   if (!session) return false;
   if (['GET', 'HEAD', 'OPTIONS'].includes(req.method)) return true;
   // If authenticated via explicit API session header (CLI/integration), allow; if via cookie, require matching CSRF token
-  if (req.headers['x-aum-session']) return true;
+  if (session.authenticationMethod === 'header' && req.headers['x-aum-session'] === session.session_id) return true;
   const provided = req.headers['x-csrf-token'];
   if (!provided || typeof provided !== 'string') return false;
   const a = Buffer.from(provided);

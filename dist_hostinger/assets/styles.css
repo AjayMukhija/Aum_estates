@@ -240,6 +240,25 @@ button, input, select, textarea {
   gap: 24px;
 }
 
+.nav > *, .hero-inner > * { min-width: 0; }
+.brand-lockup { flex-shrink: 0; }
+
+@media (max-width: 1280px) {
+  .header .menu, .header .actions .call { display: none; }
+  .header .menu-toggle { display: block; }
+}
+
+@media (max-width: 560px) {
+  .header .nav { gap: 10px; }
+  .header .actions { gap: 8px; flex-shrink: 0; }
+  .header .actions .wa { display: none; }
+  .header .brand-name { font-size: 16px; letter-spacing: .12em; }
+  .header .brand-tagline { font-size: 9px; letter-spacing: .08em; }
+  .header .brand-lockup { gap: 8px; }
+  .header .brand-crest-svg { width: 32px; height: 32px; }
+  .hero h1, .hero h2 { overflow-wrap: anywhere; }
+}
+
 .brand-lockup {
   display: flex;
   align-items: center;
@@ -2203,3 +2222,20 @@ button, input, select, textarea {
 .btn-gold:hover {
   background: var(--gold-hover) !important;
 }
+
+@media (max-width: 380px) {
+  .header .nav-search-btn { display: none; }
+  .header .brand-tagline { letter-spacing: 0; }
+}
+
+@media (max-width: 840px) {
+  .location-inventory-grid, .founder-heritage-wrap { grid-template-columns: minmax(0, 1fr); }
+  .location-inventory-grid > *, .founder-heritage-wrap > * { min-width: 0; }
+  .location-panel-head { flex-wrap: wrap; gap: 8px; }
+  .location-item { flex-wrap: wrap; gap: 6px; }
+  .location-item > * { min-width: 0; overflow-wrap: anywhere; }
+  .location-item b { white-space: normal; margin-left: 0; }
+  .founder-quote-area .eyebrow { overflow-wrap: anywhere; }
+}
+
+.btn { max-width: 100%; white-space: normal; text-align: center; }

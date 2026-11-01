@@ -19,3 +19,10 @@ private_master_store/releases/
 *.bak
 *.backup
 *.tmp.*
+
+# Release staging and local credential exports
+.dist_hostinger.*
+admin-credentials.json
+
+# Raw confidential seed files must never enter public Git history again
+/private_master_store/*.json

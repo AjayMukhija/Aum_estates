@@ -357,7 +357,7 @@ function renderList() {
   if (filterBudget.value !== 'Any') context.push('Published budget applied');
   if (filterSort.value !== 'featured') context.push('Custom sort');
   document.getElementById('result-context').textContent = context.join(' · ');
-  listCount.textContent = `${shown.length} ${shown.length === 1 ? 'verified reference' : 'verified references'}`;
+  listCount.textContent = `${shown.length} ${shown.length === 1 ? 'public reference' : 'public references'}`;
   emptyElement.hidden = shown.length > 0;
 
   if (!shown.length) {
@@ -728,10 +728,7 @@ function openConsult(includeSaved = false, propertyId = null) {
     const statusLine = sheetContent.querySelector('#consult-crm-status');
     if (/^https?:$/i.test(location.protocol)) {
       try {
-        const resp = await fetch('/api/public/inquiries', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
+        const data = await window.AUM_CAPTURE_INQUIRY({
             client_name: clientName || 'Property Index Visitor',
             client_phone: clientPhone || null,
             intent: purpose,
@@ -744,14 +741,10 @@ function openConsult(includeSaved = false, propertyId = null) {
             source_channel: 'v16_consult',
             source_page: 'brand_study_v16',
             message: messageEl.value
-          })
-        });
-        const data = await resp.json().catch(() => null);
-        if (resp.ok && data && data.ok) {
-          statusLine.textContent = `Logged with Ajay's advisory desk (Ref: ${data.lead_id}). You can edit and send on WhatsApp below.`;
-        }
+          });
+        statusLine.textContent = `Recorded with the advisory desk (Ref: ${data.lead_id}). You can also send your WhatsApp message below.`;
       } catch {
-        statusLine.textContent = 'Your editable WhatsApp message draft is ready below.';
+        statusLine.textContent = 'Desk recording is unavailable. Please send your WhatsApp message below or call the desk.';
       }
     }
   });
@@ -821,14 +814,14 @@ function goTo(nav) {
       ['Sohna & Aravalli Belt', 'South of Gurgaon & Aravalli Foothills'],
       ['South Goa', 'Majorda & Coastal Villa Mandates']
     ];
-    openSheet(`<p class="eyebrow">EXPLORE BY CORRIDOR</p><h2>Where are you looking?</h2><p>Browse verified public mandates across Gurugram's primary micro-markets and South Goa, or discuss off-market availability directly with Ajay.</p><div class="location-links">${corridorDefs.map(([name, description]) => {
+    openSheet(`<p class="eyebrow">EXPLORE BY CORRIDOR</p><h2>Where are you looking?</h2><p>Browse public property references across Gurugram's primary micro-markets and South Goa, or discuss off-market availability directly with Ajay.</p><div class="location-links">${corridorDefs.map(([name, description]) => {
       const cnt = inventory.filter((p) => areaMatches(p, name)).length;
       return `<button type="button" data-location="${esc(name)}"><strong>${esc(name)}</strong><span>${esc(description)} · ${cnt} mandates</span><b aria-hidden="true">↗</b></button>`;
     }).join('')}</div><button type="button" class="underlined" data-nav="consult">Looking elsewhere? Speak with Ajay ↗</button>`);
   } else if (nav === 'about') {
     openSheet(`<p class="eyebrow">ABOUT AUM ESTATES</p><h2>A property decision should stand up to a second look.</h2><p>Founded by Ajay Mukhija in 2002, AUM Estates is a Gurugram-based property advisory. Our approach is straightforward: understand each client's circumstances, compare complete landed costs and practical trade-offs, and distinguish clearly between published facts and items that still require verification.</p><div class="sheet-people"><p><strong>Ajay Mukhija</strong><br>Founder &amp; Principal Advisor · AUM Estates</p><p>C-210, Nirvana Courtyard<br>Sector 50, Gurugram</p><a class="underlined" href="tel:+919811157018">+91 98111 57018 (Direct) ↗</a><br><a class="underlined" href="tel:+919873813595">+91 98738 13595 (WhatsApp Desk) ↗</a></div><button class="solid-button" data-nav="consult">Talk through your requirements ↗</button>`);
   } else if (nav === 'disclaimer') {
-    openSheet(`<p class="eyebrow">FIDUCIARY DISCLOSURE &amp; SOURCES</p><h2>What is published—and what still needs verification.</h2><p>The Property Index connects to AUM Estates' verified public inventory (${inventory.length} active mandates), strictly separated from confidential seller records by the Fiduciary Privacy Gate.</p><p>Most photographs are representative project or locality references. Do not infer exact unit numbers, live availability, legal title clearance or final transaction terms without direct confirmation prior to viewing.</p><a class="underlined" href="${sourceUrl}" target="_blank" rel="noopener noreferrer">Open full production directory ↗</a>`);
+    openSheet(`<p class="eyebrow">FIDUCIARY DISCLOSURE &amp; SOURCES</p><h2>What is published—and what still needs verification.</h2><p>The Property Index connects to AUM Estates' public inventory (${inventory.length} active mandates), strictly separated from confidential seller records by the Fiduciary Privacy Gate.</p><p>Most photographs are representative project or locality references. Do not infer exact unit numbers, live availability, legal title clearance or final transaction terms without direct confirmation prior to viewing.</p><a class="underlined" href="${sourceUrl}" target="_blank" rel="noopener noreferrer">Open full production directory ↗</a>`);
   }
 }
 

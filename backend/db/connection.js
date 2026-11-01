@@ -11,9 +11,10 @@ let sharedDb = null;
 
 function openDatabase(dbPath = PATHS.dbFile) {
   if (dbPath !== ':memory:') {
-    fs.mkdirSync(path.dirname(dbPath), { recursive: true });
+    fs.mkdirSync(path.dirname(dbPath), { recursive: true, mode: 0o700 });
   }
   const db = new DatabaseSync(dbPath);
+  if (dbPath !== ':memory:') fs.chmodSync(dbPath, 0o600);
   if (dbPath !== ':memory:') {
     db.exec('PRAGMA journal_mode = WAL;');
   }
@@ -21,6 +22,7 @@ function openDatabase(dbPath = PATHS.dbFile) {
   db.exec('PRAGMA foreign_keys = ON;');
   db.exec('PRAGMA busy_timeout = 5000;');
   db.exec(SCHEMA_SQL);
+  if (require('./migrations').migrate(db)) rebuildAllFts(db);
   return db;
 }
 
@@ -41,14 +43,17 @@ function closeSharedDatabase() {
 }
 
 function withTransaction(db, fn) {
-  db.exec('BEGIN IMMEDIATE;');
+  const nested = db.isTransaction;
+  const savepoint = `aum_${require('node:crypto').randomBytes(6).toString('hex')}`;
+  db.exec(nested ? `SAVEPOINT ${savepoint}` : 'BEGIN IMMEDIATE;');
   try {
     const result = fn();
-    db.exec('COMMIT;');
+    db.exec(nested ? `RELEASE SAVEPOINT ${savepoint}` : 'COMMIT;');
     return result;
   } catch (err) {
     try {
-      db.exec('ROLLBACK;');
+      db.exec(nested ? `ROLLBACK TO SAVEPOINT ${savepoint}` : 'ROLLBACK;');
+      if (nested) db.exec(`RELEASE SAVEPOINT ${savepoint}`);
     } catch {}
     throw err;
   }

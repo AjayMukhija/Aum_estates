@@ -31,8 +31,8 @@ function assertCheck(name, condition, extra = '') {
 }
 
 console.log('\n=============================================================');
-console.log(' AUM ESTATES — PRODUCTION INTEGRITY & SECURITY AUDIT');
-console.log(' Platform: aumestates.com (Hostinger Production)');
+console.log(' AUM ESTATES — LOCAL INTEGRITY SMOKE CHECKS');
+console.log(' Scope: local source files; deployment is checked separately');
 console.log(' Date: ' + new Date().toISOString());
 console.log('=============================================================\n');
 
@@ -52,7 +52,7 @@ try {
   assertCheck('public_inventory.json parses valid JSON array', false, err.message);
 }
 
-assertCheck('Inventory threshold count (>= 340 verified mandates)', inventory.length >= 340, `${inventory.length} verified listings`);
+assertCheck('Published inventory is non-empty (bulk shrink requires principal confirmation)', inventory.length > 0, `${inventory.length} public references`);
 
 // Scan each record for private field leaks or sensitive strings
 const ALLOWED_FIELDS = new Set([
@@ -125,7 +125,7 @@ const testData = testSandbox.window.AUM_PUBLIC_INVENTORY || [];
 
 // Execute search logic functions from main.js
 const mainJsCode = fs.readFileSync(distMainPath, 'utf8');
-assertCheck('dist/main.js passes syntax validation', true);
+try { new vm.Script(mainJsCode); assertCheck('dist/main.js passes syntax validation', true); } catch (err) { assertCheck('dist/main.js passes syntax validation', false, err.message); }
 
 // Exact corridor clustering logic from main.js / inventory-search.js
 function norm(s) { return String(s ?? '').toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9+]+/g, ' ').trim(); }
@@ -200,7 +200,8 @@ const sampleLoc = [sampleItem.locality, sampleItem.sector, sampleItem.city].filt
 const samplePrice = sampleItem.price_text || (sampleItem.price_value ? `₹${sampleItem.price_value} Cr` : 'Price on Request');
 const expectedWa = `Hi Ajay, I am interested in ${sampleTitle} (Ref: ${sampleItem.property_id}) in ${sampleLoc}, listed around ${samplePrice}. Please share the complete dossier.`;
 
-assertCheck('WhatsApp CTA format complies with high-intent spec', true, expectedWa.substring(0, 75) + '...');
+const waCode = mainJsCode.match(/function propertyWhatsAppUrl\([^)]*\)\s*\{[\s\S]*?\n  \}/)?.[0];
+assertCheck('WhatsApp CTA includes reference and official desk', !!waCode && waCode.includes('encodeURIComponent') && (waCode.includes('WHATSAPP_DESK') || waCode.includes('919873813595')) && waCode.includes('Ref:'));
 assertCheck('AUM_CRM_HOOK global bridge defined in main.js', mainJsCode.includes('window.AUM_CRM_HOOK'));
 assertCheck('Property cards output CRM data-property-id attributes', mainJsCode.includes('data-property-id'));
 assertCheck('Property cards route to properties/detail.html?id=...', mainJsCode.includes('properties/detail.html?id='));
@@ -233,11 +234,11 @@ assertCheck('.htaccess file exists in production root', fs.existsSync(htaccessPa
 const htaccess = fs.readFileSync(htaccessPath, 'utf8');
 assertCheck('Directory browsing disabled (Options -Indexes)', htaccess.includes('Options -Indexes'));
 assertCheck('Sensitive files quarantine active (.bak, .backup, .git, .md, .txt, .jsonl)', htaccess.includes('bak|backup') && htaccess.includes('Require all denied'));
-assertCheck('Explicit dotfile & .env file block active in .htaccess', htaccess.includes('env') && htaccess.includes('FilesMatch "^\\."'));
+assertCheck('Explicit dotfile & .env file block configured in .htaccess', htaccess.includes('env') && htaccess.includes('FilesMatch "^\\."'));
 assertCheck('HTTPS transport enforced with 301 redirection', htaccess.includes('RewriteCond %{HTTPS} off'));
 assertCheck('HSTS preload header configured (max-age=31536000)', htaccess.includes('max-age=31536000'));
-assertCheck('Clickjacking frame protection active (X-Frame-Options: SAMEORIGIN)', htaccess.includes('X-Frame-Options "SAMEORIGIN"'));
-assertCheck('MIME sniffing block active (X-Content-Type-Options: nosniff)', htaccess.includes('X-Content-Type-Options "nosniff"'));
+assertCheck('Clickjacking frame protection configured (X-Frame-Options: SAMEORIGIN)', htaccess.includes('X-Frame-Options "SAMEORIGIN"'));
+assertCheck('MIME sniffing block configured (X-Content-Type-Options: nosniff)', htaccess.includes('X-Content-Type-Options "nosniff"'));
 
 // 6. Private Master Isolation & Fiduciary Guardrails
 console.log('\n6. PRIVATE MASTER ISOLATION & FIDUCIARY GUARDRAILS:');
@@ -249,7 +250,7 @@ assertCheck('Zero un-redacted notes (.txt) in public data/ folder', fs.readdirSy
 console.log('\n=============================================================');
 console.log(` AUDIT SUMMARY: ${passedChecks}/${totalChecks} CHECKS PASSED (${failedChecks} failures)`);
 if (failedChecks === 0) {
-  console.log(' STATUS: PRODUCTION READY (Fast, Secure, Fully Functional, Safe to Operate)');
+  console.log(' STATUS: LOCAL CHECKS PASSED — run behavioral tests and deployed acceptance checks separately');
 } else {
   console.log(' STATUS: DEFECTS DETECTED — Remediation Required');
 }

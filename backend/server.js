@@ -60,6 +60,7 @@ const {
   normalizeImportedRow
 } = require('./domain/intake_parser');
 const { compileAndPublishStaticFeeds } = require('./domain/publisher');
+const { assertClientText, projectShortlistItem } = require('./domain/shortlist');
 
 const MIME_TYPES = {
   '.html': 'text/html; charset=utf-8',
@@ -80,7 +81,7 @@ const MIME_TYPES = {
 const BASE_SECURITY_HEADERS = {
   'X-Content-Type-Options': 'nosniff',
   'X-Frame-Options': 'SAMEORIGIN',
-  'Referrer-Policy': 'strict-origin-when-cross-origin'
+  'Referrer-Policy': 'no-referrer'
 };
 
 function sendJson(res, statusCode, payload, extraHeaders = {}) {
@@ -111,7 +112,9 @@ function readJsonBody(req, maxBytes = 262144) {
       if (chunks.length === 0) return resolve({});
       try {
         const raw = Buffer.concat(chunks).toString('utf8');
-        resolve(raw.trim() ? JSON.parse(raw) : {});
+        const parsed = raw.trim() ? JSON.parse(raw) : {};
+        if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) throw new Error('JSON object required');
+        resolve(parsed);
       } catch {
         reject(Object.assign(new Error('Invalid JSON payload'), { statusCode: 400 }));
       }
@@ -222,6 +225,14 @@ function upsertPropertyMaster(db, payload, actor, existingId = null) {
 
   const pubIn = payload.public || payload;
   const privIn = payload.private || payload._private || {};
+  for (const [key, value] of Object.entries(pubIn)) {
+    if (value != null && typeof value === 'object' && key !== 'things_to_confirm' && ALLOWED_PUBLIC_FIELDS.includes(key)) {
+      throw Object.assign(new Error(`Invalid value type for ${key}`), { statusCode: 422 });
+    }
+  }
+  if (pubIn.things_to_confirm !== undefined && (!Array.isArray(pubIn.things_to_confirm) || pubIn.things_to_confirm.some((x) => typeof x !== 'string'))) {
+    throw Object.assign(new Error('things_to_confirm must be an array of strings'), { statusCode: 422 });
+  }
 
   const propertyId = existingId
     || cleanWhitespace(pubIn.property_id)
@@ -240,6 +251,10 @@ function upsertPropertyMaster(db, payload, actor, existingId = null) {
   const publicationState = pickVal(pubIn, 'publication_state', existing?.publication_state || 'draft');
   if (!PUBLICATION_STATES.has(publicationState)) {
     throw Object.assign(new Error(`Invalid publication_state: ${publicationState}`), { statusCode: 400 });
+  }
+
+  if (publicationState === 'approved_public' && actor.role !== 'principal') {
+    throw Object.assign(new Error('Principal approval is required to create or change a public mandate'), { statusCode: 403 });
   }
 
   const availabilityState = pickVal(pubIn, 'availability_state', existing?.availability_state || 'available');
@@ -403,10 +418,10 @@ function upsertPropertyMaster(db, payload, actor, existingId = null) {
 
   const nowIso = new Date().toISOString();
   const approvedBy = mergedPublic.publication_state === 'approved_public'
-    ? (existing?.approved_by_user_id || actor.userId || null)
+    ? (actor.userId || existing?.approved_by_user_id || null)
     : existing?.approved_by_user_id || null;
   const approvedAt = mergedPublic.publication_state === 'approved_public'
-    ? (existing?.approved_at || nowIso)
+    ? nowIso
     : existing?.approved_at || null;
 
   withTransaction(db, () => {
@@ -624,28 +639,8 @@ function createAppServer(db, options = {}) {
           ORDER BY si.sort_order ASC
         `).all(sl.shortlist_id);
 
-        // Strictly project ONLY ALLOWED_PUBLIC_FIELDS + advisor's client-facing commentary
-        const safeItems = itemRows.map((row) => {
-          const dto = {};
-          for (const f of ALLOWED_PUBLIC_FIELDS) {
-            if (f === 'things_to_confirm') {
-              try {
-                dto[f] = JSON.parse(row.things_to_confirm || '[]');
-              } catch {
-                dto[f] = [];
-              }
-            } else if (f === 'status') {
-              dto[f] = row.availability_state === 'available' ? 'Available' : row.availability_state;
-            } else {
-              dto[f] = row[f] ?? null;
-            }
-          }
-          dto.display_price = formatPublicPriceDisplay(row);
-          dto.is_off_market_curated = row.publication_state === 'private_off_market';
-          dto.advisor_commentary = row.advisor_commentary || null;
-          dto.match_score = row.match_score || null;
-          return dto;
-        });
+        for (const field of ['title', 'client_name', 'advisor_intro_note']) assertClientText(field, sl[field]);
+        const safeItems = itemRows.map(projectShortlistItem);
 
         return sendJson(res, 200, {
           ok: true,
@@ -830,6 +825,8 @@ function createAppServer(db, options = {}) {
       }
 
       if (pathname === '/api/crm/auth/logout' && req.method === 'POST') {
+        const session = getAuthenticatedSession(db, req);
+        if (!verifyCsrf(req, session)) return sendJson(res, 403, { ok: false, error: 'Invalid or missing CSRF token' });
         destroySession(db, req);
         return sendJson(
           res,
@@ -860,6 +857,13 @@ function createAppServer(db, options = {}) {
         }
         if (!verifyCsrf(req, session)) {
           return sendJson(res, 403, { ok: false, error: 'Invalid or missing CSRF token' });
+        }
+        const readOnlyPost = pathname === '/api/crm/requirements/match' || /^\/api\/crm\/leads\/[^/]+\/match$/.test(pathname);
+        if (session.role === 'analyst' && !['GET', 'HEAD'].includes(req.method) && !readOnlyPost) {
+          return sendJson(res, 403, { ok: false, error: 'Analyst accounts are read-only' });
+        }
+        if ((pathname === '/api/crm/publish' || /\/approve$/.test(pathname)) && session.role !== 'principal') {
+          return sendJson(res, 403, { ok: false, error: 'Principal approval required' });
         }
         const actor = { userId: session.user_id, label: session.email, name: session.full_name, role: session.role };
 
@@ -1087,6 +1091,9 @@ function createAppServer(db, options = {}) {
             }
             seenBatchIds.add(publicRecord.property_id);
 
+            if (publicRecord.publication_state === 'approved_public' && actor.role !== 'principal') {
+              publicRecord.publication_state = 'pending_approval';
+            }
             // If row asks for approved_public, verify privacy gate passes; otherwise demote to pending_approval
             if (publicRecord.publication_state === 'approved_public') {
               const check = validateAndProjectPublicRecord({
@@ -1126,6 +1133,10 @@ function createAppServer(db, options = {}) {
             });
           }
 
+          if (normalizedBatch.length !== rawRows.length) {
+            return sendJson(res, 422, { ok: false, error: 'Import contains invalid rows; no changes committed', summary });
+          }
+          withTransaction(db, () => {
           for (const entry of normalizedBatch) {
             upsertPropertyMaster(
               db,
@@ -1135,6 +1146,7 @@ function createAppServer(db, options = {}) {
             );
           }
 
+          });
           return sendJson(res, 200, { ok: true, dryRun: false, summary });
         }
 
@@ -1404,9 +1416,18 @@ function createAppServer(db, options = {}) {
           return sendJson(res, 200, { ok: true, items: rows });
         }
 
+        const revokeMatch = pathname.match(/^\/api\/crm\/shortlists\/([A-Za-z0-9-]+)\/revoke$/);
+        if (revokeMatch && req.method === 'POST') {
+          const result = db.prepare('UPDATE client_shortlists SET is_active = 0 WHERE shortlist_id = ?').run(revokeMatch[1]);
+          if (!result.changes) return sendJson(res, 404, { ok: false, error: 'Shortlist not found' });
+          recordAuditLog(db, { actorUserId: actor.userId, actorLabel: actor.label, entityType: 'shortlist', entityId: revokeMatch[1], action: 'revoke_shortlist' });
+          return sendJson(res, 200, { ok: true });
+        }
+
         if (pathname === '/api/crm/shortlists' && req.method === 'POST') {
           const body = await readJsonBody(req);
-          const propIds = Array.isArray(body.property_ids) ? body.property_ids.filter(Boolean) : [];
+          const propIds = Array.isArray(body.property_ids) ? [...new Set(body.property_ids.filter((id) => typeof id === 'string' && id))] : [];
+          if (propIds.length > 30) return sendJson(res, 400, { ok: false, error: 'A shortlist may contain at most 30 properties' });
           if (propIds.length === 0) {
             return sendJson(res, 400, { ok: false, error: 'Select at least one property for the client shortlist' });
           }
@@ -1418,11 +1439,18 @@ function createAppServer(db, options = {}) {
           const leadId = cleanWhitespace(body.lead_id);
           const commentaries = body.commentaries && typeof body.commentaries === 'object' ? body.commentaries : {};
 
+          assertClientText('title', title);
+          assertClientText('client_name', clientName);
+          assertClientText('advisor_intro_note', body.advisor_intro_note);
+          for (const pid of propIds) {
+            const row = db.prepare('SELECT * FROM properties WHERE property_id = ?').get(pid);
+            projectShortlistItem({ ...row, advisor_commentary: commentaries[pid] });
+          }
           withTransaction(db, () => {
             db.prepare(`
               INSERT INTO client_shortlists (
-                shortlist_id, share_token, lead_id, title, client_name, advisor_intro_note, created_by_user_id
-              ) VALUES (?, ?, ?, ?, ?, ?, ?)
+                shortlist_id, share_token, lead_id, title, client_name, advisor_intro_note, created_by_user_id, expires_at
+              ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
             `).run(
               shortlistId,
               shareToken,
@@ -1430,7 +1458,8 @@ function createAppServer(db, options = {}) {
               title,
               clientName,
               cleanWhitespace(body.advisor_intro_note) || 'Prepared by Ajay Mukhija, AUM ESTATES. Exact unit availability and closing terms to be reconfirmed prior to viewing.',
-              actor.userId
+              actor.userId,
+              new Date(Date.now() + 30 * 86400000).toISOString()
             );
 
             const insItem = db.prepare(`
@@ -1465,7 +1494,7 @@ function createAppServer(db, options = {}) {
             });
           });
 
-          const shareUrl = `${urlObj.origin}/shortlist/${shareToken}`;
+          const shareUrl = `${SERVER_CONFIG.publicOrigin || urlObj.origin}/shortlist/${shareToken}`;
           return sendJson(res, 201, {
             ok: true,
             shortlist_id: shortlistId,
@@ -1480,7 +1509,7 @@ function createAppServer(db, options = {}) {
           const release = compileAndPublishStaticFeeds(db, {
             actorUserId: actor.userId,
             actorLabel: actor.label,
-            allowShrink: Boolean(body.allowShrink),
+            allowShrink: body.allowShrink === true,
             targetPaths: options.targetPaths || PATHS
           });
           return sendJson(res, 200, { ok: true, release });
@@ -1550,8 +1579,8 @@ function createAppServer(db, options = {}) {
       const code = err.statusCode || 500;
       sendJson(res, code, {
         ok: false,
-        error: err.message || 'Internal Server Error',
-        validationErrors: err.validationErrors || undefined
+        error: code >= 500 ? 'Internal server error; please contact the advisory desk' : err.message,
+        validationErrors: code < 500 ? err.validationErrors : undefined
       });
     }
   });
@@ -1560,6 +1589,9 @@ function createAppServer(db, options = {}) {
 }
 
 if (require.main === module) {
+  if (process.env.NODE_ENV === 'production' && (!SERVER_CONFIG.publicOrigin || new URL(SERVER_CONFIG.publicOrigin).protocol !== 'https:')) {
+    throw new Error('Production requires AUM_PUBLIC_ORIGIN set to the public HTTPS origin');
+  }
   const db = openDatabase(PATHS.dbFile);
   const seedRes = seedDatabaseIfEmpty(db);
   if (seedRes.seeded) {
@@ -1567,6 +1599,9 @@ if (require.main === module) {
     compileAndPublishStaticFeeds(db, { actorLabel: 'initial_boot_sync' });
   }
 
+  if (!db.prepare("SELECT 1 FROM users WHERE role = 'principal' AND is_active = 1").get()) {
+    throw new Error('No active principal account. Run npm run setup:admin with AUM_ADMIN_PASSWORD set.');
+  }
   const server = createAppServer(db);
   server.listen(SERVER_CONFIG.port, SERVER_CONFIG.host, () => {
     const base = `http://${SERVER_CONFIG.host}:${SERVER_CONFIG.port}`;

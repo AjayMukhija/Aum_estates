@@ -73,6 +73,16 @@ Options -Indexes -MultiViews
     RewriteRule ^locations/sohna/?$ /properties/?q=Sohna [R=301,L]
 </IfModule>
 
+# Inventory must revalidate regardless of LiteSpeed's JavaScript MIME alias.
+<FilesMatch "^(public_inventory\.(js|json)|approved_properties\.js|projects_local\.js)$">
+    <IfModule mod_headers.c>
+        Header always set Cache-Control "no-cache, must-revalidate"
+    </IfModule>
+    <IfModule mod_expires.c>
+        ExpiresActive Off
+    </IfModule>
+</FilesMatch>
+
 # 4. Strict Security Headers
 <IfModule mod_headers.c>
     # Prevent Clickjacking (disallow embedding in iframes from other domains)

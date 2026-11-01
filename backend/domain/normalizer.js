@@ -162,6 +162,8 @@ function formatInr(amount) {
 function cleanListingTitle(title, projectName) {
   const base = cleanWhitespace(title) || cleanWhitespace(projectName) || 'Gurugram Property Mandate';
   return base
+    .replace(/\b(?:unit|flat|(?:plot|house)\s*(?:no\.?|number))\s*#?\s*\d+[A-Z0-9/-]*\b/gi, '')
+    .replace(/\s{2,}/g, ' ')
     .replace(/\s+MP$/i, '')
     .replace(/\s+OC tower$/i, ' (OC Received)')
     .replace(/\s+#\d+$/i, '')

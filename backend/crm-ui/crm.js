@@ -1154,6 +1154,11 @@
         body: { stage: e.currentTarget.value }
       });
       showToast(`Moved ${l.client_name} to "${STAGE_LABELS[e.currentTarget.value]}".`);
+      drawerBody.querySelector('#revoke-shortlist-btn').addEventListener('click', async () => {
+        try { await api(`/api/crm/shortlists/${res.shortlist_id}/revoke`, { method: 'POST', body: {} });
+          drawerBody.querySelector('#shortlist-share-result').textContent = 'Client link revoked.';
+        } catch (err) { showToast(err.message); }
+      });
       if (state.activeTab === 'leads') loadLeads();
     });
 
@@ -1200,11 +1205,11 @@
 
       drawerBody.querySelector('#shortlist-share-result').innerHTML = `
         <div class="share-box">
-          <strong>Private Client Shortlist Ready (Fiduciary-Sanitized)</strong>
+          <strong>Private Client Shortlist Ready</strong><p class="fineprint">Expires in 30 days. Revoke the link when it is no longer needed.</p>
           <div class="fineprint" style="margin:4px 0 8px">URL: <code>${esc(res.share_url)}</code></div>
           <div class="btn-row">
             <a class="btn btn-primary btn-sm" href="${esc(res.share_url)}" target="_blank" rel="noopener">Open Client Dossier ↗</a>
-            <a class="btn btn-secondary btn-sm" href="${esc(waUrl)}" target="_blank" rel="noopener">Send via WhatsApp ↗</a>
+            <a class="btn btn-secondary btn-sm" href="${esc(waUrl)}" target="_blank" rel="noopener">Send via WhatsApp ↗</a><button type="button" class="btn btn-secondary btn-sm" id="revoke-shortlist-btn">Revoke link</button>
           </div>
         </div>
       `;
