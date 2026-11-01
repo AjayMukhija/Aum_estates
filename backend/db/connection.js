@@ -8,6 +8,7 @@ const { PATHS } = require('../config');
 const SCHEMA_SQL = fs.readFileSync(path.join(__dirname, 'schema.sql'), 'utf8');
 
 let sharedDb = null;
+const transactionHooks = new WeakMap();
 
 function openDatabase(dbPath = PATHS.dbFile) {
   if (dbPath !== ':memory:') {
@@ -44,19 +45,45 @@ function closeSharedDatabase() {
 
 function withTransaction(db, fn) {
   const nested = db.isTransaction;
+  if (!nested) transactionHooks.set(db, { commit: [], rollback: [] });
+  const hooks = transactionHooks.get(db);
+  const mark = hooks ? { commit: hooks.commit.length, rollback: hooks.rollback.length } : null;
   const savepoint = `aum_${require('node:crypto').randomBytes(6).toString('hex')}`;
   db.exec(nested ? `SAVEPOINT ${savepoint}` : 'BEGIN IMMEDIATE;');
   try {
     const result = fn();
     db.exec(nested ? `RELEASE SAVEPOINT ${savepoint}` : 'COMMIT;');
+    if (!nested) {
+      // SQLite is committed. Cleanup failures leave a journal whose release
+      // audit record proves that recovery must keep the promoted files.
+      for (const hook of transactionHooks.get(db).commit) {
+        try { hook(); } catch { console.error('Release cleanup pending; the next publisher will recover it.'); }
+      }
+    }
     return result;
   } catch (err) {
     try {
       db.exec(nested ? `ROLLBACK TO SAVEPOINT ${savepoint}` : 'ROLLBACK;');
       if (nested) db.exec(`RELEASE SAVEPOINT ${savepoint}`);
     } catch {}
+    if (hooks) {
+      const rollbackHooks = nested ? hooks.rollback.splice(mark.rollback) : hooks.rollback;
+      if (nested) hooks.commit.splice(mark.commit);
+      for (const hook of rollbackHooks) {
+        try { hook(); } catch { console.error('Release recovery pending; retry the build before serving traffic.'); }
+      }
+    }
     throw err;
+  } finally {
+    if (!nested) transactionHooks.delete(db);
   }
+}
+
+function onTransactionEnd(db, hooks) {
+  const context = transactionHooks.get(db);
+  if (!context) throw new Error('Release publication requires a managed transaction');
+  if (hooks.commit) context.commit.push(hooks.commit);
+  if (hooks.rollback) context.rollback.push(hooks.rollback);
 }
 
 /**
@@ -210,6 +237,7 @@ module.exports = {
   getSharedDatabase,
   closeSharedDatabase,
   withTransaction,
+  onTransactionEnd,
   syncPropertyFts,
   rebuildAllFts,
   recordAuditLog

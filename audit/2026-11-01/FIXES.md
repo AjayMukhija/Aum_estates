@@ -19,11 +19,11 @@ This is the implementation follow-up to REPORT.md. The assessment describes the 
 
 ## Verification
 
-- `npm run package`: passed; includes **21/21 behavioral tests**, **45/45 local smoke checks**, and scan of **268 bundled files**.
+- `npm run package`: passed; includes **23/23 behavioral tests**, **45/45 local smoke checks**, and scan of **268 bundled files**.
 - Independent package in a temporary clean copy without private seeds: passed.
 - Synthetic private JSON canary and out-of-root symlink: each rejected; the previous accepted bundle remained intact.
 - Fault injection during JavaScript promotion: previous JSON, JavaScript and manifest restored.
-- Interrupted publisher journal recovery: passed.
+- Interrupted publisher journal recovery: passed, including committed-release preservation and enclosing database transaction failure.
 - SQLite backup restored into an isolated database: integrity check and public projection passed.
 - Browser enquiry on an in-memory local database: durable lead acknowledgement displayed; no external WhatsApp message sent.
 - Canonical Golf Course Ext & SPR catalogue filter: 79 references, matching the master corridor count.

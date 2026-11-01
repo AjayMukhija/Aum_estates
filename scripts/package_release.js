@@ -243,4 +243,9 @@ console.log(' Destination Directory: ' + RELEASE_DIR);
 console.log(' Total Files: ' + filesScanned);
 console.log('=============================================================\n');
 
+}, (releaseId) => {
+  const { DatabaseSync } = require('node:sqlite');
+  const db = new DatabaseSync(PATHS.dbFile, { readOnly: true });
+  try { return !!db.prepare("SELECT 1 FROM audit_logs WHERE entity_type='release' AND entity_id=? AND action='publish_static_feeds'").get(releaseId || ''); }
+  finally { db.close(); }
 });

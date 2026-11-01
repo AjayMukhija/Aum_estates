@@ -13,7 +13,7 @@ function sha256(content) {
 }
 
 const { writeAtomicSync, withReleaseLock, publishBatch } = require('./release_store');
-const { withTransaction } = require('../db/connection');
+const { withTransaction, onTransactionEnd } = require('../db/connection');
 
 /**
  * Compiles all public feeds strictly from the Master Database through the Fiduciary Firewall
@@ -195,10 +195,11 @@ function compileFeeds(db, options = {}) {
       [path.join(targetPaths.releasesDir, `${releaseId}_manifest.json`), JSON.stringify(manifest, null, 2)],
       [path.join(targetPaths.releasesDir, 'latest_manifest.json'), JSON.stringify(manifest, null, 2)]
     );
-    publishBatch(targetPaths.releasesDir, releaseId, targets, () => recordAuditLog(db, {
+    const lifecycle = publishBatch(targetPaths.releasesDir, releaseId, targets, () => recordAuditLog(db, {
       actorUserId, actorLabel, entityType: 'release', entityId: releaseId,
       action: 'publish_static_feeds', summary: `Published ${publicRecords.length} approved properties`, after: manifest
     }));
+    onTransactionEnd(db, lifecycle);
   }
 
   return {
@@ -215,7 +216,12 @@ function compileFeeds(db, options = {}) {
 
 function compileAndPublishStaticFeeds(db, options = {}) {
   if (options.writeFiles === false) return compileFeeds(db, options);
-  return withTransaction(db, () => withReleaseLock((options.targetPaths || PATHS).releasesDir, () => compileFeeds(db, options)));
+  return withTransaction(db, () => withReleaseLock(
+    (options.targetPaths || PATHS).releasesDir,
+    () => compileFeeds(db, options),
+    (releaseId) => !!db.prepare("SELECT 1 FROM audit_logs WHERE entity_type='release' AND entity_id=? AND action='publish_static_feeds'").get(releaseId || ''),
+    (unlock) => onTransactionEnd(db, { commit: unlock, rollback: unlock })
+  ));
 }
 
 module.exports = {

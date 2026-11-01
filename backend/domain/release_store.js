@@ -26,7 +26,7 @@ function restoreJournal(journal) {
   }
 }
 
-function withReleaseLock(releasesDir, fn) {
+function withReleaseLock(releasesDir, fn, isCommitted = () => false, deferUnlock = null) {
   fs.mkdirSync(releasesDir, { recursive: true, mode: 0o700 });
   fs.chmodSync(releasesDir, 0o700);
   const lock = path.join(releasesDir, '.publisher.lock');
@@ -49,12 +49,15 @@ function withReleaseLock(releasesDir, fn) {
   try {
     const journalPath = path.join(releasesDir, 'pending.json');
     if (fs.existsSync(journalPath)) {
-      restoreJournal(JSON.parse(fs.readFileSync(journalPath, 'utf8')));
+      const journal = JSON.parse(fs.readFileSync(journalPath, 'utf8'));
+      if (!isCommitted(journal.releaseId)) restoreJournal(journal);
       fs.unlinkSync(journalPath);
     }
     return fn();
   } finally {
-    fs.unlinkSync(lock);
+    const unlock = () => fs.rmSync(lock, { force: true });
+    if (deferUnlock) deferUnlock(unlock);
+    else unlock();
   }
 }
 
@@ -78,7 +81,10 @@ function publishBatch(releasesDir, releaseId, targets, afterPromotion = () => {}
     for (const entry of entries) writeAtomicSync(entry.target, fs.readFileSync(entry.next));
     afterPromotion();
     writeAtomicSync(path.join(snapshotDir, 'snapshot.json'), JSON.stringify({ releaseId, entries }, null, 2));
-    fs.unlinkSync(journalPath);
+    return {
+      commit: () => fs.rmSync(journalPath, { force: true }),
+      rollback: () => { restoreJournal({ entries }); fs.rmSync(journalPath, { force: true }); }
+    };
   } catch (err) {
     try { restoreJournal({ entries }); fs.unlinkSync(journalPath); }
     catch (restoreError) { err.message += `; recovery pending: ${restoreError.message}`; }

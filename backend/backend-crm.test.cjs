@@ -601,3 +601,29 @@ test('SQLite backup restores committed inventory and passes integrity and public
   const release = compileAndPublishStaticFeeds(restored, { writeFiles: false });
   assert.equal(release.counts.publicProperties, seedCount);
 });
+
+test('Outer database transaction failure restores promoted files before releasing the writer lock', (t) => {
+  const db = createSeededMemoryDb(); t.after(() => db.close()); const targetPaths = isolatedTargets(t);
+  compileAndPublishStaticFeeds(db, { targetPaths });
+  const file = path.join(targetPaths.hostingerDataDir, 'public_inventory.json'); const before = fs.readFileSync(file, 'utf8');
+  assert.throws(() => require('./db/connection').withTransaction(db, () => {
+    db.prepare("UPDATE properties SET price_text='₹6.75 Cr' WHERE property_id='AUM-WEB-000134'").run();
+    compileAndPublishStaticFeeds(db, { targetPaths });
+    assert.ok(fs.existsSync(path.join(targetPaths.releasesDir, '.publisher.lock')));
+    throw new Error('Outer transaction failed');
+  }), /Outer transaction failed/);
+  assert.equal(fs.readFileSync(file, 'utf8'), before);
+  assert.ok(!fs.existsSync(path.join(targetPaths.releasesDir, '.publisher.lock')));
+  assert.ok(!fs.existsSync(path.join(targetPaths.releasesDir, 'pending.json')));
+});
+
+test('Recovery preserves a release whose SQLite audit record committed before process interruption', (t) => {
+  const paths = isolatedTargets(t); const { withReleaseLock } = require('./domain/release_store');
+  fs.mkdirSync(paths.releasesDir, { recursive: true });
+  const target = path.join(paths.releasesDir, 'target'), before = path.join(paths.releasesDir, 'old');
+  fs.writeFileSync(target, 'committed release'); fs.writeFileSync(before, 'old release');
+  fs.writeFileSync(path.join(paths.releasesDir, 'pending.json'), JSON.stringify({ releaseId: 'COMMITTED', entries: [{ target, before }] }));
+  withReleaseLock(paths.releasesDir, () => {}, (id) => id === 'COMMITTED');
+  assert.equal(fs.readFileSync(target, 'utf8'), 'committed release');
+  assert.ok(!fs.existsSync(path.join(paths.releasesDir, 'pending.json')));
+});

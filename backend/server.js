@@ -1596,12 +1596,14 @@ if (require.main === module) {
   const seedRes = seedDatabaseIfEmpty(db);
   if (seedRes.seeded) {
     console.log(`[SEED] Master Database initialized with ${seedRes.publicMandates} verified public mandates.`);
-    compileAndPublishStaticFeeds(db, { actorLabel: 'initial_boot_sync' });
   }
 
   if (!db.prepare("SELECT 1 FROM users WHERE role = 'principal' AND is_active = 1").get()) {
     throw new Error('No active principal account. Run npm run setup:admin with AUM_ADMIN_PASSWORD set.');
   }
+  // Recover any interrupted publisher and synchronize existing databases before
+  // accepting traffic, not only on the first bootstrap.
+  compileAndPublishStaticFeeds(db, { actorLabel: 'boot_sync' });
   const server = createAppServer(db);
   server.listen(SERVER_CONFIG.port, SERVER_CONFIG.host, () => {
     const base = `http://${SERVER_CONFIG.host}:${SERVER_CONFIG.port}`;
