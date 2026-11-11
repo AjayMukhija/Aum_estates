@@ -63,7 +63,7 @@ function representativeImage(o){
   if(c === 'plot') return 'plot-land-user.jpg';
   const name=String([o.listing_title,o.website_display_name,o.project_name,o.locality,o.micro_location,o.sector,o.public_description,o.key_features].join(' ')).toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
   const projectImages=[
-    [/asya smartliving|sukoon/.test(name),'sukoon-asya-project-photo.png'],
+    [/asya smartliving|sukoon/.test(name),'sukoon-asya-project-photo.jpg'],
     [/privana|privana south|privana north/.test(name),'privana.jpg'],
     [/sobha aranya/.test(name),'sobha-aranya.jpg'],
     [/indiabulls enigma/.test(name),'indiabulls-enigma.jpg'],
@@ -129,16 +129,86 @@ document.getElementById('detail-photo').style.backgroundImage=`url('../assets/pr
 const isProjectPhoto=/asya smartliving|sukoon/i.test([data.listing_title,data.project_name,data.locality].join(' '));
 document.getElementById('detail-badge').textContent=isProjectPhoto?'Project Photo':'Representative Image';
 document.getElementById('detail-description').textContent=data.public_description||data.key_features||'Property details available on enquiry.';
-const facts=[['Configuration',data.configuration],['BHK',data.bedrooms?`${data.bedrooms} BHK`:'' ],['Area',area(data)],['Floor',data.floor],['Facing',data.facing],['Road Width',data.road_width],['Furnishing',data.furnishing],['Possession / Availability',data.possession_status],['Transaction',data.transaction_type]].filter(x=>x[1]);
+const facts=[['Configuration',data.configuration],['BHK',data.bedrooms?`${data.bedrooms} BHK`:'' ],['Area',area(data)],['Floor',data.floor_label],['Facing',data.facing],['Road Width',data.road_width],['Furnishing',data.furnishing],['Possession / Availability',data.possession_status],['Transaction',data.transaction_type]].filter(x=>x[1]);
 document.getElementById('detail-grid').innerHTML=facts.map(([k,v])=>`<div class="detail-spec"><span>${esc(k)}</span><strong>${esc(v)}</strong></div>`).join('');
 const feats=(data.public_features||data.key_features||'').split(';').map(x=>x.trim()).filter(Boolean);
 if(feats.length){
   const fw=document.getElementById('features-wrapper'); if(fw) fw.style.display='block';
   document.getElementById('detail-features').innerHTML=feats.map(x=>`<span>${esc(x)}</span>`).join('');
 }
+// --- Published fact vs open question -------------------------------------
+// Adopted from the v16 brand study. The record already carries
+// things_to_confirm, verification_status and last_verified for every mandate;
+// the dossier simply never showed them. Nothing here is inferred: if a field
+// is absent, its row is omitted rather than filled with a confident guess.
+const confirmItems = Array.isArray(data.things_to_confirm)
+  ? data.things_to_confirm.filter(function (x) { return typeof x === 'string' && x.trim(); })
+  : [];
+if (confirmItems.length) {
+  const cw = document.getElementById('confirm-wrapper');
+  if (cw) cw.style.display = 'block';
+  const cl = document.getElementById('detail-confirm');
+  if (cl) cl.innerHTML = confirmItems.map(function (x) { return '<li>' + esc(x.trim()) + '</li>'; }).join('');
+}
+
+const provenanceRows = [
+  ['Public reference', data.property_id],
+  ['Corridor', data.corridor],
+  ['Verification state', data.verification_status],
+  ['Last re-verified', data.last_verified]
+].filter(function (r) { return r[1]; });
+const pv = document.getElementById('detail-provenance');
+if (pv) {
+  pv.innerHTML = provenanceRows.map(function (r) {
+    return '<div><dt>' + esc(r[0]) + '</dt><dd>' + esc(String(r[1])) + '</dd></div>';
+  }).join('');
+}
+const photoNote = document.getElementById('detail-photo-note');
+if (photoNote) {
+  photoNote.textContent = isProjectPhoto
+    ? 'The photograph is of this project. It is not necessarily of this unit.'
+    : 'The photograph is a representative reference for the project or locality, not a photograph of this unit. Exact unit number, live availability, title clearance and final landed terms are confirmed directly before inspection.';
+}
+
+// The question bank is deliberately about what is unverified, so an enquiry
+// arrives at the desk already saying what the buyer needs established.
+const questionBank = [
+  'What exact unit is available, and when can I view it?',
+  'What is the complete landed cost, including recurring charges?',
+  'What is the current title and RERA/HSVP position?',
+  'Why is the owner selling, and how firm is the price?'
+];
+const chosenQuestions = [];
+const ql = document.getElementById('detail-questions');
+if (ql) {
+  ql.innerHTML = questionBank.map(function (q, i) {
+    return '<label><input type="checkbox" data-question="' + i + '"><span>' + esc(q) + '</span></label>';
+  }).join('');
+  ql.addEventListener('change', function (ev) {
+    const box = ev.target.closest('input[data-question]');
+    if (!box) return;
+    const idx = Number(box.getAttribute('data-question'));
+    const at = chosenQuestions.indexOf(idx);
+    if (box.checked && at === -1) chosenQuestions.push(idx);
+    if (!box.checked && at !== -1) chosenQuestions.splice(at, 1);
+    if (waBtnRef) waBtnRef.href = 'https://wa.me/919873813595?text=' + encodeURIComponent(buildEnquiry());
+  });
+}
+
 const locLabel = [data.locality, data.sector, data.city].filter(Boolean).filter((v, i, a) => a.indexOf(v) === i).join(', ') || 'Gurgaon';
-const waMsg = `Hi Ajay, I am interested in ${name} (Ref: ${data.property_id || 'N/A'}) in ${locLabel}, listed around ${price(data)}. Please share the complete dossier.`;
+function buildEnquiry() {
+  const lines = ['Hi Ajay, I am interested in ' + name + ' (Ref: ' + (data.property_id || 'N/A') + ') in ' + locLabel + ', listed around ' + price(data) + '.'];
+  if (chosenQuestions.length) {
+    lines.push('Please confirm:');
+    chosenQuestions.slice().sort(function (a, b) { return a - b; }).forEach(function (i) { lines.push('- ' + questionBank[i]); });
+  } else {
+    lines.push('Please share the complete dossier.');
+  }
+  return lines.join('\n');
+}
+const waMsg = buildEnquiry();
 const waBtn = document.getElementById('detail-wa-btn');
+var waBtnRef = waBtn;
 
 // Global CRM bridge definition
 // window.AUM_CRM_HOOK is supplied by assets/lead-client.js.

@@ -684,6 +684,18 @@ function createAppServer(db, options = {}) {
         const selectedQuestions = Array.isArray(body.selected_questions) ? body.selected_questions.slice(0, 12) : [];
         const savedIds = Array.isArray(body.saved_property_ids) ? body.saved_property_ids.slice(0, 10) : [];
 
+        // An enquiry must carry something the desk can act on. Without this a
+        // bare POST {} created a lead titled "Website Visitor" with no phone,
+        // no email, no message and no property - unactionable, and trivial to
+        // flood. WhatsApp handoff tracking posts without a phone but always
+        // carries a property reference, so it is unaffected.
+        if (!phoneNorm && !clientEmail && !message && !primaryPropId) {
+          return sendJson(res, 400, {
+            ok: false,
+            error: 'An enquiry needs a phone number, an email address, a message, or a property reference.'
+          });
+        }
+
         // Validate primaryPropId exists so FK never errors on stale external ID
         const validProp = primaryPropId
           ? db.prepare('SELECT property_id, listing_title, corridor FROM properties WHERE property_id = ?').get(primaryPropId)
@@ -1036,6 +1048,9 @@ function createAppServer(db, options = {}) {
         // Two-Pass WhatsApp Broadcast Intake
         if (pathname === '/api/crm/intake/whatsapp' && req.method === 'POST') {
           const body = await readJsonBody(req);
+          if (typeof body.rawText !== 'string' || !body.rawText.trim()) {
+            return sendJson(res, 400, { ok: false, error: 'Paste the WhatsApp message text before extracting.' });
+          }
           const parsed = parseWhatsAppBroadcast(body.rawText, { sourceGroup: body.sourceGroup });
 
           if (!body.commit) {
@@ -1577,6 +1592,12 @@ function createAppServer(db, options = {}) {
       res.end('404 Not Found');
     } catch (err) {
       const code = err.statusCode || 500;
+      // A genuine fault must leave a trace. Without this an operator pasting an
+      // empty WhatsApp message saw "Internal server error" and the server kept
+      // no record of why, which is undiagnosable once deployed.
+      if (code >= 500) {
+        console.error(`[${new Date().toISOString()}] ${req.method} ${req.url} -> ${code}:`, err && err.stack ? err.stack : err);
+      }
       sendJson(res, code, {
         ok: false,
         error: code >= 500 ? 'Internal server error; please contact the advisory desk' : err.message,

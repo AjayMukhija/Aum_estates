@@ -627,3 +627,136 @@ test('Recovery preserves a release whose SQLite audit record committed before pr
   assert.equal(fs.readFileSync(target, 'utf8'), 'committed release');
   assert.ok(!fs.existsSync(path.join(paths.releasesDir, 'pending.json')));
 });
+
+test('Public copy is complete and free of exact unit identifiers, and floor reaches the buyer', () => {
+  const {
+    composePublicDescription, stripUnitCodes, containsUnitCode, formatFloorLabel, cleanListingTitle
+  } = require('./domain/normalizer');
+  const { ALLOWED_PUBLIC_FIELDS } = require('./config');
+
+  // Exact unit identifiers are private; project, sector and tower names are not.
+  assert.equal(cleanListingTitle('Vatika INXT City Centre C-205', null), 'Vatika INXT City Centre');
+  assert.equal(stripUnitCodes('Unit C-302 at Shukrana Homes'), 'at Shukrana Homes');
+  for (const keep of ['Sushant Lok-1 215 sq yd', 'Puri The Aravallis Sector 61 Tower B', 'DLF Phase 1 C9 lane', 'Sector 37C HUDA plot']) {
+    assert.equal(containsUnitCode(keep), false, `must not strip "${keep}"`);
+    assert.equal(stripUnitCodes(keep), keep);
+  }
+
+  // Floor is a buying criterion: it must survive the privacy gate.
+  assert.ok(ALLOWED_PUBLIC_FIELDS.includes('floor_label'));
+  assert.equal(formatFloorLabel('GF'), 'Ground Floor');
+  assert.equal(formatFloorLabel('Ground'), 'Ground Floor');
+  assert.equal(formatFloorLabel('1st'), '1st Floor');
+  assert.equal(formatFloorLabel('Top Floor with Terrace'), 'Top Floor with Terrace');
+  assert.equal(formatFloorLabel('2nd + roof right'), '2nd + roof right', 'compound labels stay verbatim');
+
+  // Composed copy states only what the record already asserts.
+  const desc = composePublicDescription({
+    configuration: '4 BHK', property_type: 'Builder Floor', category: 'builder-floor',
+    area_value: 350, area_unit: 'sq yd', locality: 'Sushant Lok 1', city: 'Gurgaon',
+    corridor: 'Sushant Lok & Central Gurgaon', floor_label: 'GF', transaction_type: 'Sale'
+  });
+  assert.equal(desc, '4 BHK builder floor of 350 sq yd in Sushant Lok 1, Gurgaon. Ground Floor. Located on the Sushant Lok & Central Gurgaon corridor. Offered for sale.');
+  for (const banned of [/\bwell[- ]maintained\b/i, /\bprime\b/i, /\bverified\b/i, /₹/]) {
+    assert.ok(!banned.test(desc), `composed copy must not assert ${banned}`);
+  }
+
+  // Unresolved source values are left to the advisory desk, not published as fact.
+  const conflicted = composePublicDescription({
+    property_type: 'Plot', category: 'plot', area_value: 358.8, area_unit: 'sq yd',
+    locality: 'South City 1', city: 'Gurgaon', transaction_type: 'Sale',
+    facing: 'South East / North (conflicting source messages)'
+  });
+  assert.ok(!/conflicting|facing/i.test(conflicted), 'conflicting facing must be withheld');
+
+  // No repeated nouns, place names or "Facing facing".
+  assert.equal(
+    composePublicDescription({
+      configuration: 'Shop / Commercial Unit', property_type: 'Commercial', category: 'commercial',
+      area_value: 500, area_unit: 'sq ft', locality: 'Malibu Town', sector: 'Malibu Town',
+      city: 'Gurgaon', facing: 'West Facing', transaction_type: 'Lease'
+    }),
+    'Shop / Commercial Unit of 500 sq ft in Malibu Town, Gurgaon. West facing. Offered on lease.'
+  );
+
+  // Too little recorded to say anything truthful -> say nothing.
+  assert.equal(composePublicDescription({ property_type: 'Apartment', category: 'apartment' }), '');
+});
+
+test('Every published mandate carries buyer-facing copy and no private unit identifier', () => {
+  const feed = JSON.parse(fs.readFileSync(path.join(PATHS.hostingerDataDir, 'public_inventory.json'), 'utf8'));
+  assert.ok(feed.length > 0);
+  const blank = (v) => v == null || String(v).trim() === '';
+  const missing = feed.filter((r) => blank(r.public_description));
+  assert.equal(missing.length, 0, `published records without a description: ${missing.map((r) => r.property_id).join(', ')}`);
+  const leaked = feed.filter((r) => /\b[A-Z]-\d{3,4}\b/.test(`${r.listing_title || ''} ${r.public_description || ''}`));
+  assert.equal(leaked.length, 0, `published unit identifiers: ${leaked.map((r) => r.property_id).join(', ')}`);
+  assert.ok(feed.some((r) => !blank(r.floor_label)), 'floor must reach the public feed');
+});
+
+test('A contentless enquiry is refused, while WhatsApp handoff tracking still records', async (t) => {
+  const db = createSeededMemoryDb();
+  t.after(() => db.close());
+  const server = createAppServer(db);
+
+  const post = (payload) => injectHttp(server, {
+    method: 'POST', url: '/api/public/inquiries',
+    headers: { 'content-type': 'application/json' }, body: JSON.stringify(payload)
+  });
+  const leadCount = () => db.prepare('SELECT COUNT(*) c FROM leads').get().c;
+
+  // A bare POST used to create a lead named "Website Visitor" with no phone,
+  // no email, no message and no property: unactionable, and easy to flood.
+  const before = leadCount();
+  const empty = await post({});
+  assert.equal(empty.status, 400);
+  assert.ok(/phone number|email|message|property/i.test(empty.json.error), empty.json.error);
+  assert.equal(leadCount(), before, 'a refused enquiry must not create a lead');
+
+  // The dossier's WhatsApp button posts without a phone; it carries the
+  // property reference, so it must keep recording.
+  const tracking = await post({ action: 'inquire_whatsapp', source: 'property_detail_view', property_id: 'AUM-WEB-000134' });
+  assert.ok(tracking.status >= 200 && tracking.status < 300, `tracking rejected: ${tracking.status}`);
+  assert.equal(leadCount(), before + 1);
+
+  // Any one real signal is enough.
+  for (const payload of [
+    { name: 'Phone Only', phone: '+919811157000' },
+    { name: 'Email Only', email: 'buyer@example.invalid' },
+    { message: 'Looking for a 3 BHK on Golf Course Road' }
+  ]) {
+    const res = await post(payload);
+    assert.ok(res.status >= 200 && res.status < 300, `${JSON.stringify(payload)} -> ${res.status}`);
+  }
+});
+
+test('Operator input mistakes are reported as 400 with the reason, not as a 500', async (t) => {
+  const db = createSeededMemoryDb();
+  t.after(() => db.close());
+  const server = createAppServer(db);
+
+  const session = testSession(db, 'principal');
+  const headers = { 'content-type': 'application/json', 'x-aum-session': session.sessionId };
+
+  // An empty paste is the operator's mistake, not a server fault. It used to
+  // surface as "Internal server error; please contact the advisory desk".
+  for (const rawText of ['', '   ', undefined, 12345]) {
+    const res = await injectHttp(server, {
+      method: 'POST', url: '/api/crm/intake/whatsapp', headers,
+      body: JSON.stringify(rawText === undefined ? {} : { rawText })
+    });
+    assert.equal(res.status, 400, `rawText=${JSON.stringify(rawText)} gave ${res.status}`);
+    assert.ok(!/internal server error/i.test(res.json.error), `operator saw a server error: ${res.json.error}`);
+    assert.ok(res.json.error.length > 0, 'the reason must reach the operator');
+  }
+
+  // A real paste still parses and still quarantines confidential terms.
+  const ok = await injectHttp(server, {
+    method: 'POST', url: '/api/crm/intake/whatsapp', headers,
+    body: JSON.stringify({ rawText: '3BHK Pioneer Presidia Sec 62 2595 sqft 4.25 Cr owner Rakesh 9810012345 unit C-1203' })
+  });
+  assert.equal(ok.status, 200);
+  const publicText = JSON.stringify(ok.json.publicDraft || {});
+  assert.ok(!publicText.includes('9810012345'), 'owner phone leaked into the public draft');
+  assert.ok(!publicText.includes('C-1203'), 'exact unit leaked into the public draft');
+});

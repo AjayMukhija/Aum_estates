@@ -1,0 +1,859 @@
+/* ==========================================================================
+   AUM ESTATES — Motion study: structure
+   11 November 2026 · private exploration
+
+   Datum tokens are copied verbatim from the production stylesheet
+   (AUM_ESTATES_Website_For_Hostinger/assets/styles.css). They are inputs to
+   this study, not subjects of it. Nothing below invents a colour or a type
+   size. Motion lives entirely in motion.css.
+
+   The study root is a container, not the viewport, so the viewport presets in
+   the lab bar reflow the real responsive layout without iframes.
+   ========================================================================== */
+
+:root {
+  color-scheme: light;
+
+  /* --- Datum: six colour roles, unchanged --- */
+  --ink: #1b211e;
+  --muted: #657068;
+  --accent: #ab392c;
+  --accent-dark: #85291f;
+  --line: #dfe3df;
+  --paper: #ffffff;
+  --quiet: #f5f6f3;
+  --field: #eff0ec;
+
+  /* --- Datum: one spacing vocabulary --- */
+  --space-1: 4px;  --space-2: 8px;  --space-3: 12px; --space-4: 16px;
+  --space-5: 24px; --space-6: 32px; --space-7: 40px; --space-8: 48px;
+  --space-9: 64px; --space-10: 80px; --space-11: 112px;
+
+  --content-width: 1560px;
+  --measure-body: 60ch;
+  --measure-small: 74ch;
+  --gutter: clamp(20px, 6vw, 156px);
+
+  /* --- Datum: four typographic roles --- */
+  --caption: 13px;
+  --body: 16px;
+  --heading: 28px;
+  --display: clamp(38px, 5vw, 68px);
+
+  --radius: 0px;
+
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: var(--body);
+  line-height: 1.5;
+  font-kerning: normal;
+  -webkit-font-smoothing: antialiased;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { background: #e7e9e4; }
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #e7e9e4;
+  color: var(--ink);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+img, svg { max-width: 100%; }
+button { cursor: pointer; font: inherit; color: inherit; }
+a { color: inherit; text-decoration: none; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+/* ==========================================================================
+   Lab chrome. Deliberately not Datum: this is the instrument, not the
+   subject. Dark, monospace, and visually outside the study frame so it is
+   never mistaken for a design proposal.
+   ========================================================================== */
+
+.lab-bar {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-5);
+  padding: 10px clamp(12px, 2vw, 28px);
+  background: #151917;
+  color: #e7e9e4;
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+}
+
+.lab-group { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.lab-group > h1,
+.lab-label {
+  margin: 0;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #7f8a84;
+  white-space: nowrap;
+}
+.lab-group > h1 { color: #e7e9e4; }
+.lab-sep { width: 1px; align-self: stretch; background: #2e3733; }
+
+.lab-btn {
+  min-height: 30px;
+  padding: 6px 11px;
+  border: 1px solid #39423d;
+  background: none;
+  color: #c3ccc6;
+  font: inherit;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+.lab-btn:hover { border-color: #6d7a73; color: #fff; }
+.lab-btn[aria-pressed="true"],
+.lab-btn[aria-checked="true"] {
+  border-color: #d8604f;
+  background: #d8604f;
+  color: #15191f;
+  font-weight: 700;
+}
+.lab-btn kbd {
+  font: inherit;
+  opacity: 0.55;
+  margin-left: 6px;
+}
+
+.lab-note {
+  flex: 1 1 260px;
+  min-width: 0;
+  color: #8e9994;
+  line-height: 1.5;
+}
+.lab-note b { color: #e7e9e4; font-weight: 600; }
+
+/* The frame the study sits in. Width presets act on this. */
+.lab-frame {
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+  max-width: var(--frame, none);
+  transition: max-width 220ms cubic-bezier(.22,.61,.36,1);
+}
+.lab-frame[data-frame="375"], .lab-frame[data-frame="768"] {
+  margin-block: 24px;
+  box-shadow: 0 0 0 1px #c3ccc6;
+}
+
+/* The study itself: a container, so @container rules below drive layout. */
+.study {
+  container-type: inline-size;
+  container-name: study;
+  background: var(--paper);
+  min-height: 100vh;
+}
+
+/* ==========================================================================
+   Datum type roles
+   ========================================================================== */
+
+h1, h2, h3, h4 { margin: 0; font-weight: 550; letter-spacing: -0.036em; line-height: 1.12; }
+.study h1 { font-size: var(--display); letter-spacing: -0.045em; }
+.study h2 { font-size: var(--heading); }
+.study h3 { font-size: 20px; }
+p { margin: 0 0 var(--space-4); }
+
+.eyebrow, .overline, .label-role {
+  font-size: var(--caption);
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+.eyebrow { color: var(--accent); display: inline-block; margin: 0 0 var(--space-5); }
+.overline { color: var(--muted); }
+.fineprint, .source-note {
+  font-size: var(--caption);
+  line-height: 1.65;
+  color: var(--muted);
+  max-width: var(--measure-small);
+}
+.tabular-nums { font-variant-numeric: tabular-nums; }
+
+.container {
+  width: 100%;
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding-inline: var(--gutter);
+}
+
+/* ==========================================================================
+   Controls — Datum's ruled fields and three button roles
+   ========================================================================== */
+
+.btn, .btn-quiet {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: 44px;
+  padding: 11px 20px;
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  background: none;
+  font-size: var(--caption);
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.btn { background: var(--accent); border-color: var(--accent); color: #fff; }
+.btn:hover { background: var(--accent-dark); border-color: var(--accent-dark); }
+.btn-quiet { border-color: var(--line); color: var(--ink); }
+.btn-quiet:hover { border-color: var(--ink); }
+
+.underlined {
+  padding: 8px 0;
+  border: 0;
+  background: none;
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  text-decoration-thickness: 1px;
+  font-size: var(--body);
+  font-weight: 600;
+}
+.underlined:hover { text-decoration-thickness: 2px; text-decoration-color: var(--accent); }
+
+.field { display: flex; flex-direction: column; gap: var(--space-2); min-width: 0; }
+.field > label { font-size: var(--caption); font-weight: 600; color: var(--muted); }
+
+.field select, .field input {
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 0;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  background: none;
+  font: inherit;
+  color: var(--ink);
+  appearance: none;
+}
+.field select {
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--accent) 50%),
+    linear-gradient(135deg, var(--accent) 50%, transparent 50%);
+  background-position: calc(100% - 11px) calc(50% + 1px), calc(100% - 6px) calc(50% + 1px);
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+  padding-right: var(--space-5);
+}
+.field select:focus, .field input:focus {
+  outline: none;
+  border-bottom-color: var(--accent);
+  border-bottom-width: 2px;
+}
+.field input::placeholder { color: #8b948e; }
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+
+.header {
+  position: relative;
+  z-index: 20;
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+}
+.header .nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+  min-height: 86px;
+  padding-block: var(--space-4);
+}
+.brand-name {
+  display: block;
+  font-size: 23px;
+  font-weight: 750;
+  letter-spacing: -0.075em;
+  line-height: 1.05;
+  white-space: nowrap;
+}
+.brand-tagline {
+  display: block;
+  margin-top: 6px;
+  font-size: var(--caption);
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.menu { margin-left: auto; display: flex; align-items: center; gap: clamp(14px, 1.9vw, 34px); }
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 8px 0;
+  font-size: var(--body);
+  font-weight: 500;
+  white-space: nowrap;
+}
+.nav-link[aria-current] {
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 7px;
+}
+.header .wa {
+  min-height: 44px;
+  padding: 11px 20px;
+  background: var(--accent);
+  color: #fff;
+  font-size: var(--caption);
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* ==========================================================================
+   Concept note — the study's own annotation band, Datum-styled but marked
+   as commentary with a left accent rule.
+   ========================================================================== */
+
+.concept-note {
+  border-bottom: 1px solid var(--line);
+  background: var(--quiet);
+  padding-block: var(--space-6);
+}
+.concept-note-inner { border-left: 3px solid var(--accent); padding-left: var(--space-5); }
+.concept-note h2 { font-size: 21px; margin-bottom: var(--space-2); }
+.concept-note p { max-width: var(--measure-small); color: var(--muted); font-size: var(--caption); line-height: 1.65; margin: 0; }
+.concept-note dl {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: var(--space-4) var(--space-6);
+  margin: var(--space-5) 0 0;
+}
+.concept-note dt {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 5px;
+}
+.concept-note dd { margin: 0; font-size: var(--caption); line-height: 1.5; }
+
+/* ==========================================================================
+   Sections and benches
+   ========================================================================== */
+
+.section { padding-block: clamp(var(--space-9), 7vw, var(--space-11)); }
+.section + .section { border-top: 1px solid var(--line); }
+.head { margin-bottom: var(--space-8); }
+.head h2 { margin-bottom: var(--space-3); }
+.head p { max-width: var(--measure-body); color: var(--muted); margin: 0; }
+
+.bench-marker {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
+  font-size: var(--caption);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.bench-marker::after { content: ''; width: 56px; height: 1px; background: var(--accent); }
+
+.bench-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-4);
+  padding-bottom: var(--space-4);
+  margin-bottom: var(--space-7);
+  border-bottom: 1px solid var(--line);
+}
+
+/* ==========================================================================
+   Search desk
+   ========================================================================== */
+
+.desk { border: 1px solid var(--line); padding: var(--space-6); }
+
+.desk-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-5);
+  margin-bottom: var(--space-6);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--line);
+}
+.desk-tab {
+  padding: 6px 0;
+  border: 0;
+  background: none;
+  font-size: var(--caption);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.desk-tab:hover { color: var(--ink); }
+.desk-tab[aria-pressed="true"] {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 7px;
+}
+
+.desk-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: var(--space-5);
+  align-items: end;
+}
+
+.chips { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-5); }
+.chip {
+  padding: 7px 13px;
+  border: 1px solid var(--line);
+  background: none;
+  font-size: var(--caption);
+  color: var(--muted);
+  white-space: nowrap;
+}
+.chip:hover { border-color: var(--accent); color: var(--accent); }
+.chip[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); font-weight: 600; }
+
+/* ==========================================================================
+   Register head — the result count, set as a dimension string in Concept A
+   ========================================================================== */
+
+.register-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-5);
+  padding-bottom: var(--space-4);
+  margin-top: var(--space-9);
+  border-bottom: 1px solid var(--line);
+}
+.register-head h2 { border-left: 3px solid var(--accent); padding-left: 20px; }
+.register-summary {
+  margin: var(--space-3) 0 0 23px;
+  max-width: var(--measure-small);
+  font-size: var(--caption);
+  color: var(--muted);
+}
+.register-state { font-size: var(--caption); color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; }
+
+/* The dimension string. Present in all concepts as a static measure;
+   Concept A animates its witness lines and interpolates the figure. */
+.measure {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: var(--caption);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+.measure-line { position: relative; height: 1px; width: 44px; background: var(--line); }
+.measure-line::before, .measure-line::after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  width: 1px;
+  height: 9px;
+  background: var(--line);
+}
+.measure-line::before { left: 0; }
+.measure-line::after { right: 0; }
+
+/* ==========================================================================
+   Category disclosure
+   ========================================================================== */
+
+.category { border-top: 1px solid var(--line); }
+.category:last-of-type { border-bottom: 1px solid var(--line); }
+
+.category-summary {
+  list-style: none;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr) auto 22px;
+  align-items: center;
+  gap: var(--space-6);
+  padding: var(--space-6) 0;
+  min-height: 88px;
+  cursor: pointer;
+}
+.category-summary::-webkit-details-marker { display: none; }
+.category-summary::marker { content: ''; }
+.category-summary:hover .category-name {
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-underline-offset: 7px;
+}
+.category-name { font-size: var(--heading); font-weight: 550; letter-spacing: -0.036em; line-height: 1.2; }
+.category-desc { font-size: var(--body); color: var(--muted); }
+.category-count { font-size: var(--caption); color: var(--muted); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.category-mark { font-size: 26px; color: var(--accent); line-height: 1; text-align: right; }
+
+/* The region that opens. Height is animated via grid-template-rows in
+   motion.css; this file only establishes the mechanism's structure. */
+.category-region { display: grid; grid-template-rows: 1fr; }
+.category-region > div { min-height: 0; overflow: hidden; }
+
+/* ==========================================================================
+   Property register — the implicit two-column grid of the baseline study
+   ========================================================================== */
+
+.register {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: clamp(32px, 4.5vw, 72px);
+  row-gap: var(--space-9);
+  padding: var(--space-4) 0 var(--space-10);
+}
+
+.tile {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: var(--space-5);
+}
+
+.tile-photo {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 1.5;
+  background: var(--field);
+  overflow: hidden;
+}
+.tile-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* The representative-photograph label is part of the image, never revealed
+   after it. Audit observation F. */
+.tile-photo figcaption {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding: 6px 9px 3px 0;
+  background: var(--paper);
+  max-width: 95%;
+  font-size: var(--caption);
+  color: #546058;
+}
+
+/* The designed absence, for the 35% of records whose image file is missing.
+   The representative-photograph badge is withdrawn, not left lying over an
+   empty box. */
+/* On paper, not on the quiet surface: --line on --quiet is a 4% difference
+   and the drawn frame disappears. Datum's hairlines are legible because they
+   sit on white, and this one has to be too — the frame is the information. */
+.tile-photo.no-photo { display: grid; place-items: center; background: var(--paper); }
+.tile-photo.no-photo svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.no-photo-copy {
+  position: relative;
+  margin: 0;
+  padding: 0 clamp(16px, 8%, 40px);
+  text-align: center;
+  font-size: var(--caption);
+  line-height: 1.55;
+  color: var(--muted);
+  text-wrap: balance;
+}
+.no-photo-copy b {
+  display: block;
+  margin-bottom: 4px;
+  font-size: var(--caption);
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.tile-index {
+  display: flex;
+  gap: var(--space-4);
+  align-items: baseline;
+  margin-top: var(--space-5);
+  font-size: var(--caption);
+  line-height: 1.5;
+  color: var(--muted);
+}
+.tile-index b { color: var(--accent); font-weight: 700; font-variant-numeric: tabular-nums; }
+
+.tile h3 {
+  max-width: 24ch;
+  margin: var(--space-3) 0 var(--space-3);
+  font-size: var(--heading);
+  line-height: 1.18;
+  letter-spacing: -0.037em;
+  font-weight: 550;
+  text-wrap: balance;
+}
+.tile-desc { margin: 0; max-width: var(--measure-body); line-height: 1.55; color: #4e5850; font-size: var(--caption); }
+
+.tile-terms {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-2) var(--space-5);
+  flex-wrap: wrap;
+  margin-top: var(--space-5);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--line);
+}
+.tile-terms strong { font-size: 21px; font-weight: 550; letter-spacing: -0.03em; }
+.tile-terms span { font-size: var(--caption); color: var(--muted); }
+
+.tile-actions { display: flex; align-items: center; gap: var(--space-5); margin-top: var(--space-4); }
+
+.save-btn {
+  min-height: 44px;
+  padding: 8px 0;
+  border: 0;
+  background: none;
+  font-size: var(--caption);
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.save-btn:hover { color: var(--ink); }
+.save-btn[aria-pressed="true"] { color: var(--accent); }
+
+.verify-flag {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 4px 8px;
+  border: 1px solid var(--line);
+}
+.verify-flag[data-state="confirm"] { border-color: var(--accent); color: var(--accent); }
+
+/* Concept C's scale figure. Structure here, drawing in motion.css. */
+.scale-figure { display: flex; align-items: flex-end; gap: var(--space-4); margin-top: var(--space-4); }
+.scale-figure svg { display: block; flex-shrink: 0; }
+.scale-figure figcaption { font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); font-variant-numeric: tabular-nums; }
+.scale-figure[data-area="none"] figcaption { color: var(--accent); }
+
+/* ==========================================================================
+   Empty states
+   ========================================================================== */
+
+.empty {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(0, 300px) minmax(0, 1fr);
+  gap: clamp(32px, 5vw, 80px);
+  align-items: start;
+  padding: var(--space-9) 0 var(--space-10);
+}
+.empty-figure { position: relative; }
+.empty-figure svg { display: block; width: 100%; height: auto; }
+.empty-copy { max-width: var(--measure-body); }
+.empty-copy h3 { font-size: var(--heading); margin-bottom: var(--space-4); letter-spacing: -0.036em; }
+.empty-copy p { color: var(--muted); }
+
+/* Active filters stay visible and individually removable. Audit
+   observation C: the user's work must survive a zero-result search. */
+.empty-filters { margin: var(--space-6) 0; }
+.empty-filters .label-role { color: var(--muted); display: block; margin-bottom: var(--space-3); }
+.filter-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 36px;
+  padding: 6px 10px;
+  margin: 0 var(--space-2) var(--space-2) 0;
+  border: 1px solid var(--line);
+  background: none;
+  font-size: var(--caption);
+  color: var(--ink);
+}
+.filter-pill b { font-weight: 600; }
+.filter-pill span { color: var(--muted); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+.filter-pill::after { content: '×'; color: var(--accent); font-size: 15px; line-height: 1; }
+.filter-pill:hover { border-color: var(--accent); }
+/* The filter(s) whose removal actually returns something. */
+.filter-pill[data-widest="true"] { border-color: var(--accent); }
+/* A filter that is not the problem: removing it alone still returns zero.
+   Still removable, but it must not look like the way out. */
+.filter-pill[data-nohelp="true"] { color: var(--muted); border-style: dashed; }
+.filter-pill[data-nohelp="true"] b { font-weight: 400; }
+
+.empty-counts {
+  margin: var(--space-6) 0;
+  border-top: 1px solid var(--line);
+}
+.empty-counts div {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-5);
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--line);
+  font-size: var(--caption);
+}
+.empty-counts b { font-variant-numeric: tabular-nums; font-weight: 600; }
+.empty-counts em { font-style: normal; color: var(--muted); }
+
+.empty-actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-5); margin-top: var(--space-6); }
+
+/* ==========================================================================
+   Benches: image reveal and ornament
+   ========================================================================== */
+
+.compare-pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(24px, 4vw, 64px);
+}
+.compare-pair > figure { margin: 0; }
+.compare-pair figcaption {
+  margin-top: var(--space-3);
+  font-size: var(--caption);
+  color: var(--muted);
+  line-height: 1.55;
+}
+.compare-pair figcaption b { color: var(--ink); display: block; font-weight: 600; margin-bottom: 4px; }
+
+.ornament-stage {
+  position: relative;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  padding: clamp(32px, 5vw, 72px);
+  overflow: hidden;
+}
+/* Ornament is layer 1 of the drawing: behind content, never interactive. */
+.ornament-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+.ornament-stage > .ornament-content { position: relative; z-index: 1; }
+.ornament-content h3 { margin-bottom: var(--space-3); }
+.ornament-content p { color: var(--muted); max-width: 46ch; margin: 0; }
+.ornament-verdict {
+  margin-top: var(--space-6);
+  border-left: 3px solid var(--accent);
+  padding-left: var(--space-5);
+  max-width: var(--measure-body);
+}
+.ornament-verdict p { font-size: var(--caption); line-height: 1.65; color: var(--muted); margin: 0 0 var(--space-2); }
+.ornament-verdict p:last-child { margin: 0; }
+.ornament-verdict b { color: var(--ink); }
+
+.readout {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 12px;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ==========================================================================
+   Motion specification table — values are written in by motion.js from the
+   live computed custom properties, so the documentation cannot drift.
+   ========================================================================== */
+
+.spec-table { width: 100%; border-collapse: collapse; }
+.spec-table caption { text-align: left; font-size: var(--caption); color: var(--muted); padding-bottom: var(--space-4); }
+.spec-table th, .spec-table td {
+  text-align: left;
+  vertical-align: top;
+  padding: var(--space-3) var(--space-4) var(--space-3) 0;
+  border-bottom: 1px solid var(--line);
+  font-size: var(--caption);
+  line-height: 1.5;
+}
+.spec-table thead th {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.spec-table tbody th { font-weight: 600; white-space: nowrap; }
+.spec-table code {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 12px;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+.study-foot {
+  border-top: 1px solid var(--line);
+  padding-block: var(--space-8);
+  background: var(--quiet);
+}
+.study-foot p { font-size: var(--caption); color: var(--muted); max-width: var(--measure-small); margin: 0 0 var(--space-2); }
+
+/* ==========================================================================
+   Responsive. Container queries on the study root, so the lab's viewport
+   presets reflow the real layout. Datum's rule: compress by removing
+   ornament, never by shrinking type.
+   ========================================================================== */
+
+@container study (max-width: 1180px) {
+  .register { grid-template-columns: 1fr; row-gap: var(--space-8); }
+  .empty { grid-template-columns: 1fr; gap: var(--space-7); }
+  .empty-figure { max-width: 300px; }
+}
+
+@container study (max-width: 1000px) {
+  .menu { display: none; }
+  .category-summary { grid-template-columns: minmax(0, 1fr) auto 22px; }
+  .category-desc { display: none; }
+}
+
+@container study (max-width: 760px) {
+  :root { --heading: 24px; }
+  .header .nav { min-height: 70px; gap: var(--space-3); }
+  .brand-name { font-size: 18px; }
+  .brand-tagline { font-size: 10px; letter-spacing: 0.05em; }
+  .desk { padding: var(--space-5) var(--space-4); }
+  .desk-row { grid-template-columns: 1fr; }
+  .section { padding-block: var(--space-9); }
+  .register-head { flex-direction: column; align-items: flex-start; }
+  .register-head h2 { padding-left: 14px; }
+  .register-summary { margin-left: 17px; }
+  .compare-pair { grid-template-columns: 1fr; }
+  .tile h3 { font-size: 21px; }
+  .category-summary { min-height: 72px; padding: var(--space-5) 0; }
+}
+
+@container study (max-width: 460px) {
+  :root { --gutter: 16px; }
+  .brand-tagline { display: none; }
+  .empty-figure { max-width: 240px; }
+  .tile-actions { gap: var(--space-4); }
+}
+
+@media print {
+  .lab-bar, .header .wa, .tile-actions { display: none; }
+  .study { box-shadow: none; }
+}

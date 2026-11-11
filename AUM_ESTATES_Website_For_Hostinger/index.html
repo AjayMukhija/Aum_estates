@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/styles.css?v=20261101" />
+  <link rel="stylesheet" href="assets/styles.css?v=20261112" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="alternate icon" href="favicon.ico" />
   <script type="application/ld+json">
@@ -36,7 +36,7 @@
     "areaServed": ["Gurgaon", "Golf Course Road", "DLF Phase 1-5", "Nirvana Country", "Sohna Road", "Dwarka Expressway", "New Delhi NCR"]
   }
   </script>
-  <script src="assets/lead-client.js?v=20261101"></script>
+  <script src="assets/lead-client.js?v=20261112"></script>
 </head>
 <body>
 
@@ -221,10 +221,82 @@
           <p class="coverage">Golf Course Road · DLF Phase 1–5 · Nirvana Country · Golf Course Extn · Sohna Road · Dwarka Expressway</p>
         </div>
 
-        <div class="hero-trust">
-          <b class="tabular-nums">2002</b>
-          <span>Established</span>
-          <span>Gurgaon Advisory</span>
+        <div class="hero-desk">
+        <div class="search-card">
+        <form id="home-search-form" class="search-form" action="properties/index.html" method="GET">
+        <div class="search-tabs">
+        <button type="button" class="search-tab active" data-mode="buy">All Residences</button>
+        <button type="button" class="search-tab" data-cat="residential">Luxury Condominiums</button>
+        <button type="button" class="search-tab" data-cat="builder-floor">DLF Builder Floors</button>
+        <button type="button" class="search-tab" data-cat="plot">Approved Plots</button>
+        <button type="button" class="search-tab" data-cat="commercial">Commercial Assets</button>
+        </div>
+        <input type="hidden" name="mode" id="search-mode-input" value="buy" />
+        <input type="hidden" name="category" id="search-cat-input" value="" />
+        <!-- Primary 4-Field Row -->
+        <div class="search-row">
+        <select class="search-field" name="location" id="search-location" aria-label="Select Location Corridor">
+        <option value="">All Gurgaon Corridors</option>
+        <option value="DLF">DLF Phase 1–5</option>
+        <option value="Golf Course Road">Golf Course Road</option>
+        <option value="Nirvana">Nirvana Country / Sector 50</option>
+        <option value="Golf Course Ext Road">Golf Course Extension &amp; SPR</option>
+        <option value="Sohna Road">Sohna Road</option>
+        <option value="Dwarka Expressway">Dwarka Expressway</option>
+        <option value="Sector 46">Sector 46</option>
+        <option value="Sector 57">Sector 57</option>
+        </select>
+        <select class="search-field" name="size" id="search-size" aria-label="Select Configuration">
+        <option value="">Configuration</option>
+        <option value="3 BHK">3 BHK</option>
+        <option value="4 BHK">4 BHK</option>
+        <option value="5 BHK+">5 BHK+ / Penthouse</option>
+        <option value="Floor">Luxury Independent Floor</option>
+        <option value="Plot">Residential Plot / Land</option>
+        <option value="Commercial">Commercial Space</option>
+        </select>
+        <select class="search-field" name="budget" id="search-budget" aria-label="Select Price Range">
+        <option value="">Price Range</option>
+        <option value="3 Cr">Up to ₹3 Cr</option>
+        <option value="3-7 Cr">₹3 Cr – ₹7 Cr</option>
+        <option value="7-15 Cr">₹7 Cr – ₹15 Cr</option>
+        <option value="15-30 Cr">₹15 Cr – ₹30 Cr</option>
+        <option value="30 Cr+">₹30 Cr+</option>
+        </select>
+        <button type="submit" class="search-btn">
+        Explore Portfolio →
+        </button>
+        </div>
+        <!-- Gradual Reveal Toggle & Quick Chips -->
+        <div class="search-expand-bar">
+        <div class="quick-tags">
+        <span class="quick-tag-label">Signature Enclaves:</span>
+        <button type="button" class="quick-tag" data-q="Golf Course Road">Golf Course Road</button>
+        <button type="button" class="quick-tag" data-q="DLF">DLF Phase 1–5</button>
+        <button type="button" class="quick-tag" data-q="The Arbour">DLF The Arbour</button>
+        <button type="button" class="quick-tag" data-q="Park Place">DLF Park Place</button>
+        <button type="button" class="quick-tag" data-q="Nirvana">Nirvana Country</button>
+        </div>
+        <button type="button" class="filter-expand-toggle" id="filter-expand-toggle">
+        <span>+ Keyword &amp; Specific Filters</span>
+        </button>
+        </div>
+        <!-- Expandable Advanced Drawer (Revealed on Click) -->
+        <div class="filter-advanced-drawer" id="filter-advanced-drawer">
+        <input class="search-field" type="text" name="q" id="home-keyword-input" placeholder="Keyword (e.g. Park Facing, Corner, Duplex)..." />
+        <select class="search-field" name="facing" aria-label="Select Facing Direction">
+        <option value="">Any Direction Facing</option>
+        <option value="Park Facing">Park Facing</option>
+        <option value="East Facing">East Facing</option>
+        <option value="Corner">Corner Plot / Unit</option>
+        <option value="North Facing">North Facing</option>
+        </select>
+        <button type="submit" class="btn" style="background:var(--oxblood);color:#fff;height:48px;">
+        Apply Advanced Filters →
+        </button>
+        </div>
+        </form>
+        </div>
         </div>
       </div>
 
@@ -253,93 +325,7 @@
     <!-- ====================================================================
          Luxury Search Console (Progressive Disclosure Architecture)
          ==================================================================== -->
-    <div class="search-stack">
-      <div class="container">
-        <div class="search-card">
-          <form id="home-search-form" class="search-form" action="properties/index.html" method="GET">
-            <div class="search-tabs">
-              <button type="button" class="search-tab active" data-mode="buy">All Residences</button>
-              <button type="button" class="search-tab" data-cat="residential">Luxury Condominiums</button>
-              <button type="button" class="search-tab" data-cat="builder-floor">DLF Builder Floors</button>
-              <button type="button" class="search-tab" data-cat="plot">Approved Plots</button>
-              <button type="button" class="search-tab" data-cat="commercial">Commercial Assets</button>
-            </div>
-
-            <input type="hidden" name="mode" id="search-mode-input" value="buy" />
-            <input type="hidden" name="category" id="search-cat-input" value="" />
-
-            <!-- Primary 4-Field Row -->
-            <div class="search-row">
-              <select class="search-field" name="location" id="search-location" aria-label="Select Location Corridor">
-                <option value="">All Gurgaon Corridors</option>
-                <option value="DLF">DLF Phase 1–5</option>
-                <option value="Golf Course Road">Golf Course Road</option>
-                <option value="Nirvana">Nirvana Country / Sector 50</option>
-                <option value="Golf Course Ext Road">Golf Course Extension &amp; SPR</option>
-                <option value="Sohna Road">Sohna Road</option>
-                <option value="Dwarka Expressway">Dwarka Expressway</option>
-                <option value="Sector 46">Sector 46</option>
-                <option value="Sector 57">Sector 57</option>
-              </select>
-
-              <select class="search-field" name="size" id="search-size" aria-label="Select Configuration">
-                <option value="">Configuration</option>
-                <option value="3 BHK">3 BHK</option>
-                <option value="4 BHK">4 BHK</option>
-                <option value="5 BHK+">5 BHK+ / Penthouse</option>
-                <option value="Floor">Luxury Independent Floor</option>
-                <option value="Plot">Residential Plot / Land</option>
-                <option value="Commercial">Commercial Space</option>
-              </select>
-
-              <select class="search-field" name="budget" id="search-budget" aria-label="Select Price Range">
-                <option value="">Price Range</option>
-                <option value="3 Cr">Up to ₹3 Cr</option>
-                <option value="3-7 Cr">₹3 Cr – ₹7 Cr</option>
-                <option value="7-15 Cr">₹7 Cr – ₹15 Cr</option>
-                <option value="15-30 Cr">₹15 Cr – ₹30 Cr</option>
-                <option value="30 Cr+">₹30 Cr+</option>
-              </select>
-
-              <button type="submit" class="search-btn">
-                Explore Portfolio →
-              </button>
-            </div>
-
-            <!-- Gradual Reveal Toggle & Quick Chips -->
-            <div class="search-expand-bar">
-              <div class="quick-tags">
-                <span class="quick-tag-label">Signature Enclaves:</span>
-                <button type="button" class="quick-tag" data-q="Golf Course Road">Golf Course Road</button>
-                <button type="button" class="quick-tag" data-q="DLF">DLF Phase 1–5</button>
-                <button type="button" class="quick-tag" data-q="The Arbour">DLF The Arbour</button>
-                <button type="button" class="quick-tag" data-q="Park Place">DLF Park Place</button>
-                <button type="button" class="quick-tag" data-q="Nirvana">Nirvana Country</button>
-              </div>
-
-              <button type="button" class="filter-expand-toggle" id="filter-expand-toggle">
-                <span>+ Keyword &amp; Specific Filters</span>
-              </button>
-            </div>
-
-            <!-- Expandable Advanced Drawer (Revealed on Click) -->
-            <div class="filter-advanced-drawer" id="filter-advanced-drawer">
-              <input class="search-field" type="text" name="q" id="home-keyword-input" placeholder="Keyword (e.g. Park Facing, Corner, Duplex)..." />
-              <select class="search-field" name="facing" aria-label="Select Facing Direction">
-                <option value="">Any Direction Facing</option>
-                <option value="Park Facing">Park Facing</option>
-                <option value="East Facing">East Facing</option>
-                <option value="Corner">Corner Plot / Unit</option>
-                <option value="North Facing">North Facing</option>
-              </select>
-              <button type="submit" class="btn" style="background:var(--oxblood);color:#fff;height:48px;">
-                Apply Advanced Filters →
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
+    
 
     <!-- ====================================================================
          Property Categories Showcase
@@ -578,9 +564,9 @@
   <!-- ======================================================================
        Dynamic Data Scripts
        ====================================================================== -->
-  <script src="data/public_inventory.js?v=20261101"></script>
-  <script src="data/projects_local.js?v=20261101"></script>
-  <script src="data/approved_properties.js?v=20261101"></script>
+  <script src="data/public_inventory.js?v=20261112"></script>
+  <script src="data/projects_local.js?v=20261112"></script>
+  <script src="data/approved_properties.js?v=20261112"></script>
 
   <script>
   // Search Form Mode, Category & Gradual Reveal Handling

@@ -160,7 +160,7 @@ function formatInr(amount) {
 }
 
 function cleanListingTitle(title, projectName) {
-  const base = cleanWhitespace(title) || cleanWhitespace(projectName) || 'Gurugram Property Mandate';
+  const base = stripUnitCodes(cleanWhitespace(title)) || cleanWhitespace(projectName) || 'Gurugram Property Mandate';
   return base
     .replace(/\b(?:unit|flat|(?:plot|house)\s*(?:no\.?|number))\s*#?\s*\d+[A-Z0-9/-]*\b/gi, '')
     .replace(/\s{2,}/g, ' ')
@@ -275,7 +275,7 @@ function resolveRepresentativeImage(record) {
 
   const rules = [
     [/sector 46 guest house|guest house/, 'commercial.jpg'],
-    [/asya smartliving|sukoon/, 'sukoon-asya-project-photo.png'],
+    [/asya smartliving|sukoon/, 'sukoon-asya-project-photo.jpg'],
     [/puri the aravallis|puri aravallis|puri the aravalli/, 'puri-the-aravalis.jpg'],
     [/privana/, 'privana.jpg'],
     [/sobha aranya/, 'sobha-aranya.jpg'],
@@ -354,6 +354,147 @@ function parseBedroomsInt(bedrooms, configuration, listingTitle) {
   return null;
 }
 
+// --- Public presentation helpers -------------------------------------------
+
+// Block/unit identifiers such as "C-205" or "A-1204". Deliberately narrow: it
+// requires a single letter, a hyphen and 3-4 digits, so project names
+// ("Sushant Lok-1"), sectors ("Sector 37C") and towers ("Tower B") survive.
+const UNIT_CODE_REGEX = /\b[A-Z]-\d{3,4}\b/g;
+
+// Floor markers used as a bare suffix in source titles.
+const FLOOR_MARKERS = { GF: 'Ground Floor', FF: 'First Floor', SF: 'Second Floor', TF: 'Third Floor' };
+
+function stripUnitCodes(text) {
+  if (text == null) return text;
+  return cleanWhitespace(
+    String(text)
+      .replace(/\bunit\s+[A-Z]-\d{3,4}\b/gi, '')
+      .replace(UNIT_CODE_REGEX, '')
+      .replace(/\s+([;,.])/g, '$1')
+      .replace(/\s{2,}/g, ' ')
+  );
+}
+
+function containsUnitCode(text) {
+  if (text == null) return false;
+  UNIT_CODE_REGEX.lastIndex = 0;
+  return UNIT_CODE_REGEX.test(String(text));
+}
+
+// Reads a trailing "(SF)"-style floor marker, returning its expansion.
+function extractFloorMarker(title) {
+  const m = String(title || '').match(/\((GF|FF|SF|TF)\)\s*$/i);
+  return m ? FLOOR_MARKERS[m[1].toUpperCase()] : null;
+}
+
+function stripFloorMarker(title) {
+  return cleanWhitespace(String(title || '').replace(/\((?:GF|FF|SF|TF)\)\s*$/i, ''));
+}
+
+// Renders a stored floor label as buyer-facing text: expands bare "GF"-style
+// abbreviations and adds "Floor" only where it reads correctly, leaving
+// compound labels ("2nd + roof right") exactly as the advisor recorded them.
+function formatFloorLabel(floorLabel) {
+  const raw = cleanWhitespace(floorLabel);
+  if (!raw) return '';
+  const abbrev = FLOOR_MARKERS[raw.toUpperCase()];
+  if (abbrev) return abbrev;
+  if (/floor/i.test(raw)) return raw;
+  if (raw.includes('+')) return raw;
+  if (/^(?:ground|upper ground|lower ground|basement|stilt|terrace)$/i.test(raw)) return `${raw} Floor`;
+  if (/^\d+(?:st|nd|rd|th)$/i.test(raw)) return `${raw} Floor`;
+  return raw;
+}
+
+const CATEGORY_NOUNS = {
+  apartment: 'apartment',
+  'builder-floor': 'builder floor',
+  villa: 'villa',
+  plot: 'plot',
+  commercial: 'commercial property',
+  farmhouse: 'farmhouse'
+};
+
+// Property types too generic to read as a noun in a sentence.
+const GENERIC_TYPE = /^(residential|commercial|property|other)$/i;
+
+function formatAreaPhrase(row) {
+  const value = row.area_value;
+  const unit = cleanWhitespace(row.area_unit);
+  if (value == null || value === '' || !unit) return '';
+  const num = Number(value);
+  if (!Number.isFinite(num) || num <= 0) return '';
+  const shown = Number.isInteger(num) ? String(num) : String(num);
+  return `${shown} ${unit.toLowerCase().replace(/\bsq\s*yards?\b/, 'sq yd').replace(/\bsq\s*(?:ft|feet)\b/, 'sq ft')}`;
+}
+
+function formatPlacePhrase(row) {
+  const locality = cleanWhitespace(row.locality);
+  const sector = cleanWhitespace(row.sector);
+  const city = cleanWhitespace(row.city);
+  const parts = [];
+  const push = (value) => {
+    const v = cleanWhitespace(value);
+    if (v && !parts.some((p) => p.toLowerCase() === v.toLowerCase())) parts.push(v);
+  };
+  push(locality);
+  if (sector && !/sector/i.test(locality || '')) push(/^\d/.test(sector) ? `Sector ${sector}` : sector);
+  if (city && !parts.some((p) => p.toLowerCase().includes(city.toLowerCase()))) push(city);
+  return parts.join(', ');
+}
+
+/**
+ * Builds a factual public description from stored structured fields only.
+ * It states what the record already asserts - configuration, size, place,
+ * floor, corridor and transaction - and never infers condition, quality,
+ * price or title status. Returns '' when too little is known to say anything.
+ */
+function composePublicDescription(row) {
+  if (!row) return '';
+  const config = cleanWhitespace(row.configuration);
+  const typeRaw = cleanWhitespace(row.property_type);
+  const noun = (typeRaw && !GENERIC_TYPE.test(typeRaw))
+    ? typeRaw.toLowerCase()
+    : (CATEGORY_NOUNS[cleanWhitespace(row.category)] || 'property');
+
+  const area = formatAreaPhrase(row);
+  const place = formatPlacePhrase(row);
+  if (!place && !area) return '';
+
+  // Lead: "<config> <noun> of <area> in <place>."
+  let lead = '';
+  // Treat the configuration as self-describing when it already contains any
+  // significant word of the noun ("Shop / Commercial Unit" vs "commercial property").
+  const nounWords = noun.split(/\s+/).filter((w) => w.length > 3);
+  const configNamesNoun = !!config && nounWords.some((w) => new RegExp(`\\b${w}`, 'i').test(config));
+  if (config) lead += configNamesNoun ? config : `${config} ${noun}`;
+  else lead += noun;
+  if (area) lead += ` of ${area}`;
+  if (place) lead += ` in ${place}`;
+  const sentences = [`${lead.charAt(0).toUpperCase()}${lead.slice(1)}.`];
+
+  const floor = formatFloorLabel(row.floor_label);
+  if (floor) sentences.push(`${floor}.`);
+
+  const corridor = cleanWhitespace(row.corridor);
+  if (corridor && !(place || '').toLowerCase().includes(corridor.toLowerCase())) {
+    sentences.push(`Located on the ${corridor} corridor.`);
+  }
+
+  // Source facing values are sometimes recorded as unresolved alternatives;
+  // those are left for the advisory desk rather than published as fact.
+  const facing = cleanWhitespace(row.facing);
+  if (facing && !/conflict|\/|\bor\b|\?/i.test(facing)) {
+    sentences.push(`${cleanWhitespace(facing.replace(/\s*facing\s*$/i, ''))} facing.`);
+  }
+
+  const txn = cleanWhitespace(row.transaction_type);
+  if (/rent|lease/i.test(txn || '')) sentences.push('Offered on lease.');
+  else if (/sale|resale/i.test(txn || '')) sentences.push('Offered for sale.');
+
+  return cleanWhitespace(sentences.join(' '));
+}
+
 module.exports = {
   cleanWhitespace,
   normText,
@@ -367,5 +508,11 @@ module.exports = {
   classifyCategory,
   classifyCorridor,
   resolveRepresentativeImage,
-  parseBedroomsInt
+  parseBedroomsInt,
+  stripUnitCodes,
+  containsUnitCode,
+  extractFloorMarker,
+  stripFloorMarker,
+  composePublicDescription,
+  formatFloorLabel
 };

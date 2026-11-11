@@ -76,7 +76,7 @@
     const name=String([o.listing_title,o.website_display_name,o.project_name,o.locality,o.micro_location,o.sector,o.public_description,o.key_features].join(' ')).toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
     const projectImages=[
       [/sector 46 guest house|guest house/.test(name),'commercial.jpg'],
-      [/asya smartliving|sukoon/.test(name),'sukoon-asya-project-photo.png'],
+      [/asya smartliving|sukoon/.test(name),'sukoon-asya-project-photo.jpg'],
       [/puri the aravallis|puri aravallis/.test(name),'puri-the-aravalis.jpg'],
       [/privana|privana south|privana north/.test(name),'privana.jpg'],
       [/sobha aranya/.test(name),'sobha-aranya.jpg'],
@@ -454,6 +454,35 @@
   // Global CRM Bridge for Master SQLite CRM, Client Bot & Analytics
   // window.AUM_CRM_HOOK is supplied by assets/lead-client.js.
 
+  // Deferred photography. Cards carry their image in data-bg and only request
+  // it within 400px of the viewport, so opening the catalogue costs a handful
+  // of photographs instead of every distinct one. Without IntersectionObserver
+  // support the images are attached immediately, so nothing is ever missing.
+  var photoObserver = null;
+  function attachPhoto(el){
+    var url = el.getAttribute('data-bg');
+    if(!url) return;
+    el.style.backgroundImage = "url('" + url + "')";
+    el.removeAttribute('data-bg');
+  }
+  function hydratePhotos(root){
+    var nodes = (root || document).querySelectorAll('.result-photo[data-bg]');
+    if(!('IntersectionObserver' in window)){
+      Array.prototype.forEach.call(nodes, attachPhoto);
+      return;
+    }
+    if(!photoObserver){
+      photoObserver = new IntersectionObserver(function(entries, obs){
+        entries.forEach(function(entry){
+          if(!entry.isIntersecting) return;
+          attachPhoto(entry.target);
+          obs.unobserve(entry.target);
+        });
+      }, { rootMargin: '400px 0px' });
+    }
+    Array.prototype.forEach.call(nodes, function(n){ photoObserver.observe(n); });
+  }
+
   function resultCard(o){
     const features=(o.public_features||o.key_features||'').split(';').filter(Boolean).slice(0,3);
     const rawName=o.website_display_name||o.listing_title||o.project_name||'Property';
@@ -467,7 +496,7 @@
     const badgeText = o.image_label && o.image_label !== '*RP' ? esc(o.image_label) : 'Representative Image';
     const locStr = locationLabel(o) || 'Gurgaon';
     const priceStr = priceLabel(o);
-    return `<article class="result-card" data-property-id="${esc(o.property_id || '')}" data-title="${esc(publicName)}" data-price="${esc(priceStr)}" data-location="${esc(locStr)}"><div class="result-photo" style="background-image:url('${imagePathPrefix}${image}')"><span class="representative-badge">${badgeText}</span><span class="result-type">${esc(imageLabel)}</span></div><div class="result-body"><div class="result-location">${esc(locStr)}</div><h3>${esc(publicName)}</h3><p class="result-config">${esc(o.configuration||'')} ${o.bedrooms?` · ${esc(o.bedrooms)} BHK`:''} ${areaLabel(o)?` · ${esc(areaLabel(o))}`:''}</p><p class="result-desc">${esc(o.public_description||o.key_features||'Property details available on enquiry.')}</p><div class="result-bottom"><strong class="tabular-nums">${esc(priceStr)}</strong><div class="result-actions"><a class="view-details" href="${detailHref}">View Dossier →</a><a class="result-contact" href="${wa}" target="_blank" rel="noopener">Inquire on WhatsApp</a></div></div>${features.length?`<div class="result-features">${features.map(f=>`<span>${esc(f.trim())}</span>`).join('')}</div>`:''}</div></article>`;
+    return `<article class="result-card" data-property-id="${esc(o.property_id || '')}" data-title="${esc(publicName)}" data-price="${esc(priceStr)}" data-location="${esc(locStr)}"><div class="result-photo" data-bg="${imagePathPrefix}${image}"><span class="representative-badge">${badgeText}</span><span class="result-type">${esc(imageLabel)}</span></div><div class="result-body"><div class="result-location">${esc(locStr)}</div><h3>${esc(publicName)}</h3><p class="result-config">${esc([o.configuration,o.bedrooms?`${o.bedrooms} BHK`:'',areaLabel(o)].filter(Boolean).join(' · '))}</p><p class="result-desc">${esc(o.public_description||o.key_features||'Property details available on enquiry.')}</p><div class="result-bottom"><strong class="tabular-nums">${esc(priceStr)}</strong><div class="result-actions"><a class="view-details" href="${detailHref}">View Dossier →</a><a class="result-contact" href="${wa}" target="_blank" rel="noopener">Inquire on WhatsApp</a></div></div>${features.length?`<div class="result-features">${features.map(f=>`<span>${esc(f.trim())}</span>`).join('')}</div>`:''}</div></article>`;
   }
 
   if (typeof document !== 'undefined') {
@@ -720,6 +749,7 @@
 
     if(results.length){
       host.innerHTML=results.map(resultCard).join('');
+      hydratePhotos(host);
     } else {
       host.innerHTML=`<div class="no-results">
         <h3>No exact matches found</h3>

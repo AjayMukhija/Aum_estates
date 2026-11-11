@@ -138,7 +138,7 @@
 
     const projectImages = [
       [/sector 46 guest house|guest house/.test(name), 'commercial.jpg'],
-      [/asya smartliving|sukoon/.test(name), 'sukoon-asya-project-photo.png'],
+      [/asya smartliving|sukoon/.test(name), 'sukoon-asya-project-photo.jpg'],
       [/puri the aravallis|puri aravallis/.test(name), 'puri-the-aravalis.jpg'],
       [/privana|privana south|privana north/.test(name), 'privana.jpg'],
       [/sobha aranya/.test(name), 'sobha-aranya.jpg'],

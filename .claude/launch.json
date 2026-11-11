@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "motion-study",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "8099", "--directory", "AUM_Estates_Motion_Study_2026-11-11/dist"],
+      "port": 8099
+    }
+  ]
+}

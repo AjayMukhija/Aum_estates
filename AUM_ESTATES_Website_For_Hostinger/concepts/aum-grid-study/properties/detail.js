@@ -63,7 +63,7 @@ function representativeImage(o){
   if(c === 'plot') return 'plot-land-user.jpg';
   const name=String([o.listing_title,o.website_display_name,o.project_name,o.locality,o.micro_location,o.sector,o.public_description,o.key_features].join(' ')).toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
   const projectImages=[
-    [/asya smartliving|sukoon/.test(name),'sukoon-asya-project-photo.png'],
+    [/asya smartliving|sukoon/.test(name),'sukoon-asya-project-photo.jpg'],
     [/privana|privana south|privana north/.test(name),'privana.jpg'],
     [/sobha aranya/.test(name),'sobha-aranya.jpg'],
     [/indiabulls enigma/.test(name),'indiabulls-enigma.jpg'],

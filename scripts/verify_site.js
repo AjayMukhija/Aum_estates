@@ -55,15 +55,9 @@ try {
 assertCheck('Published inventory is non-empty (bulk shrink requires principal confirmation)', inventory.length > 0, `${inventory.length} public references`);
 
 // Scan each record for private field leaks or sensitive strings
-const ALLOWED_FIELDS = new Set([
-  'property_id', 'status', 'project_id', 'project_name', 'locality', 'sector', 'city',
-  'micro_location', 'corridor', 'property_type', 'category', 'transaction_type', 'listing_title',
-  'configuration', 'bedrooms', 'bathrooms', 'area_value', 'area_unit', 'area_sqft_norm',
-  'facing', 'road_width', 'price_value', 'price_unit', 'price_text', 'price_inr_norm',
-  'rent_value', 'rent_unit', 'rent_inr_monthly_norm', 'key_features', 'public_description',
-  'public_features', 'image_file', 'image_label', 'verification_status', 'last_verified',
-  'things_to_confirm', 'slug', 'url'
-]);
+// Single source of truth: the same list the privacy gate projects through.
+// A second copy here would silently diverge from the gate it is meant to check.
+const ALLOWED_FIELDS = new Set(require('../backend/config').ALLOWED_PUBLIC_FIELDS);
 
 const LEAK_REGEX = /\b(?:commission|brokerage|broker\s*cut|payout|cheque|cash\s*(?:part|deal|component)|white\s*(?:deal|entry|component|part|ratio)|\d{1,3}\s*[\/:]\s*\d{1,3}\s*(?:white|black|cheque|cash)|owner\s*(?:mob|name|phone)|keys?\s*in\s*hand)\b/i;
 const PHONE_GLOBAL_REGEX = /(?:₹|rs\.?\s*|inr\s*)?(?:\+?91[\s.-]?|0)?([6-9]\d(?:[\s.-]?\d){8})\b/gi;

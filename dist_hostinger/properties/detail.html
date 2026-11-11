@@ -9,8 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../assets/styles.css?v=20261101" />
-  <script src="../assets/lead-client.js?v=20261101"></script>
+  <link rel="stylesheet" href="../assets/styles.css?v=20261112" />
+  <script src="../assets/lead-client.js?v=20261112"></script>
 </head>
 <body class="property-page">
 
@@ -224,12 +224,32 @@
                 <h2>Key highlights &amp; features</h2>
                 <div class="detail-features" id="detail-features"></div>
               </div>
+
+              <!-- What is published, and what is not. Adopted from the v16
+                   study: a selected question is not a verified fact. -->
+              <div class="detail-section confirm-block" id="confirm-wrapper" style="display:none;">
+                <h2>Still to confirm</h2>
+                <p class="confirm-lead">These are not published facts. Ajay Mukhija re-confirms each one directly with the owner before any viewing.</p>
+                <ul class="confirm-list" id="detail-confirm"></ul>
+              </div>
+
+              <div class="detail-section" id="provenance-wrapper">
+                <h2>Source &amp; limitations</h2>
+                <dl class="provenance" id="detail-provenance"></dl>
+                <p class="fineprint" id="detail-photo-note"></p>
+              </div>
+
+              <div class="detail-section" id="viewing-wrapper">
+                <h2>Prepare for a useful viewing</h2>
+                <p class="confirm-lead">Choose what you would like confirmed. Your selection is added to the enquiry and stays on this device until you send it.</p>
+                <div class="question-list" id="detail-questions"></div>
+              </div>
             </div>
           </article>
 
           <!-- Right Column: Advisory Action Card -->
           <aside>
-            <div style="background:var(--bg-surface);border:1px solid var(--border-light);border-radius:var(--radius-lg);padding:32px;box-shadow:var(--shadow-md);position:sticky;top:100px;">
+            <div class="detail-card advisory-card">
               <div class="eyebrow">Advisory Desk</div>
               <h3 style="font-size:20px;font-weight:700;color:var(--text-main);margin-bottom:8px;">Request Complete Particulars</h3>
               <p style="font-size:13.5px;color:var(--text-muted);line-height:1.55;margin-bottom:24px;">Connect directly with our senior Gurgaon advisors for verified title deeds, floor plans, and site visit scheduling.</p>
@@ -314,8 +334,8 @@
     </div>
   </footer>
 
-  <script src="../data/public_inventory.js?v=20261101"></script>
-  <script src="detail.js?v=20261101"></script>
+  <script src="../data/public_inventory.js?v=20261112"></script>
+  <script src="detail.js?v=20261112"></script>
   <script>
   (function(){
     const toggle = document.getElementById('menu-toggle');

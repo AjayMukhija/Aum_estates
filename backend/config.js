@@ -91,6 +91,7 @@ const ALLOWED_PUBLIC_FIELDS = [
   'area_sqft_norm',
   'facing',
   'road_width',
+  'floor_label',
   'price_value',
   'price_unit',
   'price_text',
