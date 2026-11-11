@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>AUM Estates — Responsive Brand Proof</title>
+  <style>
+    :root { font:16px/1.5 "Helvetica Neue",Helvetica,Arial,sans-serif; color:#1b211e; background:white; }
+    * { box-sizing:border-box; } body { margin:0; } button { font:inherit; cursor:pointer; }
+    header { padding:28px clamp(20px,4vw,72px); display:flex; flex-wrap:wrap; align-items:center; gap:20px 40px; border-bottom:1px solid #dfe3df; }
+    header strong { font-size:21px; letter-spacing:-.06em; }
+    header span { display:block; font-size:11px; color:#657068; font-weight:700; letter-spacing:.08em; }
+    header a { margin-left:auto; color:#1b211e; font-size:13px; font-weight:650; text-decoration:underline; text-underline-offset:5px; }
+    main { padding:42px clamp(20px,4vw,72px) 80px; }
+    .intro { display:flex; align-items:end; justify-content:space-between; flex-wrap:wrap; gap:20px; }
+    h1 { font-size:clamp(32px,3vw,45px); line-height:1.1; font-weight:520; letter-spacing:-.06em; margin:0; }
+    .intro p { font-size:13px; color:#657068; max-width:52ch; margin:0; }
+    .modes { display:flex; gap:7px; flex-wrap:wrap; margin:29px 0 32px; }
+    .modes button { min-height:42px; padding:9px 15px; border:1px solid #cdd5cd; background:white; }
+    .modes button[aria-pressed="true"] { background:#1b211e; color:white; border-color:#1b211e; }
+    .devices { display:flex; align-items:flex-start; gap:22px; overflow-x:auto; padding:0 0 22px; }
+    .device { flex:none; background:#f4f6f3; padding:15px; border:1px solid #dbe1dc; }
+    .device-label { display:flex; justify-content:space-between; gap:20px; align-items:baseline; padding-bottom:14px; font-size:12px; }
+    .device-label strong { font-size:15px; }.device-label span { color:#657068; font-variant-numeric:tabular-nums; }
+    iframe { display:block; border:0; outline:1px solid #d9ded8; background:#fff; }
+    #mobile { width:375px; height:750px; } #tablet { width:768px; height:750px; }
+    .foot { margin:20px 0 0; color:#657068; font-size:13px; }
+    @media (max-width:500px) { .device { padding:8px; }.devices { margin-inline:-20px; padding-inline:20px; } }
+  </style>
+</head>
+<body>
+  <header><div><strong>AUM ESTATES</strong><span>PRIVATE DESIGN QA / RESPONSIVE PROOF</span></div><a href="./index.html" id="back">Return to property experience ↗</a></header>
+  <main>
+    <div class="intro"><h1>Same task. Different viewport.</h1><p>These are actual same-origin pages rendered at 375px and 768px widths, not resized screenshots. Inspect search, margin rhythm, category disclosure, property images and scroll behavior.</p></div>
+    <div class="modes" aria-label="Compare brand directions">
+      <button data-mode="datum" aria-pressed="true">01 Datum</button><button data-mode="sun" aria-pressed="false">02 Sun</button><button data-mode="atlas" aria-pressed="false">03 Atlas</button><button data-mode="screen" aria-pressed="false">04 Screen</button><button data-mode="imprint" aria-pressed="false">05 Imprint</button>
+    </div>
+    <div class="devices"><section class="device"><div class="device-label"><strong>Phone</strong><span>375 × 750</span></div><iframe id="mobile" title="375 pixel phone preview" src="./index.html?studio=datum"></iframe></section><section class="device"><div class="device-label"><strong>Tablet</strong><span>768 × 750</span></div><iframe id="tablet" title="768 pixel tablet preview" src="./index.html?studio=datum"></iframe></section></div>
+    <p class="foot">Preview controls remain visible because this is an owner-only design study. The production website has not been changed.</p>
+  </main>
+  <script>
+    const modes=['datum','sun','atlas','screen','imprint'];
+    function useMode(id){if(!modes.includes(id))id='datum';document.querySelectorAll('[data-mode]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.mode===id)));for(const key of ['mobile','tablet'])document.getElementById(key).src='./index.html?studio='+id;document.getElementById('back').href='./index.html?studio='+id;history.replaceState(null,'','?concept='+id);}
+    document.querySelectorAll('[data-mode]').forEach(b=>b.addEventListener('click',()=>useMode(b.dataset.mode)));
+    const chosen=new URL(location.href).searchParams.get('concept');if(modes.includes(chosen))useMode(chosen);
+  </script>
+</body>
+</html>

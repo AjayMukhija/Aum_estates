@@ -1,0 +1,193 @@
+{
+  "checkedAt": "2026-10-29T10:32:02.697Z",
+  "sandbox": "/var/folders/vj/r_5nw3113w3fv4t74ngqjw340000gn/T/aum-backend-probes-gHTxIN",
+  "results": [
+    {
+      "name": "Empty import replaces existing inventory",
+      "issueReproduced": true,
+      "evidence": {
+        "exit": 0,
+        "outputRecords": 0
+      }
+    },
+    {
+      "name": "Duplicate IDs warn but still write",
+      "issueReproduced": true,
+      "evidence": {
+        "exit": 0,
+        "outputRecords": 2
+      }
+    },
+    {
+      "name": "Missing ID and title accepted",
+      "issueReproduced": true,
+      "evidence": {
+        "exit": 0,
+        "outputRecords": 1
+      }
+    },
+    {
+      "name": "Nested private data bypasses string scanner",
+      "issueReproduced": true,
+      "evidence": {
+        "exit": 0,
+        "outputRecords": 1
+      }
+    },
+    {
+      "name": "Official phone exempts another number in same field",
+      "issueReproduced": true,
+      "evidence": {
+        "exit": 0,
+        "outputRecords": 1
+      }
+    },
+    {
+      "name": "Spaced phone bypasses detection",
+      "issueReproduced": true,
+      "evidence": {
+        "exit": 0,
+        "outputRecords": 1
+      }
+    },
+    {
+      "name": "Cheque terms bypass financial leak rule",
+      "issueReproduced": true,
+      "evidence": {
+        "exit": 0,
+        "outputRecords": 1
+      }
+    },
+    {
+      "name": "Numeric phone value bypasses detection",
+      "issueReproduced": true,
+      "evidence": {
+        "exit": 0,
+        "outputRecords": 1
+      }
+    },
+    {
+      "name": "FORCE_BUILD=0 bypasses privacy failure",
+      "issueReproduced": true,
+      "evidence": {
+        "exit": 0,
+        "outputRecords": 1
+      }
+    },
+    {
+      "name": "Draft is emitted into public feed",
+      "issueReproduced": true,
+      "evidence": {
+        "exit": 0,
+        "outputRecords": 1
+      }
+    },
+    {
+      "name": "Explicitly private visibility is dropped and record emitted",
+      "issueReproduced": true,
+      "evidence": {
+        "exit": 0,
+        "outputRecords": 1
+      }
+    },
+    {
+      "name": "Specified nested master schema not transformed",
+      "issueReproduced": true,
+      "evidence": {
+        "exit": 0,
+        "outputRecords": 1
+      }
+    },
+    {
+      "name": "Price update accepts negative value and unscanned phone in unit",
+      "issueReproduced": true,
+      "evidence": {
+        "exit": 0,
+        "negativePrice": true,
+        "phoneInPublicUnit": true
+      }
+    },
+    {
+      "name": "CLI update leaves packaged concept feed stale",
+      "issueReproduced": true,
+      "evidence": {
+        "mainPrice": -5,
+        "conceptPrice": 1
+      }
+    },
+    {
+      "name": "CLI add accepts record without title or schema",
+      "issueReproduced": true,
+      "evidence": {
+        "exit": 0,
+        "records": 2
+      }
+    },
+    {
+      "name": "Consecutive rollback re-applies undone change",
+      "issueReproduced": true,
+      "evidence": {
+        "firstRollbackPrice": 1,
+        "secondRollbackPrice": 2
+      }
+    },
+    {
+      "name": "Global regex lastIndex skips following field",
+      "issueReproduced": true,
+      "evidence": {
+        "warnings": 0
+      }
+    },
+    {
+      "name": "Grid results include Sold and Draft records",
+      "issueReproduced": true,
+      "evidence": {
+        "ids": [
+          "SOLD",
+          "DRAFT"
+        ]
+      }
+    },
+    {
+      "name": "Grid property ID is inserted as raw HTML",
+      "issueReproduced": true,
+      "evidence": {
+        "unescapedMarkupPresent": true,
+        "payloadExecuted": false
+      }
+    },
+    {
+      "name": "Grid hook does not invoke documented CRM listener",
+      "issueReproduced": true,
+      "evidence": {
+        "listenerCalls": 0
+      }
+    },
+    {
+      "name": "Write failure leaves JSON and JS on different versions",
+      "issueReproduced": true,
+      "evidence": {
+        "exit": 1,
+        "jsonPrice": 2,
+        "jsPrice": 1
+      }
+    },
+    {
+      "name": "Full package succeeds with private data outside inventory filename",
+      "issueReproduced": true,
+      "evidence": {
+        "exit": 0,
+        "privateCanaryCopied": true,
+        "preflight45ChecksPassed": true
+      }
+    },
+    {
+      "name": "Packager follows symlink outside source tree",
+      "issueReproduced": true,
+      "evidence": {
+        "exit": 0,
+        "outsideCanaryCopied": true
+      }
+    }
+  ]
+}

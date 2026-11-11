@@ -1,0 +1,26 @@
+[Unit]
+Description=AUM Estates website and private CRM
+After=network.target
+
+[Service]
+Type=simple
+User=aum
+Group=aum
+WorkingDirectory=/opt/aum-estates
+Environment=NODE_ENV=production
+Environment=AUM_HOST=127.0.0.1
+Environment=AUM_PORT=8787
+Environment=AUM_PUBLIC_ORIGIN=https://aumestates.com
+EnvironmentFile=-/etc/aum-estates.env
+ExecStart=/usr/bin/node backend/server.js
+Restart=on-failure
+RestartSec=5
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=strict
+ReadWritePaths=/opt/aum-estates/private_master_store /opt/aum-estates/AUM_ESTATES_Website_For_Hostinger/data /opt/aum-estates/AUM_ESTATES_Website_For_Hostinger/concepts/aum-grid-study/data /opt/aum-estates/aum-grid-local-baseline-2026-10-27/dist/data /opt/aum-estates/AUM_Estates_Brand_Study_v16_Local/dist
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en" data-concept="baseline" data-rm="off">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex,nofollow" />
+<title>AUM Estates — Architectural motion study (private)</title>
+<link rel="stylesheet" href="study.css" />
+<link rel="stylesheet" href="motion.css" />
+</head>
+<body>
+
+<!-- ==========================================================================
+     The lab. Deliberately not Datum — this is the instrument, not a proposal.
+     ========================================================================== -->
+<div class="lab-bar" role="toolbar" aria-label="Design study controls">
+  <div class="lab-group">
+    <h1>AUM / Motion study</h1>
+  </div>
+  <div class="lab-sep" aria-hidden="true"></div>
+
+  <div class="lab-group" role="radiogroup" aria-label="Concept">
+    <p class="lab-label">Concept</p>
+    <button class="lab-btn" role="radio" aria-checked="true"  data-concept-set="baseline">Baseline<kbd>0</kbd></button>
+    <button class="lab-btn" role="radio" aria-checked="false" data-concept-set="a">A Setting Out<kbd>1</kbd></button>
+    <button class="lab-btn" role="radio" aria-checked="false" data-concept-set="b">B Section Cut<kbd>2</kbd></button>
+    <button class="lab-btn" role="radio" aria-checked="false" data-concept-set="c">C Scale &amp; Schedule<kbd>3</kbd></button>
+    <button class="lab-btn" role="radio" aria-checked="false" data-concept-set="d">D Raking Light<kbd>4</kbd></button>
+  </div>
+  <div class="lab-sep" aria-hidden="true"></div>
+
+  <div class="lab-group" role="radiogroup" aria-label="Viewport">
+    <p class="lab-label">Viewport</p>
+    <button class="lab-btn" role="radio" aria-checked="false" data-frame-set="375">375</button>
+    <button class="lab-btn" role="radio" aria-checked="false" data-frame-set="768">768</button>
+    <button class="lab-btn" role="radio" aria-checked="true"  data-frame-set="full">Full</button>
+  </div>
+  <div class="lab-sep" aria-hidden="true"></div>
+
+  <div class="lab-group">
+    <p class="lab-label">Inspect</p>
+    <button class="lab-btn" aria-pressed="false" id="slow-toggle">0.25× speed<kbd>S</kbd></button>
+    <button class="lab-btn" aria-pressed="false" id="rm-toggle">Reduced motion<kbd>R</kbd></button>
+    <button class="lab-btn" id="replay-all">Replay<kbd>P</kbd></button>
+  </div>
+
+  <p class="lab-note" id="lab-note">
+    <b>Baseline.</b> Exactly what the production site does today: colour transitions at 160ms, instant disclosure, no entrance motion, no announcement. Switch concepts to compare.
+  </p>
+</div>
+
+<div class="lab-frame" id="lab-frame" data-frame="full">
+<div class="study" id="study">
+
+  <!-- ==================================================================
+       Datum header, as shipped
+       ================================================================== -->
+  <header class="header">
+    <div class="container nav">
+      <a class="brand-lockup" href="#" aria-label="AUM ESTATES home">
+        <span class="brand-name">AUM ESTATES</span>
+        <span class="brand-tagline">Private Advisory · Est. 2002</span>
+      </a>
+      <nav class="menu" aria-label="Main">
+        <a class="nav-link" href="#">Home</a>
+        <a class="nav-link" href="#" aria-current="page">Portfolio</a>
+        <a class="nav-link" href="#">Corridors</a>
+        <a class="nav-link" href="#">New Projects</a>
+        <a class="nav-link" href="#">The Advisory</a>
+        <a class="nav-link" href="#">Contact</a>
+      </nav>
+      <a class="wa" href="#" aria-label="Private advisory desk">Private Advisory Desk</a>
+    </div>
+  </header>
+
+  <!-- ==================================================================
+       The concept's own claim, stated where it can be checked against
+       what is on screen.
+       ================================================================== -->
+  <section class="concept-note" aria-labelledby="cn-title">
+    <div class="container">
+      <div class="concept-note-inner">
+        <p class="label-role overline" style="margin:0 0 8px;">Concept in view</p>
+        <h2 id="cn-title">Baseline — no motion</h2>
+        <p id="cn-body"></p>
+        <dl id="cn-spec"></dl>
+      </div>
+    </div>
+  </section>
+
+  <main>
+
+  <!-- ==================================================================
+       1 — The Property Index, live, on the real public inventory.
+       Information architecture is unchanged: search → category disclosure
+       → register → detail. 347 available records as of 11 Nov 2026.
+       ================================================================== -->
+  <section class="section" aria-labelledby="idx-title">
+    <div class="container">
+      <p class="bench-marker">Live · interaction opportunities B, C, E</p>
+      <div class="head">
+        <h2 id="idx-title">Property index</h2>
+        <p>The real register, on the real public inventory. Category disclosure, filtering and imagery all behave according to the concept selected above.</p>
+      </div>
+
+      <!-- Search desk -->
+      <form class="desk" id="desk" aria-label="Search the portfolio">
+        <div class="desk-tabs" role="group" aria-label="Transaction">
+          <button type="button" class="desk-tab" data-tx="" aria-pressed="true">All</button>
+          <button type="button" class="desk-tab" data-tx="Sale" aria-pressed="false">Buy</button>
+          <button type="button" class="desk-tab" data-tx="Rent" aria-pressed="false">Rent</button>
+          <button type="button" class="desk-tab" data-tx="Lease" aria-pressed="false">Lease</button>
+        </div>
+        <div class="desk-row">
+          <div class="field">
+            <label for="f-corridor">Corridor</label>
+            <select id="f-corridor" data-filter="corridor"><option value="">All corridors</option></select>
+          </div>
+          <div class="field">
+            <label for="f-type">Property type</label>
+            <select id="f-type" data-filter="property_type"><option value="">All types</option></select>
+          </div>
+          <div class="field">
+            <label for="f-config">Configuration</label>
+            <select id="f-config" data-filter="config"><option value="">Any configuration</option></select>
+          </div>
+          <div class="field">
+            <label for="f-verify">Verification</label>
+            <select id="f-verify" data-filter="verification_status"><option value="">Any status</option></select>
+          </div>
+          <div class="field">
+            <label for="f-q">Keyword</label>
+            <input id="f-q" data-filter="q" placeholder="Project, sector, feature…" autocomplete="off" />
+          </div>
+        </div>
+        <div class="chips" data-chips aria-label="Quick filters"></div>
+      </form>
+
+      <!-- Register head. The count is a dimension string; Concept A animates
+           its witness lines and interpolates the figure. -->
+      <div class="register-head" id="register-head">
+        <div>
+          <h2><span id="count-figure" class="tabular-nums">0</span> properties</h2>
+          <p class="register-summary" id="register-summary">All available references</p>
+        </div>
+        <div class="measure" aria-hidden="true">
+          <span class="measure-line"></span>
+          <span id="measure-label">of 347 available</span>
+          <span class="measure-line"></span>
+        </div>
+        <span class="register-datum" aria-hidden="true"></span>
+      </div>
+
+      <!-- The one thing production is missing entirely: a live region. -->
+      <p class="visually-hidden" id="live" role="status" aria-live="polite"
+         style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;"></p>
+
+      <!-- Category disclosures -->
+      <div id="categories"></div>
+
+      <!-- Empty state renders here when the live filters yield nothing -->
+      <div id="live-empty" hidden></div>
+
+      <p class="fineprint" style="margin-top:32px;">
+        Every record, count, price, area and verification note shown here is read from
+        <code>data/public_inventory.js</code>, copied from production on 11 November 2026. Nothing is
+        invented for this study. Photographs are labelled representative because that is how the
+        source data labels all 347 of them.
+      </p>
+    </div>
+  </section>
+
+  <!-- ==================================================================
+       2 — Empty search results
+       ================================================================== -->
+  <section class="section" aria-labelledby="bench-a-title">
+    <div class="container">
+      <p class="bench-marker">Bench A · empty search results</p>
+      <div class="head">
+        <h2 id="bench-a-title">A search that returns nothing</h2>
+        <p>Seeded with a real filter combination that genuinely matches zero of the 347 records. The drawing explains the shape of the problem; the copy and the counts give the way out. Active filters survive, each removable on its own, each showing what it would cost to keep.</p>
+      </div>
+      <div class="bench-toolbar">
+        <button type="button" class="btn-quiet" data-seed="lease-plot">Lease · Plot · DLF 1–5</button>
+        <button type="button" class="btn-quiet" data-seed="rent-villa">Rent · Villa · Golf Course Rd</button>
+        <button type="button" class="btn-quiet" data-seed="lease-floor-gcr">Lease · Builder floor · Golf Course Rd</button>
+        <button type="button" class="underlined" data-replay="empty-bench">Replay drawing</button>
+      </div>
+      <div id="empty-bench"></div>
+    </div>
+  </section>
+
+  <!-- ==================================================================
+       3 — Saved properties
+       ================================================================== -->
+  <section class="section" aria-labelledby="bench-d-title">
+    <div class="container">
+      <p class="bench-marker">Bench B · saved properties, nothing saved</p>
+      <div class="head">
+        <h2 id="bench-d-title">Before anything is saved</h2>
+        <p>Saving does not exist in production yet, so this empty state has a second job: it has to teach what saving is for. The brief asks for something beyond a bookmark icon — here the drawing is the comparison itself, three bays of a register with nothing set out in them.</p>
+      </div>
+      <div class="bench-toolbar">
+        <button type="button" class="underlined" data-replay="saved-bench">Replay drawing</button>
+        <span class="readout" id="saved-readout">0 saved · the index above writes here</span>
+      </div>
+      <div id="saved-bench"></div>
+    </div>
+  </section>
+
+  <!-- ==================================================================
+       4 — Imagery
+       ================================================================== -->
+  <section class="section" aria-labelledby="bench-e-title">
+    <div class="container">
+      <p class="bench-marker">Bench C · property imagery</p>
+      <div class="head">
+        <h2 id="bench-e-title">Revealing a representative photograph</h2>
+        <p>Left is production: the photograph replaces flat grey in whichever frame it finishes decoding. Right is the concept. The constraint that shapes all four: the source data labels every one of its 347 photographs representative, so the caption is in the first frame of the reveal, never added after it.</p>
+      </div>
+      <div class="bench-toolbar">
+        <button type="button" class="btn-quiet" data-replay="image-bench">Replay reveal</button>
+        <span class="readout">clip-path and opacity only &middot; no scale, no crop, no distortion</span>
+      </div>
+      <div class="compare-pair" id="image-bench"></div>
+
+      <div class="head" style="margin-top:64px;">
+        <h3>And the third of the register that has no photograph at all</h3>
+        <p>121 of the 347 available records — 35% — name an image file that is not in <code>assets/project-images/</code>, the generic <code>commercial.jpg</code>, <code>builder-floor.jpg</code>, <code>villa.jpg</code> and <code>apartment.jpg</code> fallbacks among them. Production sets the URL as a background image with no error path, so those tiles are flat grey with a badge claiming a representative photograph sits on them. No reveal fixes this; a designed absence does.</p>
+      </div>
+      <div class="compare-pair" id="missing-bench"></div>
+    </div>
+  </section>
+
+  <!-- ==================================================================
+       5 — Ornament
+       ================================================================== -->
+  <section class="section" aria-labelledby="bench-f-title">
+    <div class="container">
+      <p class="bench-marker">Bench D · architectural ornament</p>
+      <div class="head">
+        <h2 id="bench-f-title">Is the ornament worth its weight?</h2>
+        <p>Two candidates for interaction opportunity F, side by side with their real cost. The SVG datum field is 14 elements and responds to the pointer. The canvas sun study is a per-frame raking-light field of the kind the brand document already permits. Both are measured below rather than asserted.</p>
+      </div>
+      <div class="bench-toolbar">
+        <button type="button" class="btn-quiet" id="orn-svg" aria-pressed="true">SVG datum field</button>
+        <button type="button" class="btn-quiet" id="orn-canvas" aria-pressed="false">Canvas sun study</button>
+        <span class="readout" id="orn-readout">14 nodes · 0 frames drawn · responds to pointer only</span>
+      </div>
+      <div class="ornament-stage" id="ornament-stage">
+        <div class="ornament-layer" id="ornament-layer" aria-hidden="true"></div>
+        <div class="ornament-content">
+          <p class="eyebrow">Verification protocol</p>
+          <h3>What is published, and what still has to be confirmed.</h3>
+          <p>Of the 347 available references, 287 were recently re-verified and 60 carry availability still to be confirmed. The ornament behind this text must not make either number harder to read.</p>
+        </div>
+      </div>
+      <div class="ornament-verdict" id="orn-verdict"></div>
+    </div>
+  </section>
+
+  <!-- ==================================================================
+       6 — The specification
+       ================================================================== -->
+  <section class="section" aria-labelledby="spec-title">
+    <div class="container">
+      <p class="bench-marker">Specification</p>
+      <div class="head">
+        <h2 id="spec-title">The motion system</h2>
+        <p>Read from the live stylesheet at load, not transcribed, so this table cannot drift from what you are watching. The slow-motion control multiplies every duration; shipped values are the unmultiplied ones.</p>
+      </div>
+      <table class="spec-table">
+        <caption>Durations and easings — four durations, one stagger, three easings, all decelerating.</caption>
+        <thead>
+          <tr><th scope="col">Token</th><th scope="col">Value</th><th scope="col">Used for</th><th scope="col">Reduced motion</th></tr>
+        </thead>
+        <tbody id="spec-body"></tbody>
+      </table>
+
+      <table class="spec-table" style="margin-top:48px;">
+        <caption>Mechanisms — trigger, initial and final state, and what carries the change when motion is off.</caption>
+        <thead>
+          <tr><th scope="col">Mechanism</th><th scope="col">Trigger</th><th scope="col">From → to</th><th scope="col">Non-motion carrier</th></tr>
+        </thead>
+        <tbody id="spec-mech"></tbody>
+      </table>
+    </div>
+  </section>
+
+  </main>
+
+  <footer class="study-foot">
+    <div class="container">
+      <p><b>Private design study · 11 November 2026.</b> Not published, not deployed, not committed. The production site is <code>AUM_ESTATES_Website_For_Hostinger/</code> and is untouched by this folder.</p>
+      <p>Datum tokens, type roles, spacing and gutters are copied verbatim from production and are inputs here, not subjects. Reasoning in <code>README.md</code>; conclusions in <code>EVALUATION.md</code>.</p>
+    </div>
+  </footer>
+
+</div>
+</div>
+
+<script src="data/public_inventory.js"></script>
+<script src="motion.js"></script>
+</body>
+</html>
