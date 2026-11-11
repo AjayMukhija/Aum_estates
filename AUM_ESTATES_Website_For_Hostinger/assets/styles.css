@@ -127,6 +127,22 @@ p { margin: 0 0 var(--space-4); }
 
 .tabular-nums { font-variant-numeric: tabular-nums; }
 
+/* Available to assistive technology, absent from the visual design. Used by
+   the property index's live region: filtering rewrites the register without
+   moving focus, so the change has to be spoken as well as shown. */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* --------------------------------------------------------------------------
    Controls
    -------------------------------------------------------------------------- */
@@ -552,6 +568,69 @@ textarea.form-control { min-height: 120px; padding-top: var(--space-3); resize: 
 .keyword-chip:hover, .quick-tag:hover { border-color: var(--accent); color: var(--accent); }
 
 .quick-tag-label { color: var(--muted); align-self: center; margin-right: var(--space-2); }
+
+/* The faceted form on the property index posts its controls as direct
+   children of the form, without the .search-field wrapper the hero desk
+   uses, so none of the field rules above ever reached them and they rendered
+   as raw OS widgets: 19px system selects and a grey submit button in the
+   middle of the Datum page. Styled here by position rather than by adding
+   wrappers, so the markup and the form's GET contract are untouched. */
+.results-search {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: var(--space-5);
+  align-items: end;
+}
+
+.results-search > select,
+.results-search > input {
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 0;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  background: none;
+  font: inherit;
+  color: var(--ink);
+  appearance: none;
+}
+.results-search > select {
+  background-image: linear-gradient(45deg, transparent 50%, var(--accent) 50%), linear-gradient(135deg, var(--accent) 50%, transparent 50%);
+  background-position: calc(100% - 11px) calc(50% + 1px), calc(100% - 6px) calc(50% + 1px);
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+  padding-right: var(--space-5);
+}
+.results-search > select:focus,
+.results-search > input:focus {
+  outline: none;
+  border-bottom-color: var(--accent);
+  border-bottom-width: 2px;
+}
+.results-search > input::placeholder { color: #8b948e; }
+
+.results-search > button[type="submit"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 11px 20px;
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
+  background: var(--accent);
+  color: #ffffff;
+  font-size: var(--caption);
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: background var(--transition), border-color var(--transition);
+}
+.results-search > button[type="submit"]:hover {
+  background: var(--accent-dark);
+  border-color: var(--accent-dark);
+}
 
 .search-expand-bar { margin-top: var(--space-5); padding-top: var(--space-4); border-top: 1px solid var(--line); }
 
@@ -1073,7 +1152,7 @@ textarea.form-control { min-height: 120px; padding-top: var(--space-3); resize: 
   .actions { gap: var(--space-2); }
   .actions .wa { padding: 10px 13px; font-size: 11px; }
   .search-stack, .search-card, .results-search { padding: var(--space-5) var(--space-4); }
-  .search-row, .filter-advanced-drawer.open { grid-template-columns: 1fr; }
+  .search-row, .filter-advanced-drawer.open, .results-search { grid-template-columns: 1fr; }
   .results-grid, .cats, .benefit-grid, .contact-grid, .footergrid { grid-template-columns: 1fr; }
   .section { padding-block: var(--space-9); }
   .hero { padding-block: var(--space-8) var(--space-7); }

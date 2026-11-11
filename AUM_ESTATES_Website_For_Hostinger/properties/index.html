@@ -175,8 +175,8 @@
     <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile Navigation">
       <form action="index.html" method="GET" style="margin-bottom:12px;">
         <div style="position:relative;display:flex;align-items:center;">
-          <input name="q" placeholder="Search corridor, BHK, or project..." style="width:100%;padding:10px 38px 10px 14px;background:rgba(255,255,255,0.08);border:1px solid rgba(197,160,89,0.35);border-radius:6px;color:#fff;font-size:13.5px;" />
-          <button type="submit" aria-label="Submit search" style="position:absolute;right:8px;background:none;border:none;color:var(--gold-metallic);cursor:pointer;padding:4px;display:flex;align-items:center;">
+          <input name="q" placeholder="Search corridor, BHK, or project..." style="width:100%;min-height:44px;padding:10px 38px 10px 0;background:none;border:0;border-bottom:1px solid var(--line);border-radius:0;color:var(--ink);font-size:var(--body);" />
+          <button type="submit" aria-label="Submit search" style="position:absolute;right:8px;background:none;border:none;color:var(--accent);cursor:pointer;padding:4px;display:flex;align-items:center;">
             <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
           </button>
         </div>
@@ -203,7 +203,7 @@
          ==================================================================== -->
     <section class="property-hero">
       <div class="container">
-        <div class="eyebrow" style="color:var(--gold-metallic);">AUM ESTATES · CURATED INVENTORY</div>
+        <div class="eyebrow" style="color:var(--accent);">AUM ESTATES · CURATED INVENTORY</div>
         <h1>Find Your Property in Gurgaon &amp; NCR</h1>
         <p>Browse our vetted public collection across residential, commercial, plots, and land opportunities.</p>
       </div>
@@ -287,8 +287,14 @@
           <div id="data-mode-badge" class="data-mode-badge">Active Portfolio</div>
         </div>
 
+        <!-- Filtering replaces the register below without moving focus, and on
+             a scrolled page the controls are off-screen when it happens. This
+             region is how that change is announced to assistive technology.
+             inventory-search.js writes it on every render. -->
+        <p id="search-live-region" class="visually-hidden" role="status" aria-live="polite" aria-atomic="true"></p>
+
         <!-- Dynamic Results Grid -->
-        <div id="search-results" class="results-grid">
+        <div id="search-results" class="results-grid" aria-busy="false">
           <!-- Populated dynamically via inventory-search.js -->
         </div>
       </div>

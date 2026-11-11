@@ -16,8 +16,6 @@ Then open <http://localhost:8080/>. No build step, no dependencies. `dist/assets
 
 A `.claude/launch.json` was added at the workspace root so the study can also be served on port 8099 from the editor's preview. It is the only file created outside this folder, and it touches nothing the site uses.
 
-Expect roughly 25 image 404s in the console. They are not a fault in the study — they are audit observation F2, reproduced faithfully. The study handles them; production does not.
-
 **Controls:** keys `0`–`4` switch concept, `S` runs every duration at 0.25× so timing can be compared by eye, `R` simulates `prefers-reduced-motion: reduce`, `P` replays everything. The viewport buttons reflow the real responsive layout through container queries rather than scaling a screenshot.
 
 ---
@@ -60,9 +58,22 @@ This matters for the brief because the empty state is interaction opportunity *A
 
 **Observation F — honesty constraint on imagery.** Every one of the 347 records carries `image_label: "Representative Reference Photograph"`, and five of the 54 filenames are generic category stand-ins (`apartment.jpg`, `commercial.jpg`, `villa.jpg`, `builder-floor.jpg`, `plot-land-user.jpg`). **This rules out ceremonial image reveals.** A slow architectural mask that unveils a photograph implies the photograph is of the property. For this inventory it frequently is not. Any treatment of imagery here must reveal the *label with the photo*, not reveal the photo and then apologise in small type.
 
-**Observation F2 — a third of the register has no photograph at all, and nothing says so.** Comparing every `image_file` against `assets/project-images/`: **121 of the 347 available records — 35% — name a file that is not there.** 18 distinct filenames are missing, and they include the generic fallbacks themselves: `commercial.jpg` (49 records), `builder-floor.jpg` (15), `villa.jpg` (11), `apartment.jpg` (9), plus real project images such as `elevate-by-hines.webp` (10) and `dlf-park-place.jpg` (8). `attachPhoto()` (`data/inventory-search.js:462`) assigns the URL to `style.backgroundImage` and never checks it, so a 404 is completely silent: the tile stays flat `#eff0ec` with the "Representative Reference Photograph" badge still sitting on top of an empty grey box, asserting a photograph that is not there.
+**Observation F2 — WITHDRAWN. This finding was wrong.**
 
-This reframes interaction opportunity E entirely. The useful work on imagery is not a reveal animation for the 65% that load — it is a designed, honest state for the 35% that do not. Bench C in the study builds one and applies it to the live register, where it is visible as soon as the Commercial category is opened.
+The first version of this audit claimed that 121 of 347 records (35%) pointed at a missing image file. **That is not true, and the error was mine.** I compared the records' `image_file` field against `assets/project-images/` (40 files). Production does neither of those things: the property grid resolves photographs through `representativeImage()` (`data/inventory-search.js:73`), a regex-matched lookup with a category fallback chain, and loads them from `assets/property-images/` (66 files).
+
+Re-measured correctly, by running the production resolver over every record and checking every other image consumer:
+
+| Consumer | References | Missing |
+| --- | --- | --- |
+| `representativeImage()` over 347 available records | 347 | **0** |
+| `image_file` against `assets/property-images/` | 347 | **0** |
+| Hardcoded `assets/project-images/…` URLs in HTML | 9 | **0** |
+| `data/projects_local.js` projects feed | 124 | **0** |
+
+**Every image reference in production resolves to a file that exists.** The 404s that appeared in the study's console were produced by the study itself, which read `image_file` and pointed at the wrong directory — since fixed.
+
+What survives from the original observation is narrower and still worth noting: `attachPhoto()` assigns the URL to `style.backgroundImage` with no error path, so *if* a file is ever removed, the tile silently becomes flat `#eff0ec` with the "Representative Reference Photograph" badge still sitting on top of it. That is a latent robustness gap, not a live defect, and it should not be fixed on the strength of a finding that turned out to be false. Bench C in the study keeps the designed absence as a defensive state and is labelled as such.
 
 **Observation G — no saved properties exist in production.** Save/compare (max 3, `localStorage`, `aum-study-saved`) exists only in the v16 study (`dist/app.js:271,888`). Interaction opportunity *D* is therefore not a redesign of an empty state — it is designing a feature's first screen before the feature ships, which is the right order but means the empty state has to also teach what saving is for.
 
@@ -87,7 +98,7 @@ This constrains the art direction more than anything aesthetic. From `data/publi
 | `area_value` | 317/347 | Yes — and `area_sqft_norm` is already normalised upstream, so the 12 different `area_unit` spellings (`sq yd`, `Sq Yards`, `marla`, `acre`…) are a display problem, not a maths one |
 | `facing` | **47/347** | No. 300 records have none |
 | `road_width` | **11/347** | No. 336 records have none |
-| `image_file` | 347/347 named, **226/347 present** | See observation F2 |
+| `image_file` | 347/347, all present in `assets/property-images/` | Yes — but the grid does not use it; `representativeImage()` resolves photographs instead |
 
 One correction to the obvious plan for `area_sqft_norm`: its dynamic range is brutal. Within plots alone it runs 702 → 108,900 sq ft, a factor of 155, and across the register the farmhouse is 87,120 against a 142 sq ft shop. A linear mark makes almost every record an invisible sliver. The study therefore scales **side ∝ √area, within category** — correct for an area-encoding mark anyway, since the eye reads the rectangle's area and not its edge — which brings the plot range down to a workable 12.5×.
 

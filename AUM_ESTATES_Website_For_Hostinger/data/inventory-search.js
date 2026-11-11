@@ -599,6 +599,9 @@
   }
 
   let renderResults = function(){};
+  // The first render is the page loading, not a change the user made. Stay
+  // silent for it; announce every render after.
+  let liveRegionReady = false;
 
   function setupKeywordSearch(inputId, formId){
     const input=document.getElementById(inputId);
@@ -726,20 +729,32 @@
     const count=document.getElementById('result-count');
     if(count) count.textContent=results.length;
 
+    const categoryName={residential:'Residential',commercial:'Commercial',plot:'Plots & Land',farmhouse:'Farmhouses','builder-floor':'DLF Builder Floors'}[params.category]||'';
+    const bits=[
+      params.mode==='buy'?'Buy':params.mode==='rent'?'Rent':params.mode==='commercial'?'Commercial':params.mode==='plot'?'Plot & Land':'All properties',
+      categoryName,
+      params.location,
+      params.type,
+      params.size,
+      params.budget,
+      params.q ? `Keyword: “${params.q}”` : ''
+    ].filter(Boolean);
+    const summaryText=bits.join(' · ')||'All available search criteria';
+
     const summary=document.getElementById('search-summary');
-    if(summary){
-      const categoryName={residential:'Residential',commercial:'Commercial',plot:'Plots & Land',farmhouse:'Farmhouses','builder-floor':'DLF Builder Floors'}[params.category]||'';
-      const bits=[
-        params.mode==='buy'?'Buy':params.mode==='rent'?'Rent':params.mode==='commercial'?'Commercial':params.mode==='plot'?'Plot & Land':'All properties',
-        categoryName,
-        params.location,
-        params.type,
-        params.size,
-        params.budget,
-        params.q ? `Keyword: “${params.q}”` : ''
-      ].filter(Boolean);
-      summary.textContent=bits.join(' · ')||'All available search criteria';
+    if(summary) summary.textContent=summaryText;
+
+    // Changing a filter rewrites the register without moving focus, and the
+    // controls are often scrolled out of view when it happens. Announce the
+    // outcome so the change is not visual-only. Announced on every render
+    // except the first paint, which the page title and heading already cover.
+    const live=document.getElementById('search-live-region');
+    if(live && liveRegionReady){
+      live.textContent = results.length
+        ? `${results.length} ${results.length===1?'property':'properties'} available. ${summaryText}.`
+        : `No properties match. ${summaryText}. Reset the filters or contact the advisory desk.`;
     }
+    liveRegionReady=true;
 
     const badge=document.getElementById('data-mode-badge');
     if(badge){
@@ -755,8 +770,8 @@
         <h3>No exact matches found</h3>
         <p>We represent exclusive private mandates across Golf Course Road, DLF Phase 1–5, and prime Gurgaon enclaves that are held off-market. Contact our principal advisory desk with your exact requirements for a confidential shortlist.</p>
         <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:18px;">
-          <button type="button" class="btn" id="reset-filters-btn" style="background:var(--bg-page);color:var(--text-main);border:1px solid var(--border-light);">Reset All Filters</button>
-          <a class="btn" style="background:var(--oxblood);color:#ffffff;border:1px solid rgba(197,160,89,0.4);" href="https://wa.me/919873813595?text=Hello%20Ajay%20Mukhija%2C%20I%20am%20looking%20for%20a%20property%20in%20Gurgaon." target="_blank" rel="noopener">Request Private Mandate on WhatsApp →</a>
+          <button type="button" class="btn" id="reset-filters-btn" style="background:var(--paper);color:var(--ink);border:1px solid var(--line);">Reset All Filters</button>
+          <a class="btn" style="background:var(--accent);color:#ffffff;" href="https://wa.me/919873813595?text=Hello%20Ajay%20Mukhija%2C%20I%20am%20looking%20for%20a%20property%20in%20Gurgaon." target="_blank" rel="noopener">Request Private Mandate on WhatsApp →</a>
         </div>
       </div>`;
 

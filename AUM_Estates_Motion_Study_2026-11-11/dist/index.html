@@ -225,8 +225,8 @@
       <div class="compare-pair" id="image-bench"></div>
 
       <div class="head" style="margin-top:64px;">
-        <h3>And the third of the register that has no photograph at all</h3>
-        <p>121 of the 347 available records — 35% — name an image file that is not in <code>assets/project-images/</code>, the generic <code>commercial.jpg</code>, <code>builder-floor.jpg</code>, <code>villa.jpg</code> and <code>apartment.jpg</code> fallbacks among them. Production sets the URL as a background image with no error path, so those tiles are flat grey with a badge claiming a representative photograph sits on them. No reveal fixes this; a designed absence does.</p>
+        <h3>A state production does not currently need</h3>
+        <p><b>Correction, 11 November 2026.</b> An earlier draft of this study claimed 121 of 347 records pointed at a missing image. That was wrong: it compared the <code>image_file</code> field against <code>assets/project-images/</code>, when production resolves photographs through <code>representativeImage()</code> into <code>assets/property-images/</code>. Checked properly — the resolver, the projects feed and all nine hardcoded URLs — <b>every one of the 347 records resolves to a file that exists</b>. The bench below is kept as a defensive state, not a remedy: production assigns the URL with no error path, so if a file is ever removed the tile silently becomes flat grey under a badge still claiming a photograph.</p>
       </div>
       <div class="compare-pair" id="missing-bench"></div>
     </div>

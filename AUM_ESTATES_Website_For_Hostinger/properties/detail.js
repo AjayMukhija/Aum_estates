@@ -29,7 +29,7 @@ if(!data){
   const locEl=document.getElementById('detail-location'); if(locEl) locEl.textContent='The requested property dossier is not available or has been archived.';
   const photoEl=document.getElementById('detail-photo'); if(photoEl) photoEl.style.display='none';
   const priceEl=document.getElementById('detail-price'); if(priceEl) priceEl.style.display='none';
-  const descEl=document.getElementById('detail-description'); if(descEl) descEl.innerHTML='Please browse our <a href="index.html" style="color:var(--gold-metallic, #c5a059);text-decoration:underline;font-weight:600;">complete collection of public references</a> or contact our advisory desk directly.';
+  const descEl=document.getElementById('detail-description'); if(descEl) descEl.innerHTML='Please browse our <a href="index.html" style="color:var(--accent);text-decoration:underline;font-weight:600;">complete collection of public references</a> or contact our advisory desk directly.';
   return;
 }
 

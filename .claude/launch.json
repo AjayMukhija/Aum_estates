@@ -6,6 +6,12 @@
       "runtimeExecutable": "python3",
       "runtimeArgs": ["-m", "http.server", "8099", "--directory", "AUM_Estates_Motion_Study_2026-11-11/dist"],
       "port": 8099
+    },
+    {
+      "name": "aum-site",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "8100", "--directory", "AUM_ESTATES_Website_For_Hostinger"],
+      "port": 8100
     }
   ]
 }

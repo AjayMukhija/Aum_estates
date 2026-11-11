@@ -550,7 +550,7 @@
 
   function tile(o, i, maxSqft) {
     var concept = root.getAttribute('data-concept');
-    var img = o.image_file ? 'assets/project-images/' + encodeURIComponent(o.image_file) : '';
+    var img = o.image_file ? 'assets/property-images/' + encodeURIComponent(o.image_file) : '';
     var confirm = o.verification_status === 'Availability to be confirmed';
     var isSaved = saved.indexOf(o.property_id) > -1;
     return '<article class="tile" style="--i:' + Math.min(i, STAGGER_CAP - 1) + '">' +
@@ -686,8 +686,8 @@
         fig.removeAttribute('data-loading');
         fig.setAttribute('data-loaded', '');
       };
-      /* A missing file is not a slow file. 35% of the register lands here, so
-         it gets a designed state rather than the grey box production leaves. */
+      /* A missing file is not a slow file. No record currently lands here, but
+         if one ever does it gets a designed state rather than a grey box. */
       var failed = function () {
         fig.removeAttribute('data-loading');
         img.remove();
@@ -938,7 +938,7 @@
   function renderImageBench() {
     var concept = root.getAttribute('data-concept');
     var sample = INV.filter(function (o) { return o.image_file && !/^(apartment|commercial|villa|builder-floor|plot-land-user)\.jpg$/.test(o.image_file); })[3] || INV[0];
-    var src = 'assets/project-images/' + encodeURIComponent(sample.image_file);
+    var src = 'assets/property-images/' + encodeURIComponent(sample.image_file);
     var host = byId('image-bench');
     var notes = {
       baseline: 'Identical to the left. The baseline has no reveal.',
@@ -964,10 +964,11 @@
     renderMissingBench();
   }
 
-  /* 121 of 347 records name an image file that is not on disk. Production
-     sets it as a background-image with no error path, so the tile is flat
-     grey underneath a badge claiming a representative photograph. The answer
-     is not a reveal; it is a drawn absence that says what is known. */
+  /* Defensive, not remedial. Corrected 11 Nov 2026: every one of the 347
+     records does resolve to a file on disk. What remains true is that
+     production assigns the URL with no error path, so a file removed later
+     leaves a grey box under a badge still claiming a photograph. This is the
+     state that should appear if that happens. */
   function renderMissingBench() {
     var host = byId('missing-bench');
     if (!host) return;
