@@ -446,6 +446,95 @@ $runTest('Migration export: no credential PHP cannot verify is shipped', functio
     );
 });
 
+// ---------------------------------------------------------------------------
+$runTest('Import: the master workbook\'s own wording keeps live listings live', function () {
+    // The desk maintains a workbook that states publication intent in prose.
+    // If the importer does not understand it, every row falls back to
+    // pending_approval and a re-import empties the public catalogue.
+    $cases = [
+        ['Public (legacy)',     'approved_public'],
+        ['Already on website',  'approved_public'],
+        ['Not published',       'pending_approval'],
+        ['Pending approval',    'pending_approval'],
+    ];
+    foreach ($cases as [$phrase, $expected]) {
+        $res = \AumEstates\Domain\IntakeParser::normalizeImportedRow([
+            'property_id' => 'AUM-WEB-000001',
+            'listing_title' => 'Test Mandate',
+            'website_visibility' => $phrase,
+            'transaction_type' => 'Sale'
+        ], 'AUM-FALLBACK-1');
+        assertSame2($expected, $res['publicRecord']['publication_state'], "workbook wording \"{$phrase}\"");
+    }
+});
+
+// ---------------------------------------------------------------------------
+$runTest('Import: internal source contacts reach the private vault, never the listing', function () {
+    $res = \AumEstates\Domain\IntakeParser::normalizeImportedRow([
+        'property_id' => 'AUM-WEB-000002',
+        'listing_title' => 'Vault Mapping Check',
+        'website_visibility' => 'Public (legacy)',
+        'source_phone_internal' => '9873933846',
+        'source_email_internal' => 'seller@example.org',
+        'source_contact_internal' => 'V K Sarin',
+        'source_name_internal' => 'Dealer Desk',
+        'inventory_source_type' => 'Dealer'
+    ], 'AUM-FALLBACK-2');
+
+    $priv = $res['privateRecord'];
+    assertSame2('9873933846', $priv['owner_phone_cache'], 'internal phone must be captured');
+    assertSame2('seller@example.org', $priv['owner_email_cache'], 'internal e-mail must be captured');
+    assertSame2('V K Sarin', $priv['owner_name_cache'], 'internal contact name must be captured');
+    assertSame2('Dealer Desk', $priv['broker_name_cache'], 'source name must be captured');
+    assertSame2('Dealer', $priv['source_group_name'], 'source type must be captured');
+
+    // None of it may appear in anything the public record exposes.
+    $publicBlob = json_encode($res['publicRecord']);
+    foreach (['9873933846', 'seller@example.org', 'V K Sarin'] as $secret) {
+        assertTrue2(!str_contains($publicBlob, $secret), "\"{$secret}\" must not appear in the public record");
+    }
+});
+
+// ---------------------------------------------------------------------------
+$runTest('Import: plot-only listings keep their area', function () {
+    // Plots and land carry a plot area but no built-up area. Without a fallback
+    // they publish with no size at all.
+    $res = \AumEstates\Domain\IntakeParser::normalizeImportedRow([
+        'property_id' => 'AUM-MST-000396',
+        'listing_title' => 'Sector 57 Plot',
+        'plot_area_value' => '180',
+        'plot_area_unit' => 'sq yd',
+        'property_type' => 'Plot'
+    ], 'AUM-FALLBACK-3');
+
+    assertSame2(180.0, $res['publicRecord']['area_value'], 'plot area must become the listing area');
+    assertTrue2(!empty($res['publicRecord']['area_unit']), 'plot area needs a unit');
+});
+
+// ---------------------------------------------------------------------------
+$runTest('Import: cheque and keys-in-hand wording is quarantined out of public text', function () {
+    $res = \AumEstates\Domain\IntakeParser::normalizeImportedRow([
+        'property_id' => 'AUM-WEB-000004',
+        'listing_title' => 'Quarantine Check',
+        'website_visibility' => 'Public (legacy)',
+        'price_text' => '\u{20B9}4.25 Cr (cheque flexible)',
+        'public_features' => 'Good interiors; cheque flexible.',
+        'transaction_type' => 'Sale'
+    ], 'AUM-FALLBACK-4');
+
+    $pub = json_encode($res['publicRecord']);
+    assertTrue2(!preg_match('/cheque/i', $pub), 'cheque wording must not survive into public fields');
+
+    $priv = $res['privateRecord'];
+    assertTrue2(!empty($priv['payment_structure_notes']), 'the removed wording must be preserved in the private vault');
+
+    // And the result must clear the gate that guards publication.
+    $chk = \AumEstates\Domain\PrivacyGate::validateAndProjectPublicRecord(
+        array_merge($res['publicRecord'], ['availability_state' => 'available'])
+    );
+    assertTrue2($chk['ok'], 'a quarantined record must pass the privacy gate: ' . implode('; ', $chk['errors']));
+});
+
 echo "\n======================================================================\n";
 echo "Regression Suite Summary: {$passed} passed, {$failed} failed.\n";
 echo "======================================================================\n";

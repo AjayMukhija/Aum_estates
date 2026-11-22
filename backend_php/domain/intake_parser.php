@@ -523,16 +523,44 @@ final class IntakeParser
         };
 
         $propertyId = Normalizer::cleanWhitespace((string)($pick('property_id', 'id', 'mandate_id', 'ref_id') ?? $fallbackId));
-        $rawVis = strtolower((string)($pick('publication_state', 'visibility', 'public_visibility') ?? ''));
+
+        // The master inventory workbook states publication intent in prose
+        // ("Public (legacy)", "Not published", "Already on website", "Pending
+        // approval") rather than in schema terms. Read those as well as the
+        // canonical keys, so the spreadsheet the desk actually maintains imports
+        // without being rewritten by hand first.
+        $rawVis = strtolower((string)($pick(
+            'publication_state',
+            'visibility',
+            'public_visibility',
+            'website_visibility',
+            'website_approval'
+        ) ?? ''));
         $explicitApproved = $pick('publication_approved');
 
         $publicationState = 'pending_approval';
         if ($explicitApproved === false || $explicitApproved === 'false' || in_array($rawVis, ['private', 'private_off_market', 'no'], true)) {
             $publicationState = 'private_off_market';
+        } elseif (str_contains($rawVis, 'off-market') || str_contains($rawVis, 'off market')) {
+            $publicationState = 'private_off_market';
         } elseif ($rawVis === 'draft') {
             $publicationState = 'draft';
         } elseif (in_array($rawVis, ['approved_public', 'public', 'yes'], true)) {
             $publicationState = 'approved_public';
+        } elseif (
+            // "Public (legacy)" / "Already on website" mean this listing is
+            // already live and must stay live through a re-import.
+            str_starts_with($rawVis, 'public')
+            || str_contains($rawVis, 'already on website')
+            || str_contains($rawVis, 'already live')
+        ) {
+            $publicationState = 'approved_public';
+        } elseif (
+            str_contains($rawVis, 'not published')
+            || str_contains($rawVis, 'pending')
+            || str_contains($rawVis, 'unpublished')
+        ) {
+            $publicationState = 'pending_approval';
         }
 
         $rawAvail = strtolower((string)($pick('availability_state', 'status') ?? 'available'));
@@ -563,6 +591,16 @@ final class IntakeParser
         $rawArea = $pick('area_value', 'area', 'size');
         $areaValue = is_numeric($rawArea) ? (float)$rawArea : null;
         $areaUnit = Normalizer::cleanWhitespace((string)$pick('area_unit', 'unit', 'size_unit')) ?: ($areaValue ? 'Sq Ft' : null);
+
+        // Plots and land carry only a plot area. Without this fallback those
+        // listings would publish with no size at all.
+        if ($areaValue === null) {
+            $rawPlotArea = $pick('plot_area_value', 'plot_area', 'land_area', 'plot_size');
+            if (is_numeric($rawPlotArea)) {
+                $areaValue = (float)$rawPlotArea;
+                $areaUnit = Normalizer::cleanWhitespace((string)$pick('plot_area_unit', 'land_area_unit')) ?: 'Sq Yards';
+            }
+        }
         $transactionType = Normalizer::cleanWhitespace((string)$pick('transaction_type', 'transaction', 'purpose')) ?: 'Sale';
 
         $rawPrice = $pick('price_value', 'price', 'asking_price');
@@ -660,12 +698,12 @@ final class IntakeParser
 
         $privateRecord = [
             'property_id' => $propertyId,
-            'owner_name_cache' => Normalizer::cleanWhitespace((string)$pick('owner_name', 'seller_name', 'landlord_name')),
-            'owner_phone_cache' => Normalizer::cleanWhitespace((string)$pick('owner_contact', 'owner_phone', 'owner_mobile', 'seller_phone')),
-            'owner_email_cache' => Normalizer::cleanWhitespace((string)$pick('owner_email', 'seller_email')),
-            'broker_name_cache' => Normalizer::cleanWhitespace((string)$pick('broker_name', 'source_broker', 'channel_partner')),
+            'owner_name_cache' => Normalizer::cleanWhitespace((string)$pick('owner_name', 'seller_name', 'landlord_name', 'source_contact_internal')),
+            'owner_phone_cache' => Normalizer::cleanWhitespace((string)$pick('owner_contact', 'owner_phone', 'owner_mobile', 'seller_phone', 'source_phone_internal')),
+            'owner_email_cache' => Normalizer::cleanWhitespace((string)$pick('owner_email', 'seller_email', 'source_email_internal')),
+            'broker_name_cache' => Normalizer::cleanWhitespace((string)$pick('broker_name', 'source_broker', 'channel_partner', 'source_name_internal')),
             'broker_phone_cache' => Normalizer::cleanWhitespace((string)$pick('broker_phone', 'broker_contact', 'broker_mobile')),
-            'source_group_name' => Normalizer::cleanWhitespace((string)$pick('source_group', 'source_group_name', 'source_reference')),
+            'source_group_name' => Normalizer::cleanWhitespace((string)$pick('source_group', 'source_group_name', 'source_reference', 'inventory_source_type')),
             'exact_unit_or_plot_no' => Normalizer::cleanWhitespace((string)$pick('exact_unit_or_plot_no', 'exact_unit_no', 'unit_no', 'plot_no', 'flat_no')),
             'internal_floor_price_inr' => $floorInr,
             'commission_terms' => Normalizer::cleanWhitespace((string)$pick('commission_terms', 'broker_commission_percent', 'brokerage')),

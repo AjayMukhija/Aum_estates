@@ -30,3 +30,6 @@ backend_php/logs/
 
 # Raw confidential seed files must never enter public Git history again
 /private_master_store/*.json
+
+# Deployment upload archives (rebuilt by npm run package:php)
+*_upload.zip
