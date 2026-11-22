@@ -33,3 +33,11 @@ backend_php/logs/
 
 # Deployment upload archives (rebuilt by npm run package:php)
 *_upload.zip
+
+# Carries the production SSH host, user and port as defaults. Held out of Git
+# while this repository is PUBLIC, so that a `git add -A` cannot publish the
+# server's endpoint. Once the repository is private this line can be removed
+# and the script committed — or better, drop the hardcoded defaults and let it
+# read AUM_SSH_HOST / AUM_SSH_USER / AUM_SSH_PORT / AUM_SSH_KEY from the
+# environment, which is safe either way.
+scripts/deploy_hostinger.sh
