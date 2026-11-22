@@ -12,7 +12,12 @@ const {
   classifyCorridor,
   resolveRepresentativeImage,
   parseBedroomsInt,
-  formatInr
+  formatInr,
+  stripUnitCodes,
+  containsUnitCode,
+  extractFloorMarker,
+  stripFloorMarker,
+  composePublicDescription
 } = require('./normalizer');
 const { findPrivatePhones, quarantineSensitiveClauses } = require('./privacy_gate');
 
@@ -562,7 +567,9 @@ function normalizeImportedRow(rawRow, fallbackId) {
   const { cleaned, extractedPaymentNotes, extractedAdvisorNotes } = quarantineSensitiveClauses(rawPublic);
 
   const projectName = cleanWhitespace(pick('project_name', 'project', 'building_name'));
-  const listingTitle = cleanListingTitle(pick('listing_title', 'title', 'website_display_name'), projectName);
+  const rawListingTitle = pick('listing_title', 'title', 'website_display_name');
+  const titleFloorMarker = extractFloorMarker(rawListingTitle);
+  const listingTitle = cleanListingTitle(stripFloorMarker(rawListingTitle), projectName);
   const areaValue = pick('area_value', 'area', 'size') != null ? Number(pick('area_value', 'area', 'size')) : null;
   const areaUnit = cleanWhitespace(pick('area_unit', 'unit', 'size_unit')) || (areaValue ? 'Sq Ft' : null);
   const transactionType = cleanWhitespace(pick('transaction_type', 'transaction', 'purpose')) || 'Sale';
@@ -612,7 +619,7 @@ function normalizeImportedRow(rawRow, fallbackId) {
     area_value: Number.isFinite(areaValue) ? areaValue : null,
     area_unit: areaUnit,
     area_sqft_norm: areaSqFtNorm,
-    floor_label: cleanWhitespace(pick('floor_label', 'floor')),
+    floor_label: cleanWhitespace(pick('floor_label', 'floor')) || titleFloorMarker,
     total_floors: cleanWhitespace(pick('total_floors')),
     facing: cleanWhitespace(pick('facing')),
     road_width: cleanWhitespace(pick('road_width')),
@@ -634,6 +641,18 @@ function normalizeImportedRow(rawRow, fallbackId) {
 
   publicRecord.category = classifyCategory(publicRecord);
   publicRecord.corridor = classifyCorridor(publicRecord);
+  if (containsUnitCode(publicRecord.public_description)) {
+    let stripped = stripUnitCodes(publicRecord.public_description);
+    if (stripped && !/^[A-Z0-9]/.test(stripped)) {
+      const rebuilt = composePublicDescription(publicRecord);
+      const residual = stripped.split(';').slice(1).map((p) => cleanWhitespace(p)).filter(Boolean).join('; ');
+      stripped = cleanWhitespace([rebuilt, residual].filter(Boolean).join(' ')) || rebuilt;
+    }
+    publicRecord.public_description = stripped || null;
+  }
+  if (!cleanWhitespace(publicRecord.public_description)) {
+    publicRecord.public_description = composePublicDescription(publicRecord) || null;
+  }
   publicRecord.image_file = cleanWhitespace(pick('image_file')) || resolveRepresentativeImage(publicRecord);
   publicRecord.slug = cleanWhitespace(pick('slug')) || slugify(`${propertyId}-${listingTitle}`);
   publicRecord.url = `https://aumestates.com/properties/detail.html?id=${encodeURIComponent(propertyId)}`;

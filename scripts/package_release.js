@@ -61,6 +61,7 @@ const PRODUCTION_ENTRIES = [
   'favicon.svg',
   'favicon.ico',
   'index.html',
+  '404.html',
   'sitemap.xml',
   'about',
   'contact',
@@ -68,9 +69,11 @@ const PRODUCTION_ENTRIES = [
   'projects',
   'properties',
   'approved-properties',
-  'concepts',
   'assets',
   'data'
+  // 'concepts' is deliberately absent: aum-grid-study is an internal design
+  // study (it even shipped its own duplicate copy of the full 347-record
+  // inventory) and has no place on the client-facing site.
 ];
 
 const FORBIDDEN_FILE_PATTERNS = [

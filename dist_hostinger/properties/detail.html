@@ -5,14 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Property Particulars | AUM ESTATES Gurgaon</title>
   <meta name="description" content="Verified property particulars, configuration, layout, and advisory details from AUM ESTATES Gurgaon." />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../assets/styles.css?v=20261112" />
-  <script src="../assets/lead-client.js?v=20261112"></script>
+  <!-- Sharing preview. Every call to action on this site ends in WhatsApp,
+       so a shared link is a referral: without these it rendered as a bare
+       URL with no title, description or image. -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="AUM ESTATES" />
+  <meta property="og:locale" content="en_IN" />
+  <meta property="og:title" content="Property Particulars | AUM ESTATES Gurgaon" />
+  <meta property="og:description" content="Verified property particulars, configuration, layout, and advisory details from AUM ESTATES Gurgaon." />
+  <meta property="og:url" content="https://aumestates.com/properties/detail.html" />
+  <meta property="og:image" content="https://aumestates.com/assets/aum-estates-share.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="AUM ESTATES — private property advisory, Gurgaon, established 2002" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Property Particulars | AUM ESTATES Gurgaon" />
+  <meta name="twitter:description" content="Verified property particulars, configuration, layout, and advisory details from AUM ESTATES Gurgaon." />
+  <meta name="twitter:image" content="https://aumestates.com/assets/aum-estates-share.png" />
+
+  <link rel="stylesheet" href="../assets/styles.css?v=20261122k" />
+  <link rel="stylesheet" href="../assets/motion.css?v=20261122k" />
+  <script src="../assets/motion.js?v=20261122k"></script>
+  <script src="../assets/lead-client.js?v=20261122k"></script>
 </head>
 <body class="property-page">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
 
   <!-- ======================================================================
        Site Header
@@ -156,8 +173,8 @@
     <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile Navigation">
       <form action="index.html" method="GET" style="margin-bottom:12px;">
         <div style="position:relative;display:flex;align-items:center;">
-          <input name="q" placeholder="Search corridor, BHK, or project..." style="width:100%;padding:10px 38px 10px 14px;background:rgba(255,255,255,0.08);border:1px solid rgba(197,160,89,0.35);border-radius:6px;color:#fff;font-size:13.5px;" />
-          <button type="submit" aria-label="Submit search" style="position:absolute;right:8px;background:none;border:none;color:var(--gold-metallic);cursor:pointer;padding:4px;display:flex;align-items:center;">
+          <input name="q" placeholder="Search corridor, BHK, or project..." style="width:100%;min-height:44px;padding:10px 38px 10px 0;background:none;border:0;border-bottom:1px solid var(--line);border-radius:0;color:var(--ink);font-size:var(--body);" />
+          <button type="submit" aria-label="Submit search" style="position:absolute;right:8px;background:none;border:none;color:var(--accent);cursor:pointer;padding:4px;display:flex;align-items:center;">
             <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
           </button>
         </div>
@@ -178,12 +195,12 @@
     </nav>
   </header>
 
-  <main>
+  <main id="main-content">
     <!-- Breadcrumb Bar -->
-    <div style="background:var(--bg-subtle);border-bottom:1px solid var(--border-light);padding:12px 0;">
-      <div class="container" style="font-size:13px;color:var(--text-muted);">
-        <a href="../#home" style="color:var(--text-main);">Home</a> &nbsp;/&nbsp;
-        <a href="../#browse" style="color:var(--text-main);">Properties</a> &nbsp;/&nbsp;
+    <div style="background:var(--quiet);border-bottom:1px solid var(--line);padding:12px 0;">
+      <div class="container" style="font-size:13px;color:var(--muted);">
+        <a href="../index.html" style="color:var(--ink);">Home</a> &nbsp;/&nbsp;
+        <a href="index.html" style="color:var(--ink);">Properties</a> &nbsp;/&nbsp;
         <span id="breadcrumb-title" style="color:var(--accent);font-weight:600;">Property Particulars</span>
       </div>
     </div>
@@ -191,9 +208,9 @@
     <!-- Detail Hero -->
     <section class="property-hero" style="padding:36px 0;">
       <div class="container">
-        <div class="eyebrow" id="detail-eyebrow" style="color:var(--gold-metallic);">AUM ESTATES · PROPERTY REFERENCE</div>
+        <div class="eyebrow" id="detail-eyebrow" style="color:var(--accent);">AUM ESTATES · PROPERTY REFERENCE</div>
         <h1 id="detail-title" style="margin:4px 0 8px;">Property Particulars</h1>
-        <p id="detail-location" style="color:#cbd5e1;font-size:16px;"></p>
+        <p id="detail-location" style="color:var(--muted);font-size:16px;"></p>
       </div>
     </section>
 
@@ -251,25 +268,25 @@
           <aside>
             <div class="detail-card advisory-card">
               <div class="eyebrow">Advisory Desk</div>
-              <h3 style="font-size:20px;font-weight:700;color:var(--text-main);margin-bottom:8px;">Request Complete Particulars</h3>
-              <p style="font-size:13.5px;color:var(--text-muted);line-height:1.55;margin-bottom:24px;">Connect directly with our senior Gurgaon advisors for verified title deeds, floor plans, and site visit scheduling.</p>
+              <h3 style="font-size:20px;font-weight:700;color:var(--ink);margin-bottom:8px;">Request Complete Particulars</h3>
+              <p style="font-size:13.5px;color:var(--muted);line-height:1.55;margin-bottom:24px;">Connect directly with our senior Gurgaon advisors for verified title deeds, floor plans, and site visit scheduling.</p>
 
               <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:24px;">
                 <a id="detail-wa-btn" class="btn btn-oxblood" style="width:100%;height:46px;font-size:14px;" href="https://wa.me/919873813595" target="_blank" rel="noopener">
                   Inquire on WhatsApp →
                 </a>
-                <a class="btn" style="background:var(--bg-page);color:var(--text-main);border-color:var(--border-light);width:100%;height:44px;" href="tel:+919811157018">
+                <a class="btn" style="background:var(--paper);color:var(--ink);border-color:var(--line);width:100%;height:44px;" href="tel:+919811157018">
                   ☎ Call Ajay Mukhija (+91 98111 57018)
                 </a>
               </div>
 
-              <div style="border-top:1px solid var(--border-light);padding-top:18px;font-size:12.5px;color:var(--text-muted);line-height:1.5;">
-                <strong style="color:var(--text-main);display:block;margin-bottom:4px;">Principal Advisory Office:</strong>
+              <div style="border-top:1px solid var(--line);padding-top:18px;font-size:12.5px;color:var(--muted);line-height:1.5;">
+                <strong style="color:var(--ink);display:block;margin-bottom:4px;">Principal Advisory Office:</strong>
                 C-210, Nirvana Courtyard, Nirvana Country, Sector 50, Gurgaon, Haryana – 122018
               </div>
 
-              <div style="margin-top:20px;border-top:1px solid var(--border-light);padding-top:16px;">
-                <a href="../#browse" onclick="if(window.history.length>1){window.history.back();return false;}" style="font-size:13px;font-weight:700;color:var(--accent);display:inline-flex;align-items:center;gap:4px;">
+              <div style="margin-top:20px;border-top:1px solid var(--line);padding-top:16px;">
+                <a href="index.html" onclick="if(window.history.length>1){window.history.back();return false;}" style="font-size:13px;font-weight:700;color:var(--accent);display:inline-flex;align-items:center;gap:4px;">
                   ← Back to Property Collection
                 </a>
               </div>
@@ -334,8 +351,8 @@
     </div>
   </footer>
 
-  <script src="../data/public_inventory.js?v=20261112"></script>
-  <script src="detail.js?v=20261112"></script>
+  <script src="../data/public_inventory.js?v=20261122k"></script>
+  <script src="detail.js?v=20261122k"></script>
   <script>
   (function(){
     const toggle = document.getElementById('menu-toggle');

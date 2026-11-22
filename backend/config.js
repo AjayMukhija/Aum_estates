@@ -99,6 +99,8 @@ const ALLOWED_PUBLIC_FIELDS = [
   'rent_value',
   'rent_unit',
   'rent_inr_monthly_norm',
+  'furnishing',
+  'possession_status',
   'key_features',
   'public_description',
   'public_features',

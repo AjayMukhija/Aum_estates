@@ -3,6 +3,17 @@
 # ==============================================================================
 
 # 1. Disable Directory Browsing
+# ----------------------------------------------------------------------
+# Error documents. Declared at the top level, before any <FilesMatch> or
+# <IfModule> container: nested inside one, these apply only to the files
+# that container matches and general 404s keep falling through to the
+# host's own generic error page.
+# 404.html is noindex and all its links are root-relative, so it renders
+# correctly whatever path it is served for.
+# ----------------------------------------------------------------------
+ErrorDocument 404 /404.html
+ErrorDocument 403 /404.html
+
 Options -Indexes -MultiViews
 
 # 1a. Index order (CRITICAL)

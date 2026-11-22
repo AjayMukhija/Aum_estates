@@ -103,6 +103,7 @@ final class Config
         'image_file',
         'image_label',
         'verification_status',
+        'last_verified',
         'things_to_confirm',
         'slug',
         'url'

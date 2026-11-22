@@ -54,13 +54,25 @@ fs.rmSync(OUT_DIR, { recursive: true, force: true });
 fs.mkdirSync(PUBLIC_HTML_DIR, { recursive: true });
 fs.mkdirSync(TARGET_PHP_DIR, { recursive: true });
 
+// This packager mirrors the whole source tree, and this is the bundle
+// deploy_hostinger.sh actually rsyncs to the live host — so anything left in
+// the source directory ships. Internal artifacts are named here:
+//   simulator.html  — a 319KB internal grid simulator that also pulls
+//                     Tailwind from a dev CDN; it was publicly reachable.
+//   concepts/       — the aum-grid-study design study, carrying a second
+//                     full copy of the inventory feed.
+const EXCLUDED_FROM_PUBLIC_HTML = [
+  '.git', '.DS_Store', 'node_modules', '.tmp',
+  'simulator.html', 'concepts'
+];
+
 // Copy website static files into public_html
 const copyRecursiveSync = (src, dest) => {
   const stat = fs.statSync(src);
   if (stat.isDirectory()) {
     fs.mkdirSync(dest, { recursive: true });
     for (const file of fs.readdirSync(src)) {
-      if (['.git', '.DS_Store', 'node_modules', '.tmp'].includes(file)) continue;
+      if (EXCLUDED_FROM_PUBLIC_HTML.includes(file)) continue;
       copyRecursiveSync(path.join(src, file), path.join(dest, file));
     }
   } else {
@@ -132,6 +144,20 @@ if (!htaccessContent.includes('RewriteRule ^api/')) {
     RewriteRule ^api/.*$ /index.php [QSA,L]
     RewriteRule ^shortlist/([A-Za-z0-9_-]{12,64})/?$ /shortlist.html [QSA,L]
     RewriteRule ^crm/?$ /crm/index.html [QSA,L]
+
+    # Per-property share previews.
+    # properties/detail.html is static HTML filled in by JavaScript, and no
+    # link-preview crawler runs JavaScript, so a shared dossier rendered the
+    # generic site card instead of that property. PHP substitutes the correct
+    # metadata into the page's head.
+    #
+    # NO RewriteCond on HTTP_USER_AGENT here, deliberately. Serving crawlers a
+    # different response from buyers looked obvious and was wrong: Hostinger's
+    # CDN caches by URL and varies only on Accept-Encoding, so it served
+    # whichever response it cached first to everyone, differing per edge node.
+    # Every visitor gets one identical response, which is cache-safe and also
+    # corrects the browser tab title and the title Google indexes.
+    RewriteRule ^properties/detail\\.html$ /index.php [QSA,L]
 `;
   // Anchor AFTER the HTTPS redirect. These rules end in [L]; inserting them above
   // the redirect would let an http:// API request through unencrypted.

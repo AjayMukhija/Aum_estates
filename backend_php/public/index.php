@@ -27,9 +27,72 @@ require_once __DIR__ . '/../domain/search_engine.php';
 require_once __DIR__ . '/../domain/shortlist.php';
 require_once __DIR__ . '/../domain/publisher.php';
 require_once __DIR__ . '/../domain/intake_parser.php';
+require_once __DIR__ . '/../domain/share_preview.php';
 require_once __DIR__ . '/../routes/router.php';
 require_once __DIR__ . '/../routes/public_routes.php';
 require_once __DIR__ . '/../routes/crm_routes.php';
+
+/**
+ * Per-property share previews — handled BEFORE the database connection.
+ *
+ * properties/detail.html is static HTML populated by JavaScript, and no
+ * link-preview crawler runs JavaScript, so a shared dossier rendered the
+ * generic site card instead of the property. Every call to action on this site
+ * ends in WhatsApp, so that card IS the referral.
+ *
+ * EVERY visitor gets the same response here, deliberately. An earlier version
+ * branched on the user agent and served crawlers a metadata-only stub;
+ * Hostinger's CDN caches by URL and varies only on Accept-Encoding, so it
+ * served whichever copy it cached first to everybody, at random per edge node.
+ * One identical response is the only cache-safe shape, and it also fixes the
+ * browser tab title and the title Google indexes.
+ *
+ * This sits above Connection::getPdo() because the preview is built from the
+ * published feed on disk and needs no database — it must not fail when the
+ * database is unreachable. The published feed has already passed the privacy
+ * gate, so this cannot disclose anything the site does not already serve.
+ *
+ * Any failure falls through to serving the page byte-for-byte as it sits on
+ * disk, so the dossier can never be broken by this code.
+ */
+$previewPath = rtrim(parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?: '/', '/');
+if (
+    strtoupper($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'GET'
+    && $previewPath === rtrim(Domain\SharePreview::DETAIL_PATH, '/')
+) {
+    $previewStatic = realpath(($_SERVER['DOCUMENT_ROOT'] ?? '') . Domain\SharePreview::DETAIL_PATH);
+
+    if ($previewStatic !== false && is_file($previewStatic)) {
+        $previewBody = null;
+
+        try {
+            $previewKey = (string)($_GET['id'] ?? $_GET['slug'] ?? '');
+            $previewFeed = Domain\SharePreview::locateFeed($_SERVER['DOCUMENT_ROOT'] ?? null);
+            $previewRecord = ($previewKey !== '' && $previewFeed !== null)
+                ? Domain\SharePreview::findRecord($previewFeed, $previewKey)
+                : null;
+            // An id that is no longer published keeps the generic metadata
+            // rather than having one invented for a withdrawn listing.
+            if ($previewRecord !== null) {
+                $previewBody = Domain\SharePreview::renderDossier(
+                    $previewStatic,
+                    Domain\SharePreview::buildMeta($previewRecord)
+                );
+            }
+        } catch (\Throwable $previewError) {
+            $previewBody = null;
+        }
+
+        header('Content-Type: text/html; charset=utf-8');
+        header('Cache-Control: public, max-age=600');
+        if ($previewBody !== null) {
+            echo $previewBody;
+        } else {
+            readfile($previewStatic);
+        }
+        exit;
+    }
+}
 
 try {
     $pdo = Connection::getPdo();

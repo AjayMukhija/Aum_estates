@@ -29,7 +29,7 @@ if(!data){
   const locEl=document.getElementById('detail-location'); if(locEl) locEl.textContent='The requested property dossier is not available or has been archived.';
   const photoEl=document.getElementById('detail-photo'); if(photoEl) photoEl.style.display='none';
   const priceEl=document.getElementById('detail-price'); if(priceEl) priceEl.style.display='none';
-  const descEl=document.getElementById('detail-description'); if(descEl) descEl.innerHTML='Please browse our <a href="index.html" style="color:var(--gold-metallic, #c5a059);text-decoration:underline;font-weight:600;">complete collection of public references</a> or contact our advisory desk directly.';
+  const descEl=document.getElementById('detail-description'); if(descEl) descEl.innerHTML='Please browse our <a href="index.html" style="color:var(--accent);text-decoration:underline;font-weight:600;">complete collection of public references</a> or contact our advisory desk directly.';
   return;
 }
 
@@ -57,6 +57,10 @@ if(/builder\s*floor/.test(combined)) return 'builder-floor';
 if(/apartment|flat/.test(combined)) return 'apartment';
 return 'apartment';
 }
+// Mirrors GENERIC_PLACEHOLDER_IMAGES in backend/domain/normalizer.js.
+const GENERIC_PLACEHOLDER_IMAGES=['apartment.jpg','builder-floor.jpg','building.jpg','commercial.jpg','office.jpg','plot.jpg','plot-land-user.jpg','shop.jpg','sushant-lok-plot.jpg','villa.jpg'];
+function isGenericPlaceholderImage(f){ return typeof f==='string' && GENERIC_PLACEHOLDER_IMAGES.indexOf(f.trim().toLowerCase())!==-1; }
+
 function representativeImage(o){
   const c=representativeCategory(o);
   // User-approved image rule: all Plot/Plots/Land inventory uses the supplied plot photograph.
@@ -125,9 +129,20 @@ document.getElementById('detail-title').textContent=name;
 document.getElementById('detail-location').textContent=[data.locality,data.sector,data.city].filter(Boolean).filter((v,i,a)=>a.indexOf(v)===i).join(', ');
 document.getElementById('detail-type').textContent=representativeLabel(data);
 document.getElementById('detail-price').textContent=price(data);
-document.getElementById('detail-photo').style.backgroundImage=`url('../assets/property-images/${representativeImage(data)}')`;
+const detailImage = representativeImage(data);
+const hasDetailPhoto = !isGenericPlaceholderImage(detailImage);
+const detailPhotoEl = document.getElementById('detail-photo');
+if (hasDetailPhoto) {
+  detailPhotoEl.style.backgroundImage=`url('../assets/property-images/${detailImage}')`;
+} else {
+  // No photograph of this property: a neutral panel, not stock filler.
+  detailPhotoEl.classList.add('photo-placeholder');
+  detailPhotoEl.innerHTML = `<span class="photo-placeholder-type">${representativeLabel(data)}</span><span class="photo-placeholder-note">Photography available on enquiry</span>`;
+}
 const isProjectPhoto=/asya smartliving|sukoon/i.test([data.listing_title,data.project_name,data.locality].join(' '));
-document.getElementById('detail-badge').textContent=isProjectPhoto?'Project Photo':'Representative Image';
+const badgeEl=document.getElementById('detail-badge');
+if (badgeEl) badgeEl.textContent = !hasDetailPhoto ? 'No photograph on file' : (isProjectPhoto ? 'Project Photo' : 'Representative image');
+if (badgeEl && !hasDetailPhoto) badgeEl.style.display='none';
 document.getElementById('detail-description').textContent=data.public_description||data.key_features||'Property details available on enquiry.';
 const facts=[['Configuration',data.configuration],['BHK',data.bedrooms?`${data.bedrooms} BHK`:'' ],['Area',area(data)],['Floor',data.floor_label],['Facing',data.facing],['Road Width',data.road_width],['Furnishing',data.furnishing],['Possession / Availability',data.possession_status],['Transaction',data.transaction_type]].filter(x=>x[1]);
 document.getElementById('detail-grid').innerHTML=facts.map(([k,v])=>`<div class="detail-spec"><span>${esc(k)}</span><strong>${esc(v)}</strong></div>`).join('');
@@ -165,9 +180,11 @@ if (pv) {
 }
 const photoNote = document.getElementById('detail-photo-note');
 if (photoNote) {
-  photoNote.textContent = isProjectPhoto
-    ? 'The photograph is of this project. It is not necessarily of this unit.'
-    : 'The photograph is a representative reference for the project or locality, not a photograph of this unit. Exact unit number, live availability, title clearance and final landed terms are confirmed directly before inspection.';
+  photoNote.textContent = !hasDetailPhoto
+    ? 'No photograph is held on file for this property. Exact unit number, live availability, title clearance and final landed terms are confirmed directly before inspection.'
+    : isProjectPhoto
+      ? 'The photograph is of this project. It is not necessarily of this unit.'
+      : 'The photograph is a representative reference for the project or locality, not a photograph of this unit. Exact unit number, live availability, title clearance and final landed terms are confirmed directly before inspection.';
 }
 
 // The question bank is deliberately about what is unverified, so an enquiry

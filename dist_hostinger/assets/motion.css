@@ -1,0 +1,727 @@
+/* ==========================================================================
+   AUM ESTATES — Motion & grid discipline layer
+   Loaded after styles.css, so it wins the cascade on the rules it restates.
+
+   Two jobs:
+
+   1. MOTION. Datum's austerity is a position on ornament, not on life. The
+      page had six transitions and no keyframes in 1,182 lines, which reads
+      as unfinished rather than restrained. Everything below is short,
+      low-amplitude and tied to intent — entrance, hover, state change —
+      never decoration for its own sake. Every effect is gated on
+      prefers-reduced-motion, and every revealed element is fully visible
+      with CSS alone if the observer never runs.
+
+   2. GRID. Eight different `auto-fit, minmax()` minimums (150, 165, 190,
+      210, 258, 290, 300, 310px) meant each section resolved to a different
+      column count at the same viewport, and item counts that do not divide
+      by the resolved count left ragged orphan rows. Replaced with one set
+      of explicit column ladders on shared breakpoints, so sections align
+      with each other down the page.
+   ========================================================================== */
+
+:root {
+  /* Motion vocabulary — four durations, three curves. */
+  --dur-1: 140ms;   /* state flips: colour, border */
+  --dur-2: 220ms;   /* hover: lift, scale, slide */
+  --dur-3: 380ms;   /* disclosure: drawers, menus */
+  --dur-4: 620ms;   /* entrance: scroll reveal */
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);      /* entrances, settles */
+  --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);       /* general purpose */
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);   /* reversible states */
+
+  --lift: -3px;
+  --reveal-shift: 16px;
+
+  /* One grid vocabulary for the whole site. */
+  --grid-gap-x: var(--space-6);
+  --grid-gap-y: var(--space-8);
+}
+
+/* --------------------------------------------------------------------------
+   1. Scroll reveal
+   The shift is small and the fade short: at this amplitude the eye reads
+   "the page is settling", not "something is sliding in". Applied by
+   motion.js, which also sets --i for the stagger within a group.
+   -------------------------------------------------------------------------- */
+
+/* The entrance offset and any hover lift are composed into a single
+   translate here rather than written as two competing `transform`
+   declarations. Most revealed elements are also cards, and
+   `[data-reveal].is-in` outranks `.cat:hover`, so a separate hover
+   transform was being discarded and the cards never lifted. Each effect
+   now owns a variable and the transform is declared once. */
+.js-motion [data-reveal] {
+  opacity: 0;
+  --reveal-y: var(--reveal-shift);
+  transform: translate3d(0, calc(var(--reveal-y) + var(--card-y, 0px)), 0);
+  transition:
+    opacity var(--dur-3) var(--ease-out) calc(var(--i, 0) * 55ms),
+    transform var(--dur-3) var(--ease-out) calc(var(--i, 0) * 55ms);
+  /* Deliberately no will-change. The property register renders 347 cards
+     and promoting each to its own compositor layer costs far more memory
+     than it buys; opacity and transform are composited for the duration of
+     the transition anyway. */
+}
+
+/* Settles the entrance offset only. The hover lift rides on --card-y, so
+   it survives the reveal instead of being overridden by it. */
+.js-motion [data-reveal].is-in {
+  opacity: 1;
+  --reveal-y: 0px;
+}
+
+/* Once settled, drop the stagger delay so a later hover transition on the
+   same element starts immediately rather than waiting out its entrance
+   offset. */
+.js-motion [data-reveal].is-done {
+  transition-delay: 0s;
+}
+
+/* A rule that draws itself in is the one piece of ornament Datum's own logic
+   argues for: the section marker is a rule, so let it behave like one. */
+.js-motion [data-reveal-rule] {
+  position: relative;
+}
+.js-motion [data-reveal-rule]::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 1px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform var(--dur-4) var(--ease-out);
+}
+.js-motion [data-reveal-rule].is-in::before { transform: scaleX(1); }
+
+/* --------------------------------------------------------------------------
+   2. Hero entrance
+   Runs once on load rather than on intersection — the hero is already in
+   view, and waiting for an observer tick would show a visible flash.
+   -------------------------------------------------------------------------- */
+
+.js-motion .hero-copy > *,
+.js-motion .hero-desk,
+.js-motion .hero-stats-strip .stat-item {
+  opacity: 0;
+  transform: translate3d(0, 18px, 0);
+}
+
+.js-motion .hero-ready .hero-copy > *,
+.js-motion .hero-ready .hero-desk,
+.js-motion .hero-ready .hero-stats-strip .stat-item {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition:
+    opacity var(--dur-4) var(--ease-out) var(--d, 0ms),
+    transform var(--dur-4) var(--ease-out) var(--d, 0ms);
+}
+
+.js-motion .hero-ready .hero-copy > *:nth-child(1) { --d: 60ms; }
+.js-motion .hero-ready .hero-copy > *:nth-child(2) { --d: 130ms; }
+.js-motion .hero-ready .hero-copy > *:nth-child(3) { --d: 200ms; }
+.js-motion .hero-ready .hero-copy > *:nth-child(4) { --d: 260ms; }
+.js-motion .hero-ready .hero-desk { --d: 220ms; }
+.js-motion .hero-ready .hero-stats-strip .stat-item:nth-child(1) { --d: 380ms; }
+.js-motion .hero-ready .hero-stats-strip .stat-item:nth-child(2) { --d: 440ms; }
+.js-motion .hero-ready .hero-stats-strip .stat-item:nth-child(3) { --d: 500ms; }
+.js-motion .hero-ready .hero-stats-strip .stat-item:nth-child(4) { --d: 560ms; }
+
+/* --------------------------------------------------------------------------
+   3. Header
+   The bar earns a shadow only once the page has moved under it, so the
+   first viewport stays flat the way the design intends.
+   -------------------------------------------------------------------------- */
+
+.header {
+  transition:
+    box-shadow var(--dur-3) var(--ease-soft),
+    border-color var(--dur-3) var(--ease-soft);
+}
+.header.is-scrolled {
+  box-shadow: 0 1px 0 rgba(27, 33, 30, 0.06), 0 10px 30px -22px rgba(27, 33, 30, 0.5);
+  border-bottom-color: transparent;
+}
+.header .nav { transition: min-height var(--dur-3) var(--ease-soft); }
+.header.is-scrolled .nav { min-height: 70px; }
+
+/* Nav underline wipes in from the left instead of appearing whole. */
+.nav-link { position: relative; }
+.nav-link,
+.nav-link:hover,
+.nav-link.active { text-decoration: none; }
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 6px;
+  height: 1px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform var(--dur-2) var(--ease-out);
+}
+.nav-link:hover::after,
+.nav-link:focus-visible::after,
+.nav-link.active::after {
+  transform: scaleX(1);
+  transform-origin: left center;
+}
+
+.dropdown-menu {
+  transition:
+    opacity var(--dur-2) var(--ease-out),
+    transform var(--dur-2) var(--ease-out),
+    visibility var(--dur-2) var(--ease-out);
+}
+.nav-item:hover .dropdown-menu,
+.nav-item:focus-within .dropdown-menu { transform: translateY(2px); }
+
+.dropdown-item { transition: background var(--dur-1) var(--ease-soft), color var(--dur-1) var(--ease-soft), padding-left var(--dur-2) var(--ease-out); }
+.dropdown-item:hover { padding-left: calc(var(--space-5) + 5px); }
+
+/* Mobile drawer slides rather than snapping open. */
+.mobile-nav.open {
+  animation: aum-drawer-down var(--dur-3) var(--ease-out) both;
+}
+@keyframes aum-drawer-down {
+  from { opacity: 0; transform: translate3d(0, -8px, 0); }
+  to   { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+.mobile-nav a { transition: color var(--dur-1) var(--ease-soft), padding-left var(--dur-2) var(--ease-out); }
+.mobile-nav a:hover { padding-left: 6px; }
+
+/* --------------------------------------------------------------------------
+   4. Cards
+   One shared hover grammar: the frame lifts a few pixels, its rule darkens
+   to ink, and the photograph pushes in behind the crop. Nothing bounces.
+   -------------------------------------------------------------------------- */
+
+.cat, .benefit, .contact-card, .card, .result-card, .location-tile {
+  overflow: hidden;
+  /* Declared for cards that are not reveal targets; the reveal rule
+     declares the same composition for those that are. */
+  transform: translate3d(0, var(--card-y, 0px), 0);
+  transition:
+    transform var(--dur-2) var(--ease-out),
+    border-color var(--dur-2) var(--ease-soft),
+    box-shadow var(--dur-2) var(--ease-soft);
+}
+
+.cat:hover, .benefit:hover, .contact-card:hover,
+.card:hover, .result-card:hover, .location-tile:hover {
+  --card-y: var(--lift);
+  border-color: var(--ink);
+  box-shadow: 0 18px 40px -30px rgba(27, 33, 30, 0.55);
+}
+
+.cat:active, .card:active, .result-card:active, .location-tile:active {
+  --card-y: -1px;
+  transition-duration: var(--dur-1);
+}
+
+.cat-img, .approved-card-photo, .photo, .result-photo {
+  transition: transform var(--dur-4) var(--ease-out);
+}
+.cat:hover .cat-img,
+.card:hover .photo,
+.card:hover .approved-card-photo,
+.result-card:hover .result-photo,
+.result-card:hover .photo {
+  transform: scale(1.045);
+}
+
+/* The badges sit inside the crop, so counter-scale them or they drift. */
+.photo-label, .representative-badge, .result-type, .photo-badge-gold {
+  transition: transform var(--dur-4) var(--ease-out), background var(--dur-2) var(--ease-soft);
+}
+
+/* Register rows: a ruled list, so the hover is a rule, not a fill. */
+.location-item {
+  position: relative;
+  transition: background var(--dur-1) var(--ease-soft), padding-left var(--dur-2) var(--ease-out);
+}
+.location-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--accent);
+  transform: scaleY(0);
+  transform-origin: center top;
+  transition: transform var(--dur-2) var(--ease-out);
+}
+.location-item:hover::before { transform: scaleY(1); }
+.location-item:hover { padding-left: var(--space-4); }
+
+/* --------------------------------------------------------------------------
+   5. Controls
+   -------------------------------------------------------------------------- */
+
+.btn, .search-btn, .keyword-search-submit, .btn-oxblood,
+.btn-gold, .result-contact, .btn-wa, .nav-search-btn,
+.results-search > button[type="submit"], .actions .wa {
+  transition:
+    background var(--dur-1) var(--ease-soft),
+    color var(--dur-1) var(--ease-soft),
+    border-color var(--dur-1) var(--ease-soft),
+    transform var(--dur-2) var(--ease-out),
+    box-shadow var(--dur-2) var(--ease-soft);
+}
+
+.btn:hover, .search-btn:hover, .keyword-search-submit:hover, .btn-oxblood:hover,
+.btn-gold:hover, .result-contact:hover, .btn-wa:hover, .nav-search-btn:hover,
+.results-search > button[type="submit"]:hover, .actions .wa:hover {
+  transform: translate3d(0, -2px, 0);
+  box-shadow: 0 10px 22px -16px rgba(27, 33, 30, 0.7);
+}
+
+.btn:active, .search-btn:active, .keyword-search-submit:active, .btn-oxblood:active,
+.btn-gold:active, .result-contact:active, .btn-wa:active, .nav-search-btn:active,
+.results-search > button[type="submit"]:active, .actions .wa:active {
+  transform: translate3d(0, 0, 0);
+  box-shadow: none;
+  transition-duration: var(--dur-1);
+}
+
+/* Trailing arrows travel on hover. motion.js strips the literal glyph from
+   the label and re-adds it here, so the movement is a transform, not a
+   reflow of the text. */
+.has-arrow::after {
+  content: '\2192';
+  display: inline-block;
+  margin-left: 0.5em;
+  transition: transform var(--dur-2) var(--ease-out);
+}
+.has-arrow:hover::after,
+.has-arrow:focus-visible::after { transform: translateX(4px); }
+
+/* The quiet underlined action grows its rule from the left. */
+.view-details, .keyword-clear, .filter-expand-toggle, .view, .location-view {
+  position: relative;
+  transition: color var(--dur-1) var(--ease-soft);
+}
+
+.quick-tag, .keyword-chip, .result-features span, .detail-features span {
+  transition:
+    border-color var(--dur-1) var(--ease-soft),
+    color var(--dur-1) var(--ease-soft),
+    background var(--dur-1) var(--ease-soft),
+    transform var(--dur-2) var(--ease-out);
+}
+.quick-tag:hover, .keyword-chip:hover { transform: translate3d(0, -1px, 0); }
+
+/* Ruled fields: the focus rule wipes across rather than snapping to 2px. */
+select.search-field, input.search-field,
+.search-field select, .search-field input,
+.form-control, .keyword-input-wrap input,
+.results-search > select, .results-search > input {
+  transition: border-color var(--dur-2) var(--ease-soft);
+}
+select.search-field:hover, input.search-field:hover,
+.search-field select:hover, .search-field input:hover,
+.form-control:hover, .results-search > select:hover, .results-search > input:hover {
+  border-bottom-color: var(--muted);
+}
+
+/* The search tabs carry a sliding rule instead of five static underlines.
+   The 24px gap inherited from styles.css pushed five labels onto three rows
+   inside the hero desk's column and cost 160px of vertical space before the
+   first field. At 16px they resolve to two balanced rows at every width the
+   desk occupies. */
+.search-tabs {
+  position: relative;
+  gap: var(--space-3) var(--space-4);
+}
+.search-tab {
+  position: relative;
+  transition: color var(--dur-2) var(--ease-soft);
+}
+.search-tab.active { text-decoration: none; }
+.search-tabs .tab-rule {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: transform var(--dur-3) var(--ease-out), width var(--dur-3) var(--ease-out);
+  pointer-events: none;
+}
+
+/* --------------------------------------------------------------------------
+   6. Disclosure
+   The advanced drawer and the pillar accordion animate their own height via
+   the 0fr/1fr grid technique, which needs no measured pixel values.
+   -------------------------------------------------------------------------- */
+
+.filter-advanced-drawer {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  margin-top: 0;
+  transition:
+    grid-template-rows var(--dur-3) var(--ease-out),
+    opacity var(--dur-2) var(--ease-soft),
+    margin-top var(--dur-3) var(--ease-out);
+}
+.filter-advanced-drawer > * { overflow: hidden; min-height: 0; }
+.filter-advanced-drawer.open {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  margin-top: var(--space-5);
+}
+
+/* The drawer's own fields need their own row, since the outer element is now
+   a single-row height animator rather than the column grid it used to be. */
+.filter-advanced-drawer .drawer-inner {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: var(--space-5);
+  align-items: end;
+}
+
+.pillar-summary { transition: color var(--dur-1) var(--ease-soft); }
+.pillar-summary:hover { color: var(--accent); }
+/* The marker is drawn as two rules rather than set as a '+' / '–' glyph.
+   A glyph swap cannot animate, and a rotated '+' only ever becomes an '×',
+   which reads as "close" rather than "collapse". Built from two bars, the
+   vertical one collapses into the horizontal and the plus genuinely
+   becomes a minus. */
+.pillar-summary::after {
+  content: '';
+  flex: none;
+  align-self: center;
+  width: 14px;
+  height: 14px;
+  background-image:
+    linear-gradient(var(--accent), var(--accent)),
+    linear-gradient(var(--accent), var(--accent));
+  background-size: 14px 1.5px, 1.5px 14px;
+  background-position: center center, center center;
+  background-repeat: no-repeat;
+  transition:
+    background-size var(--dur-3) var(--ease-out),
+    transform var(--dur-3) var(--ease-out);
+}
+.pillar-item[open] .pillar-summary::after {
+  content: '';
+  background-size: 14px 1.5px, 1.5px 0;
+  transform: rotate(180deg);
+}
+.pillar-item[open] .pillar-content {
+  animation: aum-disclose var(--dur-3) var(--ease-out) both;
+}
+@keyframes aum-disclose {
+  from { opacity: 0; transform: translate3d(0, -6px, 0); }
+  to   { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+/* --------------------------------------------------------------------------
+   7. Grid discipline
+   One ladder, shared breakpoints: 1320 / 1040 / 760 / 560.
+   -------------------------------------------------------------------------- */
+
+/* Curated verticals. Five cards never divide evenly into a four- or
+   three-column auto-fit, so the row was always ragged. Composed instead on
+   six columns: two wide cards over three standard ones. */
+.cats {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: var(--grid-gap-y) var(--grid-gap-x);
+}
+.cats > * { grid-column: span 2; }
+.cats > *:nth-child(1),
+.cats > *:nth-child(2) { grid-column: span 3; }
+
+/* Featured residences and corridor cards: six items, two clean rows. */
+.features {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--grid-gap-y) var(--grid-gap-x);
+}
+
+/* The open-ended registers carry a column more, since their cards are
+   denser and their counts are not fixed. */
+.results-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--grid-gap-y) var(--grid-gap-x);
+}
+
+.benefit-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--grid-gap-y) var(--grid-gap-x);
+}
+
+.contact-methods {
+  display: flex;
+  flex-direction: column;
+}
+
+.benefit-strip {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--grid-gap-x);
+}
+
+/* Four stats, four columns — no auto-fit reflow mid-range. */
+.hero-stats-strip { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+/* The corridor index on the home page: six tiles, two rows of three, same
+   rhythm as the featured register directly above it. */
+.corridor-index {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--grid-gap-y) var(--grid-gap-x);
+}
+
+.contact-grid { grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); }
+
+.footergrid { grid-template-columns: minmax(0, 1.4fr) repeat(3, minmax(0, 1fr)); }
+
+.founder-heritage-wrap { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); }
+
+/* Specification tables stay on one minimum so the cells line up with each
+   other across the two pages that use them. */
+.detail-grid, .provenance { grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); }
+
+@media (max-width: 1320px) {
+  .results-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .benefit-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 1040px) {
+  .cats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cats > *,
+  .cats > *:nth-child(1),
+  .cats > *:nth-child(2) { grid-column: span 1; }
+  /* Odd card out leads the row at full width rather than sitting alone. */
+  .cats > *:nth-child(1) { grid-column: span 2; }
+
+  .features, .results-grid, .corridor-index,
+  .benefit-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .contact-grid, .founder-heritage-wrap { grid-template-columns: minmax(0, 1fr); }
+  .footergrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 760px) {
+  /* Restated here because styles.css collapses these to 1fr at this width
+     and this file has to win for the ladder above to mean anything. */
+  .cats, .features, .results-grid, .corridor-index,
+  .benefit-grid, .benefit-strip, .contact-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .cats > *, .cats > *:nth-child(1), .cats > *:nth-child(2) { grid-column: span 1; }
+  .hero-stats-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-5); }
+  .footergrid { grid-template-columns: minmax(0, 1fr); }
+  :root { --grid-gap-y: var(--space-7); }
+}
+
+@media (max-width: 560px) {
+  .hero-stats-strip { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* On a phone the five tabs stacked into five rows and pushed the fields —
+   the thing the desk exists for — about 300px below the fold. One scrolling
+   row keeps every category reachable and puts the first field back on
+   screen. The rule is absolutely positioned inside the strip, so it scrolls
+   with the tabs and stays under the active one. */
+@media (max-width: 760px) {
+  .search-tabs {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x proximity;
+    /* Room for the rule, which sits just under the tab's own box. */
+    padding-bottom: var(--space-2);
+  }
+  .search-tabs::-webkit-scrollbar { display: none; }
+  .search-tab {
+    flex: none;
+    scroll-snap-align: start;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   8. Corridor index
+   The home page used to carry six full corridor panels with three live
+   listing rows each — eighteen rows duplicating /locations. The tile below
+   is what replaced it: corridor, count, standing, one link.
+   -------------------------------------------------------------------------- */
+
+.location-tile {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: var(--space-6);
+  background: var(--paper);
+  border: 1px solid var(--line);
+}
+.location-tile .eyebrow { margin-bottom: var(--space-3); }
+.location-tile h3 { margin-bottom: var(--space-3); font-size: 21px; }
+.location-tile p { font-size: var(--caption); line-height: 1.65; color: var(--muted); margin: 0 0 var(--space-5); }
+.location-tile-foot {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-top: auto;
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--line);
+}
+.location-tile-count {
+  font-size: 21px;
+  font-weight: 550;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+}
+.location-tile-count span {
+  display: block;
+  font-size: var(--caption);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.location-tile .location-view { font-weight: 600; }
+
+/* --------------------------------------------------------------------------
+   9. Counters
+   Held at a fixed width while counting so the strip does not reflow on
+   every frame.
+   -------------------------------------------------------------------------- */
+
+.stat-value { display: block; font-variant-numeric: tabular-nums; }
+.is-counting { font-variant-numeric: tabular-nums; }
+
+/* --------------------------------------------------------------------------
+   10. Reduced motion
+   One switch. Everything above degrades to the static design, and the
+   reveal elements are forced visible in case the observer never fires.
+   -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .js-motion [data-reveal],
+  .js-motion .hero-copy > *,
+  .js-motion .hero-desk,
+  .js-motion .hero-stats-strip .stat-item {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .js-motion [data-reveal-rule]::before { transform: scaleX(1) !important; }
+  .cat:hover, .benefit:hover, .contact-card:hover,
+  .card:hover, .result-card:hover, .location-tile:hover,
+  .btn:hover, .search-btn:hover, .btn-gold:hover, .actions .wa:hover {
+    --card-y: 0px;
+    transform: none !important;
+  }
+  .cat:hover .cat-img, .card:hover .photo,
+  .card:hover .approved-card-photo, .result-card:hover .result-photo { transform: none !important; }
+  .mobile-nav.open, .pillar-item[open] .pillar-content { animation: none !important; }
+  .has-arrow:hover::after { transform: none !important; }
+}
+
+/* Safety net: if scripting is off the reveal class is never added, but belt
+   and braces for a script that errors after the class lands. */
+.no-js [data-reveal] { opacity: 1 !important; transform: none !important; }
+
+/* --------------------------------------------------------------------------
+   11. Absent photography
+   Half the register has no photograph of the actual property. It used to
+   fall back to stock filler — a captioned "VILLA / HOUSE" graphic, and a
+   phone snapshot of a littered roadside standing in for 104 plot listings.
+   A neutral panel is more honest and, on a site quoting ₹3–60 Cr, better
+   looking than a bad picture. Datum's own materials: paper, a hairline,
+   one rule, type.
+   -------------------------------------------------------------------------- */
+
+.photo-placeholder {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  aspect-ratio: 16 / 10;
+  padding: var(--space-5);
+  background-color: var(--quiet);
+  /* A faint ruled field, so the panel reads as drawn rather than broken. */
+  background-image:
+    linear-gradient(to right, rgba(27, 33, 30, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(27, 33, 30, 0.045) 1px, transparent 1px);
+  background-size: 28px 28px, 28px 28px;
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+}
+
+/* The one red rule, top-left, matching the section markers. */
+.photo-placeholder::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: var(--space-5);
+  width: 34px;
+  height: 3px;
+  background: var(--accent);
+}
+
+.photo-placeholder-type {
+  font-size: var(--caption);
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.photo-placeholder-note {
+  margin-top: var(--space-1);
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+}
+
+/* The register's cards are shorter, so the panel there is quieter still. */
+.result-photo.photo-placeholder { padding: var(--space-4); }
+
+/* The dossier's photo is 3:2 and the panel should follow it. */
+.detail-photo.photo-placeholder { aspect-ratio: 3 / 2; }
+
+/* No zoom-on-hover for a panel: there is nothing to push into. */
+.card:hover .photo-placeholder,
+.result-card:hover .photo-placeholder,
+.cat:hover .photo-placeholder { transform: none; }
+
+/* --------------------------------------------------------------------------
+   12. Skip link
+   The header carries two dropdown menus, so reaching the page content by
+   keyboard meant tabbing past roughly twenty links on every page. Off-screen
+   until focused, then it sits over the header as an ordinary Datum control.
+   -------------------------------------------------------------------------- */
+
+.skip-link {
+  position: absolute;
+  top: 0;
+  left: var(--gutter);
+  z-index: 200;
+  padding: 11px 20px;
+  background: var(--accent);
+  color: #ffffff;
+  font-size: var(--caption);
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  /* Moved rather than hidden: display:none and visibility:hidden both take
+     it out of the tab order, which defeats the point. */
+  transform: translateY(-120%);
+  transition: transform var(--dur-2) var(--ease-out);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}

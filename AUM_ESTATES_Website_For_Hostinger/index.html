@@ -5,12 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>AUM ESTATES | Luxury Real Estate &amp; Property Advisory Gurgaon</title>
   <meta name="description" content="AUM ESTATES — Founded by Ajay Mukhija in 2002. Independent property advisory and curated luxury inventory across Golf Course Road, DLF Phase 1–5, Nirvana Country, and Delhi NCR." />
+  <!-- Sharing preview. Every call to action on this site ends in WhatsApp,
+       so a shared link is a referral: without these it rendered as a bare
+       URL with no title, description or image. -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="AUM ESTATES" />
+  <meta property="og:locale" content="en_IN" />
+  <meta property="og:title" content="AUM ESTATES | Luxury Real Estate &amp; Property Advisory Gurgaon" />
+  <meta property="og:description" content="AUM ESTATES — Founded by Ajay Mukhija in 2002. Independent property advisory and curated luxury inventory across Golf Course Road, DLF Phase 1–5, Nirvana Country, and Delhi NCR." />
+  <meta property="og:url" content="https://aumestates.com/" />
+  <meta property="og:image" content="https://aumestates.com/assets/aum-estates-share.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="AUM ESTATES — private property advisory, Gurgaon, established 2002" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="AUM ESTATES | Luxury Real Estate &amp; Property Advisory Gurgaon" />
+  <meta name="twitter:description" content="AUM ESTATES — Founded by Ajay Mukhija in 2002. Independent property advisory and curated luxury inventory across Golf Course Road, DLF Phase 1–5, Nirvana Country, and Delhi NCR." />
+  <meta name="twitter:image" content="https://aumestates.com/assets/aum-estates-share.png" />
+
   <link rel="canonical" href="https://aumestates.com/" />
   <meta name="robots" content="index,follow" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/styles.css?v=20261112" />
+  <link rel="stylesheet" href="assets/styles.css?v=20261122k" />
+  <link rel="stylesheet" href="assets/motion.css?v=20261122k" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="alternate icon" href="favicon.ico" />
   <script type="application/ld+json">
@@ -36,9 +52,11 @@
     "areaServed": ["Gurgaon", "Golf Course Road", "DLF Phase 1-5", "Nirvana Country", "Sohna Road", "Dwarka Expressway", "New Delhi NCR"]
   }
   </script>
-  <script src="assets/lead-client.js?v=20261112"></script>
+  <script src="assets/motion.js?v=20261122k"></script>
+  <script src="assets/lead-client.js?v=20261122k"></script>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
 
   <!-- ======================================================================
        Site Header with Silky Dropdown Menus
@@ -97,10 +115,6 @@
             <a class="dropdown-item" href="properties/index.html">
               <strong>Browse Complete Inventory →</strong>
               <span>Browse current public references</span>
-            </a>
-            <a class="dropdown-item" href="concepts/aum-grid-study/index.html">
-              <strong>Architectural Grid UI (Study 06) →</strong>
-              <span>Dieter Rams-inspired 12-column interactive index</span>
             </a>
           </div>
         </div>
@@ -208,7 +222,7 @@
     </nav>
   </header>
 
-  <main>
+  <main id="main-content">
     <!-- ====================================================================
          Cinematic Hero Section (Confident, Restrained, Old-Money Pedigree)
          ==================================================================== -->
@@ -217,7 +231,13 @@
         <div class="hero-copy">
           <div class="hero-eyebrow-pill">ESTABLISHED 2002 · GURGAON</div>
           <h1>Quiet Advisory for Discerning Property Acquisitions</h1>
-          <h2>Independent property advisory since 2002, with stewardship across Golf Course Road, DLF Phase 1–5, and prime Gurgaon enclaves.</h2>
+          <!-- Was: "Independent property advisory since 2002, with
+               stewardship across Golf Course Road, DLF Phase 1–5, and prime
+               Gurgaon enclaves." The eyebrow directly above already says
+               2002, and the coverage line directly below already lists the
+               corridors — so the one line with the reader's full attention
+               repeated its neighbours instead of saying what we do. -->
+          <h2>Independent of any single developer. Title, registry and sanction are verified on every mandate before it reaches you.</h2>
           <p class="coverage">Golf Course Road · DLF Phase 1–5 · Nirvana Country · Golf Course Extn · Sohna Road · Dwarka Expressway</p>
         </div>
 
@@ -283,7 +303,7 @@
         </div>
         <!-- Expandable Advanced Drawer (Revealed on Click) -->
         <div class="filter-advanced-drawer" id="filter-advanced-drawer">
-        <input class="search-field" type="text" name="q" id="home-keyword-input" placeholder="Keyword (e.g. Park Facing, Corner, Duplex)..." />
+        <input class="search-field" type="text" name="q" id="home-keyword-input" placeholder="Keyword (e.g. Park Facing, Corner)..." />
         <select class="search-field" name="facing" aria-label="Select Facing Direction">
         <option value="">Any Direction Facing</option>
         <option value="Park Facing">Park Facing</option>
@@ -302,21 +322,25 @@
 
       <div class="container">
         <div class="hero-stats-strip">
+          <!-- A figure strip should carry figures. "Since 2002" sat above a
+               label that said "(Since 2002)", and "Review" was not a
+               quantity at all. Each value is now a number or a concrete
+               fact, and each label earns its line instead of repeating it. -->
           <div class="stat-item">
-            <span class="stat-value tabular-nums">Since 2002</span>
-            <span class="stat-label">Advisory Pedigree (Since 2002)</span>
+            <span class="stat-value tabular-nums">24 Years</span>
+            <span class="stat-label">Independent Advisory Since 2002</span>
           </div>
           <div class="stat-item">
             <span class="stat-value tabular-nums">₹2,500+ Cr</span>
-            <span class="stat-label">Transaction Volume Advised</span>
+            <span class="stat-label">Transaction Value Advised</span>
           </div>
           <div class="stat-item">
-            <span class="stat-value tabular-nums">Review</span>
-            <span class="stat-label">Title &amp; Document Diligence</span>
+            <span class="stat-value">Every Title</span>
+            <span class="stat-label">Verified Before Presentation</span>
           </div>
           <div class="stat-item">
             <span class="stat-value">Sector 50</span>
-            <span class="stat-label">Physical HQ · Nirvana Courtyard</span>
+            <span class="stat-label">Nirvana Courtyard Office, Gurgaon</span>
           </div>
         </div>
       </div>
@@ -419,7 +443,7 @@
           <a class="view" href="locations/index.html">View All Locations →</a>
         </div>
 
-        <div class="location-inventory-grid" id="location-inventory-grid">
+        <div class="corridor-index" id="location-inventory-grid">
           <!-- Populated dynamically via public_inventory.js -->
         </div>
       </div>
@@ -506,7 +530,7 @@
         </div>
         <div class="mandate-concierge-actions">
           <a class="btn" style="background:var(--accent);color:#ffffff;" href="https://wa.me/919873813595?text=Hello%20AUM%20ESTATES,%20I%20have%20a%20private%20property%20mandate%20to%20discuss." target="_blank" rel="noopener">Inquire via WhatsApp Desk →</a>
-          <a class="btn" style="background:rgba(255,255,255,0.06);color:#ffffff;border:1px solid rgba(255,255,255,0.18);" href="contact/index.html">Office Directions</a>
+          <a class="btn" style="background:var(--paper);color:var(--ink);border:1px solid var(--line);" href="contact/index.html">Office Directions</a>
         </div>
       </div>
     </section>
@@ -564,9 +588,9 @@
   <!-- ======================================================================
        Dynamic Data Scripts
        ====================================================================== -->
-  <script src="data/public_inventory.js?v=20261112"></script>
-  <script src="data/projects_local.js?v=20261112"></script>
-  <script src="data/approved_properties.js?v=20261112"></script>
+  <script src="data/public_inventory.js?v=20261122k"></script>
+  <script src="data/projects_local.js?v=20261122k"></script>
+  <script src="data/approved_properties.js?v=20261122k"></script>
 
   <script>
   // Search Form Mode, Category & Gradual Reveal Handling
@@ -627,13 +651,18 @@
       const label = o.image_label && o.image_label !== '*RP' ? esc(o.image_label) : 'Curated Selection';
       const detailLink = o.property_id ? `properties/detail.html?id=${encodeURIComponent(o.property_id)}` : 'properties/index.html';
       const img = o.image
+        // One disclosure per photograph. The "Public Reference" badge said
+        // nothing the section intro and the register disclaimer do not
+        // already say, and two stacked legal badges read louder than the
+        // property they sit on.
         ? `<div class="approved-card-photo photo" style="background-image:url('${esc(o.image)}')">
              <span class="photo-label">${label}</span>
-             <span class="photo-badge-gold">Public Reference</span>
            </div>`
-        : `<div class="approved-card-photo photo" style="background-color:#e2e8f0;">
-             <span class="photo-label">${label}</span>
-             <span class="photo-badge-gold">Public Reference</span>
+        // No genuine photograph: a neutral panel rather than stock filler
+        // dressed up as this property.
+        : `<div class="approved-card-photo photo-placeholder">
+             <span class="photo-placeholder-type">${esc(o.type || o.category || 'Property')}</span>
+             <span class="photo-placeholder-note">Photography available on enquiry</span>
            </div>`;
 
       const specHtml = o.features ? `<div class="spec-strip">${esc(o.features)}</div>` : '';
@@ -660,8 +689,8 @@
             ${specHtml}
             <div class="price tabular-nums">${esc(money(o))}</div>
             <div class="card-actions">
-              <a class="view-details" style="flex:1;text-align:center;" href="${detailLink}">View Dossier →</a>
-              <a class="result-contact" style="flex:1.2;text-align:center;" data-featured-inquiry="${esc(o.property_id)}" href="${wa}" target="_blank" rel="noopener">Inquire via WhatsApp</a>
+              <a class="view-details" href="${detailLink}">View Dossier →</a>
+              <a class="result-contact" data-featured-inquiry="${esc(o.property_id)}" href="${wa}" target="_blank" rel="noopener">Inquire via WhatsApp</a>
             </div>
           </div>
         </article>
@@ -680,62 +709,75 @@
       `;
   })();
 
-  // Populate Micro-Markets dynamically
+  // Populate Micro-Market Corridor Index Tiles (Decongested: corridor, count, standing, one link)
   (function(){
     const data = Array.isArray(window.AUM_PUBLIC_INVENTORY) ? window.AUM_PUBLIC_INVENTORY : [];
     const host = document.getElementById('location-inventory-grid');
     if (!host) return;
 
     const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-    const norm = s => String(s ?? '').toLowerCase().replace(/&/g,'and').replace(/[^a-z0-9]+/g,' ').trim();
 
     const locations = [
-      { name: 'Golf Course Road', sub: 'Established Luxury Corridor', corridor: 'Golf Course Road' },
-      { name: 'DLF Phase 1–5', sub: 'Established Gated Enclaves', corridor: 'DLF Phase 1–5' },
-      { name: 'Nirvana Country & Sohna Road', sub: 'Family Homes & Villas', corridor: 'Nirvana Country & Sohna Road' },
-      { name: 'Golf Course Extn & SPR', sub: 'Residential & Commercial', corridor: 'Golf Course Ext & SPR' },
-      { name: 'Dwarka Expressway & New Gurgaon', sub: 'Expressway Corridor', corridor: 'Dwarka Expressway & New Gurgaon' },
-      { name: 'Commercial & Pre-Rented Assets', sub: 'Offices & Retail', category: 'commercial' }
+      {
+        name: 'Golf Course Road',
+        sub: 'Established Luxury Corridor',
+        corridor: 'Golf Course Road',
+        desc: 'DLF Camellias, Magnolias, Aralias, Park Place, and Belaire across Sectors 42, 43, 53, and 54.'
+      },
+      {
+        name: 'DLF Phase 1–5',
+        sub: 'Established Gated Enclaves',
+        corridor: 'DLF Phase 1–5',
+        desc: 'Gated independent builder floors, verified HSVP freehold plots, and established residences.'
+      },
+      {
+        name: 'Nirvana Country & Sohna Road',
+        sub: 'Family Homes & Villas',
+        corridor: 'Nirvana Country & Sohna Road',
+        desc: 'Low-density villa townships, Sector 50 enclaves, South City 2, and AUM Estates headquarters.'
+      },
+      {
+        name: 'Golf Course Extn & SPR',
+        sub: 'Residential & Commercial',
+        corridor: 'Golf Course Ext & SPR',
+        desc: 'Modern condominiums and commercial hubs across Sectors 58–68 including Arbour, Elevate, and Araya.'
+      },
+      {
+        name: 'Dwarka Expressway & New Gurgaon',
+        sub: 'Expressway Corridor',
+        corridor: 'Dwarka Expressway & New Gurgaon',
+        desc: 'Integrated high-rise townships and direct airport corridor connectivity across Sectors 99–113.'
+      },
+      {
+        name: 'Commercial & Pre-Rented Assets',
+        sub: 'Offices & Retail',
+        category: 'commercial',
+        desc: 'Pre-leased institutional offices, high-street retail units, and corporate buildings.'
+      }
     ];
 
-
-    const cleanName = o => o.website_display_name || o.listing_title || o.project_name || 'Verified Property';
-    const locLabel = o => [o.locality, o.sector, o.city].filter(Boolean).filter((v,i,a) => a.indexOf(v)===i).join(', ');
-    const price = o => o.price_text || (o.price_value != null ? `₹${o.price_value} ${o.price_unit||''}`.trim() : 'Price on request');
-
-    locations.forEach(l => {
+    host.innerHTML = locations.map(l => {
       const rows = data.filter(o => l.category ? o.category === l.category : o.corridor === l.corridor);
-      const shown = rows.slice(0, 3);
-      const items = shown.length
-        ? shown.map(o => `
-            <a class="location-item" href="properties/detail.html?id=${encodeURIComponent(o.property_id || '')}" aria-label="View ${esc(cleanName(o))}">
-              <div>
-                <strong>${esc(cleanName(o))}</strong>
-                <span>${esc(locLabel(o) || l.sub)}</span>
-              </div>
-              <b class="tabular-nums">${esc(price(o))}</b>
-            </a>
-          `).join('')
-        : `<div style="padding:10px;font-size:12px;color:#8c787c;">Active listings coming soon to this micro-market.</div>`;
+      const count = rows.length;
+      const href = `properties/index.html?${l.category ? 'category=' + encodeURIComponent(l.category) : 'location=' + encodeURIComponent(l.corridor)}`;
 
-      host.insertAdjacentHTML('beforeend', `
-        <article class="location-panel">
-          <div class="location-panel-head">
+      return `
+        <article class="location-tile">
+          <div class="eyebrow">${esc(l.sub)}</div>
+          <h3>${esc(l.name)}</h3>
+          <p>${esc(l.desc)}</p>
+          <div class="location-tile-foot">
             <div>
-              <div class="eyebrow">${esc(l.sub)}</div>
-              <h3>${esc(l.name)}</h3>
+              <strong class="location-tile-count tabular-nums">${count}</strong>
+              <span style="display:block;font-size:var(--caption);font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);">${count === 1 ? 'Active Mandate' : 'Active Mandates'}</span>
             </div>
-            <span class="location-count tabular-nums">${rows.length} ${rows.length === 1 ? 'property' : 'properties'}</span>
+            <a class="location-view" href="${href}">
+              Explore Corridor →
+            </a>
           </div>
-          <div class="location-items">
-            ${items}
-          </div>
-          <a class="location-view" href="properties/index.html?${l.category ? 'category=' + encodeURIComponent(l.category) : 'location=' + encodeURIComponent(l.corridor)}">
-            View ${esc(l.name)} inventory →
-          </a>
         </article>
-      `);
-    });
+      `;
+    }).join('');
   })();
 
   // Update Dynamic Category & Project Counts
@@ -749,7 +791,7 @@
 
     document.querySelectorAll('[data-cat-count]').forEach(e => {
       const count = active.filter(x => cat(x) === e.dataset.catCount).length;
-      e.textContent = count ? `${count} properties` : 'Available';
+      e.textContent = count ? `${count} ${count === 1 ? 'property' : 'properties'}` : 'Available';
     });
 
     const projects = Array.isArray(window.AUM_PROJECTS_LOCAL) ? window.AUM_PROJECTS_LOCAL : [];

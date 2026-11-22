@@ -70,6 +70,12 @@
     return 'apartment';
   }
 
+  // Byte-identical stock filler, not photographs of the property. Mirrors
+  // GENERIC_PLACEHOLDER_IMAGES in backend/domain/normalizer.js: when the
+  // resolver lands on one of these, the card draws a neutral panel instead.
+  const GENERIC_PLACEHOLDER_IMAGES = ['apartment.jpg','builder-floor.jpg','building.jpg','commercial.jpg','office.jpg','plot.jpg','plot-land-user.jpg','shop.jpg','sushant-lok-plot.jpg','villa.jpg'];
+  function isGenericPlaceholderImage(f){ return typeof f==='string' && GENERIC_PLACEHOLDER_IMAGES.indexOf(f.trim().toLowerCase())!==-1; }
+
   function representativeImage(o){
     const c=representativeCategory(o);
     if(c === 'plot') return 'plot-land-user.jpg';
@@ -493,10 +499,13 @@
     const wa=whatsappUrl(o);
     const image=representativeImage(o);
     const imageLabel=representativeLabel(o);
+    const hasPhoto=!isGenericPlaceholderImage(image);
     const badgeText = o.image_label && o.image_label !== '*RP' ? esc(o.image_label) : 'Representative Image';
     const locStr = locationLabel(o) || 'Gurgaon';
     const priceStr = priceLabel(o);
-    return `<article class="result-card" data-property-id="${esc(o.property_id || '')}" data-title="${esc(publicName)}" data-price="${esc(priceStr)}" data-location="${esc(locStr)}"><div class="result-photo" data-bg="${imagePathPrefix}${image}"><span class="representative-badge">${badgeText}</span><span class="result-type">${esc(imageLabel)}</span></div><div class="result-body"><div class="result-location">${esc(locStr)}</div><h3>${esc(publicName)}</h3><p class="result-config">${esc([o.configuration,o.bedrooms?`${o.bedrooms} BHK`:'',areaLabel(o)].filter(Boolean).join(' · '))}</p><p class="result-desc">${esc(o.public_description||o.key_features||'Property details available on enquiry.')}</p><div class="result-bottom"><strong class="tabular-nums">${esc(priceStr)}</strong><div class="result-actions"><a class="view-details" href="${detailHref}">View Dossier →</a><a class="result-contact" href="${wa}" target="_blank" rel="noopener">Inquire on WhatsApp</a></div></div>${features.length?`<div class="result-features">${features.map(f=>`<span>${esc(f.trim())}</span>`).join('')}</div>`:''}</div></article>`;
+    return `<article class="result-card" data-property-id="${esc(o.property_id || '')}" data-title="${esc(publicName)}" data-price="${esc(priceStr)}" data-location="${esc(locStr)}">${hasPhoto
+      ? `<div class="result-photo" data-bg="${imagePathPrefix}${image}"><span class="representative-badge">${badgeText}</span><span class="result-type">${esc(imageLabel)}</span></div>`
+      : `<div class="result-photo photo-placeholder"><span class="photo-placeholder-type">${esc(imageLabel)}</span><span class="photo-placeholder-note">Photography available on enquiry</span></div>`}<div class="result-body"><div class="result-location">${esc(locStr)}</div><h3>${esc(publicName)}</h3><p class="result-config">${esc([o.configuration,o.bedrooms?`${o.bedrooms} BHK`:'',areaLabel(o)].filter(Boolean).join(' · '))}</p><p class="result-desc">${esc(o.public_description||o.key_features||'Property details available on enquiry.')}</p><div class="result-bottom"><strong class="tabular-nums">${esc(priceStr)}</strong><div class="result-actions"><a class="view-details" href="${detailHref}">View Dossier →</a><a class="result-contact" href="${wa}" target="_blank" rel="noopener">Inquire on WhatsApp</a></div></div>${features.length?`<div class="result-features">${features.map(f=>`<span>${esc(f.trim())}</span>`).join('')}</div>`:''}</div></article>`;
   }
 
   if (typeof document !== 'undefined') {

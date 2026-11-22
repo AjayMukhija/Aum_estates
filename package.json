@@ -20,7 +20,8 @@
     "package": "node scripts/package_release.js",
     "setup:admin": "node scripts/setup_admin.js",
     "backup": "node scripts/backup_database.js",
-    "verify:deployed": "node scripts/verify_deployed.js"
+    "verify:deployed": "node scripts/verify_deployed.js",
+    "deploy:hostinger": "bash scripts/deploy_hostinger.sh"
   },
   "keywords": [
     "aum-estates",

@@ -5,14 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Property Particulars | AUM ESTATES Gurgaon</title>
   <meta name="description" content="Verified property particulars, configuration, layout, and advisory details from AUM ESTATES Gurgaon." />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../assets/styles.css?v=20261112" />
-  <script src="../assets/lead-client.js?v=20261112"></script>
+  <!-- Sharing preview. Every call to action on this site ends in WhatsApp,
+       so a shared link is a referral: without these it rendered as a bare
+       URL with no title, description or image. -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="AUM ESTATES" />
+  <meta property="og:locale" content="en_IN" />
+  <meta property="og:title" content="Property Particulars | AUM ESTATES Gurgaon" />
+  <meta property="og:description" content="Verified property particulars, configuration, layout, and advisory details from AUM ESTATES Gurgaon." />
+  <meta property="og:url" content="https://aumestates.com/properties/detail.html" />
+  <meta property="og:image" content="https://aumestates.com/assets/aum-estates-share.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="AUM ESTATES — private property advisory, Gurgaon, established 2002" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Property Particulars | AUM ESTATES Gurgaon" />
+  <meta name="twitter:description" content="Verified property particulars, configuration, layout, and advisory details from AUM ESTATES Gurgaon." />
+  <meta name="twitter:image" content="https://aumestates.com/assets/aum-estates-share.png" />
+
+  <link rel="stylesheet" href="../assets/styles.css?v=20261122k" />
+  <link rel="stylesheet" href="../assets/motion.css?v=20261122k" />
+  <script src="../assets/motion.js?v=20261122k"></script>
+  <script src="../assets/lead-client.js?v=20261122k"></script>
 </head>
 <body class="property-page">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
 
   <!-- ======================================================================
        Site Header
@@ -178,12 +195,12 @@
     </nav>
   </header>
 
-  <main>
+  <main id="main-content">
     <!-- Breadcrumb Bar -->
     <div style="background:var(--quiet);border-bottom:1px solid var(--line);padding:12px 0;">
       <div class="container" style="font-size:13px;color:var(--muted);">
-        <a href="../#home" style="color:var(--ink);">Home</a> &nbsp;/&nbsp;
-        <a href="../#browse" style="color:var(--ink);">Properties</a> &nbsp;/&nbsp;
+        <a href="../index.html" style="color:var(--ink);">Home</a> &nbsp;/&nbsp;
+        <a href="index.html" style="color:var(--ink);">Properties</a> &nbsp;/&nbsp;
         <span id="breadcrumb-title" style="color:var(--accent);font-weight:600;">Property Particulars</span>
       </div>
     </div>
@@ -193,7 +210,7 @@
       <div class="container">
         <div class="eyebrow" id="detail-eyebrow" style="color:var(--accent);">AUM ESTATES · PROPERTY REFERENCE</div>
         <h1 id="detail-title" style="margin:4px 0 8px;">Property Particulars</h1>
-        <p id="detail-location" style="color:#cbd5e1;font-size:16px;"></p>
+        <p id="detail-location" style="color:var(--muted);font-size:16px;"></p>
       </div>
     </section>
 
@@ -269,7 +286,7 @@
               </div>
 
               <div style="margin-top:20px;border-top:1px solid var(--line);padding-top:16px;">
-                <a href="../#browse" onclick="if(window.history.length>1){window.history.back();return false;}" style="font-size:13px;font-weight:700;color:var(--accent);display:inline-flex;align-items:center;gap:4px;">
+                <a href="index.html" onclick="if(window.history.length>1){window.history.back();return false;}" style="font-size:13px;font-weight:700;color:var(--accent);display:inline-flex;align-items:center;gap:4px;">
                   ← Back to Property Collection
                 </a>
               </div>
@@ -334,8 +351,8 @@
     </div>
   </footer>
 
-  <script src="../data/public_inventory.js?v=20261112"></script>
-  <script src="detail.js?v=20261112"></script>
+  <script src="../data/public_inventory.js?v=20261122k"></script>
+  <script src="detail.js?v=20261122k"></script>
   <script>
   (function(){
     const toggle = document.getElementById('menu-toggle');

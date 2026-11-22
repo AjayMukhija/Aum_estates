@@ -4,8 +4,11 @@ const fs = require('node:fs');
 const path = require('node:path');
 const crypto = require('node:crypto');
 const { PATHS } = require('../config');
-const { validateAndProjectPublicRecord, scanTextForLeaks } = require('./privacy_gate');
-const { formatPublicPriceDisplay } = require('./normalizer');
+const { validateAndProjectPublicRecord, scanTextForLeaks, stripSourcingProvenance } = require('./privacy_gate');
+const { formatPublicPriceDisplay,
+  normalizePublicVocabulary,
+  isGenericPlaceholderImage
+} = require('./normalizer');
 const { recordAuditLog } = require('../db/connection');
 
 function sha256(content) {
@@ -119,21 +122,43 @@ function compileFeeds(db, options = {}) {
 
   const publicFeatured = featuredRows.map((r) => {
     const effectivePrice = formatPublicPriceDisplay(r);
+    // The card used to read description straight off the raw master row,
+    // which skips the public projection and every scrub it applies — that
+    // is how "Broker asking price ₹60 Cr" reached the featured cards on the
+    // home page. Take the already-projected record instead.
+    const projected = publicRecords.find((p) => p.property_id === r.property_id);
     const card = {
       property_id: r.property_id,
-      name: publicRecords.find((p) => p.property_id === r.property_id).listing_title,
+      name: projected.listing_title,
       location: [...new Set([r.locality, r.sector, r.city].filter(Boolean))].join(', '),
       type: r.property_type,
-      description: r.public_description || r.key_features || '',
+      description: projected.public_description || stripSourcingProvenance(r.key_features) || '',
       price_text: effectivePrice,
       price_value: effectivePrice.replace(/^₹/, ''),
       features: [r.configuration, r.area_value ? `${r.area_value} ${r.area_unit || ''}`.trim() : null].filter(Boolean).join(' · '),
-      image: `assets/property-images/${r.image_file || 'apartment.jpg'}`,
+      // null when there is no genuine photograph, so the card renders the
+      // neutral panel instead of defaulting to stock filler.
+      image: isGenericPlaceholderImage(r.image_file) || !r.image_file
+        ? null
+        : `assets/property-images/${r.image_file}`,
       transaction_type: r.transaction_type || 'Sale',
       category: r.category === 'commercial' ? 'Commercial' : (r.category === 'plot' ? 'Plot' : 'Residential'),
-      slug: publicRecords.find((p) => p.property_id === r.property_id).slug,
-      image_label: r.image_label || 'Representative Visual'
+      slug: projected.slug,
+      image_label: r.image_label || 'Representative image'
     };
+
+    // Several of the fields above are read straight off the master row, so
+    // they never pass through the public projection. House vocabulary is
+    // applied here instead of field by field, which is also what stops the
+    // next field added to this card from shipping raw worksheet wording.
+    // Identifiers and paths are left exactly as built.
+    const VERBATIM = new Set(['property_id', 'slug', 'image', 'price_value']);
+    for (const [k, v] of Object.entries(card)) {
+      if (typeof v === 'string' && !VERBATIM.has(k)) {
+        card[k] = normalizePublicVocabulary(v);
+      }
+    }
+
     for (const [k, v] of Object.entries(card)) {
       if (typeof v === 'string') {
         for (const leak of scanTextForLeaks(`featured.${r.property_id}.${k}`, v)) {

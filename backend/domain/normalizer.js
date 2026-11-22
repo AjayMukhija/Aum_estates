@@ -168,7 +168,47 @@ function cleanListingTitle(title, projectName) {
     .replace(/\s+OC tower$/i, ' (OC Received)')
     .replace(/\s+#\d+$/i, '')
     .replace(/\s*;\s*\d+(?:\.\d+)?%\s*brokerage.*$/i, '')
+    // "Unspecified" is the worksheet's empty cell, not a fact about the
+    // property: "DLF Phase 1 Unspecified DLF Phase 1 500 sq yd Plot".
+    .replace(/\bunspecified\b/gi, ' ')
+    // Internal option numbering from the dealer's sheet — "… 2nd + roof
+    // right - Option 13" means nothing to a buyer.
+    .replace(/\s*[-–]\s*option\s*\d+\b/gi, '')
+    // Removing the two above routinely leaves the locality stated twice in
+    // a row; collapse any immediately repeated phrase.
+    .replace(/\b([\w][\w\s.&'’-]{3,40}?)\s+\1\b/gi, '$1')
+    // Survey-grade precision reads as imported data, not as a description.
+    .replace(/\b(\d+)\.\d+(\s*sq\s*(?:yd|ft|m))\b/gi, (_, n, unit) => `${n}${unit}`)
+    .replace(/\s{2,}/g, ' ')
+    .replace(/\s+([;,.])/g, '$1')
+    .replace(/^[\s;,.-]+|[\s;,.-]+$/g, '')
     .trim();
+}
+
+/**
+ * price_text is printed as the price on every card. Some rows carry a
+ * worksheet note there instead of a figure — "MP", "Confirm unit", "Price
+ * not supplied", "Market rates" — and one carries an internal aside,
+ * "(source messages differ)". Anything with no number in it is not a price
+ * and is shown as the standard on-request wording; a real figure keeps its
+ * number and loses only the aside.
+ */
+function normalizePublicPriceText(priceText, transactionType) {
+  const text = cleanWhitespace(priceText);
+  if (!text) return null;
+
+  const isRental = /rent|lease/i.test(String(transactionType || '')) || /\brent\b/i.test(text);
+  const onRequest = isRental ? 'Rent on Request' : 'Price on Request';
+
+  // Internal asides about where the number came from are not for buyers.
+  const stripped = cleanWhitespace(
+    text.replace(/\s*\((?:[^)]*\b(?:source|messages?|differ|verify|wording)\b[^)]*)\)/gi, '')
+  );
+
+  if (!stripped || !/\d/.test(stripped)) return onRequest;
+  if (/^price\s*on\s*(?:request|call)$/i.test(stripped)) return onRequest;
+
+  return stripped;
 }
 
 function formatPublicPriceDisplay(record) {
@@ -495,10 +535,98 @@ function composePublicDescription(row) {
   return cleanWhitespace(sentences.join(' '));
 }
 
+/**
+ * Stock filler standing in for a photograph.
+ *
+ * These nine files are byte-identical placeholders, not pictures of the
+ * property. Two are actively damaging: villa.jpg has the words
+ * "VILLA / HOUSE" burned into it, and plot-land-user.jpg is a phone
+ * snapshot of a littered roadside that 104 plot listings were using as
+ * their photograph. sushant-lok-plot.jpg is the same roadside file under a
+ * project-specific name, so matching by name alone would have missed it.
+ *
+ * Suppressed from the public feed so the front end can show a neutral
+ * typographic panel instead. Nothing is deleted: intake still records its
+ * best guess, and a listing that later gets a real photograph shows it
+ * without any further change.
+ */
+const GENERIC_PLACEHOLDER_IMAGES = new Set([
+  'apartment.jpg',
+  'builder-floor.jpg',
+  'commercial.jpg',
+  'office.jpg',
+  'plot.jpg',
+  'plot-land-user.jpg',
+  'shop.jpg',
+  'sushant-lok-plot.jpg',
+  'villa.jpg'
+]);
+
+function isGenericPlaceholderImage(file) {
+  return typeof file === 'string' && GENERIC_PLACEHOLDER_IMAGES.has(file.trim().toLowerCase());
+}
+
+/**
+ * House style for buyer-facing text.
+ *
+ * The master is filled from dealer worksheets, so public copy inherited
+ * trade shorthand and inconsistent casing: "3 BHK + servant" (100
+ * occurrences), "Naksha Pass" (46), and "Sq Yd" / "sq yd" / "SQ YD" used
+ * interchangeably across 255 titles. None of it is wrong to a Gurgaon
+ * dealer; all of it reads as unedited on an English-language advisory site.
+ *
+ * Applied to every public string field at projection time, so it holds on
+ * each publish no matter how a record entered the master.
+ *
+ * Note on "kothi": deliberately left alone. It is current, well-understood
+ * NCR usage for an independent house and the clientele uses it; translating
+ * it would flatten the register rather than improve it.
+ */
+function normalizePublicVocabulary(value) {
+  if (typeof value !== 'string' || !value) return value;
+
+  return value
+    // "servant quarters" / "servant room" / bare "+ servant" -> staff.
+    .replace(/\bservants?[\s-]*(?:quarters?|qtrs?)\b/gi, 'Staff Quarters')
+    .replace(/\bservants?[\s-]*rooms?\b/gi, 'Staff Room')
+    .replace(/\bservants?\b/gi, 'Staff Room')
+    // "Naksha pass(ed)" is a sanctioned building plan.
+    .replace(/\bnaksha\s*pass(?:ed)?\b/gi, 'Sanctioned Plan')
+    .replace(/\bnaksha\b/gi, 'Building Plan')
+    // One casing for areas and configurations.
+    .replace(/\bsq\.?\s*ft\.?\b/gi, 'sq ft')
+    .replace(/\bsq\.?\s*yd?s?\.?\b/gi, 'sq yd')
+    .replace(/\bsq\.?\s*m(?:tr)?s?\.?\b/gi, 'sq m')
+    .replace(/\b(\d+)\s*bhk\b/gi, '$1 BHK')
+    // Photo disclosure. The point is that the image may not be the actual
+    // unit; "Representative Reference Photograph" says it three times and
+    // shouts it over the photograph in a badge.
+    .replace(/\brepresentative\s+reference\s+photographs?\b/gi, 'Representative image')
+    .replace(/\brepresentative\s+(?:visual|photographs?)\b/gi, 'Representative image')
+    // "Unspecified" is the worksheet's empty cell. It reaches the public
+    // text through micro_location ("Unspecified DLF Phase 1"), which
+    // composePublicDescription folds into the place phrase, so cleaning the
+    // title alone left it in 19 descriptions.
+    .replace(/\bunspecified\b/gi, ' ')
+    // Removing it leaves the locality stated twice, separated by a comma or
+    // a space: "in DLF Phase 1, DLF Phase 1;".
+    .replace(/\b([\w][\w\s.&'’-]{3,40}?)(?:,\s*|\s+)\1\b/gi, '$1')
+    // Collapse the double spaces any of the above can leave behind.
+    .replace(/\s{2,}/g, ' ')
+    .replace(/,\s*(?=[;,.])/g, '')
+    .replace(/\s+,/g, ',')
+    .replace(/\s+([;,.])/g, '$1')
+    .trim();
+}
+
 module.exports = {
   cleanWhitespace,
   normText,
   slugify,
+  normalizePublicVocabulary,
+  normalizePublicPriceText,
+  isGenericPlaceholderImage,
+  GENERIC_PLACEHOLDER_IMAGES,
   normalizeAreaSqFt,
   normalizePriceInr,
   normalizeRentInr,

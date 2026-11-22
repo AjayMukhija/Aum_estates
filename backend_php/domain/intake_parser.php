@@ -587,7 +587,9 @@ final class IntakeParser
         $extractedAdvisorNotes = $quarantined['extractedAdvisorNotes'];
 
         $projectName = Normalizer::cleanWhitespace((string)$pick('project_name', 'project', 'building_name'));
-        $listingTitle = Normalizer::cleanListingTitle((string)$pick('listing_title', 'title', 'website_display_name'), $projectName);
+        $rawListingTitle = (string)$pick('listing_title', 'title', 'website_display_name');
+        $titleFloorMarker = Normalizer::extractFloorMarker($rawListingTitle);
+        $listingTitle = Normalizer::cleanListingTitle(Normalizer::stripFloorMarker($rawListingTitle), $projectName);
         $rawArea = $pick('area_value', 'area', 'size');
         $areaValue = is_numeric($rawArea) ? (float)$rawArea : null;
         $areaUnit = Normalizer::cleanWhitespace((string)$pick('area_unit', 'unit', 'size_unit')) ?: ($areaValue ? 'Sq Ft' : null);
@@ -652,7 +654,7 @@ final class IntakeParser
             'area_value' => $areaValue,
             'area_unit' => $areaUnit,
             'area_sqft_norm' => $areaSqFtNorm,
-            'floor_label' => Normalizer::cleanWhitespace((string)$pick('floor_label', 'floor')),
+            'floor_label' => Normalizer::cleanWhitespace((string)$pick('floor_label', 'floor')) ?: $titleFloorMarker,
             'total_floors' => Normalizer::cleanWhitespace((string)$pick('total_floors')),
             'facing' => Normalizer::cleanWhitespace((string)$pick('facing')),
             'road_width' => Normalizer::cleanWhitespace((string)$pick('road_width')),
@@ -674,6 +676,20 @@ final class IntakeParser
 
         $publicRecord['category'] = Normalizer::classifyCategory($publicRecord);
         $publicRecord['corridor'] = Normalizer::classifyCorridor($publicRecord);
+        if (Normalizer::containsUnitCode($publicRecord['public_description'])) {
+            $stripped = Normalizer::stripUnitCodes($publicRecord['public_description']);
+            if ($stripped && !preg_match('/^[A-Z0-9]/', $stripped)) {
+                $rebuilt = Normalizer::composePublicDescription($publicRecord);
+                $parts = array_filter(array_map(fn($p) => Normalizer::cleanWhitespace($p), array_slice(explode(';', $stripped), 1)));
+                $residual = implode('; ', $parts);
+                $combined = Normalizer::cleanWhitespace(implode(' ', array_filter([$rebuilt, $residual])));
+                $stripped = $combined ?: $rebuilt;
+            }
+            $publicRecord['public_description'] = $stripped ?: null;
+        }
+        if (!Normalizer::cleanWhitespace($publicRecord['public_description'])) {
+            $publicRecord['public_description'] = Normalizer::composePublicDescription($publicRecord) ?: null;
+        }
         $publicRecord['image_file'] = Normalizer::cleanWhitespace((string)$pick('image_file')) ?: Normalizer::resolveRepresentativeImage($publicRecord);
         $publicRecord['slug'] = Normalizer::cleanWhitespace((string)$pick('slug')) ?: Normalizer::slugify("{$propertyId}-{$listingTitle}");
         $publicRecord['url'] = "https://aumestates.com/properties/detail.html?id=" . rawurlencode($propertyId);

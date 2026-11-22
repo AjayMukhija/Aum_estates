@@ -10,6 +10,21 @@ final class PrivacyGate
     public const PROPERTY_ID_REGEX = '/^[A-Z0-9][A-Z0-9-]{2,47}$/';
 
     /**
+     * Machine values, not prose — the twin of VERBATIM_STRING_FIELDS in
+     * backend/domain/privacy_gate.js. The prose pass sentence-cases each
+     * clause, which turned every slug into "Aum-web-000001-…" and every url
+     * into "Https://aumestates.com/…".
+     */
+    public const VERBATIM_STRING_FIELDS = [
+        'property_id',
+        'project_id',
+        'slug',
+        'url',
+        'image_file',
+        'last_verified'
+    ];
+
+    /**
      * Extracts all candidate 10-digit Indian phone numbers (contiguous, spaced, or hyphenated)
      * while ignoring currency strings prefixed by ₹ / Rs / INR.
      */
@@ -153,6 +168,62 @@ final class PrivacyGate
      * Separates sensitive commercial/payment/broker clauses out of legacy semi-public strings
      * so they are preserved inside property_private and cleanly removed from public fields.
      */
+    /**
+     * Removes sourcing provenance from buyer-facing text. PHP twin of
+     * stripSourcingProvenance in backend/domain/privacy_gate.js.
+     *
+     * quarantineSensitiveClauses only runs at intake, and the API projects
+     * live rows straight out of the master, so "Broker asking price X" was
+     * still reaching /api/public/properties even after the static feed was
+     * cleaned. A rewrite rather than a leak rule, for the same reason as in
+     * the Node gate: flagging it would fail and drop a third of the
+     * inventory instead of publishing it cleanly.
+     */
+    public static function stripSourcingProvenance(?string $value): ?string
+    {
+        if (!is_string($value) || $value === '') {
+            return $value;
+        }
+
+        $endedWithPeriod = (bool)preg_match('/\.\s*$/', $value);
+        $kept = [];
+
+        foreach (preg_split('/\s*;\s*/', $value) as $rawPart) {
+            $part = preg_replace('/\.\s*$/', '', trim($rawPart));
+            if ($part === '') {
+                continue;
+            }
+            if (preg_match('/^separate\s+broker\s+record$/i', $part)) {
+                continue;
+            }
+            if (preg_match('/^broker[-\s]?(?:sourced|listed|quoted)\b[^;]*\binventory$/i', $part)) {
+                continue;
+            }
+
+            $part = preg_replace('/^broker(?:[-\s]*quoted)?\s+asking\s+price\b/i', 'Asking price', $part);
+            $part = preg_replace('/^broker[-\s]?(?:sourced|listed|quoted)\s+/i', '', $part);
+            $part = trim($part);
+            if ($part === '') {
+                continue;
+            }
+            // Each clause reads as its own statement in this telegraphic
+            // style, so every one is capitalised. Identifier fields never
+            // reach here; see VERBATIM_STRING_FIELDS.
+            $kept[] = ucfirst($part);
+        }
+
+        if (count($kept) === 0) {
+            return null;
+        }
+
+        $out = implode('; ', $kept);
+        if ($endedWithPeriod && !str_ends_with($out, '.')) {
+            $out .= '.';
+        }
+
+        return $out;
+    }
+
     public static function quarantineSensitiveClauses(array $record): array
     {
         $paymentNotes = [];
@@ -272,10 +343,29 @@ final class PrivacyGate
             $val = $row[$field] ?? null;
 
             if ($field === 'listing_title') {
-                $val = Normalizer::cleanListingTitle($val, $row['project_name'] ?? null);
+                $val = Normalizer::cleanListingTitle(Normalizer::stripFloorMarker((string)$val), $row['project_name'] ?? null);
+            }
+            if ($field === 'public_description') {
+                if (Normalizer::containsUnitCode((string)$val)) {
+                    $val = Normalizer::stripUnitCodes((string)$val);
+                    if ($val && !preg_match('/^[A-Z0-9]/', $val)) {
+                        $rebuilt = Normalizer::composePublicDescription($row);
+                        $parts = array_filter(array_map(fn($p) => Normalizer::cleanWhitespace($p), array_slice(explode(';', $val), 1)));
+                        $residual = implode('; ', $parts);
+                        $combined = Normalizer::cleanWhitespace(implode(' ', array_filter([$rebuilt, $residual])));
+                        $val = $combined ?: $rebuilt;
+                    }
+                }
+                if (!Normalizer::cleanWhitespace((string)$val)) {
+                    $val = Normalizer::composePublicDescription($row) ?: null;
+                }
             }
             if ($field === 'url') {
                 $val = "https://aumestates.com/properties/detail.html?id=" . rawurlencode($id ?? '');
+            }
+            // Stock filler is not a photograph of the property.
+            if ($field === 'image_file' && Normalizer::isGenericPlaceholderImage($val)) {
+                $val = null;
             }
             if ($field === 'image_file' && $val !== null && !preg_match('/^[A-Za-z0-9_.-]+\.(?:jpe?g|png|webp|svg|avif)$/i', (string)$val)) {
                 $errors[] = 'Invalid public image filename';
@@ -347,7 +437,24 @@ final class PrivacyGate
                     $errors[] = "Field \"{$field}\" must be a primitive string, got object";
                     $projected[$field] = null;
                 } else {
-                    $projected[$field] = Normalizer::cleanWhitespace((string)$val);
+                    // Scrubbed on every projection, not just at intake, so the
+                    // API cannot serve wording the static feed no longer carries.
+                    // Identifiers skip the prose pass entirely; see
+                    // VERBATIM_STRING_FIELDS.
+                    if (in_array($field, self::VERBATIM_STRING_FIELDS, true)) {
+                        $scrubbed = Normalizer::cleanWhitespace((string)$val);
+                    } else {
+                        $scrubbed = Normalizer::normalizePublicVocabulary(
+                            self::stripSourcingProvenance(Normalizer::cleanWhitespace((string)$val))
+                        );
+                    }
+                    if (($scrubbed === null || $scrubbed === '') && $field === 'public_description') {
+                        $scrubbed = Normalizer::composePublicDescription($row) ?: null;
+                    }
+                    if ($field === 'price_text') {
+                        $scrubbed = Normalizer::normalizePublicPriceText($scrubbed, $row['transaction_type'] ?? null);
+                    }
+                    $projected[$field] = ($scrubbed === '') ? null : $scrubbed;
                 }
             }
 

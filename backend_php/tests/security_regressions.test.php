@@ -20,6 +20,7 @@ require_once __DIR__ . '/../domain/search_engine.php';
 require_once __DIR__ . '/../domain/shortlist.php';
 require_once __DIR__ . '/../domain/publisher.php';
 require_once __DIR__ . '/../domain/intake_parser.php';
+require_once __DIR__ . '/../domain/share_preview.php';
 require_once __DIR__ . '/../routes/router.php';
 require_once __DIR__ . '/../routes/public_routes.php';
 require_once __DIR__ . '/../routes/crm_routes.php';
@@ -533,6 +534,144 @@ $runTest('Import: cheque and keys-in-hand wording is quarantined out of public t
         array_merge($res['publicRecord'], ['availability_state' => 'available'])
     );
     assertTrue2($chk['ok'], 'a quarantined record must pass the privacy gate: ' . implode('; ', $chk['errors']));
+});
+
+/**
+ * The prose scrubber sentence-cases every clause it keeps, and it was being
+ * applied to identifier fields too: every slug became "Aum-web-000001-…" and
+ * every url "Https://aumestates.com/…" across all 347 published records. No
+ * page on the site read either field, so it shipped invisibly — and a
+ * capitalised scheme is not a URL, which the share preview depends on.
+ */
+$runTest('Projection: slugs and urls survive verbatim, prose is still scrubbed', function () {
+    $res = \AumEstates\Domain\PrivacyGate::validateAndProjectPublicRecord([
+        'property_id' => 'AUM-WEB-000001',
+        'slug' => 'aum-web-000001-vatika-inxt-city-centre-sf',
+        'url' => 'https://aumestates.com/properties/detail.html?id=AUM-WEB-000001',
+        'listing_title' => 'Vatika INXT City Centre',
+        'public_description' => 'broker-listed independent kothi on a 12-metre road',
+        'publication_state' => 'approved_public',
+        'availability_state' => 'available',
+        'transaction_type' => 'Sale'
+    ]);
+
+    assertTrue2($res['ok'], 'record must pass the gate: ' . implode('; ', $res['errors']));
+    $rec = $res['record'];
+
+    // The gate composes the slug itself, so this pins its CASING, which is
+    // what the bug destroyed — not the exact composition.
+    assertSame2(
+        strtolower((string)$rec['slug']),
+        (string)$rec['slug'],
+        'slug must stay lowercase, not sentence-cased'
+    );
+    assertTrue2(
+        str_starts_with((string)$rec['slug'], 'aum-web-000001-'),
+        'slug must still be built from the property id: ' . $rec['slug']
+    );
+    assertSame2(
+        'https://aumestates.com/properties/detail.html?id=AUM-WEB-000001',
+        $rec['url'],
+        'url scheme must not be sentence-cased'
+    );
+
+    // The identifier bypass must not weaken the scrub it sits beside.
+    assertTrue2(
+        !preg_match('/broker/i', (string)$rec['public_description']),
+        'sourcing provenance must still be stripped from prose'
+    );
+    assertTrue2(
+        str_starts_with((string)$rec['public_description'], 'Independent'),
+        'a clause that lost its leading qualifier must still be capitalised'
+    );
+});
+
+/**
+ * properties/detail.html is static HTML filled in by JavaScript, and no
+ * link-preview crawler runs JavaScript, so a shared dossier showed the generic
+ * site card instead of the property. Every call to action on the site ends in
+ * WhatsApp, so that card is the referral.
+ */
+$runTest('Share preview: a property link previews as that property, for every visitor', function () {
+    $sp = \AumEstates\Domain\SharePreview::class;
+
+    // There must be no user-agent branch: Hostinger's CDN caches by URL and
+    // varies only on Accept-Encoding, so two responses on one URL get served
+    // interchangeably to buyers and crawlers alike.
+    assertTrue2(
+        !method_exists($sp, 'isCrawler'),
+        'share previews must not branch on the user agent behind a CDN that does not vary on it'
+    );
+
+    $feed = $sp::locateFeed(null);
+    assertTrue2($feed !== null, 'the published feed must be locatable');
+
+    // An unknown id must not fabricate a preview for a withdrawn listing.
+    assertTrue2($sp::findRecord($feed, 'AUM-WEB-999999') === null, 'an unknown id must not resolve');
+    assertTrue2($sp::findRecord($feed, '../../etc/passwd') === null, 'a traversal sequence must not resolve');
+
+    $rows = json_decode((string)file_get_contents($feed), true);
+    assertTrue2(is_array($rows) && count($rows) > 0, 'feed must carry records');
+    $row = $rows[0];
+
+    // Reachable by id and by slug, and both must describe the same listing.
+    $byId = $sp::findRecord($feed, (string)$row['property_id']);
+    $bySlug = $sp::findRecord($feed, (string)$row['slug']);
+    assertTrue2($byId !== null, 'lookup by property_id must resolve');
+    assertTrue2($bySlug !== null, 'lookup by slug must resolve');
+    assertSame2($byId['property_id'], $bySlug['property_id'], 'id and slug must resolve to one listing');
+
+    $meta = $sp::buildMeta($byId);
+    assertTrue2(
+        str_contains($meta['title'], (string)$row['listing_title']),
+        'the card title must name the property, not the site'
+    );
+    assertTrue2(str_ends_with($meta['title'], '| AUM ESTATES'), 'the card must still be attributed');
+    assertTrue2(
+        str_starts_with($meta['url'], 'https://aumestates.com/properties/detail.html?id='),
+        'the canonical url must point at the dossier: ' . $meta['url']
+    );
+    assertTrue2(
+        str_starts_with($meta['image'], 'https://aumestates.com/'),
+        'og:image must be absolute, or no crawler will fetch it'
+    );
+    assertTrue2(mb_strlen($meta['description']) <= 301, 'description must be truncated for the card');
+
+    // A listing with no photograph of its own falls back to the brand card
+    // rather than to a stock image of somewhere else.
+    $noPhoto = $sp::buildMeta(array_merge($byId, ['image_file' => null]));
+    assertSame2(
+        'https://aumestates.com' . $sp::FALLBACK_IMAGE,
+        $noPhoto['image'],
+        'a listing without a photograph must fall back to the brand card'
+    );
+
+    // The response must be the REAL dossier page with metadata substituted,
+    // not a stub: a buyer and a crawler receive the same bytes.
+    $detail = __DIR__ . '/../../AUM_ESTATES_Website_For_Hostinger/properties/detail.html';
+    assertTrue2(is_file($detail), 'the dossier page must exist to substitute into');
+    $page = $sp::renderDossier($detail, $meta);
+    assertTrue2($page !== null, 'the dossier must render');
+
+    assertTrue2(str_contains($page, 'detail.js'), 'the rendered page must still be the working dossier');
+    assertSame2(
+        1,
+        preg_match_all('/<title>/i', $page),
+        'exactly one title must survive substitution'
+    );
+    assertSame2(
+        1,
+        preg_match_all('/property="og:title"/i', $page),
+        'exactly one og:title must survive substitution'
+    );
+    assertTrue2(
+        str_contains($page, 'content="' . htmlspecialchars($meta['title'], ENT_QUOTES) . '"'),
+        'the per-property title must be the one present'
+    );
+    assertTrue2(
+        !str_contains($page, 'Property Particulars | AUM ESTATES Gurgaon'),
+        'the generic placeholder metadata must be gone'
+    );
 });
 
 echo "\n======================================================================\n";

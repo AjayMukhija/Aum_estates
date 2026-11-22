@@ -559,7 +559,14 @@ test('Fresh operational seed excludes demo clients; featured identities and pric
   const context = { window: {} }; require('node:vm').runInNewContext(fs.readFileSync(path.join(targetPaths.hostingerDataDir, 'approved_properties.js'), 'utf8'), context);
   for (const card of context.window.AUM_APPROVED_PROPERTIES) {
     const row = db.prepare('SELECT * FROM properties WHERE property_id=?').get(card.property_id);
-    assert.equal(card.name, row.listing_title);
+    // The card carries the public projection of the master row, not the raw
+    // column: the projection strips sourcing provenance and applies house
+    // vocabulary ("3 BHK + servant" -> "3 BHK + Staff Room"). Comparing
+    // against the projection still proves the identity came from the master
+    // rather than a demo seed, which is what this test is for.
+    const projectedTitle = require('./domain/privacy_gate')
+      .validateAndProjectPublicRecord(row).record.listing_title;
+    assert.equal(card.name, projectedTitle);
     assert.equal(card.price_text, require('./domain/normalizer').formatPublicPriceDisplay(row));
   }
   assert.equal(db.prepare("SELECT is_featured_approved FROM properties WHERE property_id='AUM-WEB-000142'").get().is_featured_approved, 0);

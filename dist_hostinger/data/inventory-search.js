@@ -70,6 +70,12 @@
     return 'apartment';
   }
 
+  // Byte-identical stock filler, not photographs of the property. Mirrors
+  // GENERIC_PLACEHOLDER_IMAGES in backend/domain/normalizer.js: when the
+  // resolver lands on one of these, the card draws a neutral panel instead.
+  const GENERIC_PLACEHOLDER_IMAGES = ['apartment.jpg','builder-floor.jpg','building.jpg','commercial.jpg','office.jpg','plot.jpg','plot-land-user.jpg','shop.jpg','sushant-lok-plot.jpg','villa.jpg'];
+  function isGenericPlaceholderImage(f){ return typeof f==='string' && GENERIC_PLACEHOLDER_IMAGES.indexOf(f.trim().toLowerCase())!==-1; }
+
   function representativeImage(o){
     const c=representativeCategory(o);
     if(c === 'plot') return 'plot-land-user.jpg';
@@ -493,10 +499,13 @@
     const wa=whatsappUrl(o);
     const image=representativeImage(o);
     const imageLabel=representativeLabel(o);
+    const hasPhoto=!isGenericPlaceholderImage(image);
     const badgeText = o.image_label && o.image_label !== '*RP' ? esc(o.image_label) : 'Representative Image';
     const locStr = locationLabel(o) || 'Gurgaon';
     const priceStr = priceLabel(o);
-    return `<article class="result-card" data-property-id="${esc(o.property_id || '')}" data-title="${esc(publicName)}" data-price="${esc(priceStr)}" data-location="${esc(locStr)}"><div class="result-photo" data-bg="${imagePathPrefix}${image}"><span class="representative-badge">${badgeText}</span><span class="result-type">${esc(imageLabel)}</span></div><div class="result-body"><div class="result-location">${esc(locStr)}</div><h3>${esc(publicName)}</h3><p class="result-config">${esc([o.configuration,o.bedrooms?`${o.bedrooms} BHK`:'',areaLabel(o)].filter(Boolean).join(' · '))}</p><p class="result-desc">${esc(o.public_description||o.key_features||'Property details available on enquiry.')}</p><div class="result-bottom"><strong class="tabular-nums">${esc(priceStr)}</strong><div class="result-actions"><a class="view-details" href="${detailHref}">View Dossier →</a><a class="result-contact" href="${wa}" target="_blank" rel="noopener">Inquire on WhatsApp</a></div></div>${features.length?`<div class="result-features">${features.map(f=>`<span>${esc(f.trim())}</span>`).join('')}</div>`:''}</div></article>`;
+    return `<article class="result-card" data-property-id="${esc(o.property_id || '')}" data-title="${esc(publicName)}" data-price="${esc(priceStr)}" data-location="${esc(locStr)}">${hasPhoto
+      ? `<div class="result-photo" data-bg="${imagePathPrefix}${image}"><span class="representative-badge">${badgeText}</span><span class="result-type">${esc(imageLabel)}</span></div>`
+      : `<div class="result-photo photo-placeholder"><span class="photo-placeholder-type">${esc(imageLabel)}</span><span class="photo-placeholder-note">Photography available on enquiry</span></div>`}<div class="result-body"><div class="result-location">${esc(locStr)}</div><h3>${esc(publicName)}</h3><p class="result-config">${esc([o.configuration,o.bedrooms?`${o.bedrooms} BHK`:'',areaLabel(o)].filter(Boolean).join(' · '))}</p><p class="result-desc">${esc(o.public_description||o.key_features||'Property details available on enquiry.')}</p><div class="result-bottom"><strong class="tabular-nums">${esc(priceStr)}</strong><div class="result-actions"><a class="view-details" href="${detailHref}">View Dossier →</a><a class="result-contact" href="${wa}" target="_blank" rel="noopener">Inquire on WhatsApp</a></div></div>${features.length?`<div class="result-features">${features.map(f=>`<span>${esc(f.trim())}</span>`).join('')}</div>`:''}</div></article>`;
   }
 
   if (typeof document !== 'undefined') {
@@ -599,6 +608,9 @@
   }
 
   let renderResults = function(){};
+  // The first render is the page loading, not a change the user made. Stay
+  // silent for it; announce every render after.
+  let liveRegionReady = false;
 
   function setupKeywordSearch(inputId, formId){
     const input=document.getElementById(inputId);
@@ -726,20 +738,32 @@
     const count=document.getElementById('result-count');
     if(count) count.textContent=results.length;
 
+    const categoryName={residential:'Residential',commercial:'Commercial',plot:'Plots & Land',farmhouse:'Farmhouses','builder-floor':'DLF Builder Floors'}[params.category]||'';
+    const bits=[
+      params.mode==='buy'?'Buy':params.mode==='rent'?'Rent':params.mode==='commercial'?'Commercial':params.mode==='plot'?'Plot & Land':'All properties',
+      categoryName,
+      params.location,
+      params.type,
+      params.size,
+      params.budget,
+      params.q ? `Keyword: “${params.q}”` : ''
+    ].filter(Boolean);
+    const summaryText=bits.join(' · ')||'All available search criteria';
+
     const summary=document.getElementById('search-summary');
-    if(summary){
-      const categoryName={residential:'Residential',commercial:'Commercial',plot:'Plots & Land',farmhouse:'Farmhouses','builder-floor':'DLF Builder Floors'}[params.category]||'';
-      const bits=[
-        params.mode==='buy'?'Buy':params.mode==='rent'?'Rent':params.mode==='commercial'?'Commercial':params.mode==='plot'?'Plot & Land':'All properties',
-        categoryName,
-        params.location,
-        params.type,
-        params.size,
-        params.budget,
-        params.q ? `Keyword: “${params.q}”` : ''
-      ].filter(Boolean);
-      summary.textContent=bits.join(' · ')||'All available search criteria';
+    if(summary) summary.textContent=summaryText;
+
+    // Changing a filter rewrites the register without moving focus, and the
+    // controls are often scrolled out of view when it happens. Announce the
+    // outcome so the change is not visual-only. Announced on every render
+    // except the first paint, which the page title and heading already cover.
+    const live=document.getElementById('search-live-region');
+    if(live && liveRegionReady){
+      live.textContent = results.length
+        ? `${results.length} ${results.length===1?'property':'properties'} available. ${summaryText}.`
+        : `No properties match. ${summaryText}. Reset the filters or contact the advisory desk.`;
     }
+    liveRegionReady=true;
 
     const badge=document.getElementById('data-mode-badge');
     if(badge){
@@ -755,8 +779,8 @@
         <h3>No exact matches found</h3>
         <p>We represent exclusive private mandates across Golf Course Road, DLF Phase 1–5, and prime Gurgaon enclaves that are held off-market. Contact our principal advisory desk with your exact requirements for a confidential shortlist.</p>
         <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:18px;">
-          <button type="button" class="btn" id="reset-filters-btn" style="background:var(--bg-page);color:var(--text-main);border:1px solid var(--border-light);">Reset All Filters</button>
-          <a class="btn" style="background:var(--oxblood);color:#ffffff;border:1px solid rgba(197,160,89,0.4);" href="https://wa.me/919873813595?text=Hello%20Ajay%20Mukhija%2C%20I%20am%20looking%20for%20a%20property%20in%20Gurgaon." target="_blank" rel="noopener">Request Private Mandate on WhatsApp →</a>
+          <button type="button" class="btn" id="reset-filters-btn" style="background:var(--paper);color:var(--ink);border:1px solid var(--line);">Reset All Filters</button>
+          <a class="btn" style="background:var(--accent);color:#ffffff;" href="https://wa.me/919873813595?text=Hello%20Ajay%20Mukhija%2C%20I%20am%20looking%20for%20a%20property%20in%20Gurgaon." target="_blank" rel="noopener">Request Private Mandate on WhatsApp →</a>
         </div>
       </div>`;
 

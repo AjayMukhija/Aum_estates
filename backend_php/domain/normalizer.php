@@ -25,6 +25,64 @@ final class Normalizer
 
     private const GENERIC_TYPE = '/^(residential|commercial|property|other)$/i';
 
+    /**
+     * Stock filler standing in for a photograph. Mirrors
+     * GENERIC_PLACEHOLDER_IMAGES in backend/domain/normalizer.js — these
+     * nine files are byte-identical placeholders, not pictures of the
+     * property, so the public feed reports no photograph and the front end
+     * draws a neutral panel instead.
+     */
+    public const GENERIC_PLACEHOLDER_IMAGES = [
+        'apartment.jpg', 'builder-floor.jpg', 'building.jpg', 'commercial.jpg',
+        'office.jpg', 'plot.jpg', 'plot-land-user.jpg', 'shop.jpg',
+        'sushant-lok-plot.jpg', 'villa.jpg',
+    ];
+
+    public static function isGenericPlaceholderImage($file): bool
+    {
+        return is_string($file)
+            && in_array(strtolower(trim($file)), self::GENERIC_PLACEHOLDER_IMAGES, true);
+    }
+
+    /**
+     * House style for buyer-facing text. The PHP twin of
+     * normalizePublicVocabulary in backend/domain/normalizer.js: the API
+     * projects straight from the master, so without this the same trade
+     * shorthand the static feed no longer carries would still reach any
+     * client reading /api/public/properties.
+     */
+    public static function normalizePublicVocabulary(?string $value): ?string
+    {
+        if (!is_string($value) || $value === '') {
+            return $value;
+        }
+
+        $out = $value;
+        $out = preg_replace('/\bservants?[\s-]*(?:quarters?|qtrs?)\b/i', 'Staff Quarters', $out);
+        $out = preg_replace('/\bservants?[\s-]*rooms?\b/i', 'Staff Room', $out);
+        $out = preg_replace('/\bservants?\b/i', 'Staff Room', $out);
+        $out = preg_replace('/\bnaksha\s*pass(?:ed)?\b/i', 'Sanctioned Plan', $out);
+        $out = preg_replace('/\bnaksha\b/i', 'Building Plan', $out);
+        $out = preg_replace('/\bsq\.?\s*ft\.?\b/i', 'sq ft', $out);
+        $out = preg_replace('/\bsq\.?\s*yds?\.?\b/i', 'sq yd', $out);
+        $out = preg_replace('/\bsq\.?\s*m(?:tr)?s?\.?\b/i', 'sq m', $out);
+        $out = preg_replace('/\b(\d+)\s*bhk\b/i', '$1 BHK', $out);
+        $out = preg_replace('/\brepresentative\s+reference\s+photographs?\b/i', 'Representative image', $out);
+        $out = preg_replace('/\brepresentative\s+(?:visual|photographs?)\b/i', 'Representative image', $out);
+        // "Unspecified" is the worksheet's empty cell; it reaches public text
+        // through micro_location ("Unspecified DLF Phase 1"), which the
+        // composed description folds into its place phrase.
+        $out = preg_replace('/\bunspecified\b/i', ' ', $out);
+        // Removing it leaves the locality stated twice, comma- or space-separated.
+        $out = preg_replace('/\b([\w][\w\s.&\x{2019}\'-]{3,40}?)(?:,\s*|\s+)\1\b/iu', '$1', $out);
+        $out = preg_replace('/\s{2,}/', ' ', $out);
+        $out = preg_replace('/,\s*(?=[;,.])/', '', $out);
+        $out = preg_replace('/\s+,/', ',', $out);
+        $out = preg_replace('/\s+([;,.])/', '$1', $out);
+
+        return trim($out);
+    }
+
     public static function cleanWhitespace(?string $val): ?string
     {
         if ($val === null) {
@@ -276,7 +334,50 @@ final class Normalizer
         $res = preg_replace('/\s+OC tower$/i', ' (OC Received)', $res);
         $res = preg_replace('/\s+#\d+$/i', '', $res);
         $res = preg_replace('/\s*;\s*\d+(?:\.\d+)?%\s*brokerage.*$/i', '', $res);
+        // Worksheet residue, mirroring cleanListingTitle in
+        // backend/domain/normalizer.js: the empty-cell marker, internal
+        // option numbering, the locality it leaves stated twice, and
+        // survey-grade decimals.
+        $res = preg_replace('/\bunspecified\b/i', ' ', $res);
+        $res = preg_replace('/\s*[-\x{2013}]\s*option\s*\d+\b/iu', '', $res);
+        $res = preg_replace('/\b([\w][\w\s.&\x{2019}\'-]{3,40}?)\s+\1\b/iu', '$1', $res);
+        $res = preg_replace('/\b(\d+)\.\d+(\s*sq\s*(?:yd|ft|m))\b/i', '$1$2', $res);
+        $res = preg_replace('/\s{2,}/u', ' ', $res);
+        $res = preg_replace('/\s+([;,.])/u', '$1', $res);
+        $res = preg_replace('/^[\s;,.\-]+|[\s;,.\-]+$/u', '', $res);
         return trim($res);
+    }
+
+    /**
+     * price_text is printed as the price on every card. PHP twin of
+     * normalizePublicPriceText in backend/domain/normalizer.js: a value with
+     * no number in it ("MP", "Confirm unit", "Price not supplied") is a
+     * worksheet note, not a price, and internal asides about where a figure
+     * came from are dropped.
+     */
+    public static function normalizePublicPriceText(?string $priceText, ?string $transactionType = null): ?string
+    {
+        $text = self::cleanWhitespace($priceText);
+        if ($text === null || $text === '') {
+            return null;
+        }
+
+        $isRental = preg_match('/rent|lease/i', (string)$transactionType)
+            || preg_match('/\brent\b/i', $text);
+        $onRequest = $isRental ? 'Rent on Request' : 'Price on Request';
+
+        $stripped = self::cleanWhitespace(
+            preg_replace('/\s*\((?:[^)]*\b(?:source|messages?|differ|verify|wording)\b[^)]*)\)/i', '', $text)
+        );
+
+        if ($stripped === null || $stripped === '' || !preg_match('/\d/', $stripped)) {
+            return $onRequest;
+        }
+        if (preg_match('/^price\s*on\s*(?:request|call)$/i', $stripped)) {
+            return $onRequest;
+        }
+
+        return $stripped;
     }
 
     public static function formatPublicPriceDisplay(array $record): string

@@ -11,8 +11,8 @@ window.AUM_APPROVED_PROPERTIES = [
     "image": "assets/property-images/dlf-arbour.jpg",
     "transaction_type": "Sale",
     "category": "Residential",
-    "slug": "aum-web-000137-dlf-arbour-tower-a",
-    "image_label": "Representative Reference Photograph"
+    "slug": "Aum-web-000137-dlf-arbour-tower-a",
+    "image_label": "Representative image"
   },
   {
     "property_id": "AUM-WEB-000151",
@@ -26,8 +26,8 @@ window.AUM_APPROVED_PROPERTIES = [
     "image": "assets/property-images/dlf-park-place.jpg",
     "transaction_type": "Rent",
     "category": "Residential",
-    "slug": "aum-web-000151-dlf-park-place-2282-aravalli",
-    "image_label": "Representative Reference Photograph"
+    "slug": "Aum-web-000151-dlf-park-place-2282-aravalli",
+    "image_label": "Representative image"
   },
   {
     "property_id": "AUM-WEB-000135",
@@ -41,38 +41,38 @@ window.AUM_APPROVED_PROPERTIES = [
     "image": "assets/property-images/dlf-grove.jpg",
     "transaction_type": "Sale",
     "category": "Commercial",
-    "slug": "aum-web-000135-dlf-grove-500-sq-yd-4-bhk-office",
-    "image_label": "Representative Reference Photograph"
+    "slug": "Aum-web-000135-dlf-grove-500-sq-yd-4-bhk-office",
+    "image_label": "Representative image"
   },
   {
     "property_id": "AUM-WEB-000194",
-    "name": "Conscient Elevate 2595 sq ft 3 BHK + servant",
+    "name": "Conscient Elevate 2595 sq ft 3 BHK + Staff Room",
     "location": "Conscient Elevate, 59, Gurgaon",
     "type": "Apartment",
-    "description": "3 BHK + Servant apartment of 2595 sq ft in Conscient Elevate, Sector 59, Gurgaon. Middle/higher. Located on the Golf Course Ext & SPR corridor. Park facing. Offered for sale.",
+    "description": "3 BHK + Staff Room apartment of 2595 sq ft in Conscient Elevate, Sector 59, Gurgaon. Middle/higher. Located on the Golf Course Ext & SPR corridor. Park facing. Offered for sale.",
     "price_text": "Price on Request",
     "price_value": "Price on Request",
-    "features": "3 BHK + Servant · 2595 sq ft",
+    "features": "3 BHK + Staff Room · 2595 sq ft",
     "image": "assets/property-images/elevate-by-hines.webp",
     "transaction_type": "Sale",
     "category": "Residential",
-    "slug": "aum-web-000194-conscient-elevate-2595-sq-ft-3-bhk-servant",
-    "image_label": "Representative Reference Photograph"
+    "slug": "Aum-web-000194-conscient-elevate-2595-sq-ft-3-bhk-Staff Room",
+    "image_label": "Representative image"
   },
   {
     "property_id": "AUM-WEB-000002",
     "name": "Nirvana Deerwood",
     "location": "Nirvana, Gurgaon",
     "type": "Villa / House",
-    "description": "Simplex villa in Nirvana, 360 sq yards, well maintained, Block Deerwood , on 12-metre road and nice location.",
+    "description": "Simplex villa in Nirvana, 360 sq yards, well maintained, Block Deerwood, on 12-metre road and nice location.",
     "price_text": "Price on Request",
     "price_value": "Price on Request",
     "features": "360 Sq Yards",
-    "image": "assets/property-images/villa.jpg",
+    "image": null,
     "transaction_type": "Sale",
     "category": "Residential",
-    "slug": "aum-web-000002-nirvana-deerwood",
-    "image_label": "Representative Reference Photograph"
+    "slug": "Aum-web-000002-nirvana-deerwood",
+    "image_label": "Representative image"
   },
   {
     "property_id": "AUM-WEB-000169",
@@ -86,53 +86,53 @@ window.AUM_APPROVED_PROPERTIES = [
     "image": "assets/property-images/paras-quartier.jpg",
     "transaction_type": "Sale",
     "category": "Residential",
-    "slug": "aum-web-000169-paras-quartier-iconic-tower-6000-sq-ft",
-    "image_label": "Representative Reference Photograph"
+    "slug": "Aum-web-000169-paras-quartier-iconic-tower-6000-sq-ft",
+    "image_label": "Representative image"
   },
   {
     "property_id": "AUM-WEB-000106",
-    "name": "Pioneer Presidia 3 BHK + servant 2595",
+    "name": "Pioneer Presidia 3 BHK + Staff Room 2595",
     "location": "Gurgaon",
     "type": "Apartment",
-    "description": "3 BHK + Servant apartment of 2595 sq ft in Gurgaon. Located on the Golf Course Ext & SPR corridor. Offered for sale.",
+    "description": "3 BHK + Staff Room apartment of 2595 sq ft in Gurgaon. Located on the Golf Course Ext & SPR corridor. Offered for sale.",
     "price_text": "Price on Request",
     "price_value": "Price on Request",
-    "features": "3 BHK + Servant · 2595 sq ft",
+    "features": "3 BHK + Staff Room · 2595 sq ft",
     "image": "assets/property-images/pioneer-presidia.jpg",
     "transaction_type": "Sale",
     "category": "Residential",
-    "slug": "aum-web-000106-pioneer-presidia-3-bhk-servant-2595",
-    "image_label": "Representative Reference Photograph"
+    "slug": "Aum-web-000106-pioneer-presidia-3-bhk-Staff Room-2595",
+    "image_label": "Representative image"
   },
   {
     "property_id": "AUM-WEB-000253",
-    "name": "DLF The Belaire / DLF Belaire 54 3065 sq ft 4 BHK + Servant",
+    "name": "DLF The Belaire / DLF Belaire 54 3065 sq ft 4 BHK + Staff Room",
     "location": "DLF The Belaire / DLF Belaire, 54, Gurgaon",
     "type": "Apartment",
-    "description": "4 BHK + Servant apartment of 3065 sq ft in DLF The Belaire / DLF Belaire, Sector 54, Gurgaon. Located on the Golf Course Road corridor. Park facing. Offered for sale.",
+    "description": "4 BHK + Staff Room apartment of 3065 sq ft in DLF The Belaire / DLF Belaire, Sector 54, Gurgaon. Located on the Golf Course Road corridor. Park facing. Offered for sale.",
     "price_text": "Price on Request",
     "price_value": "Price on Request",
-    "features": "4 BHK + Servant · 3065 sq ft",
+    "features": "4 BHK + Staff Room · 3065 sq ft",
     "image": "assets/property-images/dlf-the-belaire.webp",
     "transaction_type": "Sale",
     "category": "Residential",
-    "slug": "aum-web-000253-dlf-the-belaire-dlf-belaire-54-3065-sq-ft-4-bhk-servant",
-    "image_label": "Representative Reference Photograph"
+    "slug": "Aum-web-000253-dlf-the-belaire-dlf-belaire-54-3065-sq-ft-4-bhk-Staff Room",
+    "image_label": "Representative image"
   },
   {
     "property_id": "AUM-WEB-000134",
-    "name": "Indiabulls Enigma renovated furnished 4 BHK + servant",
+    "name": "Indiabulls Enigma renovated furnished 4 BHK + Staff Room",
     "location": "Gurgaon",
     "type": "Apartment",
-    "description": "4 BHK + Servant apartment of 3400 sq ft in Gurgaon. Located on the Dwarka Expressway & New Gurgaon corridor. Offered for sale.",
+    "description": "4 BHK + Staff Room apartment of 3400 sq ft in Gurgaon. Located on the Dwarka Expressway & New Gurgaon corridor. Offered for sale.",
     "price_text": "₹5.50 Cr",
     "price_value": "5.50 Cr",
-    "features": "4 BHK + Servant · 3400 sq ft",
+    "features": "4 BHK + Staff Room · 3400 sq ft",
     "image": "assets/property-images/indiabulls-enigma.jpg",
     "transaction_type": "Sale",
     "category": "Residential",
-    "slug": "aum-web-000134-indiabulls-enigma-renovated-furnished-4-bhk-servant",
-    "image_label": "Representative Reference Photograph"
+    "slug": "Aum-web-000134-indiabulls-enigma-renovated-furnished-4-bhk-Staff Room",
+    "image_label": "Representative image"
   },
   {
     "property_id": "AUM-WEB-000019",
@@ -146,23 +146,23 @@ window.AUM_APPROVED_PROPERTIES = [
     "image": "assets/property-images/sukoon-asya-project-photo.jpg",
     "transaction_type": "Sale",
     "category": "Residential",
-    "slug": "aum-web-000019-asya-smartliving",
-    "image_label": "Representative Reference Photograph"
+    "slug": "Aum-web-000019-asya-smartliving",
+    "image_label": "Representative image"
   },
   {
     "property_id": "AUM-WEB-000296",
     "name": "Udyog Vihar Phase 4 Pre-Rented Building",
     "location": "Udyog Vihar Phase 4, Gurgaon",
     "type": "Pre-Rented Commercial Building",
-    "description": "Udyog Vihar Phase 4 Pre-Rented Building; Broker-sourced commercial inventory; 1000 sq m plot; approx 28,000 sq ft built-up; listed-company tenant; 3-year lock-in.",
+    "description": "Udyog Vihar Phase 4 Pre-Rented Building; 1000 sq m plot; Approx 28,000 sq ft built-up; Listed-company tenant; 3-year lock-in.",
     "price_text": "₹50 Cr",
     "price_value": "50 Cr",
     "features": "28000 sq ft",
-    "image": "assets/property-images/commercial.jpg",
+    "image": null,
     "transaction_type": "Sale",
     "category": "Commercial",
-    "slug": "aum-web-000296-udyog-vihar-phase-4-pre-rented-building",
-    "image_label": "Representative Reference Photograph"
+    "slug": "Aum-web-000296-udyog-vihar-phase-4-pre-rented-building",
+    "image_label": "Representative image"
   },
   {
     "property_id": "AUM-WEB-000269",
@@ -173,11 +173,11 @@ window.AUM_APPROVED_PROPERTIES = [
     "price_text": "₹90 Lacs onwards",
     "price_value": "90 Lacs onwards",
     "features": "Self-use commercial units",
-    "image": "assets/property-images/commercial.jpg",
+    "image": null,
     "transaction_type": "Sale",
     "category": "Commercial",
-    "slug": "aum-web-000269-vantage-aura-self-use-commercial-units",
-    "image_label": "Representative Reference Photograph"
+    "slug": "Aum-web-000269-vantage-aura-self-use-commercial-units",
+    "image_label": "Representative image"
   },
   {
     "property_id": "AUM-WEB-000084",
@@ -188,41 +188,41 @@ window.AUM_APPROVED_PROPERTIES = [
     "price_text": "₹1.30 Cr",
     "price_value": "1.30 Cr",
     "features": "157.04 sq ft",
-    "image": "assets/property-images/commercial.jpg",
+    "image": null,
     "transaction_type": "Sale",
     "category": "Commercial",
-    "slug": "aum-web-000084-sahara-mall-shop-065-gf",
-    "image_label": "Representative Reference Photograph"
+    "slug": "Aum-web-000084-sahara-mall-shop-065-gf",
+    "image_label": "Representative image"
   },
   {
     "property_id": "AUM-WEB-000339",
-    "name": "DLF Phase 1 Shahtoot Marg 1022 Sq Yd Plot",
+    "name": "DLF Phase 1 Shahtoot Marg 1022 sq yd Plot",
     "location": "DLF Phase 1, Gurgaon",
     "type": "Plot / Kothi",
-    "description": "1022 sq yd plot in DLF Phase 1, Shahtoot Marg; Broker asking price ₹60 Cr; confirm details and availability.",
+    "description": "1022 sq yd plot in DLF Phase 1, Shahtoot Marg; Asking price ₹60 Cr; Confirm details and availability.",
     "price_text": "₹60 Cr",
     "price_value": "60 Cr",
     "features": "1022 sq yd",
-    "image": "assets/property-images/plot-land-user.jpg",
+    "image": null,
     "transaction_type": "Sale",
     "category": "Plot",
-    "slug": "aum-web-000339-dlf-phase-1-shahtoot-marg-1022-sq-yd-plot",
-    "image_label": "Representative Reference Photograph"
+    "slug": "Aum-web-000339-dlf-phase-1-shahtoot-marg-1022-sq-yd-plot",
+    "image_label": "Representative image"
   },
   {
     "property_id": "AUM-WEB-000354",
-    "name": "DLF Phase 2 Akashneem Marg 500 Sq Yd Plot; Naksha Pass",
+    "name": "DLF Phase 2 Akashneem Marg 500 sq yd Plot; Sanctioned Plan",
     "location": "DLF Phase 2, Gurgaon",
     "type": "Plot / Kothi",
-    "description": "500 sq yd plot; naksha pass in DLF Phase 2, Akashneem Marg; Broker asking price ₹30 Cr; confirm details and availability.",
+    "description": "500 sq yd plot; Sanctioned Plan in DLF Phase 2, Akashneem Marg; Asking price ₹30 Cr; Confirm details and availability.",
     "price_text": "₹30 Cr",
     "price_value": "30 Cr",
     "features": "500 sq yd",
-    "image": "assets/property-images/plot-land-user.jpg",
+    "image": null,
     "transaction_type": "Sale",
     "category": "Plot",
-    "slug": "aum-web-000354-dlf-phase-2-akashneem-marg-500-sq-yd-plot-naksha-pass",
-    "image_label": "Representative Reference Photograph"
+    "slug": "Aum-web-000354-dlf-phase-2-akashneem-marg-500-sq-yd-plot-Building Plan-pass",
+    "image_label": "Representative image"
   },
   {
     "property_id": "AUM-WEB-000204",
@@ -233,10 +233,10 @@ window.AUM_APPROVED_PROPERTIES = [
     "price_text": "₹4.75 Cr",
     "price_value": "4.75 Cr",
     "features": "180 sq yd",
-    "image": "assets/property-images/plot-land-user.jpg",
+    "image": null,
     "transaction_type": "Sale",
     "category": "Plot",
-    "slug": "aum-web-000204-south-city-1-180-sq-yd-east-and-park-facing-plot",
-    "image_label": "Representative Reference Photograph"
+    "slug": "Aum-web-000204-south-city-1-180-sq-yd-east-and-park-facing-plot",
+    "image_label": "Representative image"
   }
 ];

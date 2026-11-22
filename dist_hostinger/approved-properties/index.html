@@ -5,13 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Curated Opportunities | AUM ESTATES Gurgaon</title>
   <meta name="description" content="Explore hand-picked, public reference opportunities represented by AUM ESTATES across Gurgaon and Delhi NCR." />
+  <!-- Sharing preview. Every call to action on this site ends in WhatsApp,
+       so a shared link is a referral: without these it rendered as a bare
+       URL with no title, description or image. -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="AUM ESTATES" />
+  <meta property="og:locale" content="en_IN" />
+  <meta property="og:title" content="Curated Opportunities | AUM ESTATES Gurgaon" />
+  <meta property="og:description" content="Explore hand-picked, public reference opportunities represented by AUM ESTATES across Gurgaon and Delhi NCR." />
+  <meta property="og:url" content="https://aumestates.com/approved-properties/" />
+  <meta property="og:image" content="https://aumestates.com/assets/aum-estates-share.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="AUM ESTATES — private property advisory, Gurgaon, established 2002" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Curated Opportunities | AUM ESTATES Gurgaon" />
+  <meta name="twitter:description" content="Explore hand-picked, public reference opportunities represented by AUM ESTATES across Gurgaon and Delhi NCR." />
+  <meta name="twitter:image" content="https://aumestates.com/assets/aum-estates-share.png" />
+
   <link rel="canonical" href="https://aumestates.com/approved-properties/" />
   <meta name="robots" content="index,follow" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../assets/styles.css?v=20261112" />
+  <link rel="stylesheet" href="../assets/styles.css?v=20261122k" />
+  <link rel="stylesheet" href="../assets/motion.css?v=20261122k" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -29,9 +44,11 @@
     }
   }
   </script>
-  <script src="../assets/lead-client.js?v=20261112"></script>
+  <script src="../assets/motion.js?v=20261122k"></script>
+  <script src="../assets/lead-client.js?v=20261122k"></script>
 </head>
 <body class="property-page">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
 
   <!-- ======================================================================
        Site Header
@@ -175,8 +192,8 @@
     <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile Navigation">
       <form action="../properties/index.html" method="GET" style="margin-bottom:12px;">
         <div style="position:relative;display:flex;align-items:center;">
-          <input name="q" placeholder="Search corridor, BHK, or project..." style="width:100%;padding:10px 38px 10px 14px;background:rgba(255,255,255,0.08);border:1px solid rgba(197,160,89,0.35);border-radius:6px;color:#fff;font-size:13.5px;" />
-          <button type="submit" aria-label="Submit search" style="position:absolute;right:8px;background:none;border:none;color:var(--gold-metallic);cursor:pointer;padding:4px;display:flex;align-items:center;">
+          <input name="q" placeholder="Search corridor, BHK, or project..." style="width:100%;min-height:44px;padding:10px 38px 10px 0;background:none;border:0;border-bottom:1px solid var(--line);border-radius:0;color:var(--ink);font-size:var(--body);" />
+          <button type="submit" aria-label="Submit search" style="position:absolute;right:8px;background:none;border:none;color:var(--accent);cursor:pointer;padding:4px;display:flex;align-items:center;">
             <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
           </button>
         </div>
@@ -197,11 +214,11 @@
     </nav>
   </header>
 
-  <main>
+  <main id="main-content">
     <!-- Hero -->
     <section class="property-hero">
       <div class="container">
-        <div class="eyebrow" style="color:var(--gold-metallic);">AUM ESTATES · CURATED PORTFOLIO</div>
+        <div class="eyebrow" style="color:var(--accent);">AUM ESTATES · CURATED PORTFOLIO</div>
         <h1>Curated Property Opportunities</h1>
         <p>Hand-picked opportunities vetted for title clarity, pricing realism, and direct transaction readiness.</p>
       </div>
@@ -273,7 +290,7 @@
     </div>
   </footer>
 
-  <script src="../data/approved_properties.js?v=20261112"></script>
+  <script src="../data/approved_properties.js?v=20261122k"></script>
   <script>
   (function(){
     const toggle = document.getElementById('menu-toggle');
@@ -326,9 +343,9 @@
             <h3>${esc(x.name)}</h3>
             <p>${esc(x.description)}</p>
             <div class="price tabular-nums">${esc(x.price_text || 'Price on request')}</div>
-            <div style="display:flex;gap:10px;margin-top:auto;">
-              <a class="view-details" style="flex:1;text-align:center;" href="${detailLink}">View Details</a>
-              <a class="result-contact" style="flex:1;text-align:center;" href="https://wa.me/919873813595?text=${waText}" target="_blank" rel="noopener">WhatsApp</a>
+            <div class="card-actions">
+              <a class="view-details" href="${detailLink}">View Dossier →</a>
+              <a class="result-contact" href="https://wa.me/919873813595?text=${waText}" target="_blank" rel="noopener">Inquire on WhatsApp</a>
             </div>
           </div>
         </article>`;

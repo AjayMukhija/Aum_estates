@@ -1,7 +1,18 @@
 'use strict';
 
 const { OFFICIAL_PHONES, ALLOWED_PUBLIC_FIELDS } = require('../config');
-const { cleanWhitespace, cleanListingTitle, slugify } = require('./normalizer');
+const {
+  cleanWhitespace,
+  cleanListingTitle,
+  slugify,
+  stripUnitCodes,
+  containsUnitCode,
+  stripFloorMarker,
+  composePublicDescription,
+  normalizePublicVocabulary,
+  normalizePublicPriceText,
+  isGenericPlaceholderImage
+} = require('./normalizer');
 
 const PROPERTY_ID_REGEX = /^[A-Z0-9][A-Z0-9-]{2,47}$/;
 
@@ -17,6 +28,23 @@ const NUMERIC_PUBLIC_FIELDS = new Set([
 const STRING_PUBLIC_FIELDS = new Set(
   ALLOWED_PUBLIC_FIELDS.filter((f) => !NUMERIC_PUBLIC_FIELDS.has(f) && f !== 'things_to_confirm')
 );
+
+/**
+ * Machine values, not prose. They must survive projection byte-for-byte:
+ * the prose pipeline sentence-cases each clause, which turned every slug
+ * into "Aum-web-000001-…" and every url into "Https://aumestates.com/…".
+ * Nothing on the site read those two fields, so it stayed invisible — but
+ * the server-rendered share preview reads `url`, and a capitalised scheme
+ * is not a URL.
+ */
+const VERBATIM_STRING_FIELDS = new Set([
+  'property_id',
+  'project_id',
+  'slug',
+  'url',
+  'image_file',
+  'last_verified'
+]);
 
 /**
  * Extracts all candidate 10-digit Indian phone numbers (contiguous, spaced, or hyphenated)
@@ -120,6 +148,65 @@ function scanTextForLeaks(field, value) {
   }
 
   return violations;
+}
+
+/**
+ * Removes sourcing provenance from buyer-facing text.
+ *
+ * `quarantineSensitiveClauses` only runs at intake and seed, so rows that
+ * entered the master before it existed — or through any other path — keep
+ * phrases like "Broker-sourced commercial inventory" inside
+ * public_description, and every publish re-emits them. This runs inside the
+ * projection instead, so the public feed is scrubbed on every release
+ * regardless of what the stored column happens to hold.
+ *
+ * Three shapes, three treatments:
+ *   "Broker asking price ₹9 Cr"          -> "Asking price ₹9 Cr"  (keep the
+ *      number, drop the channel: what the broker quotes is our commercial
+ *      position, not the buyer's business)
+ *   "Broker-sourced commercial inventory" -> dropped entirely (pure internal
+ *      provenance, no buyer value)
+ *   "Broker-listed independent kothi …"   -> "Independent kothi …" (strip the
+ *      qualifier, keep the sentence)
+ *
+ * Deliberately a rewrite and not a `scanTextForLeaks` rule: a leak rule
+ * fails the record, and 119 of 347 listings carry this wording, so flagging
+ * it would silently drop a third of the inventory from the site.
+ */
+const SOURCING_WHOLE_CLAUSE = [
+  /^separate\s+broker\s+record$/i,
+  /^broker[-\s]?(?:sourced|listed|quoted)\b[^;]*\binventory$/i
+];
+
+function stripSourcingProvenance(value) {
+  if (typeof value !== 'string' || !value) return value;
+
+  const endedWithPeriod = /\.\s*$/.test(value);
+  const kept = [];
+
+  for (const rawPart of value.split(/\s*;\s*/)) {
+    let part = rawPart.trim().replace(/\.\s*$/, '');
+    if (!part) continue;
+
+    if (SOURCING_WHOLE_CLAUSE.some((re) => re.test(part))) continue;
+
+    // "Broker asking price X" / "Broker-quoted asking price X" -> "Asking price X"
+    part = part.replace(/^broker(?:[-\s]*quoted)?\s+asking\s+price\b/i, 'Asking price');
+    // Any remaining leading sourcing qualifier.
+    part = part.replace(/^broker[-\s]?(?:sourced|listed|quoted)\s+/i, '');
+
+    part = part.trim();
+    if (!part) continue;
+    // Each clause reads as its own statement in this telegraphic style, so
+    // every one is capitalised — ~700 clauses depend on it ("multiple units
+    // available" -> "Multiple units available"). Identifier fields never
+    // reach here; see VERBATIM_STRING_FIELDS.
+    kept.push(part.charAt(0).toUpperCase() + part.slice(1));
+  }
+
+  if (kept.length === 0) return null;
+  const out = kept.join('; ');
+  return endedWithPeriod && !out.endsWith('.') ? `${out}.` : out;
 }
 
 /**
@@ -236,8 +323,24 @@ function validateAndProjectPublicRecord(row) {
   const projected = {};
   for (const field of ALLOWED_PUBLIC_FIELDS) {
     let val = row[field];
-    if (field === 'listing_title') val = cleanListingTitle(val, row.project_name);
+    if (field === 'listing_title') val = cleanListingTitle(stripFloorMarker(val), row.project_name);
+    if (field === 'public_description') {
+      if (containsUnitCode(val)) {
+        val = stripUnitCodes(val);
+        if (val && !/^[A-Z0-9]/.test(val)) {
+          const rebuilt = composePublicDescription(row);
+          const residual = val.split(';').slice(1).map((p) => cleanWhitespace(p)).filter(Boolean).join('; ');
+          val = cleanWhitespace([rebuilt, residual].filter(Boolean).join(' ')) || rebuilt;
+        }
+      }
+      if (!cleanWhitespace(val)) {
+        val = composePublicDescription(row) || null;
+      }
+    }
     if (field === 'url') val = `https://aumestates.com/properties/detail.html?id=${encodeURIComponent(id || '')}`;
+    // Stock filler is not a photograph of the property: drop it so the
+    // front end renders a neutral panel rather than a misleading picture.
+    if (field === 'image_file' && isGenericPlaceholderImage(val)) val = null;
     if (field === 'image_file' && val != null && !/^[A-Za-z0-9_.-]+\.(?:jpe?g|png|webp|svg|avif)$/i.test(val)) errors.push('Invalid public image filename');
     if (field === 'slug') val = slugify(`${id}-${cleanListingTitle(row.listing_title, row.project_name)}`);
 
@@ -283,7 +386,23 @@ function validateAndProjectPublicRecord(row) {
         errors.push(`Field "${field}" must be a primitive string, got object`);
         projected[field] = null;
       } else {
-        projected[field] = cleanWhitespace(String(val));
+        // Scrubbed on every publish, not just at intake — see
+        // stripSourcingProvenance for why this lives here. Identifiers skip
+        // the prose pass entirely; see VERBATIM_STRING_FIELDS.
+        let scrubbed = VERBATIM_STRING_FIELDS.has(field)
+          ? cleanWhitespace(String(val)) || null
+          : normalizePublicVocabulary(stripSourcingProvenance(cleanWhitespace(String(val))));
+        // A listing whose whole description was sourcing boilerplate (31 of
+        // them read only "Broker-sourced commercial inventory") would
+        // otherwise be published with no description at all. Rebuild one
+        // from the record's own attributes instead of shipping a blank.
+        if (!scrubbed && field === 'public_description') {
+          scrubbed = composePublicDescription(row) || null;
+        }
+        if (field === 'price_text') {
+          scrubbed = normalizePublicPriceText(scrubbed, row.transaction_type);
+        }
+        projected[field] = scrubbed;
       }
     }
 
@@ -307,6 +426,7 @@ module.exports = {
   STRING_PUBLIC_FIELDS,
   findPrivatePhones,
   scanTextForLeaks,
+  stripSourcingProvenance,
   quarantineSensitiveClauses,
   validateAndProjectPublicRecord
 };
