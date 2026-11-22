@@ -1,0 +1,399 @@
+/*
+ * AUM ESTATES / BRAND STUDY
+ * The functional Property Index remains the constant. These are replaceable
+ * identity layers, intentionally isolated from the search and factual data.
+ */
+
+.intro-statement { position: relative; isolation: isolate; }
+.intro-statement > .eyebrow, .intro-statement > h1 { position: relative; z-index: 1; }
+.brand-field {
+  position: absolute; top: -10px; right: -6px;
+  width: clamp(112px, 13vw, 174px); height: clamp(114px, 12vw, 158px);
+  overflow: hidden; pointer-events: none; opacity: .85;
+  background: #fff;
+}
+.brand-field canvas, .studio-preview canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: none; }
+.brand-field-symbol { position: absolute; top: 19px; left: 23px; font-size: 20px; font-weight: 650; letter-spacing: -.065em; }
+.brand-field-axis { position: absolute; right: 10px; bottom: 9px; width: 21px; height: 21px; border-right: 1px solid var(--accent); border-bottom: 1px solid var(--accent); }
+.brand-field-axis::after { content: ''; display: block; position: absolute; top: 8px; left: 9px; width: 21px; height: 1px; background: var(--accent); transform: rotate(45deg); }
+
+/* 01 — DATUM: exact geometry, no simulated material. */
+body[data-brand="datum"] .brand-field,
+body[data-brand="datum"] .studio-preview {
+  background-color: #fff;
+  background-image:
+    linear-gradient(90deg, transparent calc(50% - .5px), #d7dbd8 50%, transparent calc(50% + .5px)),
+    linear-gradient(transparent calc(50% - .5px), #d7dbd8 50%, transparent calc(50% + .5px)),
+    repeating-linear-gradient(90deg, #edf0ed 0 1px, transparent 1px 24px),
+    repeating-linear-gradient(0deg, #edf0ed 0 1px, transparent 1px 24px);
+}
+body[data-brand="datum"] .site-header { position: relative; }
+body[data-brand="datum"] .site-header::after {
+  content: ''; position: absolute; bottom: 0; left: var(--gutter); right: var(--gutter);
+  height: 1px; background: var(--line);
+}
+body[data-brand="datum"] .category-name::after { content: ''; display: block; height: 2px; width: 22px; background: var(--accent); margin-top: 8px; }
+body[data-brand="datum"] .studio-preview-mark { letter-spacing: -.085em; }
+
+/* 02 — SUN: optical depth stays outside the information system. */
+body[data-brand="sun"] .brand-field,
+body[data-brand="sun"] .studio-preview {
+  background: repeating-linear-gradient(109deg, rgba(236,240,233,.65) 0 2px, #fff 4px 18px, #e4eae1 20px 21px, #fff 28px 34px);
+}
+body[data-brand="sun"] .brand-field canvas,
+body[data-brand="sun"] .studio-preview canvas,
+body[data-brand="atlas"] .brand-field canvas,
+body[data-brand="atlas"] .studio-preview canvas { display: block; }
+body[data-brand="sun"] .brand-field-symbol, body[data-brand="sun"] .brand-field-axis,
+body[data-brand="atlas"] .brand-field-symbol, body[data-brand="atlas"] .brand-field-axis { display: none; }
+body[data-brand="sun"] .intro-statement h1 { font-weight: 460; }
+body[data-brand="sun"] .category-summary { border-left: 2px solid transparent; }
+body[data-brand="sun"] .property-category[open] .category-summary { border-left-color: var(--accent); padding-left: 16px; }
+body[data-brand="sun"] .site-footer { background-image: linear-gradient(115deg, #fff 45%, #f9faf8 100%); }
+
+/* 03 — ATLAS: abstract relief, not a geographic data claim. */
+body[data-brand="atlas"] .brand-field,
+body[data-brand="atlas"] .studio-preview {
+  background-color: #fff;
+  background-image: repeating-radial-gradient(ellipse at 58% 55%, transparent 0 13px, #e9eeea 14px 15px, transparent 16px 24px);
+}
+body[data-brand="atlas"] .index-intro { position: relative; }
+body[data-brand="atlas"] .index-intro::before {
+  content: 'PLACE  /  03'; pointer-events: none; position: absolute; right: 0; top: -12px;
+  font-size: var(--caption); font-weight: 600; color: #adb8b0; letter-spacing: .13em;
+}
+body[data-brand="atlas"] .category-summary { background-image: linear-gradient(90deg, var(--line) 0 35px, transparent 35px); background-position: left bottom; background-size: 100% 1px; background-repeat: no-repeat; }
+body[data-brand="atlas"] .tile-index span:first-child { border: 1px solid var(--line); padding: 2px 6px; }
+
+/* 04 — SCREEN: a contemporary perforation, not an applied heritage motif. */
+body[data-brand="screen"] .brand-field,
+body[data-brand="screen"] .studio-preview {
+  background-color: #fff;
+  background-image:
+    radial-gradient(circle at center, #d4dad3 0 27%, transparent 30%),
+    linear-gradient(135deg, #fff 28%, #f1f3ef 83%);
+  background-size: 19px 19px, 100% 100%;
+}
+body[data-brand="screen"] .brand-field-symbol { top: auto; left: auto; bottom: 9px; right: 12px; padding: 3px 6px; font-size: 13px; background: white; }
+body[data-brand="screen"] .brand-field-axis { display: none; }
+body[data-brand="screen"] .index-heading { position: relative; }
+body[data-brand="screen"] .index-heading::before {
+  content: ''; position: absolute; top: -9px; right: 0; width: 94px; height: 9px; opacity: .65;
+  background: radial-gradient(circle, var(--accent) 1px, transparent 1.5px) 0 0 / 10px 9px;
+}
+body[data-brand="screen"] .site-footer .footer-lead::after {
+  content: ''; display: block; width: 120px; height: 30px; margin-top: 20px; opacity: .55;
+  background: radial-gradient(circle, #aeb8af 1px, transparent 1.5px) 0 0 / 12px 12px;
+}
+
+/* 05 — IMPRINT: physical printing, warm material presence without dirt. */
+body[data-brand="imprint"] .brand-field,
+body[data-brand="imprint"] .studio-preview {
+  background: linear-gradient(135deg, #fff 0%, #f5f7f4 52%, #fff 100%);
+  box-shadow: inset 1px 1px 0 #fff, inset -2px -2px 4px #e3e8e2, 2px 3px 0 #eef0ed;
+  border: 1px solid #ecf0eb;
+}
+body[data-brand="imprint"] .brand-field-symbol { top: 20%; left: 18%; font-size: 49px; font-weight: 600; color: #d5dcd5; text-shadow: 1px 1px 0 #fff, -1px -1px 1px #c6cec6; }
+body[data-brand="imprint"] .brand-field-axis { display: none; }
+body[data-brand="imprint"] .brand { letter-spacing: -.065em; }
+body[data-brand="imprint"] .intro-statement h1 { letter-spacing: -.065em; font-weight: 530; }
+body[data-brand="imprint"] .category-name { font-weight: 630; }
+body[data-brand="imprint"] .property-category { border-color: #cbd3cb; }
+body[data-brand="imprint"] .site-footer { border-top: 2px double #cbd3cb; }
+
+/* The study apparatus is distinct from visitor navigation and collapses away. */
+.brand-studio {
+  position: fixed; z-index: 84; right: clamp(16px, 2.7vw, 42px); bottom: 20px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: var(--ink);
+}
+.studio-trigger {
+  display: flex; align-items: center; justify-content: space-between; gap: 20px;
+  width: 292px; min-height: 52px; padding: 10px 17px;
+  border: 1px solid #262c28; border-radius: 0;
+  color: #fff; background: #1b211e; text-align: left; box-shadow: 0 6px 24px rgba(20,31,24,.17);
+}
+.studio-trigger:hover { background: #303a33; }
+.studio-trigger-label { font-size: 11px; letter-spacing: .12em; font-weight: 700; opacity: .68; }
+#studio-current { font-size: 12px; font-weight: 700; letter-spacing: .03em; margin-left: auto; }
+.studio-trigger-icon { color: #d89b90; font-size: 19px; line-height: 1; }
+.studio-trigger[aria-expanded="true"] .studio-trigger-icon { transform: rotate(45deg); }
+.studio-panel {
+  position: absolute; right: 0; bottom: calc(100% + 10px); width: min(470px, calc(100vw - 32px));
+  max-height: min(770px, calc(100dvh - 96px)); overflow: auto;
+  border: 1px solid #d8deda; background: #fff;
+  box-shadow: 0 22px 76px rgba(21,30,22,.18); padding: 24px;
+}
+.studio-header { display: flex; justify-content: space-between; gap: 24px; align-items: flex-start; }
+.studio-header h2 { margin: 7px 0 0; font-size: 25px; letter-spacing: -.05em; line-height: 1.14; font-weight: 580; max-width: 20ch; }
+.studio-overline { display: block; color: var(--accent); font-size: 11px; font-weight: 750; letter-spacing: .09em; }
+.studio-close { width: 32px; height: 32px; border: 0; background: none; font-size: 24px; color: var(--muted); }
+.studio-preview {
+  position: relative; display: block; overflow: hidden; height: 146px; margin-top: 23px;
+  border: 1px solid var(--line); isolation: isolate;
+}
+.studio-preview-mark { position: absolute; left: 24px; top: 27px; font-size: 57px; font-weight: 650; letter-spacing: -.075em; line-height: 1; }
+body[data-brand="sun"] .studio-preview-mark, body[data-brand="atlas"] .studio-preview-mark { display: none; }
+body[data-brand="screen"] .studio-preview-mark { left: auto; right: 22px; top: auto; bottom: 35px; background: white; padding: 6px 10px; }
+body[data-brand="imprint"] .studio-preview-mark { color: #d5dcd5; text-shadow: 2px 2px 0 #fff, -1px -1px 2px #bec9bf; font-size: 76px; }
+.studio-preview-label {
+  position: absolute; left: 0; bottom: 0; padding: 6px 12px 7px 0;
+  background: #fff; font-size: 11px; letter-spacing: .07em; font-weight: 750; color: var(--accent);
+}
+.studio-description { font-size: 14px; line-height: 1.55; color: #4f5a51; min-height: 44px; margin: 15px 0 19px; }
+.studio-board-link { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin: 16px 0 0; padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 13px; font-weight: 700; color: var(--ink); text-decoration: underline; text-underline-offset: 4px; }
+.studio-board-link:hover { color: var(--accent); }
+.studio-board-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.studio-choices { display: grid; grid-template-columns: 1fr; border-top: 1px solid var(--line); }
+.studio-choices button {
+  display: grid; grid-template-columns: 28px minmax(0,1fr) 58px; align-items: center; gap: 13px;
+  width: 100%; min-height: 64px; text-align: left; border: 0; border-bottom: 1px solid var(--line);
+  padding: 10px 0; background: none;
+}
+.studio-choices button:hover { background: #f8faf7; }
+.studio-choices button[aria-pressed="true"] { color: var(--accent); }
+.studio-choices button[aria-pressed="true"] .choice-index { font-weight: 800; }
+.choice-index { font-size: 12px; color: var(--accent); font-variant-numeric: tabular-nums; }
+.studio-choices button strong, .studio-choices button small { display: block; }
+.studio-choices button strong { font-size: 15px; font-weight: 700; }
+.studio-choices button small { font-size: 12px; color: var(--muted); margin-top: 2px; }
+.choice-sample { display: block; width: 58px; height: 40px; border: 1px solid #e1e5e0; }
+.sample-datum { background: repeating-linear-gradient(0deg, transparent 0 10px, #e1e6df 11px), repeating-linear-gradient(90deg, transparent 0 10px, #e1e6df 11px); }
+.sample-sun { background: repeating-linear-gradient(115deg, #fff 0 10px, #d5dcd3 11px 15px, #f5f6f2 16px 27px); }
+.sample-atlas { background: repeating-radial-gradient(ellipse at 60% 40%, #fff 0 6px, #c8d4ca 7px 8px, #fff 9px 14px); }
+.sample-screen { background: radial-gradient(circle, #b6c0b8 2px, white 2.5px) 0 0 / 10px 10px; }
+.sample-imprint { background: linear-gradient(135deg, #fff, #e4ebe2 60%, #fff); box-shadow: inset -2px -2px 2px #d2dbd1; }
+.studio-footnote { display: flex; justify-content: space-between; gap: 16px; margin-top: 16px; font-size: 11px; color: #738077; line-height: 1.5; }
+.studio-footnote span:last-child { text-align: right; white-space: nowrap; }
+
+@media (max-width: 900px) {
+  .brand-field { right: 0; width: 122px; height: 126px; }
+}
+@media (max-width: 600px) {
+  .brand-field { display: none; }
+  .brand-studio { right: 16px; bottom: 14px; }
+  .studio-trigger { width: 229px; min-height: 48px; padding: 8px 13px; gap: 8px; }
+  .studio-trigger-label { font-size: 10px; }
+  #studio-current { font-size: 11px; }
+  .studio-panel { padding: 18px; max-height: calc(100dvh - 82px); }
+  .studio-header h2 { font-size: 22px; }
+  .studio-preview { height: 126px; margin-top: 16px; }
+  .studio-choices button { min-height: 58px; }
+  body[data-brand="atlas"] .index-intro::before { display: none; }
+  body[data-brand="sun"] .property-category[open] .category-summary { padding-left: 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .studio-trigger-icon { transition: none; }
+  .brand-field, .studio-preview { scroll-behavior: auto; }
+}
+
+/*
+ * SECOND PASS / THE CONCEPT MUST BE VISIBLE IN A THREE-SECOND GLANCE.
+ * The first pass only changed ornament. These are complete, independently
+ * coherent compositional treatments of the same functional HTML.
+ * Search, results, source disclosures, and real user data are untouched.
+ */
+
+/* 01 DATUM — exact, Swiss-like register; whitespace is intentional. */
+body[data-brand="datum"] .index-intro { background:#fff; }
+body[data-brand="datum"] .index-heading { border-left:3px solid var(--accent); padding-left:22px; }
+body[data-brand="datum"] .property-category[open] .category-summary { box-shadow:inset 0 -1px var(--line); }
+body[data-brand="datum"] .property-tile { background:#fff; }
+
+/* 02 SUN — pale daylight, large relief, and a floating discovery desk. */
+body[data-brand="sun"] { --accent:#a75b2d; --line:#e1ddd1; --muted:#645f55; color:#252922; background:#fffdf8; }
+body[data-brand="sun"] .site-header { background:#fffdf8; }
+body[data-brand="sun"] .index-intro {
+  margin-inline:calc(-1 * var(--gutter));
+  padding:75px var(--gutter) 82px;
+  min-height:485px;
+  background:
+    repeating-linear-gradient(108deg,transparent 0 34px,rgba(214,165,100,.14) 35px 37px,rgba(255,255,255,.5) 38px 61px),
+    linear-gradient(105deg,#fff9ec 0%,#fffdf8 42%,#eaf1eb 100%);
+  border-bottom:1px solid #e6ddcd;
+  align-items:center;
+}
+body[data-brand="sun"] .intro-statement h1 { font-size:clamp(50px,5.1vw,77px); font-weight:530; letter-spacing:-.072em; max-width:13ch; }
+body[data-brand="sun"] .intro-statement .eyebrow { color:#a75b2d; }
+body[data-brand="sun"] .brand-field { right:-18px; top:-50px; width:clamp(140px,17vw,258px); height:clamp(200px,22vw,310px); opacity:.6; transform:skewX(-6deg); }
+body[data-brand="sun"] .hero-discovery { background:#fff; padding:30px 35px 27px; box-shadow:0 15px 40px rgba(90,85,55,.11),0 0 0 1px rgba(164,130,90,.13); }
+body[data-brand="sun"] .purpose-select-wrap { border-bottom:2px solid #a75b2d; }
+body[data-brand="sun"] .index-heading { margin-top:66px; }
+body[data-brand="sun"] .index-heading h2 { font-size:clamp(28px,3vw,40px); font-weight:540; }
+body[data-brand="sun"] .category-summary { min-height:105px; }
+body[data-brand="sun"] .category-name { font-size:clamp(27px,3vw,37px); font-weight:530; }
+body[data-brand="sun"] .property-photo { aspect-ratio:1.68; }
+body[data-brand="sun"] .property-tile { border-bottom:2px solid #d8ded0; }
+body[data-brand="sun"] .tile-primary h3 { font-size:clamp(25px,2.3vw,34px); }
+body[data-brand="sun"] .service-principles { background:linear-gradient(115deg,#fffcf7,#edf3ec); padding:55px; margin-inline:-55px; }
+body[data-brand="sun"] .site-footer { background:#f6f7f1; border-top-color:#d9ded3; }
+
+/* 03 ATLAS — a deep cartographic reading room, strong light/dark rhythm. */
+body[data-brand="atlas"] { --accent:#a8382a; --line:#d5dfd8; --muted:#5d6b62; background:#fff; }
+body[data-brand="atlas"] .index-intro {
+  position:relative; isolation:isolate;
+  margin-inline:calc(-1 * var(--gutter)); padding:77px var(--gutter) 85px;
+  min-height:500px; align-items:center; background:#173b34; color:#fff; border:0;
+}
+body[data-brand="atlas"] .index-intro::after {
+  content:''; position:absolute; z-index:-1; inset:0 0 0 36%;
+  background:repeating-radial-gradient(ellipse at 62% 42%,transparent 0 19px,rgba(205,230,210,.18) 20px 21px,transparent 22px 33px);
+  mask-image:linear-gradient(90deg,transparent 0%,#000 50%);
+  pointer-events:none;
+}
+body[data-brand="atlas"] .index-intro::before { content:'03 / PLACE & CONTEXT'; right:var(--gutter); top:27px; color:#b8d4c6; font-size:11px; letter-spacing:.12em; }
+body[data-brand="atlas"] .intro-statement .eyebrow { color:#bad9c8; }
+body[data-brand="atlas"] .intro-statement h1 { color:#fff; font-size:clamp(52px,5.5vw,82px); font-weight:550; letter-spacing:-.074em; }
+body[data-brand="atlas"] .brand-field { top:4px; right:-23px; width:clamp(150px,18vw,280px); height:clamp(170px,19vw,290px); opacity:.45; mix-blend-mode:screen; background-color:transparent; }
+body[data-brand="atlas"] .hero-discovery { background:#fff; color:#1b211e; padding:33px 35px 30px; box-shadow:16px 16px 0 rgba(10,25,21,.27); }
+body[data-brand="atlas"] .hero-discovery .eyebrow { color:#467b69; }
+body[data-brand="atlas"] .purpose-select-wrap { border-bottom:2px solid #173b34; }
+body[data-brand="atlas"] .index-heading { padding:25px 0 35px; border-bottom:1px solid var(--line); }
+body[data-brand="atlas"] .index-heading h2 { font-size:clamp(30px,3.3vw,45px); font-weight:600; }
+body[data-brand="atlas"] .category-summary { background:#f1f5f1; padding:27px 24px; margin-top:16px; }
+body[data-brand="atlas"] .category-name { color:#173b34; }
+body[data-brand="atlas"] .property-grid { gap:25px; padding-top:25px; }
+body[data-brand="atlas"] .property-tile { padding:15px; border:1px solid #d9e4d8; }
+body[data-brand="atlas"] .property-photo { aspect-ratio:1.45; }
+body[data-brand="atlas"] .service-principles { border-top:3px solid #173b34; }
+body[data-brand="atlas"] .site-footer { background:#173b34; color:#fff; border-top:0; }
+body[data-brand="atlas"] .site-footer .footer-lead p,
+body[data-brand="atlas"] .site-footer p,
+body[data-brand="atlas"] .site-footer h3 { color:#bed1c4; }
+body[data-brand="atlas"] .site-footer a,
+body[data-brand="atlas"] .site-footer button { color:#fff; }
+
+/* 04 SCREEN — bold red architectural identity, contrast with the white desk. */
+body[data-brand="screen"] { --accent:#aa392d; background:#fff; }
+body[data-brand="screen"] .site-header .brand { letter-spacing:-.09em; font-weight:820; }
+body[data-brand="screen"] .index-intro {
+  isolation:isolate; position:relative;
+  margin-inline:calc(-1 * var(--gutter)); padding:80px var(--gutter);
+  background:#ac3e31; min-height:495px; color:#fff; border:0; align-items:center;
+}
+body[data-brand="screen"] .index-intro::before {
+  content:''; position:absolute; z-index:-1; left:0; top:0; bottom:0; width:56%;
+  background:radial-gradient(circle,rgba(255,255,255,.26) 0 3px,transparent 4px) 0 0/25px 25px;
+  mask-image:linear-gradient(90deg,#000,transparent 95%);
+  pointer-events:none;
+}
+body[data-brand="screen"] .intro-statement h1 { font-size:clamp(56px,5.8vw,88px); color:#fff; font-weight:750; letter-spacing:-.088em; max-width:13ch; }
+body[data-brand="screen"] .intro-statement .eyebrow { color:#fff; letter-spacing:.12em; }
+body[data-brand="screen"] .brand-field { position:absolute; top:-12px; right:7px; width:clamp(155px,20vw,300px); height:clamp(170px,19vw,280px); opacity:.2; background-color:transparent; background-image:radial-gradient(circle,#fff 0 3px,transparent 4px); background-size:23px 23px; }
+body[data-brand="screen"] .brand-field-symbol { display:none; }
+body[data-brand="screen"] .hero-discovery { background:#fff; padding:34px 35px 30px; color:#1b211e; box-shadow:12px 12px 0 #872c23; }
+body[data-brand="screen"] .purpose-select-wrap { border-bottom:3px solid #1b211e; }
+body[data-brand="screen"] .index-heading { border-bottom:3px solid #aa392d; padding-bottom:31px; }
+body[data-brand="screen"] .index-heading h2 { font-size:clamp(30px,3.8vw,49px); font-weight:750; letter-spacing:-.064em; }
+body[data-brand="screen"] .category-summary { border-left:6px solid #aa392d; padding-left:26px; }
+body[data-brand="screen"] .category-name { font-weight:750; font-size:clamp(28px,3.4vw,43px); }
+body[data-brand="screen"] .category-chevron { color:#aa392d; }
+body[data-brand="screen"] .property-grid { gap:24px; }
+body[data-brand="screen"] .property-tile { background:#f8f8f5; padding:16px; border-bottom:0; }
+body[data-brand="screen"] .tile-primary h3 { font-weight:680; }
+body[data-brand="screen"] .service-principles { border-top:3px solid #aa392d; }
+body[data-brand="screen"] .site-footer { border-top:7px solid #aa392d; }
+
+/* 05 IMPRINT — editorial typography and black-on-paper material authority. */
+body[data-brand="imprint"] { --accent:#8c493b; --line:#d8d6ce; --muted:#645f57; color:#201f1a; background:#faf9f5; }
+body[data-brand="imprint"] .site-header { background:#faf9f5; }
+body[data-brand="imprint"] .site-header .brand { font-family:Georgia,"Times New Roman",serif; font-weight:600; letter-spacing:-.06em; }
+body[data-brand="imprint"] .index-intro {
+  margin-inline:calc(-1 * var(--gutter)); padding:75px var(--gutter) 85px;
+  min-height:500px; background:linear-gradient(125deg,#faf9f5,#fff 53%,#f0f0e9); align-items:center;
+  border-top:1px solid #bfc2b7; border-bottom:1px solid #bfc2b7;
+}
+body[data-brand="imprint"] .intro-statement h1 { font-family:Georgia,"Times New Roman",serif; font-weight:400; font-size:clamp(53px,6vw,91px); letter-spacing:-.065em; line-height:1.06; }
+body[data-brand="imprint"] .intro-statement .eyebrow { color:#8c493b; }
+body[data-brand="imprint"] .brand-field { top:-25px; right:-30px; width:clamp(155px,18vw,265px); height:clamp(160px,18vw,265px); opacity:.72; }
+body[data-brand="imprint"] .hero-discovery { border-left:1px solid #b6b8ad; padding:15px 0 15px 37px; }
+body[data-brand="imprint"] .purpose-select-wrap { border-bottom:2px solid #201f1a; }
+body[data-brand="imprint"] .purpose-select-wrap select { font-family:Georgia,"Times New Roman",serif; font-size:clamp(28px,2.8vw,40px); font-weight:400; }
+body[data-brand="imprint"] .index-heading { border-bottom:1px solid #201f1a; }
+body[data-brand="imprint"] .index-heading h2 { font-family:Georgia,"Times New Roman",serif; font-size:clamp(37px,4vw,55px); font-weight:400; letter-spacing:-.05em; }
+body[data-brand="imprint"] .category-summary { min-height:110px; }
+body[data-brand="imprint"] .category-name { font-family:Georgia,"Times New Roman",serif; font-weight:400; font-size:clamp(33px,3.4vw,46px); letter-spacing:-.05em; }
+body[data-brand="imprint"] .property-grid { gap:27px; }
+body[data-brand="imprint"] .property-tile { padding:16px; background:#fff; border:1px solid #dedbd3; box-shadow:3px 3px 0 #edeee8; }
+body[data-brand="imprint"] .tile-primary h3 { font-family:Georgia,"Times New Roman",serif; font-weight:400; font-size:clamp(28px,2.7vw,38px); line-height:1.12; }
+body[data-brand="imprint"] .service-principles { border-top:2px solid #201f1a; }
+body[data-brand="imprint"] .principles-intro h2,
+body[data-brand="imprint"] .principle-list h3 { font-family:Georgia,"Times New Roman",serif; font-weight:400; font-size:clamp(28px,3vw,40px); }
+body[data-brand="imprint"] .site-footer { background:#201f1a; border-top:0; color:#fff; }
+body[data-brand="imprint"] .site-footer .footer-lead strong { font-family:Georgia,"Times New Roman",serif; font-weight:400; }
+body[data-brand="imprint"] .site-footer h3,
+body[data-brand="imprint"] .site-footer p { color:#c7c5ba; }
+body[data-brand="imprint"] .site-footer button,
+body[data-brand="imprint"] .site-footer a { color:#fff; }
+
+/* The large compositions now carry the motif. Do not repeat a detached
+   decorative square behind the headline, where it can collide with type. */
+body[data-brand="sun"] .brand-field,
+body[data-brand="atlas"] .brand-field,
+body[data-brand="screen"] .brand-field,
+body[data-brand="imprint"] .brand-field { display:none; }
+
+/* Interior pages retain each chosen identity without interfering with facts. */
+body[data-brand="sun"] .view-intro { border-color:#ddd6c5; }
+body[data-brand="atlas"] .gallery-identity h1 { color:#173b34; }
+body[data-brand="screen"] .gallery-identity h1 { font-weight:750; }
+body[data-brand="imprint"] .gallery-identity h1 { font-family:Georgia,"Times New Roman",serif; font-size:clamp(33px,3vw,45px); font-weight:400; }
+
+/* Responsive composition, not merely shrink-to-fit. */
+@media (max-width:1100px) {
+  body[data-brand="sun"] .index-intro,
+  body[data-brand="atlas"] .index-intro,
+  body[data-brand="screen"] .index-intro,
+  body[data-brand="imprint"] .index-intro { padding:55px var(--gutter) 65px; min-height:auto; }
+  body[data-brand="sun"] .hero-discovery,
+  body[data-brand="atlas"] .hero-discovery,
+  body[data-brand="screen"] .hero-discovery { max-width:720px; }
+  body[data-brand="sun"] .service-principles { margin-inline:0; padding:35px; }
+}
+@media (max-width:760px) {
+  body[data-brand="sun"] .index-intro,
+  body[data-brand="atlas"] .index-intro,
+  body[data-brand="screen"] .index-intro,
+  body[data-brand="imprint"] .index-intro { padding:43px var(--gutter) 48px; }
+  body[data-brand="sun"] .intro-statement h1,
+  body[data-brand="atlas"] .intro-statement h1,
+  body[data-brand="screen"] .intro-statement h1,
+  body[data-brand="imprint"] .intro-statement h1 { font-size:clamp(44px,8vw,63px); }
+  body[data-brand="sun"] .hero-discovery,
+  body[data-brand="atlas"] .hero-discovery,
+  body[data-brand="screen"] .hero-discovery { padding:25px; box-shadow:none; }
+  body[data-brand="imprint"] .hero-discovery { padding-left:24px; }
+  body[data-brand="atlas"] .index-intro::before { top:12px; right:var(--gutter); }
+  body[data-brand="sun"] .service-principles { padding:25px; }
+}
+@media (max-width:560px) {
+  body[data-brand="sun"] .index-intro,
+  body[data-brand="atlas"] .index-intro,
+  body[data-brand="screen"] .index-intro,
+  body[data-brand="imprint"] .index-intro { padding:36px var(--gutter) 40px; }
+  body[data-brand="sun"] .hero-discovery,
+  body[data-brand="atlas"] .hero-discovery,
+  body[data-brand="screen"] .hero-discovery { padding:20px; }
+  body[data-brand="imprint"] .hero-discovery { border-left:0; border-top:1px solid #b6b8ad; padding:22px 0 0; }
+  body[data-brand="atlas"] .index-intro::before { display:none; }
+  body[data-brand="atlas"] .property-grid,
+  body[data-brand="screen"] .property-grid,
+  body[data-brand="imprint"] .property-grid { gap:26px; }
+  body[data-brand="atlas"] .property-tile,
+  body[data-brand="screen"] .property-tile,
+  body[data-brand="imprint"] .property-tile { padding:13px; }
+  body[data-brand="screen"] .category-summary { padding-left:13px; }
+  body[data-brand="sun"] .service-principles { margin-inline:-10px; padding:20px 10px; }
+}
+
+/* Comparison instrument now previews the dominant brand surfaces. */
+body[data-brand="sun"] .studio-preview { background:repeating-linear-gradient(110deg,#fff 0 26px,#e2e9df 28px 36px,#fff4d9 37px 59px,#c5d5c7 60px 63px); }
+body[data-brand="atlas"] .studio-preview { background-color:#173b34; background-image:repeating-radial-gradient(ellipse at 60% 43%,transparent 0 16px,rgba(216,236,218,.31) 17px 18px,transparent 19px 31px); }
+body[data-brand="atlas"] .studio-preview-label { color:#173b34; }
+body[data-brand="screen"] .studio-preview { background-color:#ac3e31; background-image:radial-gradient(circle,rgba(255,255,255,.5) 0 3px,transparent 4px); background-size:19px 19px; }
+body[data-brand="screen"] .studio-preview-mark { color:#fff; background:transparent; font-size:64px; right:28px; bottom:32px; }
+body[data-brand="screen"] .studio-preview-label { color:#ac3e31; }
+body[data-brand="imprint"] .studio-preview { background:linear-gradient(135deg,#faf9f5,#e3e8df 60%,#fff); }
+body[data-brand="imprint"] .studio-preview-mark { font-family:Georgia,"Times New Roman",serif; font-weight:400; }
+.sample-atlas { background:repeating-radial-gradient(ellipse at 60% 40%,#173b34 0 6px,#b0ccbc 7px 8px,#173b34 9px 14px); }
+.sample-screen { background:radial-gradient(circle,rgba(255,255,255,.75) 2px,#ac3e31 2.5px) 0 0/10px 10px; }

@@ -1,0 +1,32 @@
+# Dependencies & OS artifacts
+node_modules/
+.DS_Store
+*.log
+
+# Environment & Secrets
+.env
+.env.*
+
+# Confidential Master SQLite CRM Vault, Sessions & Release Snapshots
+private_master_store/db/
+private_master_store/releases/
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm
+
+# Local Backups & Temp files
+**/backups/
+*.bak
+*.backup
+*.tmp.*
+
+# Release staging and local credential exports
+.dist_hostinger.*
+dist_hostinger_php/
+admin-credentials.json
+backend_php/db/*.sql
+!backend_php/db/schema.mariadb.sql
+backend_php/logs/
+
+# Raw confidential seed files must never enter public Git history again
+/private_master_store/*.json

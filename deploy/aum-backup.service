@@ -1,0 +1,11 @@
+[Unit]
+Description=Consistent AUM Estates SQLite backup
+
+[Service]
+Type=oneshot
+User=aum
+Group=aum
+WorkingDirectory=/opt/aum-estates
+EnvironmentFile=-/etc/aum-estates.env
+UMask=0077
+ExecStart=/usr/bin/node scripts/backup_database.js

@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Unknown top-level private field is dropped",
+    "passed": true
+  },
+  {
+    "name": "Plain contiguous private phone is flagged",
+    "passed": true
+  },
+  {
+    "name": "Explicit brokerage keyword is flagged",
+    "passed": true
+  }
+]

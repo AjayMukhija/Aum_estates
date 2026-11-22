@@ -1,0 +1,288 @@
+/* AUM ESTATES / Study 05 — two structural compositions, one task model.
+ * Color four has a material/detail role, never an additional call-to-action.
+ * Shallow relief conveys built form without requiring a WebGL scene.
+ */
+:root {
+  --material-accent:#EF4037;
+  --material-shadow:#15151535;
+  --material-faint:#f0f0f0;
+}
+html[data-palette="redwhite"][data-fourth="cobalt"] {
+  --material-accent:#3154A5;--material-shadow:#3154A550;--material-faint:#e9effb;
+}
+html[data-palette="redwhite"][data-fourth="bronze"] {
+  --material-accent:#956C35;--material-shadow:#956C3550;--material-faint:#f4eee2;
+}
+html[data-palette="redwhite"][data-fourth="verdigris"] {
+  --material-accent:#36766C;--material-shadow:#36766C50;--material-faint:#e8f1ef;
+}
+
+.architecture-switcher {
+  background:#fff;
+  border-bottom:1px solid #151515;
+  color:#151515;
+}
+.architecture-switcher-inner {
+  display:grid;
+  grid-template-columns:minmax(185px,2.4fr) minmax(290px,4.3fr) minmax(345px,5.3fr);
+  gap:22px;
+  align-items:stretch;
+  min-height:142px;
+}
+.architecture-switcher-intro {
+  display:flex; flex-direction:column; justify-content:center; gap:8px;
+  padding:17px 0;
+}
+.architecture-switcher-intro p {
+  font:600 11px/17px "IBM Plex Mono",monospace;
+  letter-spacing:.035em;
+}
+.architecture-switcher-intro span {
+  color:#626262;
+  font:400 13px/18px "IBM Plex Sans",sans-serif;
+  max-width:295px;
+}
+.architecture-options {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:1px;
+  background:#151515;
+  border-inline:1px solid #151515;
+}
+.architecture-options button {
+  min-width:0;
+  display:flex; flex-direction:column; align-items:flex-start; justify-content:center;
+  gap:5px;
+  text-align:left;
+  border:0;
+  padding:13px 18px 12px;
+  background:#fff;
+  color:#151515;
+  position:relative;
+}
+.architecture-options button > span {
+  color:#6a6a6a;
+  font:500 11px/16px "IBM Plex Mono",monospace;
+}
+.architecture-options button strong {
+  font:600 15px/20px "IBM Plex Sans",sans-serif;
+  letter-spacing:-.025em;
+}
+.architecture-options button small {
+  color:#626262;
+  font:400 11px/16px "IBM Plex Mono",monospace;
+}
+.architecture-options button[aria-pressed="true"] {background:#151515;color:#fff}
+.architecture-options button[aria-pressed="true"] > span {color:#EF4037}
+.architecture-options button[aria-pressed="true"] small {color:#d1d1d1}
+.architecture-options button:hover:not([aria-pressed="true"]) {background:#f1f1f1}
+.architecture-options button:focus-visible {outline:2px solid #EF4037;outline-offset:-4px;z-index:1}
+
+/* Compact, explicit material and depth controls. A fourth hue is optional. */
+.architectural-materials {display:flex;flex-direction:column;justify-content:center;gap:10px;padding:11px 0;min-width:0}
+.material-row {display:grid;grid-template-columns:82px minmax(0,1fr);gap:9px;align-items:center}
+.material-label {font:500 10px/14px "IBM Plex Mono",monospace;letter-spacing:.055em;color:#505050}
+.material-options,.depth-options {display:flex;align-items:center;gap:3px;min-width:0}
+.material-options button,.depth-options button {border:1px solid transparent;border-radius:0;background:transparent;color:#292929;cursor:pointer;white-space:nowrap;font:500 11px/17px "IBM Plex Sans",sans-serif;padding:4px 5px;display:inline-flex;align-items:center;gap:5px}
+.material-options button[aria-pressed="true"],.depth-options button[aria-pressed="true"] {background:#151515;color:#fff;border-color:#151515}
+.material-options button:hover:not([aria-pressed="true"]),.depth-options button:hover:not([aria-pressed="true"]) {border-color:#aaa}
+.material-options button:focus-visible,.depth-options button:focus-visible {outline:2px solid #EF4037;outline-offset:2px}
+.color-chip {display:inline-block;width:11px;height:11px;flex:0 0 11px;border:1px solid #888;background:#fff}
+.color-chip.no-color {background:linear-gradient(135deg,#fff 0 43%,#c2c2c2 44% 55%,#fff 56%)}
+.color-chip.cobalt-chip {background:#3154A5}
+.color-chip.bronze-chip {background:#956C35}
+.color-chip.verdigris-chip {background:#36766C}
+.material-options button[aria-pressed="true"] .no-color {border-color:#fff}
+.material-note {font:400 11px/15px "IBM Plex Mono",monospace;color:#696969;padding-left:91px;max-width:100%}
+
+.skyline-marker {display:none}
+.hub {padding-top:20px}
+.hub-intro {min-height:109px;padding-bottom:23px}
+.hub-intro-note {max-width:310px}
+.hub-grid {isolation:isolate}
+.route-cell {isolation:isolate}
+.hub-grid .route-cell {cursor:pointer}
+.hub-grid .route-cell .tile-main strong {
+  display:inline-block;
+  text-decoration-line:underline;
+  text-decoration-thickness:1px;
+  text-decoration-color:currentColor;
+  text-underline-offset:6px;
+  text-decoration-skip-ink:auto;
+  transition:text-decoration-thickness .2s ease;
+}
+.hub-grid .route-cell:hover .tile-main strong,
+.hub-grid .route-cell:focus-visible .tile-main strong {text-decoration-thickness:2px}
+.hub-grid .route-cell:focus-visible {outline:3px solid var(--material-accent);outline-offset:-5px;z-index:5}
+html[data-palette="redwhite"]:not([data-fourth="none"]) .route-cell .tile-arrow {color:var(--material-accent)}
+html[data-palette="redwhite"]:not([data-fourth="none"]) .hub-after > span::before {
+  content:"";display:inline-block;width:14px;height:4px;margin:0 10px 2px 0;background:var(--material-accent);
+}
+
+/* 01 / INTERNATIONAL STYLE — structural bays, prominent mullions and
+ * a facade-like window texture revealed only when a tile is engaged. */
+html[data-architecture="international"] .hub-grid {
+  border:2px solid #151515;
+  background:#151515;
+  gap:2px;
+  grid-template-rows:174px 174px 140px;
+  perspective:1200px;
+}
+html[data-architecture="international"] .hub-cell {padding:22px 23px}
+html[data-architecture="international"] .route-cell::before {
+  content:"";
+  position:absolute;
+  inset:0 0 0 auto;
+  width:37%;
+  pointer-events:none;
+  background:repeating-linear-gradient(90deg,transparent 0 21px,#15151527 21px 22px),linear-gradient(90deg,transparent,var(--material-faint));
+  box-shadow:inset 3px 0 0 #15151520;
+  opacity:.48;
+  transform:translateX(18%);
+  transition:transform .4s cubic-bezier(.2,.7,.2,1),opacity .4s ease;
+}
+html[data-architecture="international"] .route-cell:hover::before,
+html[data-architecture="international"] .route-cell:focus-visible::before {transform:translateX(0);opacity:1}
+html[data-architecture="international"] .search-cell {box-shadow:inset -5px 0 0 #151515}
+html[data-architecture="international"] .route-cell:hover,
+html[data-architecture="international"] .route-cell:focus-visible {background:#f2f2f2}
+html[data-architecture="international"] .tile-main strong {letter-spacing:-.045em}
+html[data-architecture="international"][data-depth="relief"] .route-cell {transform:translate3d(0,0,0);transition:transform .24s ease,box-shadow .24s ease,background .22s ease}
+html[data-architecture="international"][data-depth="relief"] .route-cell:hover,
+html[data-architecture="international"][data-depth="relief"] .route-cell:focus-visible {
+  transform:translate3d(-2px,-3px,8px);
+  box-shadow:5px 6px 0 #151515,9px 12px 18px var(--material-shadow);
+  z-index:4;
+}
+html[data-architecture="international"][data-depth="relief"] .search-cell {box-shadow:inset -8px 0 0 #151515,inset 0 -5px 0 #15151525}
+html[data-architecture="international"][data-depth="relief"] .route-cell::after {
+  content:"";position:absolute;right:0;top:0;bottom:0;width:5px;
+  background:linear-gradient(90deg,transparent,#1515151b);pointer-events:none;
+}
+html[data-architecture="international"][data-palette="redwhite"]:not([data-fourth="none"]) .route-cell:hover::after {background:var(--material-accent);opacity:.88;width:3px}
+
+/* 02 / ARCHITECTURAL ELEVATION — drawing-board grammar. The base is
+ * white, the red core becomes a measured accent instead of a solid block. */
+html[data-architecture="elevation"] .hub-grid {
+  border:0;
+  gap:10px;
+  grid-template-rows:174px 174px 140px;
+  background:#fff;
+}
+html[data-architecture="elevation"] .hub-cell {
+  border:1px solid #151515;
+  background:#fff;
+  padding:19px 21px;
+}
+html[data-architecture="elevation"] .search-cell {
+  border-left:9px solid #EF4037;
+  background:#fff;
+}
+html[data-architecture="elevation"] .hub-search button {background:#EF4037;color:#151515}
+html[data-architecture="elevation"] .hub-search button:hover {background:#dc352e}
+html[data-architecture="elevation"] .cell-top,
+html[data-architecture="elevation"] .tile-main small,
+html[data-architecture="elevation"] .tile-reveal {
+  font-family:"IBM Plex Mono",monospace;
+  font-size:11px;
+  letter-spacing:0;
+}
+html[data-architecture="elevation"] .route-cell::before,
+html[data-architecture="elevation"] .route-cell::after {
+  content:"";
+  position:absolute;
+  pointer-events:none;
+  width:17px;height:17px;
+  opacity:.52;
+}
+html[data-architecture="elevation"] .route-cell::before {
+  top:-1px;left:-1px;
+  border-top:2px solid #EF4037;
+  border-left:2px solid #EF4037;
+}
+html[data-architecture="elevation"] .route-cell::after {
+  bottom:-1px;right:-1px;
+  border-bottom:1px solid #151515;
+  border-right:1px solid #151515;
+}
+html[data-architecture="elevation"] .route-cell:hover,
+html[data-architecture="elevation"] .route-cell:focus-visible {background:#f5f5f5}
+html[data-architecture="elevation"] .tile-main strong {
+  font-family:"IBM Plex Mono",monospace;
+  font-size:21px;line-height:30px;
+  letter-spacing:-.065em;
+}
+html[data-architecture="elevation"] .hub-intro-copy h1 {letter-spacing:-.065em}
+html[data-architecture="elevation"] .hub-after {border-top:1px solid #151515;margin-top:11px}
+html[data-architecture="elevation"] .hub-grid {perspective:1400px}
+html[data-architecture="elevation"][data-depth="relief"] .route-cell {
+  transform:translate3d(0,0,0);
+  box-shadow:4px 4px 0 #dedede;
+  transition:transform .25s ease,box-shadow .25s ease,background .2s ease;
+}
+html[data-architecture="elevation"][data-depth="relief"] .route-cell:hover,
+html[data-architecture="elevation"][data-depth="relief"] .route-cell:focus-visible {
+  transform:translate3d(-3px,-3px,6px);
+  box-shadow:8px 8px 0 var(--material-shadow),11px 11px 0 #1515151c;
+  background:#fff;
+  z-index:4;
+}
+html[data-architecture="elevation"][data-depth="relief"] .search-cell {
+  box-shadow:4px 4px 0 #15151525;
+}
+html[data-architecture="elevation"][data-palette="redwhite"]:not([data-fourth="none"]) .route-cell::before {
+  border-color:var(--material-accent);opacity:1;
+}
+html[data-architecture="elevation"][data-palette="redwhite"]:not([data-fourth="none"]) .hub-after {border-color:var(--material-accent)}
+
+@media(max-width:1200px) {
+  .architecture-switcher-inner {grid-template-columns:minmax(160px,2fr) minmax(265px,3.9fr) minmax(300px,5.1fr);gap:13px}
+  .architecture-options button {padding:12px 11px}
+  .architecture-options button strong {font-size:13px;line-height:17px}
+  .material-row {grid-template-columns:67px minmax(0,1fr);gap:5px}
+  .material-options button,.depth-options button {font-size:10px;padding:4px 3px;gap:3px}
+  .material-note {padding-left:72px}
+}
+@media(max-width:950px) {
+  .architecture-switcher-inner {grid-template-columns:1fr 1.8fr;gap:10px 20px;padding-block:15px}
+  .architecture-switcher-intro {padding:0;gap:4px}
+  .architecture-switcher-intro span {max-width:none}
+  .architecture-options {border:1px solid #151515}
+  .architectural-materials {grid-column:1/-1;border-top:1px solid #dedede;padding:9px 0 0;gap:5px}
+  .material-row {grid-template-columns:82px 1fr}
+  .material-options button,.depth-options button {font-size:11px;padding:4px 7px}
+  .material-note {padding-left:91px}
+  html[data-architecture="international"] .hub-grid,
+  html[data-architecture="elevation"] .hub-grid {grid-template-rows:auto;grid-auto-rows:minmax(155px,auto)}
+}
+@media(max-width:650px) {
+  .architecture-switcher-inner {display:block;padding-block:12px}
+  .architecture-switcher-intro p {font-size:10px}
+  .architecture-switcher-intro span {font-size:12px;line-height:17px}
+  .architecture-options {margin-top:12px}
+  .architecture-options button {min-height:77px}
+  .architectural-materials {margin-top:12px}
+  .material-options {flex-wrap:wrap;gap:1px}
+  .material-options button {padding:4px}
+  .material-note {padding-left:0}
+  .hub {padding-top:14px}
+  .hub-intro {min-height:0;padding:17px 0 24px}
+  html[data-architecture="international"] .hub-grid,
+  html[data-architecture="elevation"] .hub-grid {grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:auto}
+  html[data-architecture="international"] .hub-cell,
+  html[data-architecture="elevation"] .hub-cell {padding:17px}
+  html[data-architecture="elevation"] .search-cell {border-left-width:7px}
+  html[data-architecture="elevation"] .tile-main strong {font-size:18px;line-height:26px}
+  html[data-architecture="international"] .search-cell,
+  html[data-architecture="elevation"] .search-cell {min-height:355px}
+  .architecture-options button strong {font-size:13px}
+}
+@media(prefers-reduced-motion:reduce) {
+  .architecture-options button,
+  html[data-architecture="international"] .route-cell::before,
+  html[data-architecture="international"] .route-cell,
+  html[data-architecture="elevation"] .route-cell {transition:none!important}
+  html[data-depth="relief"] .route-cell:hover,
+  html[data-depth="relief"] .route-cell:focus-visible {transform:none!important}
+}
+@media print {.architecture-switcher{display:none}}

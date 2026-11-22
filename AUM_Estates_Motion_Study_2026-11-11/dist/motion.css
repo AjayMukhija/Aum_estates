@@ -1,0 +1,443 @@
+/* ==========================================================================
+   AUM ESTATES — Motion study: the motion system
+   11 November 2026 · private exploration
+
+   One vocabulary, four mechanisms. Rules this file obeys without exception:
+
+   1. The resting state and the reduced-motion state are the SAME state. Every
+      animation below starts from a keyframe and resolves to the element's
+      normal CSS. Nothing relies on an animation to be placed correctly, so
+      killing every animation leaves a correct page. (Production's
+      prefers-reduced-motion block collapses durations to 0.01ms, which would
+      otherwise break any reveal authored the usual way.)
+   2. Content travels at most 8px — one spacing unit. Motion indicates; it
+      does not transport. Lines may travel their full length, because a line
+      being drawn is moving along itself, not across the page.
+   3. Only opacity, transform, clip-path and stroke-dashoffset are animated.
+      No width, height, margin, top/left, filter or box-shadow on content.
+      (grid-template-rows is the one exception, argued at Mechanism 2.)
+   4. Nothing decelerates past its target. No springs, no overshoot, no
+      bounce. A measured drawing does not wobble.
+   5. Every trigger is a user intention: submit, change, click, focus, or
+      hover on a fine pointer. No scroll-linked progress, no idle loops, no
+      autoplay, no fake latency. One exception, stated: the empty-state
+      illustration plays once when it mounts, because its arrival IS the
+      explanation.
+   6. Motion is never the only carrier of a state change. Every transition
+      below is accompanied by a text change, an aria-live announcement, or
+      both, and is correct when the motion is absent.
+   ========================================================================== */
+
+:root {
+  /* --- Durations. Four, and a stagger. ---
+     feedback  interface acknowledgement: hover, focus, press, border, colour
+     state     a change of information state: disclosure, filter, wipe
+     reveal    a surface arriving: image masks, first paint of a register
+     draw      expressive illustration only: the empty-state drawings
+     stagger   per-item offset, hard-capped at 8 items in JS (224ms tail) */
+  --m-feedback: 160ms;
+  --m-state: 220ms;
+  --m-reveal: 320ms;
+  --m-draw: 560ms;
+  --m-stagger: 28ms;
+
+  /* --- Easing. Three, all decelerating. ---
+     settle    arrives and stops precisely. The default.
+     feedback  near-linear, imperceptible, for colour only.
+     draw      a pen: starts promptly, eases off at the end of the stroke. */
+  --e-settle: cubic-bezier(.22, .61, .36, 1);
+  --e-feedback: cubic-bezier(.2, 0, .4, 1);
+  --e-draw: cubic-bezier(.35, 0, .15, 1);
+
+  /* The lab's slow-motion control multiplies every duration. Shipping value
+     is always 1; 4 exists so timing can be compared by eye, not by trust. */
+  --speed: 1;
+
+  --d-feedback: calc(var(--m-feedback) * var(--speed));
+  --d-state: calc(var(--m-state) * var(--speed));
+  --d-reveal: calc(var(--m-reveal) * var(--speed));
+  --d-draw: calc(var(--m-draw) * var(--speed));
+  --d-stagger: calc(var(--m-stagger) * var(--speed));
+}
+
+/* ==========================================================================
+   Layer 0 — interface feedback. Present in every concept INCLUDING the
+   baseline, because it already ships. This is the floor, not a proposal.
+   ========================================================================== */
+
+.btn, .btn-quiet, .chip, .lab-btn, .save-btn, .filter-pill, .verify-flag,
+.nav-link, .underlined, .desk-tab, .tile, .category-summary {
+  transition:
+    background-color var(--d-feedback) var(--e-feedback),
+    border-color var(--d-feedback) var(--e-feedback),
+    color var(--d-feedback) var(--e-feedback);
+}
+
+.field select, .field input {
+  transition: border-color var(--d-feedback) var(--e-feedback);
+}
+
+/* ==========================================================================
+   Mechanism 1 — the disclosure mark
+   All four concepts resolve the mark over --m-state. The baseline snaps,
+   which is what production does today and is here to be compared against.
+   ========================================================================== */
+
+@media (prefers-reduced-motion: no-preference) {
+  html[data-rm="off"]:not([data-concept="baseline"]) .category-mark {
+    transition: transform var(--d-state) var(--e-settle), color var(--d-feedback) var(--e-feedback);
+  }
+}
+html:not([data-concept="baseline"]) .category[open] .category-mark { transform: rotate(180deg); }
+
+/* ==========================================================================
+   Mechanism 2 — category disclosure (interaction opportunity B)
+
+   Height is animated with grid-template-rows: 0fr -> 1fr, which is the only
+   way to resolve to intrinsic content height without measuring in JS. It is
+   a layout animation and therefore the most expensive thing in this file; it
+   is used once per user click on a region that is not scrolling, which is the
+   only context where that cost is acceptable. Production fallback for older
+   engines: no animation at all, i.e. today's behaviour. Never a measured
+   max-height, which lies when content reflows.
+   ========================================================================== */
+
+.category-region { grid-template-rows: 1fr; }
+.category:not([open]) .category-region { grid-template-rows: 0fr; }
+
+@media (prefers-reduced-motion: no-preference) {
+  html[data-rm="off"]:not([data-concept="baseline"]) .category-region {
+    transition: grid-template-rows var(--d-state) var(--e-settle);
+  }
+
+  /* A — Setting Out: the region opens and the rows register to it. */
+  html[data-rm="off"][data-concept="a"] .category[open] .tile {
+    animation: tile-register var(--d-state) var(--e-settle) backwards;
+    animation-delay: calc(var(--d-state) * 0.4 + var(--i, 0) * var(--d-stagger));
+  }
+
+  /* B — Section Cut: the region opens, but the content is wiped in place by
+     a cut advancing downward. The tiles themselves never move. */
+  html[data-rm="off"][data-concept="b"] .category[open] .category-region > div {
+    animation: cut-down calc(var(--d-state) + 20ms) var(--e-settle) backwards;
+  }
+  html[data-rm="off"][data-concept="b"] .category[open] .category-summary {
+    --cut: 1;
+  }
+
+  /* C — Scale & Schedule: no entrance choreography on the tiles. The figures
+     draw themselves instead, because in this concept the figure is the news. */
+  html[data-rm="off"][data-concept="c"] .category[open] .scale-rect {
+    animation: draw var(--d-reveal) var(--e-draw) backwards;
+    animation-delay: calc(var(--i, 0) * var(--d-stagger));
+  }
+  html[data-rm="off"][data-concept="c"] .category[open] .scale-projection {
+    animation: draw var(--d-state) var(--e-draw) backwards;
+    animation-delay: calc(var(--i, 0) * var(--d-stagger));
+  }
+
+  /* D — Raking Light: the region opens and nothing inside it moves. The
+     opened boundary takes the light for exactly one feedback beat. */
+  html[data-rm="off"][data-concept="d"] .category[open] > .category-summary {
+    animation: edge-light calc(var(--d-state) * 2) var(--e-feedback);
+  }
+}
+
+@keyframes tile-register {
+  from { opacity: 0; transform: translateY(6px); }
+}
+@keyframes cut-down {
+  from { clip-path: inset(0 0 100% 0); }
+}
+@keyframes draw {
+  from { stroke-dashoffset: var(--len, 100); }
+}
+@keyframes edge-light {
+  50% { box-shadow: inset 0 1px 0 0 var(--paper), 0 1px 0 0 var(--accent); }
+}
+
+/* The section marker and travelling cut line of Concept B. The marker is a
+   label in the existing 13px role; the line is 1px and exists only while the
+   region is open. */
+html[data-concept="b"] .category-summary { position: relative; }
+html[data-concept="b"] .category-mark { transform: none !important; }
+html[data-concept="b"] .category[open] .category-mark { color: var(--accent); }
+html[data-concept="b"] .category-ref { display: inline; }
+.category-ref { display: none; margin-left: 10px; font-size: var(--caption); letter-spacing: 0.09em; color: var(--muted); }
+
+@media (prefers-reduced-motion: no-preference) {
+  html[data-rm="off"][data-concept="b"] .category[open] .category-region > div::before {
+    content: '';
+    position: absolute;
+    inset-inline: 0;
+    height: 2px;
+    background: var(--accent);
+    animation: cut-line calc(var(--d-state) + 20ms) var(--e-settle) forwards;
+  }
+  html[data-concept="b"] .category-region > div { position: relative; }
+}
+@keyframes cut-line {
+  from { top: 0; opacity: 1; }
+  99%  { opacity: 1; }
+  to   { top: 100%; opacity: 0; }
+}
+
+/* ==========================================================================
+   Mechanism 3 — the register changing state (interaction opportunity C)
+
+   The point of this mechanism is NOT that it looks considered. It is that
+   today the register is replaced in one frame with no signal of any kind
+   (audit observation A), and the user's own control is frequently scrolled
+   out of view when it happens. The motion's job is to say "this set is the
+   answer to what you just did", and it must be redundant with the aria-live
+   announcement, never a substitute for it.
+   ========================================================================== */
+
+/* The datum: a 1px accent rule that sweeps the measured width of the
+   register head. Concept A only. */
+.register-datum {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 1px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left center;
+  opacity: 0;
+  pointer-events: none;
+}
+.register-head { position: relative; }
+
+@media (prefers-reduced-motion: no-preference) {
+  html[data-rm="off"][data-concept="a"] .register-head[data-changed] .register-datum {
+    animation: datum-sweep calc(var(--d-state) * 2) var(--e-settle);
+  }
+  html[data-rm="off"][data-concept="a"] .register[data-changed] .tile {
+    animation: tile-register var(--d-state) var(--e-settle) backwards;
+    animation-delay: calc(var(--d-state) * 0.5 + var(--i, 0) * var(--d-stagger));
+  }
+
+  /* B wipes the whole register from the top. One cut, not per-row. */
+  html[data-rm="off"][data-concept="b"] .register[data-changed] {
+    animation: cut-down calc(var(--d-state) + 40ms) var(--e-settle);
+  }
+
+  /* C re-scales: the figures redraw against the new set's maximum, which is
+     itself the information — the set got larger or smaller. */
+  html[data-rm="off"][data-concept="c"] .register[data-changed] .tile { animation: fade-in var(--d-state) var(--e-settle) backwards; }
+  html[data-rm="off"][data-concept="c"] .register[data-changed] .scale-rect {
+    animation: draw var(--d-reveal) var(--e-draw) backwards;
+    animation-delay: calc(var(--i, 0) * var(--d-stagger));
+  }
+
+  /* D: nothing moves. The set fades, the boundary lights. */
+  html[data-rm="off"][data-concept="d"] .register[data-changed] .tile { animation: fade-in var(--d-state) var(--e-feedback) backwards; }
+  html[data-rm="off"][data-concept="d"] .register-head[data-changed] { animation: edge-light calc(var(--d-state) * 2) var(--e-feedback); }
+}
+
+@keyframes datum-sweep {
+  0%   { transform: scaleX(0); opacity: 1; }
+  55%  { transform: scaleX(1); opacity: 1; }
+  100% { transform: scaleX(1); opacity: 0; }
+}
+@keyframes fade-in { from { opacity: 0; } }
+
+/* The dimension-string count. Concept A extends its witness lines; every
+   other concept shows the same measure, static. The figure itself is
+   interpolated in JS over --m-state, and only for the count: never a price.
+   See README 1.3. */
+@media (prefers-reduced-motion: no-preference) {
+  html[data-rm="off"][data-concept="a"] .register-head[data-changed] .measure-line {
+    animation: witness var(--d-state) var(--e-settle) backwards;
+  }
+  html[data-rm="off"][data-concept="a"] .measure-line { background: var(--accent); }
+  html[data-rm="off"][data-concept="a"] .measure-line::before,
+  html[data-rm="off"][data-concept="a"] .measure-line::after { background: var(--accent); }
+}
+@keyframes witness { from { transform: scaleX(0.1); } }
+
+/* ==========================================================================
+   Mechanism 4 — imagery (interaction opportunity E)
+
+   Constraint from the audit: all 347 records label their photograph
+   "Representative Reference Photograph", and five filenames are generic
+   category stand-ins. A ceremonial unveiling would therefore dramatise an
+   image that is frequently not of the property. So: the caption is in the
+   DOM and visible from the first frame in every concept, and no reveal
+   exceeds --m-reveal. Nothing crops, scales or distorts the photograph.
+   ========================================================================== */
+
+.tile-photo img { opacity: 1; }
+.tile-photo[data-loading="true"] img { opacity: 0; }
+
+@media (prefers-reduced-motion: no-preference) {
+  /* A: the image builds up from its ground line. */
+  html[data-rm="off"][data-concept="a"] .tile-photo[data-loaded] img {
+    animation: reveal-up var(--d-reveal) var(--e-settle);
+  }
+  /* B: a cut travels across it. */
+  html[data-rm="off"][data-concept="b"] .tile-photo[data-loaded] img {
+    animation: reveal-across var(--d-reveal) var(--e-settle);
+  }
+  /* C: no ceremony. Opacity only, at feedback speed — the figure is the news,
+     not the photograph. */
+  html[data-rm="off"][data-concept="c"] .tile-photo[data-loaded] img {
+    animation: fade-in var(--d-feedback) var(--e-feedback);
+  }
+  /* D: the surface is lit once as it arrives. */
+  html[data-rm="off"][data-concept="d"] .tile-photo[data-loaded] img {
+    animation: fade-in var(--d-reveal) var(--e-feedback);
+  }
+  html[data-rm="off"][data-concept="d"] .tile-photo[data-loaded]::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(104deg, transparent 38%, rgba(255,255,255,.34) 50%, transparent 62%);
+    animation: rake calc(var(--d-reveal) * 1.4) var(--e-settle);
+  }
+}
+
+@keyframes reveal-up { from { clip-path: inset(100% 0 0 0); } }
+@keyframes reveal-across { from { clip-path: inset(0 100% 0 0); } }
+@keyframes rake {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(100%); }
+}
+
+/* ==========================================================================
+   Mechanism 5 — raking light as hover and focus state (Concept D)
+
+   The whole page shares one light direction: above, slightly left. A tile
+   that is hovered or focused reads as a slab lifted into that light by one
+   pixel at its top and one pixel of shadow gap at its base. No blur, no
+   offset shadow, no transform. If a highlight ever becomes a gradient or a
+   shadow gains a radius, this has become the faux-3D the baseline refused.
+   ========================================================================== */
+
+html[data-concept="d"] .tile {
+  box-shadow: inset 0 0 0 0 var(--paper);
+  transition:
+    box-shadow var(--d-feedback) var(--e-feedback),
+    border-color var(--d-feedback) var(--e-feedback);
+}
+@media (hover: hover) and (pointer: fine) {
+  html[data-concept="d"] .tile:hover {
+    box-shadow: inset 0 1px 0 0 var(--paper), 0 1px 0 0 var(--ink);
+    border-bottom-color: var(--ink);
+  }
+}
+/* Focus must light the same way, and must survive reduced motion, because
+   here the light IS the focus indicator and not an enhancement. */
+html[data-concept="d"] .tile:focus-within {
+  box-shadow: inset 0 1px 0 0 var(--paper), 0 1px 0 0 var(--accent);
+  border-bottom-color: var(--accent);
+}
+html[data-concept="d"] .chip[aria-pressed="true"] { box-shadow: 0 1px 0 0 var(--accent); }
+
+/* Every other concept keeps production's hover: the hairline goes to ink. */
+html:not([data-concept="d"]) .tile:hover { border-bottom-color: var(--ink); }
+html:not([data-concept="d"]) .tile:focus-within { border-bottom-color: var(--accent); }
+
+/* ==========================================================================
+   Mechanism 6 — the empty-state drawings (interaction opportunities A and D)
+
+   The one place a longer, expressive sequence is justified: the screen is
+   otherwise empty, the drawing carries the explanation, and it plays once on
+   arrival. Base state is the FINISHED drawing, so reduced motion and a
+   failed animation both show a complete illustration rather than a blank
+   frame or a half-built one.
+   ========================================================================== */
+
+.draw-stroke {
+  stroke-dasharray: var(--len, 100);
+  stroke-dashoffset: 0;
+  vector-effect: non-scaling-stroke;
+}
+.draw-fade { opacity: 1; }
+
+@media (prefers-reduced-motion: no-preference) {
+  html[data-rm="off"] .no-photo[data-play] .draw-stroke,
+  html[data-rm="off"] .empty-figure[data-play] .draw-stroke {
+    animation: draw var(--d-draw) var(--e-draw) backwards;
+    animation-delay: calc(var(--seq, 0) * var(--d-draw) * 0.42);
+  }
+  html[data-rm="off"] .no-photo[data-play] .draw-fade,
+  html[data-rm="off"] .empty-figure[data-play] .draw-fade {
+    animation: fade-in calc(var(--d-draw) * 0.5) var(--e-settle) backwards;
+    animation-delay: calc(var(--seq, 0) * var(--d-draw) * 0.42);
+  }
+  /* The copy settles after the drawing has made its point, not with it. */
+  html[data-rm="off"] .empty[data-play] .empty-copy > * {
+    animation: tile-register var(--d-state) var(--e-settle) backwards;
+    animation-delay: calc(var(--d-draw) * 0.55 + var(--i, 0) * var(--d-stagger));
+  }
+}
+
+/* ==========================================================================
+   Mechanism 7 — ornament (interaction opportunity F)
+
+   Layer 1 of the drawing: behind content, pointer-events: none, aria-hidden,
+   and never over text, controls or photography. It does not animate on a
+   timer. It responds to pointer position only on a fine pointer with motion
+   allowed, and it is static otherwise — which is to say it is static for
+   touch, for keyboard, and for anyone who asked for less motion.
+   ========================================================================== */
+
+.ornament-layer line, .ornament-layer rect, .ornament-layer path { vector-effect: non-scaling-stroke; }
+
+.datum-field line { stroke: var(--line); stroke-width: 1; }
+.datum-field .datum-active { stroke: var(--accent); }
+.datum-field text { font-size: 9px; letter-spacing: 0.12em; fill: var(--muted); text-transform: uppercase; }
+
+@media (prefers-reduced-motion: no-preference) and (hover: hover) and (pointer: fine) {
+  html[data-rm="off"] .datum-field line {
+    transition: stroke var(--d-feedback) var(--e-feedback), opacity var(--d-feedback) var(--e-feedback);
+  }
+}
+
+/* ==========================================================================
+   The baseline. Everything above is gated off, leaving exactly what
+   production ships today: colour transitions and an instant disclosure.
+   ========================================================================== */
+
+html[data-concept="baseline"] .category-region { transition: none; }
+html[data-concept="baseline"] .tile-photo img { animation: none !important; }
+
+/* ==========================================================================
+   Reduced motion. Two paths reach this: the OS preference, and the lab's
+   simulator toggle. Both must land on the same page, and that page must be
+   correct — not degraded. Every state change still happens, still updates
+   its text, and still announces itself.
+   ========================================================================== */
+
+html[data-rm="on"] *,
+html[data-rm="on"] *::before,
+html[data-rm="on"] *::after {
+  animation-duration: 1ms !important;
+  animation-delay: 0ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 1ms !important;
+  transition-delay: 0ms !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 1ms !important;
+    animation-delay: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+    transition-delay: 0ms !important;
+    scroll-behavior: auto !important;
+  }
+  /* The one case where the no-motion state is not simply "no animation":
+     the raking-light hover and focus states are state indicators, so they
+     are kept, instantly. They are already transition-only, so this is
+     automatic — recorded here so it is not "optimised" away later. */
+}
+
+@media (forced-colors: active) {
+  .register-datum, .ornament-layer, .tile-photo[data-loaded]::after { display: none; }
+  html[data-concept="d"] .tile:focus-within { outline: 2px solid; }
+}
