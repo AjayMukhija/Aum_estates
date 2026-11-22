@@ -435,7 +435,7 @@ function seedDatabaseIfEmpty(db, options = {}) {
         raw.area_value != null ? Number(raw.area_value) : null,
         cleanWhitespace(raw.area_unit),
         areaSqFt,
-        cleanWhitespace(raw.floor),
+        cleanWhitespace(raw.floor) || cleanWhitespace(raw.floor_label),
         cleanWhitespace(raw.total_floors),
         cleanWhitespace(raw.facing),
         cleanWhitespace(raw.road_width),

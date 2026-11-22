@@ -2,8 +2,12 @@
 'use strict';
 
 // Read-only acceptance checks. This command never creates a real lead.
-const base = process.argv[2] || process.env.AUM_PUBLIC_ORIGIN;
-if (!base || new URL(base).protocol !== 'https:') throw new Error('Provide the HTTPS origin: npm run verify:deployed -- https://aumestates.com');
+const args = process.argv.slice(2).filter((a) => !a.startsWith('--'));
+const base = args[0] || process.env.AUM_PUBLIC_ORIGIN;
+const allowHttp = process.argv.includes('--allow-http') || process.env.ALLOW_HTTP === 'true';
+if (!base) throw new Error('Provide the HTTPS origin: npm run verify:deployed -- https://aumestates.com');
+const urlObj = new URL(base);
+if (!allowHttp && urlObj.protocol !== 'https:') throw new Error('Provide the HTTPS origin (or pass --allow-http): npm run verify:deployed -- https://aumestates.com');
 const checks = [
   ['/', 200], ['/api/public/health', 200], ['/api/public/properties?limit=1', 200],
   ['/api/crm/dashboard', 401], ['/crm/', 200], ['/data/public_inventory.json', 200],

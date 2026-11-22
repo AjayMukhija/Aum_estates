@@ -22,7 +22,11 @@ private_master_store/releases/
 
 # Release staging and local credential exports
 .dist_hostinger.*
+dist_hostinger_php/
 admin-credentials.json
+backend_php/db/*.sql
+!backend_php/db/schema.mariadb.sql
+backend_php/logs/
 
 # Raw confidential seed files must never enter public Git history again
 /private_master_store/*.json

@@ -9,6 +9,8 @@
     "serve": "node scripts/serve.js",
     "serve:hostinger": "node scripts/serve.js",
     "test": "node --test aum-grid-local-baseline-2026-10-27/study-controls.test.cjs aum-grid-local-baseline-2026-10-27/production-verification.test.cjs backend/backend-crm.test.cjs",
+    "test:php": "php backend_php/tests/php_backend.test.php && php backend_php/tests/http_contracts.test.php && php backend_php/tests/security_regressions.test.php",
+    "package:php": "node scripts/package_php_release.js",
     "build": "node scripts/sanitize_and_build.js",
     "publish": "node scripts/sanitize_and_build.js",
     "verify": "node scripts/verify_site.js",

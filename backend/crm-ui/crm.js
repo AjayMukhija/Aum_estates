@@ -1154,11 +1154,6 @@
         body: { stage: e.currentTarget.value }
       });
       showToast(`Moved ${l.client_name} to "${STAGE_LABELS[e.currentTarget.value]}".`);
-      drawerBody.querySelector('#revoke-shortlist-btn').addEventListener('click', async () => {
-        try { await api(`/api/crm/shortlists/${res.shortlist_id}/revoke`, { method: 'POST', body: {} });
-          drawerBody.querySelector('#shortlist-share-result').textContent = 'Client link revoked.';
-        } catch (err) { showToast(err.message); }
-      });
       if (state.activeTab === 'leads') loadLeads();
     });
 
@@ -1213,6 +1208,14 @@
           </div>
         </div>
       `;
+      drawerBody.querySelector('#revoke-shortlist-btn').addEventListener('click', async () => {
+        try {
+          await api(`/api/crm/shortlists/${res.shortlist_id}/revoke`, { method: 'POST', body: {} });
+          drawerBody.querySelector('#shortlist-share-result').textContent = 'Client link revoked.';
+        } catch (err) {
+          showToast(err.message);
+        }
+      });
       if (state.activeTab === 'leads') loadLeads();
     });
 
