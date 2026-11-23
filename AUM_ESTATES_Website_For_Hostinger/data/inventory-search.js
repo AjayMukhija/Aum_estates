@@ -168,7 +168,14 @@
   }
 
   function categoryOf(o){
-    if (['apartment','builder-floor','villa','commercial','plot','farmhouse'].includes(o.category)) return o.category;
+    // The register stores these capitalised ("Commercial", "Builder-floor"),
+    // so an exact match against the lowercase list never hit and every record
+    // fell through to the guesswork below. The guess is good but not right:
+    // it filed 11 of 347 under the wrong heading, including two commercial
+    // units and five apartments and floors sold as plots. The stored value
+    // is authoritative; only fall back when it is missing or unrecognised.
+    var stated = String(o.category || '').toLowerCase().trim();
+    if (['apartment','builder-floor','villa','commercial','plot','farmhouse'].includes(stated)) return stated;
     const p=norm(o.property_type||'');
     const c=norm(o.configuration||'');
     const t=norm([o.listing_title,o.website_display_name,o.project_name,o.key_features].filter(Boolean).join(' '));
@@ -505,7 +512,7 @@
     const priceStr = priceLabel(o);
     return `<article class="result-card" data-property-id="${esc(o.property_id || '')}" data-title="${esc(publicName)}" data-price="${esc(priceStr)}" data-location="${esc(locStr)}">${hasPhoto
       ? `<div class="result-photo" data-bg="${imagePathPrefix}${image}"><span class="representative-badge">${badgeText}</span><span class="result-type">${esc(imageLabel)}</span></div>`
-      : `<div class="result-photo photo-placeholder"><span class="photo-placeholder-type">${esc(imageLabel)}</span><span class="photo-placeholder-note">Photography available on enquiry</span></div>`}<div class="result-body"><div class="result-location">${esc(locStr)}</div><h3>${esc(publicName)}</h3><p class="result-config">${esc([o.configuration,o.bedrooms?`${o.bedrooms} BHK`:'',areaLabel(o)].filter(Boolean).join(' · '))}</p><p class="result-desc">${esc(o.public_description||o.key_features||'Property details available on enquiry.')}</p><div class="result-bottom"><strong class="tabular-nums">${esc(priceStr)}</strong><div class="result-actions"><a class="view-details" href="${detailHref}">View Dossier →</a><a class="result-contact" href="${wa}" target="_blank" rel="noopener">Inquire on WhatsApp</a></div></div>${features.length?`<div class="result-features">${features.map(f=>`<span>${esc(f.trim())}</span>`).join('')}</div>`:''}</div></article>`;
+      : `<div class="result-photo photo-placeholder"><span class="photo-placeholder-type">${esc(imageLabel)}</span><span class="photo-placeholder-note">Photography available on enquiry</span></div>`}<div class="result-body"><div class="result-location">${esc(locStr)}</div><h3>${esc(publicName)}</h3><p class="result-config">${esc([o.configuration,o.bedrooms?`${o.bedrooms} BHK`:'',areaLabel(o)].filter(Boolean).join(' · '))}</p><p class="result-desc">${esc(o.public_description||o.key_features||'Property details available on enquiry.')}</p><div class="result-bottom"><strong class="tabular-nums">${esc(priceStr)}</strong><div class="result-actions"><a class="view-details" href="${detailHref}">Full details →</a><a class="result-contact" href="${wa}" target="_blank" rel="noopener">Enquire on WhatsApp</a></div></div>${features.length?`<div class="result-features">${features.map(f=>`<span>${esc(f.trim())}</span>`).join('')}</div>`:''}</div></article>`;
   }
 
   if (typeof document !== 'undefined') {

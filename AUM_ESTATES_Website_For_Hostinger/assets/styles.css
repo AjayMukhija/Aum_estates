@@ -39,7 +39,11 @@
   --content-width: 1560px;
   --measure-body: 60ch;
   --measure-small: 74ch;
-  --gutter: clamp(20px, 6vw, 156px);
+  /* The gutter grows with the viewport rather than sitting at a fixed inset.
+     At 6vw the old 156px ceiling needed a 2,600px screen, so the page always
+     ran on the middle term and a 1440px window got only 86px of margin. At
+     9vw the same window gets 130px and the ceiling is reachable at 2,000px. */
+  --gutter: clamp(24px, 9vw, 180px);
 
   /* Four typographic roles. */
   --caption: 13px;
@@ -177,13 +181,29 @@ p { margin: 0 0 var(--space-4); }
   border-color: var(--accent-dark);
 }
 
+/* The enquiry is the one action on a card that earns the firm anything, so
+   it is the filled control. It used to be outlined — visually identical to
+   the header's Search button — while "View Dossier" beside it was set three
+   points larger, so the browse action outranked the conversion action and
+   the pair read as two unrelated controls. */
+.result-contact {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #ffffff;
+}
+.result-contact:hover {
+  background: var(--accent-dark);
+  border-color: var(--accent-dark);
+  color: #ffffff;
+}
+
 /* Secondary: outlined, ink. */
-.btn-gold, .result-contact, .btn-wa, .nav-search-btn {
+.btn-gold, .btn-wa, .nav-search-btn {
   background: transparent;
   border-color: var(--line);
   color: var(--ink);
 }
-.btn-gold:hover, .result-contact:hover, .btn-wa:hover, .nav-search-btn:hover {
+.btn-gold:hover, .btn-wa:hover, .nav-search-btn:hover {
   border-color: var(--ink);
 }
 
@@ -205,6 +225,18 @@ p { margin: 0 0 var(--space-4); }
   text-decoration-thickness: 2px;
   text-decoration-color: var(--accent);
 }
+
+/* Sized to its partner so the card's two actions read as one pair rather
+   than two controls from different systems. The underline is held back for
+   hover: a permanently underlined link beside a filled button looks like
+   unstyled browser default, not a considered quiet action. */
+.view-details {
+  font-size: var(--caption);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-decoration-color: transparent;
+}
+.view-details:hover { text-decoration-color: var(--accent); }
 .quiet-action { font-size: var(--caption); color: var(--muted); }
 .quiet-action:hover { color: var(--ink); }
 
@@ -582,15 +614,24 @@ select.form-control::-ms-expand,
 .results-search > select::-ms-expand {
   display: none;
 }
+/* :focus:not(:focus-visible), not :focus. A bare :focus here out-specifies
+   the global :focus-visible ring (0,1,1 beats 0,1,0), so tabbing through the
+   search — the main thing anyone does on this site — cancelled the ring and
+   left a 1px-to-2px hairline as the only sign of where you were. The pointer
+   still gets the clean underline; the keyboard gets the ring back. */
+select.search-field:focus:not(:focus-visible), input.search-field:focus:not(:focus-visible),
+.search-field select:focus:not(:focus-visible), .search-field input:focus:not(:focus-visible),
+.form-control:focus:not(:focus-visible), .keyword-input-wrap input:focus:not(:focus-visible) {
+  outline: none;
+}
 select.search-field:focus, input.search-field:focus,
 .search-field select:focus, .search-field input:focus,
 .form-control:focus, .keyword-input-wrap input:focus {
-  outline: none;
   border-bottom-color: var(--accent);
   border-bottom-width: 2px;
 }
 input.search-field::placeholder,
-.form-control::placeholder, .keyword-input-wrap input::placeholder { color: #8b948e; }
+.form-control::placeholder, .keyword-input-wrap input::placeholder { color: var(--muted); }
 
 textarea.form-control { min-height: 120px; padding-top: var(--space-3); resize: vertical; }
 
@@ -666,13 +707,16 @@ textarea.form-control { min-height: 120px; padding-top: var(--space-3); resize: 
   background-repeat: no-repeat;
   padding-right: var(--space-5);
 }
+.results-search > select:focus:not(:focus-visible),
+.results-search > input:focus:not(:focus-visible) {
+  outline: none;
+}
 .results-search > select:focus,
 .results-search > input:focus {
-  outline: none;
   border-bottom-color: var(--accent);
   border-bottom-width: 2px;
 }
-.results-search > input::placeholder { color: #8b948e; }
+.results-search > input::placeholder { color: var(--muted); }
 
 .results-search > button[type="submit"] {
   display: inline-flex;
@@ -711,8 +755,16 @@ textarea.form-control { min-height: 120px; padding-top: var(--space-3); resize: 
    -------------------------------------------------------------------------- */
 
 .section { padding-block: clamp(var(--space-9), 7vw, var(--space-11)); }
-.section.white { background: var(--paper); }
-.section.cream, .section.warm { background: var(--quiet); }
+/* One background change per page, not three. Every card grid now sits on
+   paper, so the card component looks the same wherever it appears — on the
+   tint its white body read as a floating panel, on paper as bare text with
+   a hairline, which made one component look like two. The tint is kept for
+   the closing block (founder voice, then the mandate desk), which carries
+   no cards and genuinely changes register. Those two sections are adjacent,
+   so the seam between them is dropped and they read as one band. */
+.section.white, .section.cream { background: var(--paper); }
+.section.warm { background: var(--quiet); }
+.section.warm + .mandate-concierge-strip { border-top: 0; padding-block-start: 0; }
 
 .head {
   display: flex;
@@ -862,10 +914,25 @@ textarea.form-control { min-height: 120px; padding-top: var(--space-3); resize: 
   overflow: hidden;
 }
 
-.result-bottom, .card-actions {
+/* The footer — rule, price, actions — is pinned to the bottom of every card
+   so that a row of cards shares one price baseline and one action baseline.
+   Two things used to break that. On the register card the feature chips are
+   written after .result-bottom in the DOM, so the chips, not the price, were
+   what sat at the bottom; flex order puts them back above it. On the home
+   card the price is a bare sibling, so only .card-actions was pinned and the
+   price floated wherever the copy left it — a card with a two-line title and
+   no spec strip put its price 69px off its neighbour's. */
+.result-bottom, .card .price {
   margin-top: auto;
   padding-top: var(--space-4);
   border-top: 1px solid var(--line);
+}
+.result-features { order: 1; }
+.result-bottom { order: 2; }
+.card .card-actions {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
 }
 
 .result-bottom strong, .price, .detail-price {
@@ -884,19 +951,32 @@ textarea.form-control { min-height: 120px; padding-top: var(--space-3); resize: 
   gap: var(--space-4);
 }
 
+/* One quiet line, not a wall of pills. These are free-text notes from the
+   register — they average 17 characters but run to 138, so as bordered
+   boxes they wrapped into a stack of full-width grey slabs on 127 of the
+   347 cards. Set as prose and clamped to the column, they read as the
+   footnote they are, and a long one truncates instead of reflowing a card. */
 .result-features {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2);
-  margin-top: var(--space-4);
+  display: block;
+  margin-top: var(--space-3);
+  font-size: var(--caption);
+  line-height: 1.5;
+  color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .result-features span {
-  padding: 4px 9px;
-  border: 1px solid var(--line);
-  font-size: 11px;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: var(--muted);
+  padding: 0;
+  border: 0;
+  font-size: inherit;
+  letter-spacing: 0;
+  text-transform: none;
+  color: inherit;
+}
+.result-features span + span::before {
+  content: ' · ';
+  color: var(--line);
 }
 
 .no-results {
@@ -1095,6 +1175,8 @@ textarea.form-control { min-height: 120px; padding-top: var(--space-3); resize: 
 .location-item span { font-size: var(--caption); color: var(--muted); }
 
 .location-view { font-size: var(--caption); color: var(--accent); font-weight: 600; }
+/* Not a link, so it does not wear the accent that invites a click. */
+.location-view-empty { color: var(--muted); }
 
 /* --------------------------------------------------------------------------
    Editorial blocks
@@ -1216,6 +1298,17 @@ textarea.form-control { min-height: 120px; padding-top: var(--space-3); resize: 
 .footer-brand { font-size: 21px; font-weight: 750; letter-spacing: -0.06em; }
 .footer-tagline { font-size: var(--caption); color: var(--muted); margin-top: var(--space-2); }
 
+/* The RERA registration line. It carried an inline style on all nine pages
+   setting 12.5px — a size on no scale — in #8c787c, a pink-grey from no
+   palette that cleared only 4.12:1 on paper and so failed AA. Of everything
+   on the page, the statutory line is the one a regulator or a careful buyer
+   goes looking for; it should not be the faintest thing here. */
+.footer-compliance {
+  margin-top: var(--space-4);
+  font-size: var(--caption);
+  color: var(--muted);
+}
+
 .powered {
   display: flex;
   flex-wrap: wrap;
@@ -1274,6 +1367,11 @@ textarea.form-control { min-height: 120px; padding-top: var(--space-3); resize: 
   .keyword-input-wrap { flex-direction: column; align-items: stretch; gap: var(--space-3); }
   .keyword-input-wrap .keyword-search-submit { width: 100%; }
   .search-tabs { gap: var(--space-3) var(--space-4); }
+  /* On a phone these are the first controls anyone touches and they stood
+     32px and 36px tall against a 44px minimum. Growing the padding rather
+     than the type keeps the row looking the same and the thumb honest. */
+  .search-tab { min-height: 44px; padding: 12px 0; }
+  .quick-tag, .keyword-chip { min-height: 44px; padding: 12px 14px; }
   .mandate-concierge-inner, .results-head { flex-direction: column; align-items: flex-start; }
   .detail-grid { grid-template-columns: repeat(auto-fit, minmax(135px, 1fr)); }
 }
