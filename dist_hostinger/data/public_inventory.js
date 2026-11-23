@@ -43,8 +43,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000001-vatika-inxt-city-centre-sf",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000001"
+    "slug": "aum-web-000001-vatika-inxt-city-centre-sf",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000001"
   },
   {
     "property_id": "AUM-WEB-000002",
@@ -90,8 +90,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000002-nirvana-deerwood",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000002"
+    "slug": "aum-web-000002-nirvana-deerwood",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000002"
   },
   {
     "property_id": "AUM-WEB-000003",
@@ -137,8 +137,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000003-udyog-vihar-phase-1",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000003"
+    "slug": "aum-web-000003-udyog-vihar-phase-1",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000003"
   },
   {
     "property_id": "AUM-WEB-000004",
@@ -175,7 +175,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "Good interiors",
     "public_description": "4 BHK second-floor builder floor in Vipul World, D Block, with good interiors; Stilt + 3 floors.",
     "public_features": "Good interiors",
-    "image_file": "Vipul-world.jpg",
+    "image_file": "vipul-world.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-04",
@@ -184,8 +184,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000004-vipul-world",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000004"
+    "slug": "aum-web-000004-vipul-world",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000004"
   },
   {
     "property_id": "AUM-WEB-000005",
@@ -222,7 +222,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "Ground floor; Corner; Main-road prominent facing",
     "public_description": "Ground-floor corner shop in South City 2, main-road prominent facing.",
     "public_features": "Ground floor; Corner; Main-road prominent facing",
-    "image_file": "South-city-2.jpg",
+    "image_file": "south-city-2.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-04",
@@ -231,8 +231,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000005-south-city-2",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000005"
+    "slug": "aum-web-000005-south-city-2",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000005"
   },
   {
     "property_id": "AUM-WEB-000006",
@@ -269,7 +269,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "Ultra-luxury floor",
     "public_description": "Ultra-luxury floor available for sale in South City 2.",
     "public_features": "Ultra-luxury floor",
-    "image_file": "South-city-2.jpg",
+    "image_file": "south-city-2.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-04",
@@ -278,8 +278,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000006-south-city-2",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000006"
+    "slug": "aum-web-000006-south-city-2",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000006"
   },
   {
     "property_id": "AUM-WEB-000007",
@@ -325,8 +325,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000007-fresco-shopping-complex",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000007"
+    "slug": "aum-web-000007-fresco-shopping-complex",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000007"
   },
   {
     "property_id": "AUM-WEB-000008",
@@ -372,8 +372,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000008-nirvana",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000008"
+    "slug": "aum-web-000008-nirvana",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000008"
   },
   {
     "property_id": "AUM-WEB-000009",
@@ -419,8 +419,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000009-spaze-itech-jmd-megapolis-silverton-towers-unitech-business-zone-spaze-boulevard",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000009"
+    "slug": "aum-web-000009-spaze-itech-jmd-megapolis-silverton-towers-unitech-business-zone-spaze-boulevard",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000009"
   },
   {
     "property_id": "AUM-WEB-000010",
@@ -457,7 +457,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "4 BHK; First floor; East facing",
     "public_description": "4 BHK first-floor property in South City 2, east facing.",
     "public_features": "4 BHK; First floor; East facing",
-    "image_file": "South-city-2.jpg",
+    "image_file": "south-city-2.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-04",
@@ -466,8 +466,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000010-south-city-2",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000010"
+    "slug": "aum-web-000010-south-city-2",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000010"
   },
   {
     "property_id": "AUM-WEB-000011",
@@ -504,7 +504,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "2 BHK; Ground floor",
     "public_description": "2 BHK ground-floor property in South City 2.",
     "public_features": "2 BHK; Ground floor",
-    "image_file": "South-city-2.jpg",
+    "image_file": "south-city-2.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-04",
@@ -513,8 +513,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000011-south-city-2",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000011"
+    "slug": "aum-web-000011-south-city-2",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000011"
   },
   {
     "property_id": "AUM-WEB-000012",
@@ -551,7 +551,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "Blossom 2; First floor",
     "public_description": "First-floor property in Blossom 2, Sector 51, Gurgaon.",
     "public_features": "Blossom 2; First floor",
-    "image_file": "Blossom-2.jpg",
+    "image_file": "blossom-2.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-04",
@@ -560,8 +560,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000012-blossom-2",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000012"
+    "slug": "aum-web-000012-blossom-2",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000012"
   },
   {
     "property_id": "AUM-WEB-000013",
@@ -607,8 +607,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000013-m2k-shopping-complex-gf-007",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000013"
+    "slug": "aum-web-000013-m2k-shopping-complex-gf-007",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000013"
   },
   {
     "property_id": "AUM-WEB-000014",
@@ -645,7 +645,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "3+1; First floor; Roof rights no",
     "public_description": "First-floor 3+1 property in Blossom 2; Roof rights: no; Documents with bank.",
     "public_features": "3+1; First floor; Roof rights no",
-    "image_file": "Blossom-2.jpg",
+    "image_file": "blossom-2.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-04",
@@ -654,8 +654,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000014-blossom-2",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000014"
+    "slug": "aum-web-000014-blossom-2",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000014"
   },
   {
     "property_id": "AUM-WEB-000015",
@@ -692,7 +692,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "3 BHK; First floor; No lift; Power backup; Security; Ready for occupancy",
     "public_description": "3 BHK first-floor property in Blossom 2, without lift; Society has power backup and security; Ready for occupancy.",
     "public_features": "3 BHK; First floor; No lift; Power backup; Security; Ready for occupancy",
-    "image_file": "Blossom-2.jpg",
+    "image_file": "blossom-2.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-04",
@@ -701,8 +701,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000015-blossom-2",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000015"
+    "slug": "aum-web-000015-blossom-2",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000015"
   },
   {
     "property_id": "AUM-WEB-000016",
@@ -748,8 +748,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000016-dlf-corporate-greens",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000016"
+    "slug": "aum-web-000016-dlf-corporate-greens",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000016"
   },
   {
     "property_id": "AUM-WEB-000017",
@@ -786,7 +786,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "First floor; 1,310 sq ft; 50% paid; BBA done; Payment plan 25:25:25:25",
     "public_description": "M3M Capital, TW-3C/101, first floor, Sector 113, Gurgaon; Payment plan 25:25:25:25; 50% payment completed and BBA done.",
     "public_features": "First floor; 1,310 sq ft; 50% paid; BBA done; Payment plan 25:25:25:25",
-    "image_file": "M3m-capital-113.webp",
+    "image_file": "m3m-capital-113.webp",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-04",
@@ -795,8 +795,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000017-m3m-capital-101",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000017"
+    "slug": "aum-web-000017-m3m-capital-101",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000017"
   },
   {
     "property_id": "AUM-WEB-000018",
@@ -833,7 +833,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "Private swimming pool; 4+1 bathrooms; Lush green views; G+1+terrace; Provision for private lift; Two staff rooms; Ample parking; Semi-furnished; Brand new",
     "public_description": "Brand new independent 4 BHK ultra-luxury villa in Arrossim, South Goa; 1,350 sq m plot and 6,000 sq ft saleable area; G+1+terrace layout, private swimming pool, 4+1 bathrooms, lush green views, provision for private lift, two dedicated staff rooms and ample car parking.",
     "public_features": "Private swimming pool; 4+1 bathrooms; Lush green views; G+1+terrace; Provision for private lift; Two staff rooms; Ample parking; Semi-furnished; Brand new",
-    "image_file": "Arrossim.jpg",
+    "image_file": "arrossim.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-04",
@@ -842,8 +842,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000018-property",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000018"
+    "slug": "aum-web-000018-property",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000018"
   },
   {
     "property_id": "AUM-WEB-000019",
@@ -880,7 +880,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "Fully furnished; Bespoke soft furnishings; Double-height living spaces; Walk-in closet and freestanding bathtub in master suite; Ground-floor bedroom; Private lift on request; Private garden; Optional full-size private pool; Full smart-home automation; 100% DG backup; EV charging; Biometric entry; 24x7 CCTV; Gated community; Wellness pavilion; Steam & sauna; Pickleball court; Ambulance; Dedicated cars & drivers; Relationship managers; On-call maintenance; Rainwater harvesting; Solar/water heating; Monsoon-optimised drainage",
     "public_description": "Luxury Independent Villa in Narve, Piedade, Tiswadi / Divar-Narva, Goa. Located on the South Goa corridor. Offered for sale.",
     "public_features": "Fully furnished; Bespoke soft furnishings; Double-height living spaces; Walk-in closet and freestanding bathtub in master suite; Ground-floor bedroom; Private lift on request; Private garden; Optional full-size private pool; Full smart-home automation; 100% DG backup; EV charging; Biometric entry; 24x7 CCTV; Gated community; Wellness pavilion; Steam & sauna; Pickleball court; Ambulance; Dedicated cars & drivers; Relationship managers; On-call maintenance; Rainwater harvesting; Solar/water heating; Monsoon-optimised drainage",
-    "image_file": "Sukoon-asya-project-photo.jpg",
+    "image_file": "sukoon-asya-project-photo.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-04",
@@ -889,8 +889,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000019-asya-smartliving",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000019"
+    "slug": "aum-web-000019-asya-smartliving",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000019"
   },
   {
     "property_id": "AUM-WEB-000083",
@@ -936,8 +936,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000083-south-city-1-o-block-358-sq-yd",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000083"
+    "slug": "aum-web-000083-south-city-1-o-block-358-sq-yd",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000083"
   },
   {
     "property_id": "AUM-WEB-000084",
@@ -983,8 +983,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000084-sahara-mall-shop-065-gf",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000084"
+    "slug": "aum-web-000084-sahara-mall-shop-065-gf",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000084"
   },
   {
     "property_id": "AUM-WEB-000085",
@@ -1030,8 +1030,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000085-sector-37c-huda-hsvp-165-sq-yd-plot",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000085"
+    "slug": "aum-web-000085-sector-37c-huda-hsvp-165-sq-yd-plot",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000085"
   },
   {
     "property_id": "AUM-WEB-000086",
@@ -1068,7 +1068,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "4 BHK builder floor of 350 sq yd in Sushant Lok 1, Gurgaon. Upper Ground Floor. Located on the Sushant Lok & Central Gurgaon corridor. Offered for sale.",
     "public_features": null,
-    "image_file": "Sushant-lok-1-a-block-350-upper-ground.jpg",
+    "image_file": "sushant-lok-1-a-block-350-upper-ground.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-04",
@@ -1077,8 +1077,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000086-sushant-lok-1-a-block-350-sq-yd-upper-ground",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000086"
+    "slug": "aum-web-000086-sushant-lok-1-a-block-350-sq-yd-upper-ground",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000086"
   },
   {
     "property_id": "AUM-WEB-000087",
@@ -1124,8 +1124,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000087-greenwood-city-sector-45-c-block-351-sq-yd",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000087"
+    "slug": "aum-web-000087-greenwood-city-sector-45-c-block-351-sq-yd",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000087"
   },
   {
     "property_id": "AUM-WEB-000088",
@@ -1171,8 +1171,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000088-sector-31-old-built-up-house-286-sq-yd",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000088"
+    "slug": "aum-web-000088-sector-31-old-built-up-house-286-sq-yd",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000088"
   },
   {
     "property_id": "AUM-WEB-000089",
@@ -1218,8 +1218,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000089-valley-view-estate-2-bhk-1100-sq-ft",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000089"
+    "slug": "aum-web-000089-valley-view-estate-2-bhk-1100-sq-ft",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000089"
   },
   {
     "property_id": "AUM-WEB-000090",
@@ -1256,7 +1256,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "3 BHK apartment in Ridgewood Estate, Gurgaon. Located on the DLF Phase 1–5 corridor. Offered for sale.",
     "public_features": null,
-    "image_file": "Ridgewood-estate.jpg",
+    "image_file": "ridgewood-estate.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-04",
@@ -1265,8 +1265,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000090-ridgewood-estate-sale-option-1",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000090"
+    "slug": "aum-web-000090-ridgewood-estate-sale-option-1",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000090"
   },
   {
     "property_id": "AUM-WEB-000091",
@@ -1303,7 +1303,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "3 BHK apartment in Ridgewood Estate, Gurgaon. Located on the DLF Phase 1–5 corridor. Offered for sale.",
     "public_features": null,
-    "image_file": "Ridgewood-estate.jpg",
+    "image_file": "ridgewood-estate.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-04",
@@ -1312,8 +1312,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000091-ridgewood-estate-sale-option-2",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000091"
+    "slug": "aum-web-000091-ridgewood-estate-sale-option-2",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000091"
   },
   {
     "property_id": "AUM-WEB-000092",
@@ -1350,7 +1350,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "3 BHK L-shape apartment in Ridgewood Estate, Gurgaon. Located on the DLF Phase 1–5 corridor. Offered for sale.",
     "public_features": null,
-    "image_file": "Ridgewood-estate.jpg",
+    "image_file": "ridgewood-estate.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-04",
@@ -1359,8 +1359,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000092-ridgewood-estate-sale-option-3",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000092"
+    "slug": "aum-web-000092-ridgewood-estate-sale-option-3",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000092"
   },
   {
     "property_id": "AUM-WEB-000093",
@@ -1397,7 +1397,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "3 BHK L-shape apartment in Ridgewood Estate, Gurgaon. Located on the DLF Phase 1–5 corridor. Offered for sale.",
     "public_features": null,
-    "image_file": "Ridgewood-estate.jpg",
+    "image_file": "ridgewood-estate.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-04",
@@ -1406,8 +1406,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000093-ridgewood-estate-sale-option-4",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000093"
+    "slug": "aum-web-000093-ridgewood-estate-sale-option-4",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000093"
   },
   {
     "property_id": "AUM-WEB-000094",
@@ -1444,7 +1444,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "4 BHK apartment in Ridgewood Estate, Gurgaon. Located on the DLF Phase 1–5 corridor. Offered on lease.",
     "public_features": null,
-    "image_file": "Ridgewood-estate.jpg",
+    "image_file": "ridgewood-estate.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-04",
@@ -1453,8 +1453,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000094-ridgewood-estate-rental-option-1",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000094"
+    "slug": "aum-web-000094-ridgewood-estate-rental-option-1",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000094"
   },
   {
     "property_id": "AUM-WEB-000095",
@@ -1491,7 +1491,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "3 BHK apartment in Ridgewood Estate, Gurgaon. Located on the DLF Phase 1–5 corridor. Offered on lease.",
     "public_features": null,
-    "image_file": "Ridgewood-estate.jpg",
+    "image_file": "ridgewood-estate.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-04",
@@ -1500,8 +1500,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000095-ridgewood-estate-rental-option-2",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000095"
+    "slug": "aum-web-000095-ridgewood-estate-rental-option-2",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000095"
   },
   {
     "property_id": "AUM-WEB-000096",
@@ -1538,7 +1538,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "3 BHK apartment in Ridgewood Estate, Gurgaon. Located on the DLF Phase 1–5 corridor. Offered on lease.",
     "public_features": null,
-    "image_file": "Ridgewood-estate.jpg",
+    "image_file": "ridgewood-estate.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-04",
@@ -1547,8 +1547,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000096-ridgewood-estate-rental-option-3",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000096"
+    "slug": "aum-web-000096-ridgewood-estate-rental-option-3",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000096"
   },
   {
     "property_id": "AUM-WEB-000097",
@@ -1585,7 +1585,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "3 BHK apartment in Ridgewood Estate, Gurgaon. Located on the DLF Phase 1–5 corridor. Offered on lease.",
     "public_features": null,
-    "image_file": "Ridgewood-estate.jpg",
+    "image_file": "ridgewood-estate.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-04",
@@ -1594,8 +1594,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000097-ridgewood-estate-rental-option-4",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000097"
+    "slug": "aum-web-000097-ridgewood-estate-rental-option-4",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000097"
   },
   {
     "property_id": "AUM-WEB-000098",
@@ -1632,7 +1632,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "3 BHK apartment in Ridgewood Estate, Gurgaon. Located on the DLF Phase 1–5 corridor. Offered on lease.",
     "public_features": null,
-    "image_file": "Ridgewood-estate.jpg",
+    "image_file": "ridgewood-estate.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-04",
@@ -1641,8 +1641,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000098-ridgewood-estate-rental-option-5",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000098"
+    "slug": "aum-web-000098-ridgewood-estate-rental-option-5",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000098"
   },
   {
     "property_id": "AUM-WEB-000099",
@@ -1679,7 +1679,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "3 BHK apartment in Ridgewood Estate, Gurgaon. Located on the DLF Phase 1–5 corridor. Offered on lease.",
     "public_features": null,
-    "image_file": "Ridgewood-estate.jpg",
+    "image_file": "ridgewood-estate.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-04",
@@ -1688,8 +1688,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000099-ridgewood-estate-rental-option-6",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000099"
+    "slug": "aum-web-000099-ridgewood-estate-rental-option-6",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000099"
   },
   {
     "property_id": "AUM-WEB-000100",
@@ -1726,7 +1726,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "3 BHK apartment in Ridgewood Estate, Gurgaon. Located on the DLF Phase 1–5 corridor. Offered on lease.",
     "public_features": null,
-    "image_file": "Ridgewood-estate.jpg",
+    "image_file": "ridgewood-estate.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-04",
@@ -1735,8 +1735,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000100-ridgewood-estate-rental-option-7",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000100"
+    "slug": "aum-web-000100-ridgewood-estate-rental-option-7",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000100"
   },
   {
     "property_id": "AUM-WEB-000101",
@@ -1782,8 +1782,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000101-malibu-town-575-sq-yd-plot",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000101"
+    "slug": "aum-web-000101-malibu-town-575-sq-yd-plot",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000101"
   },
   {
     "property_id": "AUM-WEB-000102",
@@ -1829,8 +1829,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000102-nirvana-country-360-sq-yd-plot",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000102"
+    "slug": "aum-web-000102-nirvana-country-360-sq-yd-plot",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000102"
   },
   {
     "property_id": "AUM-WEB-000103",
@@ -1876,8 +1876,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000103-sector-42-8-marla-map-approved-plot",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000103"
+    "slug": "aum-web-000103-sector-42-8-marla-map-approved-plot",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000103"
   },
   {
     "property_id": "AUM-WEB-000104",
@@ -1923,8 +1923,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000104-sector-52-10-marla-map-approved-plot",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000104"
+    "slug": "aum-web-000104-sector-52-10-marla-map-approved-plot",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000104"
   },
   {
     "property_id": "AUM-WEB-000105",
@@ -1970,8 +1970,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000105-sector-15-part-1-8-marla-plot",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000105"
+    "slug": "aum-web-000105-sector-15-part-1-8-marla-plot",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000105"
   },
   {
     "property_id": "AUM-WEB-000106",
@@ -2008,7 +2008,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "3 BHK + Staff Room apartment of 2595 sq ft in Gurgaon. Located on the Golf Course Ext & SPR corridor. Offered for sale.",
     "public_features": null,
-    "image_file": "Pioneer-presidia.jpg",
+    "image_file": "pioneer-presidia.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-04",
@@ -2017,8 +2017,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000106-pioneer-presidia-3-bhk-Staff Room-2595",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000106"
+    "slug": "aum-web-000106-pioneer-presidia-3-bhk-servant-2595",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000106"
   },
   {
     "property_id": "AUM-WEB-000107",
@@ -2055,7 +2055,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "4 BHK + Staff Room apartment of 2410 sq ft in Gurgaon. Located on the Nirvana Country & Sohna Road corridor. Park & pool facing. Offered for sale.",
     "public_features": null,
-    "image_file": "Palm-terrace-select.jpeg",
+    "image_file": "palm-terrace-select.jpeg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-04",
@@ -2064,8 +2064,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000107-palm-terrace-select-4-bhk-Staff Room-2410",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000107"
+    "slug": "aum-web-000107-palm-terrace-select-4-bhk-servant-2410",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000107"
   },
   {
     "property_id": "AUM-WEB-000108",
@@ -2102,7 +2102,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "3 BHK apartment of 2069 sq ft in Gurgaon. Located on the Nirvana Country & Sohna Road corridor. Offered for sale.",
     "public_features": null,
-    "image_file": "Close-north.jpg",
+    "image_file": "close-north.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-04",
@@ -2111,8 +2111,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000108-close-north-3-bhk-2069-oc-received",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000108"
+    "slug": "aum-web-000108-close-north-3-bhk-2069-oc-received",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000108"
   },
   {
     "property_id": "AUM-WEB-000109",
@@ -2149,7 +2149,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "3 BHK apartment of 2069 sq ft in Gurgaon. Located on the Nirvana Country & Sohna Road corridor. Offered for sale.",
     "public_features": null,
-    "image_file": "Close-north.jpg",
+    "image_file": "close-north.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-04",
@@ -2158,8 +2158,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000109-close-north-3-bhk-2069",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000109"
+    "slug": "aum-web-000109-close-north-3-bhk-2069",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000109"
   },
   {
     "property_id": "AUM-WEB-000110",
@@ -2196,7 +2196,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "3 BHK + Staff Room apartment of 2605 sq ft in Gurgaon. Located on the Nirvana Country & Sohna Road corridor. Offered for sale.",
     "public_features": null,
-    "image_file": "Close-north.jpg",
+    "image_file": "close-north.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-04",
@@ -2205,8 +2205,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000110-close-north-3-bhk-Staff Room-2605",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000110"
+    "slug": "aum-web-000110-close-north-3-bhk-servant-2605",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000110"
   },
   {
     "property_id": "AUM-WEB-000111",
@@ -2243,7 +2243,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "3 BHK + Staff Room apartment of 2480 sq ft in Gurgaon. Located on the Nirvana Country & Sohna Road corridor. Offered for sale.",
     "public_features": null,
-    "image_file": "Close-north.jpg",
+    "image_file": "close-north.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-04",
@@ -2252,8 +2252,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000111-close-north-3-bhk-Staff Room-2480",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000111"
+    "slug": "aum-web-000111-close-north-3-bhk-servant-2480",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000111"
   },
   {
     "property_id": "AUM-WEB-000112",
@@ -2290,7 +2290,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "3 BHK + Staff Room apartment of 2480 sq ft in Gurgaon. Located on the Nirvana Country & Sohna Road corridor. Offered for sale.",
     "public_features": null,
-    "image_file": "Close-south.jpg",
+    "image_file": "close-south.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-04",
@@ -2299,8 +2299,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000112-close-south-3-bhk-Staff Room-2480",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000112"
+    "slug": "aum-web-000112-close-south-3-bhk-servant-2480",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000112"
   },
   {
     "property_id": "AUM-WEB-000113",
@@ -2337,7 +2337,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "3 BHK apartment of 2122 sq ft in Gurgaon. Located on the Golf Course Ext & SPR corridor. Offered for sale.",
     "public_features": null,
-    "image_file": "Urban-oasis.jpg",
+    "image_file": "urban-oasis.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-04",
@@ -2346,8 +2346,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000113-urban-oasis-3-bhk-2122",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000113"
+    "slug": "aum-web-000113-urban-oasis-3-bhk-2122",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000113"
   },
   {
     "property_id": "AUM-WEB-000114",
@@ -2384,7 +2384,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "2 BHK apartment of 1500 sq ft in Gurgaon. Located on the Golf Course Ext & SPR corridor. Offered for sale.",
     "public_features": null,
-    "image_file": "Urban-oasis.jpg",
+    "image_file": "urban-oasis.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-04",
@@ -2393,8 +2393,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000114-urban-oasis-2-bhk-1500",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000114"
+    "slug": "aum-web-000114-urban-oasis-2-bhk-1500",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000114"
   },
   {
     "property_id": "AUM-WEB-000115",
@@ -2431,7 +2431,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "3 BHK + Staff Room apartment in Gurgaon. Located on the Nirvana Country & Sohna Road corridor. Offered for sale.",
     "public_features": null,
-    "image_file": "Harmony.jpg",
+    "image_file": "harmony.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-04",
@@ -2440,8 +2440,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000115-harmony-3-bhk-Staff Room",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000115"
+    "slug": "aum-web-000115-harmony-3-bhk-servant",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000115"
   },
   {
     "property_id": "AUM-WEB-000116",
@@ -2478,7 +2478,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "4 BHK + Staff Room apartment in Gurgaon. Located on the Nirvana Country & Sohna Road corridor. Offered for sale.",
     "public_features": null,
-    "image_file": "Harmony.jpg",
+    "image_file": "harmony.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-04",
@@ -2487,8 +2487,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000116-harmony-4-bhk-Staff Room",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000116"
+    "slug": "aum-web-000116-harmony-4-bhk-servant",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000116"
   },
   {
     "property_id": "AUM-WEB-000117",
@@ -2534,8 +2534,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000117-bptp-park-life-3-bhk-Staff Room-study",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000117"
+    "slug": "aum-web-000117-bptp-park-life-3-bhk-servant-study",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000117"
   },
   {
     "property_id": "AUM-WEB-000118",
@@ -2572,7 +2572,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "3 BHK apartment in Gurgaon. Located on the Golf Course Ext & SPR corridor. Offered for sale.",
     "public_features": null,
-    "image_file": "Smartworld-sky-arc.webp",
+    "image_file": "smartworld-sky-arc.webp",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-04",
@@ -2581,8 +2581,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000118-smartworld-sky-arc-3-bhk",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000118"
+    "slug": "aum-web-000118-smartworld-sky-arc-3-bhk",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000118"
   },
   {
     "property_id": "AUM-WEB-000119",
@@ -2619,7 +2619,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "4 BHK apartment in Gurgaon. Located on the Golf Course Ext & SPR corridor. Offered for sale.",
     "public_features": null,
-    "image_file": "Smartworld-sky-arc.webp",
+    "image_file": "smartworld-sky-arc.webp",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-04",
@@ -2628,8 +2628,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000119-smartworld-sky-arc-4-bhk",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000119"
+    "slug": "aum-web-000119-smartworld-sky-arc-4-bhk",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000119"
   },
   {
     "property_id": "AUM-WEB-000120",
@@ -2666,7 +2666,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "4 BHK + Staff Room builder floor of 420 sq yd in Gurgaon. Located on the Golf Course Ext & SPR corridor. Offered for sale.",
     "public_features": null,
-    "image_file": "Adani-samsara.jpg",
+    "image_file": "adani-samsara.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-04",
@@ -2675,8 +2675,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000120-adani-samsara-floor-4-bhk-Staff Room-420-sq-yd",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000120"
+    "slug": "aum-web-000120-adani-samsara-floor-4-bhk-servant-420-sq-yd",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000120"
   },
   {
     "property_id": "AUM-WEB-000121",
@@ -2713,7 +2713,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "4 BHK + Staff Room apartment of 4690 sq ft in Gurgaon. Located on the Golf Course Ext & SPR corridor. Offered for sale.",
     "public_features": null,
-    "image_file": "Pioneer-araya.jpg",
+    "image_file": "pioneer-araya.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-04",
@@ -2722,8 +2722,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000121-pioneer-araya-block-c-4-bhk-Staff Room-4690",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000121"
+    "slug": "aum-web-000121-pioneer-araya-block-c-4-bhk-servant-4690",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000121"
   },
   {
     "property_id": "AUM-WEB-000122",
@@ -2760,7 +2760,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "3 BHK builder floor of 300 sq yd in Gurgaon. 3rd Floor. Located on the Golf Course Ext & SPR corridor. Offered for sale.",
     "public_features": null,
-    "image_file": "Anant-raj.jpg",
+    "image_file": "anant-raj.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-04",
@@ -2769,8 +2769,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000122-anant-raj-estate-block-e-3-bhk-300-sq-yd",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000122"
+    "slug": "aum-web-000122-anant-raj-estate-block-e-3-bhk-300-sq-yd",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000122"
   },
   {
     "property_id": "AUM-WEB-000123",
@@ -2807,7 +2807,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "4 BHK + Staff Room apartment of 3800 sq ft in Gurgaon. Located on the Golf Course Ext & SPR corridor. Offered for sale.",
     "public_features": null,
-    "image_file": "Pioneer-presidia.jpg",
+    "image_file": "pioneer-presidia.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-04",
@@ -2816,8 +2816,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000123-pioneer-presidia-block-b-4-bhk-Staff Room-3800",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000123"
+    "slug": "aum-web-000123-pioneer-presidia-block-b-4-bhk-servant-3800",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000123"
   },
   {
     "property_id": "AUM-WEB-000124",
@@ -2854,7 +2854,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "3 BHK + Staff Room apartment of 2937 sq ft in Gurgaon. 6th & 24th. Located on the Golf Course Ext & SPR corridor. Offered for sale.",
     "public_features": null,
-    "image_file": "The-aspen.webp",
+    "image_file": "the-aspen.webp",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-04",
@@ -2863,8 +2863,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000124-whiteland-the-aspen-3-bhk-Staff Room-2937",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000124"
+    "slug": "aum-web-000124-whiteland-the-aspen-3-bhk-servant-2937",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000124"
   },
   {
     "property_id": "AUM-WEB-000125",
@@ -2901,7 +2901,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "3 BHK apartment of 1750 sq ft in Gurgaon. 2nd Floor. Located on the Golf Course Ext & SPR corridor. Offered for sale.",
     "public_features": null,
-    "image_file": "Paras-the-florett.jpg",
+    "image_file": "paras-the-florett.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-04",
@@ -2910,8 +2910,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000125-paras-the-florett-enqlve-sector-59-3-bhk",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000125"
+    "slug": "aum-web-000125-paras-the-florett-enqlve-sector-59-3-bhk",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000125"
   },
   {
     "property_id": "AUM-WEB-000126",
@@ -2948,7 +2948,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "4 BHK + Staff Room apartment of 2100 sq ft in Gurgaon. Located on the Golf Course Ext & SPR corridor. Offered for sale.",
     "public_features": null,
-    "image_file": "Ireo-uptown.jpg",
+    "image_file": "ireo-uptown.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-04",
@@ -2957,8 +2957,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000126-ireo-uptown-4-bhk-Staff Room-2100",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000126"
+    "slug": "aum-web-000126-ireo-uptown-4-bhk-servant-2100",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000126"
   },
   {
     "property_id": "AUM-WEB-000127",
@@ -2995,7 +2995,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "3 BHK + Staff Room + Terrace builder floor of 345 sq yd in Gurgaon. Located on the Golf Course Ext & SPR corridor. Offered for sale.",
     "public_features": null,
-    "image_file": "Birla-navya.jpg",
+    "image_file": "birla-navya.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-04",
@@ -3004,8 +3004,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000127-birla-navya-amoda-1-3-bhk-Staff Room-terrace",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000127"
+    "slug": "aum-web-000127-birla-navya-amoda-1-3-bhk-servant-terrace",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000127"
   },
   {
     "property_id": "AUM-WEB-000128",
@@ -3042,7 +3042,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "4 BHK + Staff Room apartment of 3400 sq ft in Gurgaon. Located on the Golf Course Ext & SPR corridor. Offered for sale.",
     "public_features": null,
-    "image_file": "Tata-raisina.webp",
+    "image_file": "tata-raisina.webp",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-04",
@@ -3051,8 +3051,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000128-tata-raisina-residence-sector-58-4-bhk-Staff Room",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000128"
+    "slug": "aum-web-000128-tata-raisina-residence-sector-58-4-bhk-servant",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000128"
   },
   {
     "property_id": "AUM-WEB-000129",
@@ -3089,7 +3089,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "3 BHK + Staff Room + Terrace apartment of 2027 sq ft in Gurgaon. Located on the Nirvana Country & Sohna Road corridor. Offered for sale.",
     "public_features": null,
-    "image_file": "Uniworld-garden-1.jpg",
+    "image_file": "uniworld-garden-1.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-04",
@@ -3098,8 +3098,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000129-uniworld-garden-1-3-bhk-Staff Room-terrace",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000129"
+    "slug": "aum-web-000129-uniworld-garden-1-3-bhk-servant-terrace",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000129"
   },
   {
     "property_id": "AUM-WEB-000130",
@@ -3136,7 +3136,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "3 BHK + Staff Room apartment of 2625 sq ft in Gurgaon. Located on the Golf Course Ext & SPR corridor. Offered for sale.",
     "public_features": null,
-    "image_file": "Tata-raisina.webp",
+    "image_file": "tata-raisina.webp",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-04",
@@ -3145,8 +3145,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000130-tata-raisina-tower-2-3-bhk-Staff Room",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000130"
+    "slug": "aum-web-000130-tata-raisina-tower-2-3-bhk-servant",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000130"
   },
   {
     "property_id": "AUM-WEB-000131",
@@ -3192,8 +3192,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000131-nirvana-villa-deerwood-chase-4-bhk-Staff Room",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000131"
+    "slug": "aum-web-000131-nirvana-villa-deerwood-chase-4-bhk-servant",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000131"
   },
   {
     "property_id": "AUM-WEB-000132",
@@ -3230,7 +3230,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "5 BHK + Staff Room villa of 260 sq yd in Gurgaon. Located on the Nirvana Country & Sohna Road corridor. Offered for sale.",
     "public_features": null,
-    "image_file": "Eldeco-mansionz.jpg",
+    "image_file": "eldeco-mansionz.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-04",
@@ -3239,8 +3239,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000132-eldeco-mansionz-villa-5-bhk-Staff Room",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000132"
+    "slug": "aum-web-000132-eldeco-mansionz-villa-5-bhk-servant",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000132"
   },
   {
     "property_id": "AUM-WEB-000133",
@@ -3277,7 +3277,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "4 BHK + Staff Room apartment of 2525 sq ft in Gurgaon. Located on the Golf Course Ext & SPR corridor. Offered for sale.",
     "public_features": null,
-    "image_file": "Paras-irene.jpg",
+    "image_file": "paras-irene.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-04",
@@ -3286,8 +3286,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000133-paras-irene-sector-70a-4-bhk-Staff Room",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000133"
+    "slug": "aum-web-000133-paras-irene-sector-70a-4-bhk-servant",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000133"
   },
   {
     "property_id": "AUM-WEB-000134",
@@ -3324,7 +3324,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "4 BHK + Staff Room apartment of 3400 sq ft in Gurgaon. Located on the Dwarka Expressway & New Gurgaon corridor. Offered for sale.",
     "public_features": null,
-    "image_file": "Indiabulls-enigma.jpg",
+    "image_file": "indiabulls-enigma.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-04",
@@ -3333,8 +3333,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000134-indiabulls-enigma-renovated-furnished-4-bhk-Staff Room",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000134"
+    "slug": "aum-web-000134-indiabulls-enigma-renovated-furnished-4-bhk-servant",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000134"
   },
   {
     "property_id": "AUM-WEB-000135",
@@ -3371,7 +3371,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "4 BHK + Office builder floor of 500 sq yd in Gurgaon. 2nd Floor. Located on the DLF Phase 1–5 corridor. Offered for sale.",
     "public_features": null,
-    "image_file": "Dlf-grove.jpg",
+    "image_file": "dlf-grove.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-04",
@@ -3380,8 +3380,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000135-dlf-grove-500-sq-yd-4-bhk-office",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000135"
+    "slug": "aum-web-000135-dlf-grove-500-sq-yd-4-bhk-office",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000135"
   },
   {
     "property_id": "AUM-WEB-000136",
@@ -3427,8 +3427,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000136-palm-springs-plaza-sector-54-office-1200",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000136"
+    "slug": "aum-web-000136-palm-springs-plaza-sector-54-office-1200",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000136"
   },
   {
     "property_id": "AUM-WEB-000137",
@@ -3465,7 +3465,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "Apartment in Gurgaon. Near 20th. Located on the Golf Course Ext & SPR corridor. Offered for sale.",
     "public_features": null,
-    "image_file": "Dlf-arbour.jpg",
+    "image_file": "dlf-arbour.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-04",
@@ -3474,8 +3474,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000137-dlf-arbour-tower-a",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000137"
+    "slug": "aum-web-000137-dlf-arbour-tower-a",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000137"
   },
   {
     "property_id": "AUM-WEB-000138",
@@ -3521,8 +3521,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000138-dlf-phase-1-c9-lane-500-sq-yd-floor",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000138"
+    "slug": "aum-web-000138-dlf-phase-1-c9-lane-500-sq-yd-floor",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000138"
   },
   {
     "property_id": "AUM-WEB-000139",
@@ -3568,8 +3568,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000139-aipl-autograph-ground-floor-retail",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000139"
+    "slug": "aum-web-000139-aipl-autograph-ground-floor-retail",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000139"
   },
   {
     "property_id": "AUM-WEB-000140",
@@ -3615,8 +3615,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000140-lockable-office-space-2400-sq-ft",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000140"
+    "slug": "aum-web-000140-lockable-office-space-2400-sq-ft",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000140"
   },
   {
     "property_id": "AUM-WEB-000141",
@@ -3653,7 +3653,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "3 BHK + Staff Room apartment of 2836 sq ft in Gurgaon. Located on the Dwarka Expressway & New Gurgaon corridor. Offered for sale.",
     "public_features": null,
-    "image_file": "Sobha-aranya.jpg",
+    "image_file": "sobha-aranya.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-04",
@@ -3662,8 +3662,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000141-sobha-aranya-3-bhk-Staff Room-2836",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000141"
+    "slug": "aum-web-000141-sobha-aranya-3-bhk-servant-2836",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000141"
   },
   {
     "property_id": "AUM-WEB-000142",
@@ -3700,7 +3700,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "Apartment in Gurgaon. Located on the Gurugram Central & Other corridor. Offered for sale.",
     "public_features": null,
-    "image_file": "Privana.jpg",
+    "image_file": "privana.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-04",
@@ -3709,8 +3709,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000142-privana-south-tower-a",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000142"
+    "slug": "aum-web-000142-privana-south-tower-a",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000142"
   },
   {
     "property_id": "AUM-WEB-000143",
@@ -3747,7 +3747,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "Apartment of 2600 sq ft in Golf Course Road, Gurgaon. Offered for sale.",
     "public_features": null,
-    "image_file": "Dlf-westend-heights.jpg",
+    "image_file": "dlf-westend-heights.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-04",
@@ -3756,8 +3756,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000143-dlf-westend-heights-furnished-2600",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000143"
+    "slug": "aum-web-000143-dlf-westend-heights-furnished-2600",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000143"
   },
   {
     "property_id": "AUM-WEB-000144",
@@ -3794,7 +3794,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "3 BHK + Staff Room apartment of 2600 sq ft in Gurgaon. Located on the Dwarka Expressway & New Gurgaon corridor. Offered for sale.",
     "public_features": null,
-    "image_file": "Signature-global-deluxe-dxp.webp",
+    "image_file": "signature-global-deluxe-dxp.webp",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-04",
@@ -3803,8 +3803,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000144-signature-global-deluxe-dxp-3-bhk-Staff Room",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000144"
+    "slug": "aum-web-000144-signature-global-deluxe-dxp-3-bhk-servant",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000144"
   },
   {
     "property_id": "AUM-WEB-000145",
@@ -3841,7 +3841,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "3 BHK builder floor in South City 2, Gurgaon. 4th + Terrace. Located on the Nirvana Country & Sohna Road corridor. Offered on lease.",
     "public_features": null,
-    "image_file": "South-city-2.jpg",
+    "image_file": "south-city-2.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-04",
@@ -3850,8 +3850,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000145-south-city-2-furnished-builder-floor-4th-terrace",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000145"
+    "slug": "aum-web-000145-south-city-2-furnished-builder-floor-4th-terrace",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000145"
   },
   {
     "property_id": "AUM-WEB-000146",
@@ -3897,8 +3897,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000146-pushpanjali-farms-bijwasan-2-acre-farmhouse",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000146"
+    "slug": "aum-web-000146-pushpanjali-farms-bijwasan-2-acre-farmhouse",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000146"
   },
   {
     "property_id": "AUM-WEB-000147",
@@ -3935,7 +3935,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "3 BHK apartment of 1983 sq ft in Golf Course Road, Gurgaon. Offered on lease.",
     "public_features": null,
-    "image_file": "Dlf-park-place.jpg",
+    "image_file": "dlf-park-place.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-04",
@@ -3944,8 +3944,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000147-dlf-park-place-1983-semi",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000147"
+    "slug": "aum-web-000147-dlf-park-place-1983-semi",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000147"
   },
   {
     "property_id": "AUM-WEB-000148",
@@ -3982,7 +3982,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "3 BHK apartment of 1983 sq ft in Golf Course Road, Gurgaon. Offered on lease.",
     "public_features": null,
-    "image_file": "Dlf-park-place.jpg",
+    "image_file": "dlf-park-place.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-04",
@@ -3991,8 +3991,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000148-dlf-park-place-1983-sublease",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000148"
+    "slug": "aum-web-000148-dlf-park-place-1983-sublease",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000148"
   },
   {
     "property_id": "AUM-WEB-000149",
@@ -4029,7 +4029,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "3 BHK apartment of 1983 sq ft in Golf Course Road, Gurgaon. Offered on lease.",
     "public_features": null,
-    "image_file": "Dlf-park-place.jpg",
+    "image_file": "dlf-park-place.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-04",
@@ -4038,8 +4038,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000149-dlf-park-place-1983-furnished",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000149"
+    "slug": "aum-web-000149-dlf-park-place-1983-furnished",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000149"
   },
   {
     "property_id": "AUM-WEB-000150",
@@ -4076,7 +4076,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "3 BHK apartment of 2282 sq ft in Golf Course Road, Gurgaon. Offered on lease.",
     "public_features": null,
-    "image_file": "Dlf-park-place.jpg",
+    "image_file": "dlf-park-place.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-04",
@@ -4085,8 +4085,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000150-dlf-park-place-2282-furnished",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000150"
+    "slug": "aum-web-000150-dlf-park-place-2282-furnished",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000150"
   },
   {
     "property_id": "AUM-WEB-000151",
@@ -4123,7 +4123,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "3 BHK apartment of 2282 sq ft in Golf Course Road, Gurgaon. Offered on lease.",
     "public_features": null,
-    "image_file": "Dlf-park-place.jpg",
+    "image_file": "dlf-park-place.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-04",
@@ -4132,8 +4132,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000151-dlf-park-place-2282-aravalli",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000151"
+    "slug": "aum-web-000151-dlf-park-place-2282-aravalli",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000151"
   },
   {
     "property_id": "AUM-WEB-000152",
@@ -4170,7 +4170,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "3 BHK apartment of 2282 sq ft in Golf Course Road, Gurgaon. Offered on lease.",
     "public_features": null,
-    "image_file": "Dlf-park-place.jpg",
+    "image_file": "dlf-park-place.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-04",
@@ -4179,8 +4179,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000152-dlf-park-place-2282-furnished-2",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000152"
+    "slug": "aum-web-000152-dlf-park-place-2282-furnished-2",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000152"
   },
   {
     "property_id": "AUM-WEB-000153",
@@ -4217,7 +4217,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "4 BHK apartment of 2704 sq ft in Golf Course Road, Gurgaon. Offered on lease.",
     "public_features": null,
-    "image_file": "Dlf-park-place.jpg",
+    "image_file": "dlf-park-place.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-04",
@@ -4226,8 +4226,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000153-dlf-park-place-2704-aravalli",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000153"
+    "slug": "aum-web-000153-dlf-park-place-2704-aravalli",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000153"
   },
   {
     "property_id": "AUM-WEB-000154",
@@ -4264,7 +4264,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "4 BHK apartment of 2704 sq ft in Golf Course Road, Gurgaon. Offered on lease.",
     "public_features": null,
-    "image_file": "Dlf-park-place.jpg",
+    "image_file": "dlf-park-place.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-04",
@@ -4273,8 +4273,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000154-dlf-park-place-2704-park",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000154"
+    "slug": "aum-web-000154-dlf-park-place-2704-park",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000154"
   },
   {
     "property_id": "AUM-WEB-000155",
@@ -4320,8 +4320,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000155-dlf-phase-2-325-yd-villa",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000155"
+    "slug": "aum-web-000155-dlf-phase-2-325-yd-villa",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000155"
   },
   {
     "property_id": "AUM-WEB-000156",
@@ -4358,7 +4358,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "3 BHK apartment of 1666 sq ft in Gurgaon. Located on the Golf Course Ext & SPR corridor. Offered on lease.",
     "public_features": null,
-    "image_file": "Ireo-grand-arch.jpg",
+    "image_file": "ireo-grand-arch.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-04",
@@ -4367,8 +4367,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000156-ireo-grand-arch-furnished-1666",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000156"
+    "slug": "aum-web-000156-ireo-grand-arch-furnished-1666",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000156"
   },
   {
     "property_id": "AUM-WEB-000157",
@@ -4405,7 +4405,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "3 BHK apartment of 1261 sq ft in Gurgaon. Located on the Golf Course Ext & SPR corridor. Offered on lease.",
     "public_features": null,
-    "image_file": "M3m-heights.jpg",
+    "image_file": "m3m-heights.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-04",
@@ -4414,8 +4414,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000157-m3m-heights-higher-floor-1261",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000157"
+    "slug": "aum-web-000157-m3m-heights-higher-floor-1261",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000157"
   },
   {
     "property_id": "AUM-WEB-000158",
@@ -4452,7 +4452,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "3 BHK apartment in Gurgaon. Located on the Gurugram Central & Other corridor. Offered on lease.",
     "public_features": null,
-    "image_file": "Godrej-meridian.jpg",
+    "image_file": "godrej-meridian.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-04",
@@ -4461,8 +4461,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000158-godrej-meridien-semi-3-bhk",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000158"
+    "slug": "aum-web-000158-godrej-meridien-semi-3-bhk",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000158"
   },
   {
     "property_id": "AUM-WEB-000159",
@@ -4508,8 +4508,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000159-south-city-1-180-sq-yd-plot",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000159"
+    "slug": "aum-web-000159-south-city-1-180-sq-yd-plot",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000159"
   },
   {
     "property_id": "AUM-WEB-000160",
@@ -4555,8 +4555,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000160-ireo-pride-park-118-sq-yd-plot",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000160"
+    "slug": "aum-web-000160-ireo-pride-park-118-sq-yd-plot",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000160"
   },
   {
     "property_id": "AUM-WEB-000161",
@@ -4602,8 +4602,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000161-ireo-pride-park-127-sq-yd-plot",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000161"
+    "slug": "aum-web-000161-ireo-pride-park-127-sq-yd-plot",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000161"
   },
   {
     "property_id": "AUM-WEB-000162",
@@ -4649,8 +4649,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000162-ireo-pride-park-179-sq-yd-plot",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000162"
+    "slug": "aum-web-000162-ireo-pride-park-179-sq-yd-plot",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000162"
   },
   {
     "property_id": "AUM-WEB-000163",
@@ -4696,8 +4696,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000163-dlf-phase-2-215-sq-yd-independent-builder-floor",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000163"
+    "slug": "aum-web-000163-dlf-phase-2-215-sq-yd-independent-builder-floor",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000163"
   },
   {
     "property_id": "AUM-WEB-000164",
@@ -4734,7 +4734,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "3 BHK apartment of 1350 sq ft in Golf Course Road, Gurgaon. Offered for sale.",
     "public_features": null,
-    "image_file": "Dlf-carlton-estate.jpg",
+    "image_file": "dlf-carlton-estate.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-06",
@@ -4743,8 +4743,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000164-dlf-carlton-estate-3-bhk-fully-furnished",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000164"
+    "slug": "aum-web-000164-dlf-carlton-estate-3-bhk-fully-furnished",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000164"
   },
   {
     "property_id": "AUM-WEB-000165",
@@ -4790,8 +4790,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000165-emaar-marbella-phase-2-350-sq-yd-plot",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000165"
+    "slug": "aum-web-000165-emaar-marbella-phase-2-350-sq-yd-plot",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000165"
   },
   {
     "property_id": "AUM-WEB-000166",
@@ -4837,8 +4837,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000166-emerald-floors-premier-1975-sq-ft-4-bhk-Staff Room",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000166"
+    "slug": "aum-web-000166-emerald-floors-premier-1975-sq-ft-4-bhk-servant",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000166"
   },
   {
     "property_id": "AUM-WEB-000167",
@@ -4875,7 +4875,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "3 BHK apartment of 2250 sq ft in Puri The Aravallis, Sector 61, Gurgaon. Located on the Golf Course Ext & SPR corridor. Offered for sale.",
     "public_features": null,
-    "image_file": "Puri-the-aravalis.jpg",
+    "image_file": "puri-the-aravalis.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-06",
@@ -4884,8 +4884,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000167-puri-the-aravallis-3-bhk-tower-b",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000167"
+    "slug": "aum-web-000167-puri-the-aravallis-3-bhk-tower-b",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000167"
   },
   {
     "property_id": "AUM-WEB-000168",
@@ -4922,7 +4922,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "4 BHK apartment of 2750 sq ft in Puri The Aravallis, Sector 61, Gurgaon. Located on the Golf Course Ext & SPR corridor. Offered for sale.",
     "public_features": null,
-    "image_file": "Puri-the-aravalis.jpg",
+    "image_file": "puri-the-aravalis.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-06",
@@ -4931,8 +4931,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000168-puri-the-aravallis-4-bhk-tower-b",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000168"
+    "slug": "aum-web-000168-puri-the-aravallis-4-bhk-tower-b",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000168"
   },
   {
     "property_id": "AUM-WEB-000169",
@@ -4969,7 +4969,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "Uninterrupted Aravalli greens view",
     "public_description": "Apartment of 6000 sq ft in Gwal Pahari, Gurgaon. Higher floor; Unit 1. Located on the Golf Course Road corridor. Offered for sale.",
     "public_features": "Uninterrupted Aravalli greens view",
-    "image_file": "Paras-quartier.jpg",
+    "image_file": "paras-quartier.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-06",
@@ -4978,8 +4978,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000169-paras-quartier-iconic-tower-6000-sq-ft",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000169"
+    "slug": "aum-web-000169-paras-quartier-iconic-tower-6000-sq-ft",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000169"
   },
   {
     "property_id": "AUM-WEB-000170",
@@ -5025,8 +5025,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000170-nirvana-country-300-sq-yd-park-facing-villa",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000170"
+    "slug": "aum-web-000170-nirvana-country-300-sq-yd-park-facing-villa",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000170"
   },
   {
     "property_id": "AUM-WEB-000171",
@@ -5072,8 +5072,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000171-malibu-towne-202-sq-yd-park-facing-plot",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000171"
+    "slug": "aum-web-000171-malibu-towne-202-sq-yd-park-facing-plot",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000171"
   },
   {
     "property_id": "AUM-WEB-000172",
@@ -5119,8 +5119,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000172-emaar-emerald-hills-topaz-block-758-sq-yd-plot",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000172"
+    "slug": "aum-web-000172-emaar-emerald-hills-topaz-block-758-sq-yd-plot",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000172"
   },
   {
     "property_id": "AUM-WEB-000173",
@@ -5157,7 +5157,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "Stilt + 4 approved; Corner; East facing; Park facing; Excellent condition; 100% livable",
     "public_description": "Villa/house of 200 sq yd in Malibu Town, Gurgaon. Located on the Nirvana Country & Sohna Road corridor. Offered for sale.",
     "public_features": "Stilt + 4 approved; Corner; East facing; Park facing; Excellent condition; 100% livable",
-    "image_file": "Malibu-towne.jpg",
+    "image_file": "malibu-towne.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-06",
@@ -5166,8 +5166,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000173-malibu-towne-200-sq-yd-built-up-kothi",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000173"
+    "slug": "aum-web-000173-malibu-towne-200-sq-yd-built-up-kothi",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000173"
   },
   {
     "property_id": "AUM-WEB-000174",
@@ -5213,8 +5213,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000174-emerald-hills-amber-block-262-sq-yd-plot",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000174"
+    "slug": "aum-web-000174-emerald-hills-amber-block-262-sq-yd-plot",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000174"
   },
   {
     "property_id": "AUM-WEB-000175",
@@ -5260,8 +5260,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000175-emerald-hills-jemma-block-267-sq-yd-plot",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000175"
+    "slug": "aum-web-000175-emerald-hills-jemma-block-267-sq-yd-plot",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000175"
   },
   {
     "property_id": "AUM-WEB-000176",
@@ -5298,7 +5298,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "Gated block with power backup; 4 washrooms",
     "public_description": "4 BHK apartment of 500 sq yd in Uppal Southend, Sector 49, Gurgaon. Ground Floor. Located on the Nirvana Country & Sohna Road corridor. Offered for sale.",
     "public_features": "Gated block with power backup; 4 washrooms",
-    "image_file": "Uppal-southend.jpg",
+    "image_file": "uppal-southend.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-06",
@@ -5307,8 +5307,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000176-uppal-southend-sector-49-500-sq-yd-4-bhk-gf",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000176"
+    "slug": "aum-web-000176-uppal-southend-sector-49-500-sq-yd-4-bhk-gf",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000176"
   },
   {
     "property_id": "AUM-WEB-000177",
@@ -5345,7 +5345,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "Gated block with power backup; Corner plot; 4 washrooms; Corner plot",
     "public_description": "4 BHK apartment of 500 sq yd in Uppal Southend, Sector 49, Gurgaon. Ground Floor. Located on the Nirvana Country & Sohna Road corridor. Offered for sale.",
     "public_features": "Gated block with power backup; Corner plot; 4 washrooms; Corner plot",
-    "image_file": "Uppal-southend.jpg",
+    "image_file": "uppal-southend.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-06",
@@ -5354,8 +5354,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000177-uppal-southend-sector-49-500-sq-yd-4-bhk-gf-corner",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000177"
+    "slug": "aum-web-000177-uppal-southend-sector-49-500-sq-yd-4-bhk-gf-corner",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000177"
   },
   {
     "property_id": "AUM-WEB-000178",
@@ -5392,7 +5392,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "Gated block; 3 washrooms; S block",
     "public_description": "3 BHK apartment of 311 sq yd in Uppal Southend, Sector 49, Gurgaon. Ground Floor. Located on the Nirvana Country & Sohna Road corridor. Offered for sale.",
     "public_features": "Gated block; 3 washrooms; S block",
-    "image_file": "Uppal-southend.jpg",
+    "image_file": "uppal-southend.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-06",
@@ -5401,8 +5401,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000178-uppal-southend-sector-49-311-sq-yd",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000178"
+    "slug": "aum-web-000178-uppal-southend-sector-49-311-sq-yd",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000178"
   },
   {
     "property_id": "AUM-WEB-000179",
@@ -5439,7 +5439,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "Gated block with power backup; 3 washrooms",
     "public_description": "3 BHK apartment of 311 sq yd in Uppal Southend, Sector 49, Gurgaon. Ground Floor. Located on the Nirvana Country & Sohna Road corridor. Offered for sale.",
     "public_features": "Gated block with power backup; 3 washrooms",
-    "image_file": "Uppal-southend.jpg",
+    "image_file": "uppal-southend.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-06",
@@ -5448,8 +5448,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000179-uppal-southend-sector-49-311-sq-yd",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000179"
+    "slug": "aum-web-000179-uppal-southend-sector-49-311-sq-yd",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000179"
   },
   {
     "property_id": "AUM-WEB-000180",
@@ -5486,7 +5486,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "Gated block with power backup; 3 washrooms",
     "public_description": "3 BHK apartment of 311 sq yd in Uppal Southend, Sector 49, Gurgaon. 1st Floor. Located on the Nirvana Country & Sohna Road corridor. Offered for sale.",
     "public_features": "Gated block with power backup; 3 washrooms",
-    "image_file": "Uppal-southend.jpg",
+    "image_file": "uppal-southend.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-06",
@@ -5495,8 +5495,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000180-uppal-southend-sector-49-311-sq-yd",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000180"
+    "slug": "aum-web-000180-uppal-southend-sector-49-311-sq-yd",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000180"
   },
   {
     "property_id": "AUM-WEB-000181",
@@ -5533,7 +5533,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "Gated block with power backup; S block; 3 washrooms",
     "public_description": "3 BHK apartment of 311 sq yd in Uppal Southend, Sector 49, Gurgaon. 1st Floor. Located on the Nirvana Country & Sohna Road corridor. Offered for sale.",
     "public_features": "Gated block with power backup; S block; 3 washrooms",
-    "image_file": "Uppal-southend.jpg",
+    "image_file": "uppal-southend.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-06",
@@ -5542,8 +5542,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000181-uppal-southend-sector-49-311-sq-yd",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000181"
+    "slug": "aum-web-000181-uppal-southend-sector-49-311-sq-yd",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000181"
   },
   {
     "property_id": "AUM-WEB-000182",
@@ -5580,7 +5580,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "Gated block; Private building; 3 washrooms",
     "public_description": "3 BHK apartment of 215 sq yd in Uppal Southend, Sector 49, Gurgaon. 2nd + roof right. Located on the Nirvana Country & Sohna Road corridor. Offered for sale.",
     "public_features": "Gated block; Private building; 3 washrooms",
-    "image_file": "Uppal-southend.jpg",
+    "image_file": "uppal-southend.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-06",
@@ -5589,8 +5589,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000182-uppal-southend-sector-49-215-sq-yd",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000182"
+    "slug": "aum-web-000182-uppal-southend-sector-49-215-sq-yd",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000182"
   },
   {
     "property_id": "AUM-WEB-000183",
@@ -5627,7 +5627,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "Gated block; 2 washrooms",
     "public_description": "3 BHK apartment of 215 sq yd in Uppal Southend, Sector 49, Gurgaon. 2nd + roof right. Located on the Nirvana Country & Sohna Road corridor. Offered for sale.",
     "public_features": "Gated block; 2 washrooms",
-    "image_file": "Uppal-southend.jpg",
+    "image_file": "uppal-southend.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-06",
@@ -5636,8 +5636,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000183-uppal-southend-sector-49-215-sq-yd",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000183"
+    "slug": "aum-web-000183-uppal-southend-sector-49-215-sq-yd",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000183"
   },
   {
     "property_id": "AUM-WEB-000184",
@@ -5674,7 +5674,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "Lift; Gated block with power backup; 3 washrooms",
     "public_description": "3 BHK apartment of 215 sq yd in Uppal Southend, Sector 49, Gurgaon. 1st Floor. Located on the Nirvana Country & Sohna Road corridor. Offered for sale.",
     "public_features": "Lift; Gated block with power backup; 3 washrooms",
-    "image_file": "Uppal-southend.jpg",
+    "image_file": "uppal-southend.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-06",
@@ -5683,8 +5683,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000184-uppal-southend-sector-49-215-sq-yd",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000184"
+    "slug": "aum-web-000184-uppal-southend-sector-49-215-sq-yd",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000184"
   },
   {
     "property_id": "AUM-WEB-000185",
@@ -5721,7 +5721,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "Gated block; 2 study room",
     "public_description": "2 + Study apartment of 200 sq yd in Uppal Southend, Sector 49, Gurgaon. 1st Floor. Located on the Nirvana Country & Sohna Road corridor. Offered for sale.",
     "public_features": "Gated block; 2 study room",
-    "image_file": "Uppal-southend.jpg",
+    "image_file": "uppal-southend.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-06",
@@ -5730,8 +5730,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000185-uppal-southend-sector-49-200-sq-yd",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000185"
+    "slug": "aum-web-000185-uppal-southend-sector-49-200-sq-yd",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000185"
   },
   {
     "property_id": "AUM-WEB-000186",
@@ -5768,7 +5768,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "Gated block; 2 study room",
     "public_description": "2 + Study apartment of 200 sq yd in Uppal Southend, Sector 49, Gurgaon. 2nd + roof right. Located on the Nirvana Country & Sohna Road corridor. Offered for sale.",
     "public_features": "Gated block; 2 study room",
-    "image_file": "Uppal-southend.jpg",
+    "image_file": "uppal-southend.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-06",
@@ -5777,8 +5777,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000186-uppal-southend-sector-49-200-sq-yd",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000186"
+    "slug": "aum-web-000186-uppal-southend-sector-49-200-sq-yd",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000186"
   },
   {
     "property_id": "AUM-WEB-000187",
@@ -5815,7 +5815,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "Fully renovated flat; 3 + Staff Room",
     "public_description": "3 + Staff Room apartment of 2082 sq ft in Sector 49, Gurgaon. Located on the Nirvana Country & Sohna Road corridor. Offered for sale.",
     "public_features": "Fully renovated flat; 3 + Staff Room",
-    "image_file": "Omaxe-the-nile.jpeg",
+    "image_file": "omaxe-the-nile.jpeg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-06",
@@ -5824,8 +5824,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000187-omaxe-the-nile-sector-49-2082-sq-ft",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000187"
+    "slug": "aum-web-000187-omaxe-the-nile-sector-49-2082-sq-ft",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000187"
   },
   {
     "property_id": "AUM-WEB-000188",
@@ -5862,7 +5862,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "Gated block; Fully renovated flat; 3 washrooms",
     "public_description": "3 BHK apartment of 215 sq yd in Uppal Southend, Sector 49, Gurgaon. Ground Floor. Located on the Nirvana Country & Sohna Road corridor. Offered for sale.",
     "public_features": "Gated block; Fully renovated flat; 3 washrooms",
-    "image_file": "Uppal-southend.jpg",
+    "image_file": "uppal-southend.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-06",
@@ -5871,8 +5871,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000188-uppal-southend-sector-49-215-sq-yd",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000188"
+    "slug": "aum-web-000188-uppal-southend-sector-49-215-sq-yd",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000188"
   },
   {
     "property_id": "AUM-WEB-000189",
@@ -5909,7 +5909,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "3 + Staff Room",
     "public_description": "3 + Staff Room apartment of 2082 sq ft in Sector 49, Gurgaon. Located on the Nirvana Country & Sohna Road corridor. Offered for sale.",
     "public_features": "3 + Staff Room",
-    "image_file": "Omaxe-the-nile.jpeg",
+    "image_file": "omaxe-the-nile.jpeg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-06",
@@ -5918,8 +5918,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000189-omaxe-the-nile-sector-49-2082-sq-ft",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000189"
+    "slug": "aum-web-000189-omaxe-the-nile-sector-49-2082-sq-ft",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000189"
   },
   {
     "property_id": "AUM-WEB-000190",
@@ -5956,7 +5956,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "S block; 18m road; Very nice location; 3 washrooms",
     "public_description": "3 BHK apartment of 311 sq yd in Uppal Southend, Sector 49, Gurgaon. 2nd + roof right. Located on the Nirvana Country & Sohna Road corridor. Offered for sale.",
     "public_features": "S block; 18m road; Very nice location; 3 washrooms",
-    "image_file": "Uppal-southend.jpg",
+    "image_file": "uppal-southend.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-06",
@@ -5965,8 +5965,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000190-uppal-southend-sector-49-311-sq-yd",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000190"
+    "slug": "aum-web-000190-uppal-southend-sector-49-311-sq-yd",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000190"
   },
   {
     "property_id": "AUM-WEB-000191",
@@ -6003,7 +6003,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "S block; 18m road; Very nice location; 3 washrooms",
     "public_description": "3 BHK apartment of 311 sq yd in Uppal Southend, Sector 49, Gurgaon. 2nd + roof right. Located on the Nirvana Country & Sohna Road corridor. Offered for sale.",
     "public_features": "S block; 18m road; Very nice location; 3 washrooms",
-    "image_file": "Uppal-southend.jpg",
+    "image_file": "uppal-southend.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-06",
@@ -6012,8 +6012,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000191-uppal-southend-sector-49-311-sq-yd",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000191"
+    "slug": "aum-web-000191-uppal-southend-sector-49-311-sq-yd",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000191"
   },
   {
     "property_id": "AUM-WEB-000192",
@@ -6050,7 +6050,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "4 BHK + SQ; Park facing",
     "public_description": "4 BHK + Staff Room apartment of 3065 sq ft in Golf Course Road, Sector 84, Gurgaon. Park facing. Offered for sale.",
     "public_features": "4 BHK + SQ; Park facing",
-    "image_file": "Dlf-the-belaire.webp",
+    "image_file": "dlf-the-belaire.webp",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-06",
@@ -6059,8 +6059,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000192-dlf-belaire-3065-sq-ft-4-bhk-Staff Room",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000192"
+    "slug": "aum-web-000192-dlf-belaire-3065-sq-ft-4-bhk-servant",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000192"
   },
   {
     "property_id": "AUM-WEB-000193",
@@ -6097,7 +6097,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "East or park facing",
     "public_description": "3 BHK builder floor of 1550 sq ft in DLF Exclusive Floor, Sector 53, Gurgaon. Located on the DLF Phase 1–5 corridor. Offered for sale.",
     "public_features": "East or park facing",
-    "image_file": "Dlf-exclusive-floors.jpg",
+    "image_file": "dlf-exclusive-floors.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-06",
@@ -6106,8 +6106,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000193-dlf-exclusive-floor-sector-53-1550-sq-ft-3-bhk",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000193"
+    "slug": "aum-web-000193-dlf-exclusive-floor-sector-53-1550-sq-ft-3-bhk",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000193"
   },
   {
     "property_id": "AUM-WEB-000194",
@@ -6144,7 +6144,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "Middle & higher floor; Park facing",
     "public_description": "3 BHK + Staff Room apartment of 2595 sq ft in Conscient Elevate, Sector 59, Gurgaon. Middle/higher. Located on the Golf Course Ext & SPR corridor. Park facing. Offered for sale.",
     "public_features": "Middle & higher floor; Park facing",
-    "image_file": "Elevate-by-hines.webp",
+    "image_file": "elevate-by-hines.webp",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-06",
@@ -6153,8 +6153,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000194-conscient-elevate-2595-sq-ft-3-bhk-Staff Room",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000194"
+    "slug": "aum-web-000194-conscient-elevate-2595-sq-ft-3-bhk-servant",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000194"
   },
   {
     "property_id": "AUM-WEB-000195",
@@ -6191,7 +6191,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "Middle floor; Park & pool facing",
     "public_description": "3 BHK + Staff Room apartment of 2410 sq ft in Urban Oasis, Sector 62, Gurgaon. Middle. Located on the Golf Course Ext & SPR corridor. Park & pool facing. Offered for sale.",
     "public_features": "Middle floor; Park & pool facing",
-    "image_file": "Urban-oasis.jpg",
+    "image_file": "urban-oasis.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-06",
@@ -6200,8 +6200,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000195-urban-oasis-sector-62-2410-sq-ft-3-bhk-Staff Room",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000195"
+    "slug": "aum-web-000195-urban-oasis-sector-62-2410-sq-ft-3-bhk-servant",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000195"
   },
   {
     "property_id": "AUM-WEB-000196",
@@ -6238,7 +6238,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "Source says SF; East/park facing",
     "public_description": "3 BHK builder floor of 1550 sq ft in DLF Phase 5, Sector 5, Gurgaon. Second Floor. Located on the DLF Phase 1–5 corridor. East & park facing. Offered for sale.",
     "public_features": "Source says SF; East/park facing",
-    "image_file": "Dlf-exclusive-floors.jpg",
+    "image_file": "dlf-exclusive-floors.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-06",
@@ -6247,8 +6247,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000196-dlf-exclusive-floor-phase-5-1550-sq-ft-3-bhk",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000196"
+    "slug": "aum-web-000196-dlf-exclusive-floor-phase-5-1550-sq-ft-3-bhk",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000196"
   },
   {
     "property_id": "AUM-WEB-000197",
@@ -6285,7 +6285,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "1950 sq ft; Corner; Park facing",
     "public_description": "4 BHK builder floor of 400 sq yd in Orchid Island, Gurgaon. First floor. Located on the Nirvana Country & Sohna Road corridor. Corner; Park facing. Offered for sale.",
     "public_features": "1950 sq ft; Corner; Park facing",
-    "image_file": "Orchid-island.jpg",
+    "image_file": "orchid-island.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-06",
@@ -6294,8 +6294,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000197-orchid-island-400-sq-yd-4-bhk-first-floor",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000197"
+    "slug": "aum-web-000197-orchid-island-400-sq-yd-4-bhk-first-floor",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000197"
   },
   {
     "property_id": "AUM-WEB-000198",
@@ -6341,8 +6341,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000198-smartworld-orchid-sector-61-1200-sq-ft-2-bhk-terrace",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000198"
+    "slug": "aum-web-000198-smartworld-orchid-sector-61-1200-sq-ft-2-bhk-terrace",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000198"
   },
   {
     "property_id": "AUM-WEB-000199",
@@ -6379,7 +6379,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "2 cabins; 3 AC toilets",
     "public_description": "Office commercial property of 1650 sq ft in Orchid Island, Gurgaon. Basement Floor. Located on the Nirvana Country & Sohna Road corridor. Corner; Park facing. Offered on lease.",
     "public_features": "2 cabins; 3 AC toilets",
-    "image_file": "Orchid-island.jpg",
+    "image_file": "orchid-island.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-06",
@@ -6388,8 +6388,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000199-orchid-island-basement-office-400-sq-yd",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000199"
+    "slug": "aum-web-000199-orchid-island-basement-office-400-sq-yd",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000199"
   },
   {
     "property_id": "AUM-WEB-000200",
@@ -6426,7 +6426,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "+ maintenance",
     "public_description": "3 BHK + Staff Room apartment of 2300 sq ft in Elevate Hines, Sector 59, Gurgaon. Located on the Golf Course Ext & SPR corridor. Offered on lease.",
     "public_features": "+ maintenance",
-    "image_file": "Elevate-by-hines.webp",
+    "image_file": "elevate-by-hines.webp",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-06",
@@ -6435,8 +6435,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000200-elevate-hines-sector-59-2300-sq-ft-3-bhk-Staff Room",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000200"
+    "slug": "aum-web-000200-elevate-hines-sector-59-2300-sq-ft-3-bhk-servant",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000200"
   },
   {
     "property_id": "AUM-WEB-000201",
@@ -6473,7 +6473,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "+ maintenance ₹9,700",
     "public_description": "3 BHK + Staff Room apartment of 1996 sq ft in Heritage One, Sector 62, Gurgaon. Located on the Golf Course Ext & SPR corridor. Offered on lease.",
     "public_features": "+ maintenance ₹9,700",
-    "image_file": "Heritage-one.jpg",
+    "image_file": "heritage-one.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-06",
@@ -6482,8 +6482,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000201-heritage-one-sector-62-1996-sq-ft-3-bhk-Staff Room",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000201"
+    "slug": "aum-web-000201-heritage-one-sector-62-1996-sq-ft-3-bhk-servant",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000201"
   },
   {
     "property_id": "AUM-WEB-000202",
@@ -6520,7 +6520,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "+ maintenance ₹11,000",
     "public_description": "4 BHK + Staff Room apartment of 2600 sq ft in Heritage One, Sector 62, Gurgaon. Located on the Golf Course Ext & SPR corridor. Offered on lease.",
     "public_features": "+ maintenance ₹11,000",
-    "image_file": "Heritage-one.jpg",
+    "image_file": "heritage-one.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-06",
@@ -6529,8 +6529,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000202-heritage-one-sector-62-2600-sq-ft-4-bhk-Staff Room",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000202"
+    "slug": "aum-web-000202-heritage-one-sector-62-2600-sq-ft-4-bhk-servant",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000202"
   },
   {
     "property_id": "AUM-WEB-000203",
@@ -6567,7 +6567,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "Price ₹10 Cr",
     "public_description": "4 BHK + Staff Room apartment of 3890 sq ft in Pioneer Presidia, Sector 62, Gurgaon. Located on the Golf Course Ext & SPR corridor. Offered for sale.",
     "public_features": "Price ₹10 Cr",
-    "image_file": "Pioneer-presidia.jpg",
+    "image_file": "pioneer-presidia.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-06",
@@ -6576,8 +6576,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000203-pioneer-presidia-sector-62-3890-sq-ft-4-bhk-Staff Room",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000203"
+    "slug": "aum-web-000203-pioneer-presidia-sector-62-3890-sq-ft-4-bhk-servant",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000203"
   },
   {
     "property_id": "AUM-WEB-000204",
@@ -6623,8 +6623,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000204-south-city-1-180-sq-yd-east-and-park-facing-plot",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000204"
+    "slug": "aum-web-000204-south-city-1-180-sq-yd-east-and-park-facing-plot",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000204"
   },
   {
     "property_id": "AUM-WEB-000205",
@@ -6670,8 +6670,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000205-ireo-pride-park-118-sq-yd-plot",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000205"
+    "slug": "aum-web-000205-ireo-pride-park-118-sq-yd-plot",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000205"
   },
   {
     "property_id": "AUM-WEB-000206",
@@ -6717,8 +6717,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000206-ireo-pride-park-127-sq-yd-plot",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000206"
+    "slug": "aum-web-000206-ireo-pride-park-127-sq-yd-plot",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000206"
   },
   {
     "property_id": "AUM-WEB-000207",
@@ -6764,8 +6764,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000207-ireo-pride-park-179-sq-yd-plot",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000207"
+    "slug": "aum-web-000207-ireo-pride-park-179-sq-yd-plot",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000207"
   },
   {
     "property_id": "AUM-WEB-000208",
@@ -6811,8 +6811,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000208-dlf-phase-2-215-sq-yd-independent-builder-floor",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000208"
+    "slug": "aum-web-000208-dlf-phase-2-215-sq-yd-independent-builder-floor",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000208"
   },
   {
     "property_id": "AUM-WEB-000209",
@@ -6849,7 +6849,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "3 BHK apartment of 1350 sq ft in Golf Course Road, Gurgaon. Offered for sale.",
     "public_features": null,
-    "image_file": "Dlf-carlton-estate.jpg",
+    "image_file": "dlf-carlton-estate.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-11-22",
@@ -6858,8 +6858,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000209-dlf-carlton-estate-1350-sq-ft-fully-furnished-3-bhk",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000209"
+    "slug": "aum-web-000209-dlf-carlton-estate-1350-sq-ft-fully-furnished-3-bhk",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000209"
   },
   {
     "property_id": "AUM-WEB-000210",
@@ -6905,8 +6905,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000210-emaar-marbella-1-belleza-88-586-sq-yd-plot",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000210"
+    "slug": "aum-web-000210-emaar-marbella-1-belleza-88-586-sq-yd-plot",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000210"
   },
   {
     "property_id": "AUM-WEB-000211",
@@ -6952,8 +6952,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000211-emerald-floors-premier-sector-65-1975-sq-ft-4-bhk-Staff Room",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000211"
+    "slug": "aum-web-000211-emerald-floors-premier-sector-65-1975-sq-ft-4-bhk-servant",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000211"
   },
   {
     "property_id": "AUM-WEB-000212",
@@ -6990,7 +6990,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "Tower B; Booking ₹3.57 Cr + GST; Premium ₹70 Lacs",
     "public_description": "3 BHK apartment of 2250 sq ft in Puri The Aravallis, Sector 61, Gurgaon. Located on the Golf Course Ext & SPR corridor. Offered for sale.",
     "public_features": "Tower B; Booking ₹3.57 Cr + GST; Premium ₹70 Lacs",
-    "image_file": "Puri-the-aravalis.jpg",
+    "image_file": "puri-the-aravalis.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-11-22",
@@ -6999,8 +6999,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000212-puri-the-aravallis-sector-61-tower-b-3-bhk-2250-sq-ft",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000212"
+    "slug": "aum-web-000212-puri-the-aravallis-sector-61-tower-b-3-bhk-2250-sq-ft",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000212"
   },
   {
     "property_id": "AUM-WEB-000213",
@@ -7037,7 +7037,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "Tower B; Booking ₹4.79 Cr + GST; Premium ₹95 Lacs",
     "public_description": "4 BHK apartment of 2750 sq ft in Puri The Aravallis, Sector 61, Gurgaon. Located on the Golf Course Ext & SPR corridor. Offered for sale.",
     "public_features": "Tower B; Booking ₹4.79 Cr + GST; Premium ₹95 Lacs",
-    "image_file": "Puri-the-aravalis.jpg",
+    "image_file": "puri-the-aravalis.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-11-22",
@@ -7046,8 +7046,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000213-puri-the-aravallis-sector-61-tower-b-4-bhk-2750-sq-ft",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000213"
+    "slug": "aum-web-000213-puri-the-aravallis-sector-61-tower-b-4-bhk-2750-sq-ft",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000213"
   },
   {
     "property_id": "AUM-WEB-000214",
@@ -7084,7 +7084,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "Unit no; 1; Uninterrupted Aravalli greens view",
     "public_description": "Apartment of 6000 sq ft in Gwal Pahari, Gurgaon. Higher Floor. Located on the Golf Course Road corridor. Aravalli Greens View facing. Offered for sale.",
     "public_features": "Unit no; 1; Uninterrupted Aravalli greens view",
-    "image_file": "Paras-quartier.jpg",
+    "image_file": "paras-quartier.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-11-22",
@@ -7093,8 +7093,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000214-paras-quartier-gwal-pahari-iconic-tower-6000-sq-ft-higher-floor",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000214"
+    "slug": "aum-web-000214-paras-quartier-gwal-pahari-iconic-tower-6000-sq-ft-higher-floor",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000214"
   },
   {
     "property_id": "AUM-WEB-000215",
@@ -7140,8 +7140,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000215-nirvana-country-300-sq-yd-park-facing-5-bhk-villa-for-lease",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000215"
+    "slug": "aum-web-000215-nirvana-country-300-sq-yd-park-facing-5-bhk-villa-for-lease",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000215"
   },
   {
     "property_id": "AUM-WEB-000216",
@@ -7187,8 +7187,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000216-malibu-towne-202-sq-yd-corner-east-and-park-facing-plot",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000216"
+    "slug": "aum-web-000216-malibu-towne-202-sq-yd-corner-east-and-park-facing-plot",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000216"
   },
   {
     "property_id": "AUM-WEB-000217",
@@ -7234,8 +7234,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000217-emaar-emerald-hills-topaz-block-758-sq-yd-east-facing-plot",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000217"
+    "slug": "aum-web-000217-emaar-emerald-hills-topaz-block-758-sq-yd-east-facing-plot",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000217"
   },
   {
     "property_id": "AUM-WEB-000218",
@@ -7272,7 +7272,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "Corner; Excellent condition; 100% livable",
     "public_description": "Builder floor of 200 sq yd in Malibu Towne, Gurgaon. Stilt + 4 Approved. Located on the Nirvana Country & Sohna Road corridor. East & Park facing. Offered for sale.",
     "public_features": "Corner; Excellent condition; 100% livable",
-    "image_file": "Malibu-towne.jpg",
+    "image_file": "malibu-towne.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-11-22",
@@ -7281,8 +7281,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000218-malibu-towne-200-sq-yd-stilt-4-approved-built-up-kothi",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000218"
+    "slug": "aum-web-000218-malibu-towne-200-sq-yd-stilt-4-approved-built-up-kothi",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000218"
   },
   {
     "property_id": "AUM-WEB-000219",
@@ -7328,8 +7328,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000219-emaar-emerald-hills-amber-block-262-sq-yd-plot",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000219"
+    "slug": "aum-web-000219-emaar-emerald-hills-amber-block-262-sq-yd-plot",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000219"
   },
   {
     "property_id": "AUM-WEB-000220",
@@ -7375,8 +7375,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000220-emaar-emerald-hills-jemma-block-267-sq-yd-plot",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000220"
+    "slug": "aum-web-000220-emaar-emerald-hills-jemma-block-267-sq-yd-plot",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000220"
   },
   {
     "property_id": "AUM-WEB-000221",
@@ -7413,7 +7413,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "4 washroom; Gated block with power backup",
     "public_description": "4 BHK builder floor of 500 sq yd in Uppal South End, Sector 49, Gurgaon. Ground Floor. Located on the Nirvana Country & Sohna Road corridor. Offered for sale.",
     "public_features": "4 washroom; Gated block with power backup",
-    "image_file": "Uppal-southend.jpg",
+    "image_file": "uppal-southend.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-11-22",
@@ -7422,8 +7422,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000221-uppal-south-end-sector-49-500-sq-yd-4-bhk-gf",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000221"
+    "slug": "aum-web-000221-uppal-south-end-sector-49-500-sq-yd-4-bhk-gf",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000221"
   },
   {
     "property_id": "AUM-WEB-000222",
@@ -7460,7 +7460,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "Gated block with power backup; Corner plot",
     "public_description": "4 BHK builder floor of 500 sq yd in Uppal South End, Sector 49, Gurgaon. Ground Floor. Located on the Nirvana Country & Sohna Road corridor. Offered for sale.",
     "public_features": "Gated block with power backup; Corner plot",
-    "image_file": "Uppal-southend.jpg",
+    "image_file": "uppal-southend.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-11-22",
@@ -7469,8 +7469,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000222-uppal-south-end-sector-49-500-sq-yd-4-bhk-gf",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000222"
+    "slug": "aum-web-000222-uppal-south-end-sector-49-500-sq-yd-4-bhk-gf",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000222"
   },
   {
     "property_id": "AUM-WEB-000223",
@@ -7507,7 +7507,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "3 washroom; S Block; Gated block",
     "public_description": "3 BHK builder floor of 311 sq yd in Uppal South End, Sector 49, Gurgaon. Ground Floor. Located on the Nirvana Country & Sohna Road corridor. Offered for sale.",
     "public_features": "3 washroom; S Block; Gated block",
-    "image_file": "Uppal-southend.jpg",
+    "image_file": "uppal-southend.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-11-22",
@@ -7516,8 +7516,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000223-uppal-south-end-sector-49-311-sq-yd-3-bhk-gf",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000223"
+    "slug": "aum-web-000223-uppal-south-end-sector-49-311-sq-yd-3-bhk-gf",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000223"
   },
   {
     "property_id": "AUM-WEB-000224",
@@ -7554,7 +7554,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "3 washroom; Gated block with power backup",
     "public_description": "3 BHK builder floor of 311 sq yd in Uppal South End, Sector 49, Gurgaon. Ground Floor. Located on the Nirvana Country & Sohna Road corridor. Offered for sale.",
     "public_features": "3 washroom; Gated block with power backup",
-    "image_file": "Uppal-southend.jpg",
+    "image_file": "uppal-southend.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-11-22",
@@ -7563,8 +7563,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000224-uppal-south-end-sector-49-311-sq-yd-3-bhk-gf",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000224"
+    "slug": "aum-web-000224-uppal-south-end-sector-49-311-sq-yd-3-bhk-gf",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000224"
   },
   {
     "property_id": "AUM-WEB-000225",
@@ -7601,7 +7601,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "3 washroom; Gated block with power backup",
     "public_description": "3 BHK builder floor of 311 sq yd in Uppal South End, Sector 49, Gurgaon. 1st Floor. Located on the Nirvana Country & Sohna Road corridor. Offered for sale.",
     "public_features": "3 washroom; Gated block with power backup",
-    "image_file": "Uppal-southend.jpg",
+    "image_file": "uppal-southend.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-11-22",
@@ -7610,8 +7610,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000225-uppal-south-end-sector-49-311-sq-yd-3-bhk-1st",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000225"
+    "slug": "aum-web-000225-uppal-south-end-sector-49-311-sq-yd-3-bhk-1st",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000225"
   },
   {
     "property_id": "AUM-WEB-000226",
@@ -7648,7 +7648,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "3 washroom; S Block; Gated block with power backup",
     "public_description": "3 BHK builder floor of 311 sq yd in Uppal South End, Sector 49, Gurgaon. 1st Floor. Located on the Nirvana Country & Sohna Road corridor. Offered for sale.",
     "public_features": "3 washroom; S Block; Gated block with power backup",
-    "image_file": "Uppal-southend.jpg",
+    "image_file": "uppal-southend.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-11-22",
@@ -7657,8 +7657,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000226-uppal-south-end-sector-49-311-sq-yd-3-bhk-1st",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000226"
+    "slug": "aum-web-000226-uppal-south-end-sector-49-311-sq-yd-3-bhk-1st",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000226"
   },
   {
     "property_id": "AUM-WEB-000227",
@@ -7695,7 +7695,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "3 washroom; Gated block with power backup",
     "public_description": "3 BHK builder floor of 311 sq yd in Uppal South End, Sector 49, Gurgaon. 2nd + roof right. Located on the Nirvana Country & Sohna Road corridor. Offered for sale.",
     "public_features": "3 washroom; Gated block with power backup",
-    "image_file": "Uppal-southend.jpg",
+    "image_file": "uppal-southend.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-11-22",
@@ -7704,8 +7704,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000227-uppal-south-end-sector-49-311-sq-yd-3-bhk-2nd-roof-right",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000227"
+    "slug": "aum-web-000227-uppal-south-end-sector-49-311-sq-yd-3-bhk-2nd-roof-right",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000227"
   },
   {
     "property_id": "AUM-WEB-000228",
@@ -7742,7 +7742,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "3 washroom; Gated block",
     "public_description": "3 BHK builder floor of 311 sq yd in Uppal South End, Sector 49, Gurgaon. 2nd + roof right. Located on the Nirvana Country & Sohna Road corridor. Offered for sale.",
     "public_features": "3 washroom; Gated block",
-    "image_file": "Uppal-southend.jpg",
+    "image_file": "uppal-southend.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-11-22",
@@ -7751,8 +7751,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000228-uppal-south-end-sector-49-311-sq-yd-3-bhk-2nd-roof-right",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000228"
+    "slug": "aum-web-000228-uppal-south-end-sector-49-311-sq-yd-3-bhk-2nd-roof-right",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000228"
   },
   {
     "property_id": "AUM-WEB-000229",
@@ -7789,7 +7789,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "3 washroom; Gated block; Private building",
     "public_description": "3 BHK builder floor of 215 sq yd in Uppal South End, Sector 49, Gurgaon. 2nd + roof right. Located on the Nirvana Country & Sohna Road corridor. Offered for sale.",
     "public_features": "3 washroom; Gated block; Private building",
-    "image_file": "Uppal-southend.jpg",
+    "image_file": "uppal-southend.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-11-22",
@@ -7798,8 +7798,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000229-uppal-south-end-sector-49-215-sq-yd-3-bhk-2nd-roof-right",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000229"
+    "slug": "aum-web-000229-uppal-south-end-sector-49-215-sq-yd-3-bhk-2nd-roof-right",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000229"
   },
   {
     "property_id": "AUM-WEB-000230",
@@ -7836,7 +7836,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "2 washroom; Gated block",
     "public_description": "3 BHK builder floor of 215 sq yd in Uppal South End, Sector 49, Gurgaon. 2nd + roof right. Located on the Nirvana Country & Sohna Road corridor. Offered for sale.",
     "public_features": "2 washroom; Gated block",
-    "image_file": "Uppal-southend.jpg",
+    "image_file": "uppal-southend.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-11-22",
@@ -7845,8 +7845,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000230-uppal-south-end-sector-49-215-sq-yd-3-bhk-2nd-roof-right",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000230"
+    "slug": "aum-web-000230-uppal-south-end-sector-49-215-sq-yd-3-bhk-2nd-roof-right",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000230"
   },
   {
     "property_id": "AUM-WEB-000231",
@@ -7883,7 +7883,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "3 washroom; Gated block with power backup",
     "public_description": "3 BHK builder floor of 215 sq yd in Uppal South End, Sector 49, Gurgaon. 1st + lift. Located on the Nirvana Country & Sohna Road corridor. Offered for sale.",
     "public_features": "3 washroom; Gated block with power backup",
-    "image_file": "Uppal-southend.jpg",
+    "image_file": "uppal-southend.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-11-22",
@@ -7892,8 +7892,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000231-uppal-south-end-sector-49-215-sq-yd-3-bhk-1st-lift",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000231"
+    "slug": "aum-web-000231-uppal-south-end-sector-49-215-sq-yd-3-bhk-1st-lift",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000231"
   },
   {
     "property_id": "AUM-WEB-000232",
@@ -7930,7 +7930,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "Gated block",
     "public_description": "2 Study Room builder floor of 200 sq yd in Uppal South End, Sector 49, Gurgaon. 1st Floor. Located on the Nirvana Country & Sohna Road corridor. Offered for sale.",
     "public_features": "Gated block",
-    "image_file": "Uppal-southend.jpg",
+    "image_file": "uppal-southend.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-11-22",
@@ -7939,8 +7939,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000232-uppal-south-end-sector-49-200-sq-yd-2-study-room-1st",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000232"
+    "slug": "aum-web-000232-uppal-south-end-sector-49-200-sq-yd-2-study-room-1st",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000232"
   },
   {
     "property_id": "AUM-WEB-000233",
@@ -7977,7 +7977,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "Gated block",
     "public_description": "2 Study Room builder floor of 200 sq yd in Uppal South End, Sector 49, Gurgaon. 2nd + roof right. Located on the Nirvana Country & Sohna Road corridor. Offered for sale.",
     "public_features": "Gated block",
-    "image_file": "Uppal-southend.jpg",
+    "image_file": "uppal-southend.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-11-22",
@@ -7986,8 +7986,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000233-uppal-south-end-sector-49-200-sq-yd-2-study-room-2nd-roof-right",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000233"
+    "slug": "aum-web-000233-uppal-south-end-sector-49-200-sq-yd-2-study-room-2nd-roof-right",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000233"
   },
   {
     "property_id": "AUM-WEB-000234",
@@ -8024,7 +8024,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "3 washroom; Gated block; Fully renovated",
     "public_description": "3 BHK builder floor of 215 sq yd in Uppal South End, Sector 49, Gurgaon. Ground Floor. Located on the Nirvana Country & Sohna Road corridor. Offered for sale.",
     "public_features": "3 washroom; Gated block; Fully renovated",
-    "image_file": "Uppal-southend.jpg",
+    "image_file": "uppal-southend.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-11-22",
@@ -8033,8 +8033,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000234-uppal-south-end-sector-49-215-sq-yd-3-bhk-gf",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000234"
+    "slug": "aum-web-000234-uppal-south-end-sector-49-215-sq-yd-3-bhk-gf",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000234"
   },
   {
     "property_id": "AUM-WEB-000235",
@@ -8071,7 +8071,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "3 washroom; S Block; 18 metre road; Very nice location",
     "public_description": "3 BHK builder floor of 311 sq yd in Uppal South End, Sector 49, Gurgaon. 2nd + roof right. Located on the Nirvana Country & Sohna Road corridor. Offered for sale.",
     "public_features": "3 washroom; S Block; 18 metre road; Very nice location",
-    "image_file": "Uppal-southend.jpg",
+    "image_file": "uppal-southend.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-11-22",
@@ -8080,8 +8080,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000235-uppal-south-end-sector-49-311-sq-yd-3-bhk-2nd-roof-right",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000235"
+    "slug": "aum-web-000235-uppal-south-end-sector-49-311-sq-yd-3-bhk-2nd-roof-right",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000235"
   },
   {
     "property_id": "AUM-WEB-000236",
@@ -8118,7 +8118,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "3 washroom; S Block; 18 metre road; Very nice location",
     "public_description": "3 BHK builder floor of 311 sq yd in Uppal South End, Sector 49, Gurgaon. 2nd + roof right. Located on the Nirvana Country & Sohna Road corridor. Offered for sale.",
     "public_features": "3 washroom; S Block; 18 metre road; Very nice location",
-    "image_file": "Uppal-southend.jpg",
+    "image_file": "uppal-southend.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-11-22",
@@ -8127,8 +8127,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000236-uppal-south-end-sector-49-311-sq-yd-3-bhk-2nd-roof-right",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000236"
+    "slug": "aum-web-000236-uppal-south-end-sector-49-311-sq-yd-3-bhk-2nd-roof-right",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000236"
   },
   {
     "property_id": "AUM-WEB-000237",
@@ -8165,7 +8165,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "Fully renovated flat",
     "public_description": "3 BHK + Staff Room apartment of 2082 sq ft in Omaxe The Nile, Sector 49, Gurgaon. Located on the Nirvana Country & Sohna Road corridor. Offered for sale.",
     "public_features": "Fully renovated flat",
-    "image_file": "Omaxe-the-nile.jpeg",
+    "image_file": "omaxe-the-nile.jpeg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-11-22",
@@ -8174,8 +8174,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000237-omaxe-the-nile-sector-49-2082-sq-ft-3-bhk-Staff Room-3-50-cr",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000237"
+    "slug": "aum-web-000237-omaxe-the-nile-sector-49-2082-sq-ft-3-bhk-servant-3-50-cr",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000237"
   },
   {
     "property_id": "AUM-WEB-000238",
@@ -8212,7 +8212,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "3 BHK + Staff Room apartment of 2082 sq ft in Omaxe The Nile, Sector 49, Gurgaon. Located on the Nirvana Country & Sohna Road corridor. Offered for sale.",
     "public_features": null,
-    "image_file": "Omaxe-the-nile.jpeg",
+    "image_file": "omaxe-the-nile.jpeg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-11-22",
@@ -8221,8 +8221,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000238-omaxe-the-nile-sector-49-2082-sq-ft-3-bhk-Staff Room-3-25-cr",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000238"
+    "slug": "aum-web-000238-omaxe-the-nile-sector-49-2082-sq-ft-3-bhk-servant-3-25-cr",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000238"
   },
   {
     "property_id": "AUM-WEB-000239",
@@ -8268,8 +8268,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000239-dlf-the-aureva-sector-63-gurugram-senior-living-luxury-residences",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000239"
+    "slug": "aum-web-000239-dlf-the-aureva-sector-63-gurugram-senior-living-luxury-residences",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000239"
   },
   {
     "property_id": "AUM-WEB-000240",
@@ -8315,8 +8315,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000240-nitara-ultra-luxury-triplex-residences-emaar-emerald-hills-topaz-4500-sq-ft",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000240"
+    "slug": "aum-web-000240-nitara-ultra-luxury-triplex-residences-emaar-emerald-hills-topaz-4500-sq-ft",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000240"
   },
   {
     "property_id": "AUM-WEB-000241",
@@ -8362,8 +8362,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000241-tag-tower-udyog-vihar-phase-4-1st-floor-12-500-sq-ft-furnished-office",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000241"
+    "slug": "aum-web-000241-tag-tower-udyog-vihar-phase-4-1st-floor-12-500-sq-ft-furnished-office",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000241"
   },
   {
     "property_id": "AUM-WEB-000242",
@@ -8409,8 +8409,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000242-tag-tower-udyog-vihar-phase-4-7th-floor-9-200-sq-ft-furnished-office",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000242"
+    "slug": "aum-web-000242-tag-tower-udyog-vihar-phase-4-7th-floor-9-200-sq-ft-furnished-office",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000242"
   },
   {
     "property_id": "AUM-WEB-000243",
@@ -8456,8 +8456,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000243-tarc-tripundra-delhi-ready-to-move-3-and-4-bhk-luxury-residences",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000243"
+    "slug": "aum-web-000243-tarc-tripundra-delhi-ready-to-move-3-and-4-bhk-luxury-residences",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000243"
   },
   {
     "property_id": "AUM-WEB-000244",
@@ -8503,8 +8503,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000244-palm-floors-ardee-city-block-c-240-sq-yd-3-bhk-4th-floor-with-terrace",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000244"
+    "slug": "aum-web-000244-palm-floors-ardee-city-block-c-240-sq-yd-3-bhk-4th-floor-with-terrace",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000244"
   },
   {
     "property_id": "AUM-WEB-000245",
@@ -8550,8 +8550,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000245-green-oaks-astaire-garden-sector-70a-3-bhk-office-builder-floor",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000245"
+    "slug": "aum-web-000245-green-oaks-astaire-garden-sector-70a-3-bhk-office-builder-floor",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000245"
   },
   {
     "property_id": "AUM-WEB-000246",
@@ -8588,7 +8588,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "High-end specifications; Stilt parking + lift; Lavish terrace; Ready to move",
     "public_description": "Builder floor of 215 sq yd in Sushant Lok-1, Gurgaon. Top Floor with Terrace. Located on the Sushant Lok & Central Gurgaon corridor. West facing. Offered for sale.",
     "public_features": "High-end specifications; Stilt parking + lift; Lavish terrace; Ready to move",
-    "image_file": "Shukrana-homes.jpg",
+    "image_file": "shukrana-homes.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-11-22",
@@ -8597,8 +8597,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000246-shukrana-homes-sushant-lok-1-215-sq-yd-top-floor-with-terrace",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000246"
+    "slug": "aum-web-000246-shukrana-homes-sushant-lok-1-215-sq-yd-top-floor-with-terrace",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000246"
   },
   {
     "property_id": "AUM-WEB-000247",
@@ -8635,7 +8635,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "High-end specifications; Stilt parking + lift; Lavish terrace; Ready to move",
     "public_description": "Builder floor of 215 sq yd in Sushant Lok-1, Gurgaon. 3rd Floor. Located on the Sushant Lok & Central Gurgaon corridor. West facing. Offered for sale.",
     "public_features": "High-end specifications; Stilt parking + lift; Lavish terrace; Ready to move",
-    "image_file": "Shukrana-homes.jpg",
+    "image_file": "shukrana-homes.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-11-22",
@@ -8644,8 +8644,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000247-shukrana-homes-sushant-lok-1-215-sq-yd-3rd-floor",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000247"
+    "slug": "aum-web-000247-shukrana-homes-sushant-lok-1-215-sq-yd-3rd-floor",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000247"
   },
   {
     "property_id": "AUM-WEB-000249",
@@ -8682,7 +8682,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "High-end specifications; Stilt parking + lift; Lavish terrace; Ready to move",
     "public_description": "Builder floor of 215 sq yd in Sushant Lok-1, Gurgaon. 1st Floor. Located on the Sushant Lok & Central Gurgaon corridor. West facing. Offered for sale.",
     "public_features": "High-end specifications; Stilt parking + lift; Lavish terrace; Ready to move",
-    "image_file": "Shukrana-homes.jpg",
+    "image_file": "shukrana-homes.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-11-22",
@@ -8691,8 +8691,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000249-shukrana-homes-sushant-lok-1-215-sq-yd-1st-floor",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000249"
+    "slug": "aum-web-000249-shukrana-homes-sushant-lok-1-215-sq-yd-1st-floor",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000249"
   },
   {
     "property_id": "AUM-WEB-000250",
@@ -8729,7 +8729,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "Dedicated basement with Staff Room + store; Dedicated terrace; Price subject to change",
     "public_description": "3 BHK + Study builder floor of 260 sq yd in Orchid Ivy Floors, Sector 51, Gurgaon. Located on the Nirvana Country & Sohna Road corridor. Offered for sale.",
     "public_features": "Dedicated basement with Staff Room + store; Dedicated terrace; Price subject to change",
-    "image_file": "Orchid-island.jpg",
+    "image_file": "orchid-island.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-11-22",
@@ -8738,8 +8738,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000250-orchid-ivy-floors-sector-51-260-sq-yd-3-bhk-study",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000250"
+    "slug": "aum-web-000250-orchid-ivy-floors-sector-51-260-sq-yd-3-bhk-study",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000250"
   },
   {
     "property_id": "AUM-WEB-000251",
@@ -8776,7 +8776,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "Dedicated basement with Staff Room + store; Dedicated terrace; Price subject to change",
     "public_description": "4 BHK + Study builder floor of 350 sq yd in Orchid Ivy Floors, Sector 51, Gurgaon. Located on the Nirvana Country & Sohna Road corridor. Offered for sale.",
     "public_features": "Dedicated basement with Staff Room + store; Dedicated terrace; Price subject to change",
-    "image_file": "Orchid-island.jpg",
+    "image_file": "orchid-island.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-11-22",
@@ -8785,8 +8785,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000251-orchid-ivy-floors-sector-51-350-sq-yd-4-bhk-study",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000251"
+    "slug": "aum-web-000251-orchid-ivy-floors-sector-51-350-sq-yd-4-bhk-study",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000251"
   },
   {
     "property_id": "AUM-WEB-000252",
@@ -8832,8 +8832,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000252-the-kasul-kasauli-exclusive-villas-5000-sq-ft-carpet-private-green-area",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000252"
+    "slug": "aum-web-000252-the-kasul-kasauli-exclusive-villas-5000-sq-ft-carpet-private-green-area",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000252"
   },
   {
     "property_id": "AUM-WEB-000253",
@@ -8870,7 +8870,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "4 BHK + Staff Room apartment of 3065 sq ft in DLF The Belaire / DLF Belaire, Sector 54, Gurgaon. Located on the Golf Course Road corridor. Park facing. Offered for sale.",
     "public_features": null,
-    "image_file": "Dlf-the-belaire.webp",
+    "image_file": "dlf-the-belaire.webp",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-11-22",
@@ -8879,8 +8879,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000253-dlf-the-belaire-dlf-belaire-54-3065-sq-ft-4-bhk-Staff Room",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000253"
+    "slug": "aum-web-000253-dlf-the-belaire-dlf-belaire-54-3065-sq-ft-4-bhk-servant",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000253"
   },
   {
     "property_id": "AUM-WEB-000254",
@@ -8917,7 +8917,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "3 BHK builder floor of 1550 sq ft in DLF Exclusive Floors, Sector 53, Gurgaon. Located on the DLF Phase 1–5 corridor. Offered for sale.",
     "public_features": null,
-    "image_file": "Dlf-exclusive-floors.jpg",
+    "image_file": "dlf-exclusive-floors.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-11-22",
@@ -8926,8 +8926,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000254-dlf-exclusive-floors-53-1550-sq-ft-3-bhk",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000254"
+    "slug": "aum-web-000254-dlf-exclusive-floors-53-1550-sq-ft-3-bhk",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000254"
   },
   {
     "property_id": "AUM-WEB-000255",
@@ -8964,7 +8964,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "3 BHK + Staff Room apartment of 2595 sq ft in Conscient Elevate, Sector 59, Gurgaon. Located on the Golf Course Ext & SPR corridor. Park facing. Offered for sale.",
     "public_features": null,
-    "image_file": "Elevate-by-hines.webp",
+    "image_file": "elevate-by-hines.webp",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-11-22",
@@ -8973,8 +8973,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000255-conscient-elevate-59-2595-sq-ft-3-bhk-Staff Room",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000255"
+    "slug": "aum-web-000255-conscient-elevate-59-2595-sq-ft-3-bhk-servant",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000255"
   },
   {
     "property_id": "AUM-WEB-000256",
@@ -9011,7 +9011,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "3 BHK + Staff Room apartment of 2410 sq ft in Urban Oasis, Sector 62, Gurgaon. Located on the Golf Course Ext & SPR corridor. Park & pool facing. Offered for sale.",
     "public_features": null,
-    "image_file": "Urban-oasis.jpg",
+    "image_file": "urban-oasis.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-11-22",
@@ -9020,8 +9020,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000256-urban-oasis-62-2410-sq-ft-3-bhk-Staff Room",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000256"
+    "slug": "aum-web-000256-urban-oasis-62-2410-sq-ft-3-bhk-servant",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000256"
   },
   {
     "property_id": "AUM-WEB-000257",
@@ -9058,7 +9058,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "3 BHK builder floor of 1550 sq ft in DLF Exclusive Floors, Phase 5, Gurgaon. Located on the DLF Phase 1–5 corridor. Offered for sale.",
     "public_features": null,
-    "image_file": "Dlf-exclusive-floors.jpg",
+    "image_file": "dlf-exclusive-floors.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-11-22",
@@ -9067,8 +9067,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000257-dlf-exclusive-floors-phase-5-1550-sq-ft-3-bhk",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000257"
+    "slug": "aum-web-000257-dlf-exclusive-floors-phase-5-1550-sq-ft-3-bhk",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000257"
   },
   {
     "property_id": "AUM-WEB-000258",
@@ -9105,7 +9105,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "4 BHK builder floor of 400 sq yd in Orchid Island, Gurgaon. Located on the Nirvana Country & Sohna Road corridor. Corner & Park facing. Offered for sale.",
     "public_features": null,
-    "image_file": "Orchid-island.jpg",
+    "image_file": "orchid-island.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-11-22",
@@ -9114,8 +9114,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000258-orchid-island-400-sq-yd-4-bhk",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000258"
+    "slug": "aum-web-000258-orchid-island-400-sq-yd-4-bhk",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000258"
   },
   {
     "property_id": "AUM-WEB-000259",
@@ -9161,8 +9161,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000259-smart-world-orchid-61-1200-sq-ft-2-bhk",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000259"
+    "slug": "aum-web-000259-smart-world-orchid-61-1200-sq-ft-2-bhk",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000259"
   },
   {
     "property_id": "AUM-WEB-000260",
@@ -9199,7 +9199,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "Residential rental opportunity at Orchid Island, Gurgaon; 1650 sq ft; Contact AUM ESTATES for rent and availability details.",
     "public_features": null,
-    "image_file": "Orchid-island.jpg",
+    "image_file": "orchid-island.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-11-22",
@@ -9208,8 +9208,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000260-orchid-island-1650-sq-ft-residential-rental",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000260"
+    "slug": "aum-web-000260-orchid-island-1650-sq-ft-residential-rental",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000260"
   },
   {
     "property_id": "AUM-WEB-000261",
@@ -9246,7 +9246,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "3 BHK + Staff Room apartment of 2300 sq ft in Elevate Hines, Sector 59, Gurgaon. Located on the Golf Course Ext & SPR corridor. Park facing. Offered on lease.",
     "public_features": null,
-    "image_file": "Elevate-by-hines.webp",
+    "image_file": "elevate-by-hines.webp",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-11-22",
@@ -9255,8 +9255,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000261-elevate-hines-59-2300-sq-ft-3-bhk-Staff Room",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000261"
+    "slug": "aum-web-000261-elevate-hines-59-2300-sq-ft-3-bhk-servant",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000261"
   },
   {
     "property_id": "AUM-WEB-000262",
@@ -9293,7 +9293,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "3 BHK + Staff Room apartment of 1996 sq ft in Heritage One, Sector 62, Gurgaon. Located on the Golf Course Ext & SPR corridor. Offered on lease.",
     "public_features": null,
-    "image_file": "Heritage-one.jpg",
+    "image_file": "heritage-one.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-11-22",
@@ -9302,8 +9302,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000262-heritage-one-62-1996-sq-ft-3-bhk-Staff Room",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000262"
+    "slug": "aum-web-000262-heritage-one-62-1996-sq-ft-3-bhk-servant",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000262"
   },
   {
     "property_id": "AUM-WEB-000263",
@@ -9340,7 +9340,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "4 BHK + Staff Room apartment of 2600 sq ft in Heritage One, Sector 62, Gurgaon. Located on the Golf Course Ext & SPR corridor. Offered on lease.",
     "public_features": null,
-    "image_file": "Heritage-one.jpg",
+    "image_file": "heritage-one.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-11-22",
@@ -9349,8 +9349,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000263-heritage-one-62-2600-sq-ft-4-bhk-Staff Room",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000263"
+    "slug": "aum-web-000263-heritage-one-62-2600-sq-ft-4-bhk-servant",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000263"
   },
   {
     "property_id": "AUM-WEB-000264",
@@ -9387,7 +9387,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": null,
     "public_description": "4 BHK + Staff Room apartment of 3890 sq ft in Pioneer Presidia, Sector 62, Gurgaon. Located on the Golf Course Ext & SPR corridor. Offered for sale.",
     "public_features": null,
-    "image_file": "Pioneer-presidia.jpg",
+    "image_file": "pioneer-presidia.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-11-22",
@@ -9396,8 +9396,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000264-pioneer-presidia-62-3890-sq-ft-4-bhk-Staff Room",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000264"
+    "slug": "aum-web-000264-pioneer-presidia-62-3890-sq-ft-4-bhk-servant",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000264"
   },
   {
     "property_id": "AUM-WEB-000265",
@@ -9443,8 +9443,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000265-central-park-flower-valley-500-sq-yard-plot",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000265"
+    "slug": "aum-web-000265-central-park-flower-valley-500-sq-yard-plot",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000265"
   },
   {
     "property_id": "AUM-WEB-000266",
@@ -9490,8 +9490,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000266-central-park-flower-valley-250-sq-yard-plot",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000266"
+    "slug": "aum-web-000266-central-park-flower-valley-250-sq-yard-plot",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000266"
   },
   {
     "property_id": "AUM-WEB-000267",
@@ -9537,8 +9537,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000267-central-park-flower-valley-189-sq-yard-plot",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000267"
+    "slug": "aum-web-000267-central-park-flower-valley-189-sq-yard-plot",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000267"
   },
   {
     "property_id": "AUM-WEB-000268",
@@ -9584,8 +9584,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000268-central-park-flower-valley-180-sq-yard-plot",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000268"
+    "slug": "aum-web-000268-central-park-flower-valley-180-sq-yard-plot",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000268"
   },
   {
     "property_id": "AUM-WEB-000269",
@@ -9631,8 +9631,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000269-vantage-aura-self-use-commercial-units",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000269"
+    "slug": "aum-web-000269-vantage-aura-self-use-commercial-units",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000269"
   },
   {
     "property_id": "AUM-WEB-000270",
@@ -9669,7 +9669,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "Orchid Ivy Floors 260 sq yd 3 BHK + Study",
     "public_description": "Source text/image supplied by user; Source text/image supplied by user.",
     "public_features": "Orchid Ivy Floors 260 sq yd 3 BHK + Study",
-    "image_file": "Orchid-island.jpg",
+    "image_file": "orchid-island.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-16",
@@ -9678,8 +9678,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000270-orchid-ivy-floors-260-sq-yd-3 BHK-study",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000270"
+    "slug": "aum-web-000270-orchid-ivy-floors-260-sq-yd-3bhk-study",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000270"
   },
   {
     "property_id": "AUM-WEB-000271",
@@ -9716,7 +9716,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "Orchid Ivy Floors 350 sq yd 4 BHK + Study",
     "public_description": "Source text/image supplied by user; Source text/image supplied by user.",
     "public_features": "Orchid Ivy Floors 350 sq yd 4 BHK + Study",
-    "image_file": "Orchid-island.jpg",
+    "image_file": "orchid-island.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-16",
@@ -9725,8 +9725,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000271-orchid-ivy-floors-350-sq-yd-4 BHK-study",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000271"
+    "slug": "aum-web-000271-orchid-ivy-floors-350-sq-yd-4bhk-study",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000271"
   },
   {
     "property_id": "AUM-WEB-000272",
@@ -9772,8 +9772,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000272-skgp-floors-espace-22-502-sq-yd-4-bhk",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000272"
+    "slug": "aum-web-000272-skgp-floors-espace-22-502-sq-yd-4-bhk",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000272"
   },
   {
     "property_id": "AUM-WEB-000273",
@@ -9810,7 +9810,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "12-metre road; West facing; Huge park at back; 3 parking; Power backup",
     "public_description": "Aspen Green-93, Nirvana Country Sector 50: 360 sq yd 4 BHK options on 1st, 2nd and 3rd floors, west facing on a 12-metre road with a large park at the back; Possession Dec 2026.",
     "public_features": "12-metre road; West facing; Huge park at back; 3 parking; Power backup",
-    "image_file": "The-aspen.webp",
+    "image_file": "the-aspen.webp",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-16",
@@ -9819,8 +9819,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000273-skgp-floors-aspen-green-93-360-sq-yd-4-bhk",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000273"
+    "slug": "aum-web-000273-skgp-floors-aspen-green-93-360-sq-yd-4-bhk",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000273"
   },
   {
     "property_id": "AUM-WEB-000274",
@@ -9866,8 +9866,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000274-skgp-floors-espace-333-360-sq-yd-4-bhk",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000274"
+    "slug": "aum-web-000274-skgp-floors-espace-333-360-sq-yd-4-bhk",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000274"
   },
   {
     "property_id": "AUM-WEB-000275",
@@ -9913,8 +9913,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000275-skgp-floors-espace-361-360-sq-yd-4-bhk",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000275"
+    "slug": "aum-web-000275-skgp-floors-espace-361-360-sq-yd-4-bhk",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000275"
   },
   {
     "property_id": "AUM-WEB-000276",
@@ -9960,8 +9960,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000276-skgp-floors-ardee-city-c-9-7-302-sq-yd-4-bhk",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000276"
+    "slug": "aum-web-000276-skgp-floors-ardee-city-c-9-7-302-sq-yd-4-bhk",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000276"
   },
   {
     "property_id": "AUM-WEB-000277",
@@ -10007,8 +10007,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000277-skgp-floors-ardee-city-d-5-8-302-sq-yd-4-bhk",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000277"
+    "slug": "aum-web-000277-skgp-floors-ardee-city-d-5-8-302-sq-yd-4-bhk",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000277"
   },
   {
     "property_id": "AUM-WEB-000278",
@@ -10054,8 +10054,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000278-skgp-floors-ardee-city-c-40-240-sq-yd-3-bhk",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000278"
+    "slug": "aum-web-000278-skgp-floors-ardee-city-c-40-240-sq-yd-3-bhk",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000278"
   },
   {
     "property_id": "AUM-WEB-000279",
@@ -10101,8 +10101,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000279-saan-verdante-sector-95-3-and-4-bhk-boutique-residences",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000279"
+    "slug": "aum-web-000279-saan-verdante-sector-95-3-and-4-bhk-boutique-residences",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000279"
   },
   {
     "property_id": "AUM-WEB-000280",
@@ -10148,8 +10148,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000280-pitrachaya-sector-70-3-bhk-luxury-floors",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000280"
+    "slug": "aum-web-000280-pitrachaya-sector-70-3-bhk-luxury-floors",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000280"
   },
   {
     "property_id": "AUM-WEB-000281",
@@ -10195,8 +10195,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000281-tonino-lamborghini-residences-gurugram-phase-2",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000281"
+    "slug": "aum-web-000281-tonino-lamborghini-residences-gurugram-phase-2",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000281"
   },
   {
     "property_id": "AUM-WEB-000282",
@@ -10233,7 +10233,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "Project-level information; Detailed unit inventory pending",
     "public_description": "Godrej Miraya — project information; The supplied message presents the project around blues and greens.",
     "public_features": "Project-level information; Detailed unit inventory pending",
-    "image_file": "Godrej-meridian.jpg",
+    "image_file": "godrej-meridian.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-09-16",
@@ -10242,8 +10242,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000282-godrej-miraya-project-information",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000282"
+    "slug": "aum-web-000282-godrej-miraya-project-information",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000282"
   },
   {
     "property_id": "AUM-WEB-000283",
@@ -10280,7 +10280,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "540 sq yd plot; East-facing; 4 bathrooms plus powder room; 2 balconies; 3-car covered/open parking; Registered 2022; Approx; 2.5 years old; G Block; Near Sohna Road and Golf Course Extension Road",
     "public_description": "4 BHK premium builder floor in G Block, South City 2 / Nirvana Country, Gurgaon; 540 sq yd plot, east-facing, 4 bathrooms plus powder room, 2 balconies and parking for 3 cars; Approx; 2.5 years old; Registered in 2022; Expected price ₹5.90 Cr.",
     "public_features": "540 sq yd plot; East-facing; 4 bathrooms plus powder room; 2 balconies; 3-car covered/open parking; Registered 2022; Approx; 2.5 years old; G Block; Near Sohna Road and Golf Course Extension Road",
-    "image_file": "South-city-2.jpg",
+    "image_file": "south-city-2.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-10-10",
@@ -10289,8 +10289,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000283-south-city-2-g-block-4-bhk-premium-builder-floor",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000283"
+    "slug": "aum-web-000283-south-city-2-g-block-4-bhk-premium-builder-floor",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000283"
   },
   {
     "property_id": "AUM-WEB-000284",
@@ -10336,8 +10336,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000284-sispal-vihar-s-block-4-bhk-apartment",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000284"
+    "slug": "aum-web-000284-sispal-vihar-s-block-4-bhk-apartment",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000284"
   },
   {
     "property_id": "AUM-WEB-000285",
@@ -10383,8 +10383,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000285-enkay-towers-furnished-office-for-rent",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000285"
+    "slug": "aum-web-000285-enkay-towers-furnished-office-for-rent",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000285"
   },
   {
     "property_id": "AUM-WEB-000286",
@@ -10430,8 +10430,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000286-iris-tech-park-office-space-for-rent",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000286"
+    "slug": "aum-web-000286-iris-tech-park-office-space-for-rent",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000286"
   },
   {
     "property_id": "AUM-WEB-000287",
@@ -10477,8 +10477,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000287-spaze-itech-park-2-850-sq-ft-office-for-rent",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000287"
+    "slug": "aum-web-000287-spaze-itech-park-2-850-sq-ft-office-for-rent",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000287"
   },
   {
     "property_id": "AUM-WEB-000288",
@@ -10524,8 +10524,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000288-spaze-itech-park-5-000-sq-ft-office-option-for-rent",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000288"
+    "slug": "aum-web-000288-spaze-itech-park-5-000-sq-ft-office-option-for-rent",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000288"
   },
   {
     "property_id": "AUM-WEB-000289",
@@ -10571,8 +10571,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000289-silverton-towers-13-000-sq-ft-office-for-rent",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000289"
+    "slug": "aum-web-000289-silverton-towers-13-000-sq-ft-office-for-rent",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000289"
   },
   {
     "property_id": "AUM-WEB-000290",
@@ -10618,8 +10618,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000290-unitech-business-park-furnished-office-for-rent",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000290"
+    "slug": "aum-web-000290-unitech-business-park-furnished-office-for-rent",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000290"
   },
   {
     "property_id": "AUM-WEB-000291",
@@ -10665,8 +10665,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000291-signature-villas-vatika-india-next-404-sq-yd-luxury-villa",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000291"
+    "slug": "aum-web-000291-signature-villas-vatika-india-next-404-sq-yd-luxury-villa",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000291"
   },
   {
     "property_id": "AUM-WEB-000292",
@@ -10712,8 +10712,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000292-263-sq-yd-kothi-sector-47",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000292"
+    "slug": "aum-web-000292-263-sq-yd-kothi-sector-47",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000292"
   },
   {
     "property_id": "AUM-WEB-000293",
@@ -10759,8 +10759,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000293-6-marla-corner-independent-property-sector-40",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000293"
+    "slug": "aum-web-000293-6-marla-corner-independent-property-sector-40",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000293"
   },
   {
     "property_id": "AUM-WEB-000294",
@@ -10806,8 +10806,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000294-smartworld-orchard-shop-1020-sq-ft-a",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000294"
+    "slug": "aum-web-000294-smartworld-orchard-shop-1020-sq-ft-a",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000294"
   },
   {
     "property_id": "AUM-WEB-000295",
@@ -10853,8 +10853,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000295-smartworld-orchard-shop-1020-sq-ft-b",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000295"
+    "slug": "aum-web-000295-smartworld-orchard-shop-1020-sq-ft-b",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000295"
   },
   {
     "property_id": "AUM-WEB-000296",
@@ -10900,8 +10900,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000296-udyog-vihar-phase-4-pre-rented-building",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000296"
+    "slug": "aum-web-000296-udyog-vihar-phase-4-pre-rented-building",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000296"
   },
   {
     "property_id": "AUM-WEB-000297",
@@ -10947,8 +10947,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000297-sector-44-commercial-building",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000297"
+    "slug": "aum-web-000297-sector-44-commercial-building",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000297"
   },
   {
     "property_id": "AUM-WEB-000298",
@@ -10994,8 +10994,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000298-sector-31-huda-market-booth",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000298"
+    "slug": "aum-web-000298-sector-31-huda-market-booth",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000298"
   },
   {
     "property_id": "AUM-WEB-000299",
@@ -11041,8 +11041,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000299-rented-hospital-14-marla",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000299"
+    "slug": "aum-web-000299-rented-hospital-14-marla",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000299"
   },
   {
     "property_id": "AUM-WEB-000300",
@@ -11088,8 +11088,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000300-mgf-metropolis-mall-unit",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000300"
+    "slug": "aum-web-000300-mgf-metropolis-mall-unit",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000300"
   },
   {
     "property_id": "AUM-WEB-000301",
@@ -11135,8 +11135,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000301-splendor-1-sector-58-pre-leased-office",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000301"
+    "slug": "aum-web-000301-splendor-1-sector-58-pre-leased-office",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000301"
   },
   {
     "property_id": "AUM-WEB-000302",
@@ -11182,8 +11182,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000302-delta-square-first-floor-office",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000302"
+    "slug": "aum-web-000302-delta-square-first-floor-office",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000302"
   },
   {
     "property_id": "AUM-WEB-000303",
@@ -11229,8 +11229,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000303-vipul-agora-mg-road-duplex-office",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000303"
+    "slug": "aum-web-000303-vipul-agora-mg-road-duplex-office",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000303"
   },
   {
     "property_id": "AUM-WEB-000304",
@@ -11276,8 +11276,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000304-dlf-city-centre-mg-road-unit",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000304"
+    "slug": "aum-web-000304-dlf-city-centre-mg-road-unit",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000304"
   },
   {
     "property_id": "AUM-WEB-000305",
@@ -11323,8 +11323,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000305-spaze-forum-sector-70-unit",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000305"
+    "slug": "aum-web-000305-spaze-forum-sector-70-unit",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000305"
   },
   {
     "property_id": "AUM-WEB-000306",
@@ -11370,8 +11370,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000306-trehan-iris-broadway-virtual-space-shop",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000306"
+    "slug": "aum-web-000306-trehan-iris-broadway-virtual-space-shop",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000306"
   },
   {
     "property_id": "AUM-WEB-000307",
@@ -11417,8 +11417,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000307-unused-hospital-sector-106-dwarka-expressway",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000307"
+    "slug": "aum-web-000307-unused-hospital-sector-106-dwarka-expressway",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000307"
   },
   {
     "property_id": "AUM-WEB-000308",
@@ -11464,8 +11464,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000308-hospital-land-gurgaon-2-5-acres",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000308"
+    "slug": "aum-web-000308-hospital-land-gurgaon-2-5-acres",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000308"
   },
   {
     "property_id": "AUM-WEB-000309",
@@ -11511,8 +11511,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000309-sector-46-guest-house",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000309"
+    "slug": "aum-web-000309-sector-46-guest-house",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000309"
   },
   {
     "property_id": "AUM-WEB-000310",
@@ -11558,8 +11558,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000310-dlf-nth-sector-90-shop-975-sq-ft",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000310"
+    "slug": "aum-web-000310-dlf-nth-sector-90-shop-975-sq-ft",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000310"
   },
   {
     "property_id": "AUM-WEB-000311",
@@ -11605,8 +11605,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000311-dlf-primus-sector-82-shop-418-sq-ft",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000311"
+    "slug": "aum-web-000311-dlf-primus-sector-82-shop-418-sq-ft",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000311"
   },
   {
     "property_id": "AUM-WEB-000312",
@@ -11643,7 +11643,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "Pre-leased; Rent ₹2 lakh/month",
     "public_description": "DLF The Belaire Shop 1421 sq ft; Pre-leased; Rent ₹2 lakh/month.",
     "public_features": "Pre-leased; Rent ₹2 lakh/month",
-    "image_file": "Dlf-the-belaire.webp",
+    "image_file": "dlf-the-belaire.webp",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-10-10",
@@ -11652,8 +11652,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000312-dlf-the-belaire-shop-1421-sq-ft",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000312"
+    "slug": "aum-web-000312-dlf-the-belaire-shop-1421-sq-ft",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000312"
   },
   {
     "property_id": "AUM-WEB-000313",
@@ -11699,8 +11699,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000313-dlf-regency-park-1-shop-363-sq-ft",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000313"
+    "slug": "aum-web-000313-dlf-regency-park-1-shop-363-sq-ft",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000313"
   },
   {
     "property_id": "AUM-WEB-000314",
@@ -11746,8 +11746,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000314-dlf-the-ultima-shop-421-sq-ft-rent-48k",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000314"
+    "slug": "aum-web-000314-dlf-the-ultima-shop-421-sq-ft-rent-48k",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000314"
   },
   {
     "property_id": "AUM-WEB-000315",
@@ -11793,8 +11793,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000315-dlf-the-ultima-shop-421-sq-ft-rent-40k",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000315"
+    "slug": "aum-web-000315-dlf-the-ultima-shop-421-sq-ft-rent-40k",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000315"
   },
   {
     "property_id": "AUM-WEB-000316",
@@ -11840,8 +11840,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000316-dlf-south-point-mall-sq-ft",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000316"
+    "slug": "aum-web-000316-dlf-south-point-mall-sq-ft",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000316"
   },
   {
     "property_id": "AUM-WEB-000317",
@@ -11887,8 +11887,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000317-dlf-nth-sector-86-shop-760-sq-ft",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000317"
+    "slug": "aum-web-000317-dlf-nth-sector-86-shop-760-sq-ft",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000317"
   },
   {
     "property_id": "AUM-WEB-000318",
@@ -11934,8 +11934,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000318-dlf-nth-sector-86-shop-380-sq-ft",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000318"
+    "slug": "aum-web-000318-dlf-nth-sector-86-shop-380-sq-ft",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000318"
   },
   {
     "property_id": "AUM-WEB-000319",
@@ -11981,8 +11981,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000319-dlf-primus-sector-82-shop-236-sq-ft",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000319"
+    "slug": "aum-web-000319-dlf-primus-sector-82-shop-236-sq-ft",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000319"
   },
   {
     "property_id": "AUM-WEB-000320",
@@ -12028,8 +12028,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000320-dlf-regal-gardens-shop-386-sq-ft",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000320"
+    "slug": "aum-web-000320-dlf-regal-gardens-shop-386-sq-ft",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000320"
   },
   {
     "property_id": "AUM-WEB-000321",
@@ -12075,8 +12075,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000321-m3m-route-65-pre-leased-shop",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000321"
+    "slug": "aum-web-000321-m3m-route-65-pre-leased-shop",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000321"
   },
   {
     "property_id": "AUM-WEB-000322",
@@ -12122,8 +12122,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000322-picaso-centre-extension-road-office",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000322"
+    "slug": "aum-web-000322-picaso-centre-extension-road-office",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000322"
   },
   {
     "property_id": "AUM-WEB-000323",
@@ -12169,8 +12169,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000323-emaar-digital-greens-sector-61-office",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000323"
+    "slug": "aum-web-000323-emaar-digital-greens-sector-61-office",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000323"
   },
   {
     "property_id": "AUM-WEB-000324",
@@ -12216,8 +12216,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000324-imt-sohna-built-commercial-property",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000324"
+    "slug": "aum-web-000324-imt-sohna-built-commercial-property",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000324"
   },
   {
     "property_id": "AUM-WEB-000325",
@@ -12254,7 +12254,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "Luxury resale inventory; Multiple units available; Availability and price to be reconfirmed",
     "public_description": "3 BHK resale apartment at Elevate by Hines, 2295 sq ft; Asking price ₹5.75 Cr; Confirm current availability.",
     "public_features": "Luxury resale inventory; Multiple units available; Availability and price to be reconfirmed",
-    "image_file": "Elevate-by-hines.webp",
+    "image_file": "elevate-by-hines.webp",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-10-10",
@@ -12263,8 +12263,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000325-elevate-by-hines-3-bhk-2295-sq-ft-resale",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000325"
+    "slug": "aum-web-000325-elevate-by-hines-3-bhk-2295-sq-ft-resale",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000325"
   },
   {
     "property_id": "AUM-WEB-000326",
@@ -12301,7 +12301,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "Luxury resale inventory; Multiple units available; Availability and price to be reconfirmed",
     "public_description": "3 BHK resale apartment at Elevate by Hines, 2295 sq ft; Asking price ₹6.10 Cr; Confirm current availability.",
     "public_features": "Luxury resale inventory; Multiple units available; Availability and price to be reconfirmed",
-    "image_file": "Elevate-by-hines.webp",
+    "image_file": "elevate-by-hines.webp",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-10-10",
@@ -12310,8 +12310,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000326-elevate-by-hines-3-bhk-2295-sq-ft-resale",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000326"
+    "slug": "aum-web-000326-elevate-by-hines-3-bhk-2295-sq-ft-resale",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000326"
   },
   {
     "property_id": "AUM-WEB-000327",
@@ -12348,7 +12348,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "Luxury resale inventory; Multiple units available; Availability and price to be reconfirmed",
     "public_description": "3 BHK resale apartment at Elevate by Hines, 2595 sq ft; Asking price ₹6.65 Cr; Confirm current availability.",
     "public_features": "Luxury resale inventory; Multiple units available; Availability and price to be reconfirmed",
-    "image_file": "Elevate-by-hines.webp",
+    "image_file": "elevate-by-hines.webp",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-10-10",
@@ -12357,8 +12357,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000327-elevate-by-hines-3-bhk-2595-sq-ft-resale",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000327"
+    "slug": "aum-web-000327-elevate-by-hines-3-bhk-2595-sq-ft-resale",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000327"
   },
   {
     "property_id": "AUM-WEB-000328",
@@ -12395,7 +12395,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "Luxury resale inventory; Multiple units available; Availability and price to be reconfirmed",
     "public_description": "3 BHK resale apartment at Elevate by Hines, 2595 sq ft; Asking price ₹6.75 Cr; Confirm current availability.",
     "public_features": "Luxury resale inventory; Multiple units available; Availability and price to be reconfirmed",
-    "image_file": "Elevate-by-hines.webp",
+    "image_file": "elevate-by-hines.webp",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-10-10",
@@ -12404,8 +12404,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000328-elevate-by-hines-3-bhk-2595-sq-ft-resale",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000328"
+    "slug": "aum-web-000328-elevate-by-hines-3-bhk-2595-sq-ft-resale",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000328"
   },
   {
     "property_id": "AUM-WEB-000329",
@@ -12442,7 +12442,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "Luxury resale inventory; Multiple units available; Availability and price to be reconfirmed",
     "public_description": "3 BHK resale apartment at Elevate by Hines, 2595 sq ft; Asking price ₹7.20 Cr; Confirm current availability.",
     "public_features": "Luxury resale inventory; Multiple units available; Availability and price to be reconfirmed",
-    "image_file": "Elevate-by-hines.webp",
+    "image_file": "elevate-by-hines.webp",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-10-10",
@@ -12451,8 +12451,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000329-elevate-by-hines-3-bhk-2595-sq-ft-resale",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000329"
+    "slug": "aum-web-000329-elevate-by-hines-3-bhk-2595-sq-ft-resale",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000329"
   },
   {
     "property_id": "AUM-WEB-000330",
@@ -12489,7 +12489,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "Luxury resale inventory; Multiple units available; Availability and price to be reconfirmed",
     "public_description": "4 BHK resale apartment at Elevate by Hines, 3395 sq ft; Asking price ₹9.25 Cr; Confirm current availability.",
     "public_features": "Luxury resale inventory; Multiple units available; Availability and price to be reconfirmed",
-    "image_file": "Elevate-by-hines.webp",
+    "image_file": "elevate-by-hines.webp",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-10-10",
@@ -12498,8 +12498,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000330-elevate-by-hines-4-bhk-3395-sq-ft-resale",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000330"
+    "slug": "aum-web-000330-elevate-by-hines-4-bhk-3395-sq-ft-resale",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000330"
   },
   {
     "property_id": "AUM-WEB-000331",
@@ -12536,7 +12536,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "Luxury resale inventory; Multiple units available; Availability and price to be reconfirmed",
     "public_description": "3 BHK resale apartment at Pioneer Presidia, 2595 sq ft; Asking price ₹7.25 Cr; Confirm current availability.",
     "public_features": "Luxury resale inventory; Multiple units available; Availability and price to be reconfirmed",
-    "image_file": "Pioneer-presidia.jpg",
+    "image_file": "pioneer-presidia.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-10-10",
@@ -12545,8 +12545,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000331-pioneer-presidia-3-bhk-2595-sq-ft-resale",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000331"
+    "slug": "aum-web-000331-pioneer-presidia-3-bhk-2595-sq-ft-resale",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000331"
   },
   {
     "property_id": "AUM-WEB-000332",
@@ -12583,7 +12583,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "Luxury resale inventory; Multiple units available; Availability and price to be reconfirmed",
     "public_description": "3 BHK resale apartment at Pioneer Presidia, 2595 sq ft; Asking price ₹7.45 Cr; Confirm current availability.",
     "public_features": "Luxury resale inventory; Multiple units available; Availability and price to be reconfirmed",
-    "image_file": "Pioneer-presidia.jpg",
+    "image_file": "pioneer-presidia.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-10-10",
@@ -12592,8 +12592,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000332-pioneer-presidia-3-bhk-2595-sq-ft-resale",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000332"
+    "slug": "aum-web-000332-pioneer-presidia-3-bhk-2595-sq-ft-resale",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000332"
   },
   {
     "property_id": "AUM-WEB-000333",
@@ -12630,7 +12630,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "Luxury resale inventory; Multiple units available; Availability and price to be reconfirmed",
     "public_description": "4 BHK resale apartment at Pioneer Presidia, 2985 sq ft; Asking price ₹8.20 Cr; Confirm current availability.",
     "public_features": "Luxury resale inventory; Multiple units available; Availability and price to be reconfirmed",
-    "image_file": "Pioneer-presidia.jpg",
+    "image_file": "pioneer-presidia.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-10-10",
@@ -12639,8 +12639,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000333-pioneer-presidia-4-bhk-2985-sq-ft-resale",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000333"
+    "slug": "aum-web-000333-pioneer-presidia-4-bhk-2985-sq-ft-resale",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000333"
   },
   {
     "property_id": "AUM-WEB-000334",
@@ -12677,7 +12677,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "Luxury resale inventory; Multiple units available; Availability and price to be reconfirmed",
     "public_description": "4 BHK resale apartment at Pioneer Presidia, 4437 sq ft; Asking price ₹11.00 Cr; Confirm current availability.",
     "public_features": "Luxury resale inventory; Multiple units available; Availability and price to be reconfirmed",
-    "image_file": "Pioneer-presidia.jpg",
+    "image_file": "pioneer-presidia.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-10-10",
@@ -12686,8 +12686,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000334-pioneer-presidia-4-bhk-4437-sq-ft-resale",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000334"
+    "slug": "aum-web-000334-pioneer-presidia-4-bhk-4437-sq-ft-resale",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000334"
   },
   {
     "property_id": "AUM-WEB-000335",
@@ -12724,7 +12724,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "Luxury resale inventory; Multiple units available; Availability and price to be reconfirmed",
     "public_description": "3 BHK resale apartment at Pioneer Araya, 3498 sq ft; Asking price ₹10.50 Cr; Confirm current availability.",
     "public_features": "Luxury resale inventory; Multiple units available; Availability and price to be reconfirmed",
-    "image_file": "Pioneer-araya.jpg",
+    "image_file": "pioneer-araya.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-10-10",
@@ -12733,8 +12733,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000335-pioneer-araya-3-bhk-3498-sq-ft-resale",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000335"
+    "slug": "aum-web-000335-pioneer-araya-3-bhk-3498-sq-ft-resale",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000335"
   },
   {
     "property_id": "AUM-WEB-000336",
@@ -12771,7 +12771,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "Luxury resale inventory; Multiple units available; Availability and price to be reconfirmed",
     "public_description": "4 BHK resale apartment at Pioneer Araya, 4280 sq ft; Asking price ₹14.75 Cr; Confirm current availability.",
     "public_features": "Luxury resale inventory; Multiple units available; Availability and price to be reconfirmed",
-    "image_file": "Pioneer-araya.jpg",
+    "image_file": "pioneer-araya.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-10-10",
@@ -12780,8 +12780,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000336-pioneer-araya-4-bhk-4280-sq-ft-resale",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000336"
+    "slug": "aum-web-000336-pioneer-araya-4-bhk-4280-sq-ft-resale",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000336"
   },
   {
     "property_id": "AUM-WEB-000337",
@@ -12818,7 +12818,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "Luxury resale inventory; Multiple units available; Availability and price to be reconfirmed",
     "public_description": "4 BHK resale apartment at Pioneer Araya, 4690 sq ft; Asking price ₹16.00 Cr; Confirm current availability.",
     "public_features": "Luxury resale inventory; Multiple units available; Availability and price to be reconfirmed",
-    "image_file": "Pioneer-araya.jpg",
+    "image_file": "pioneer-araya.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-10-10",
@@ -12827,8 +12827,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000337-pioneer-araya-4-bhk-4690-sq-ft-resale",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000337"
+    "slug": "aum-web-000337-pioneer-araya-4-bhk-4690-sq-ft-resale",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000337"
   },
   {
     "property_id": "AUM-WEB-000338",
@@ -12865,7 +12865,7 @@ window.AUM_PUBLIC_INVENTORY = [
     "key_features": "Luxury resale inventory; Multiple units available; Availability and price to be reconfirmed",
     "public_description": "5 BHK resale apartment at Pioneer Araya, 5514 sq ft; Asking price ₹18.00 Cr; Confirm current availability.",
     "public_features": "Luxury resale inventory; Multiple units available; Availability and price to be reconfirmed",
-    "image_file": "Pioneer-araya.jpg",
+    "image_file": "pioneer-araya.jpg",
     "image_label": "Representative image",
     "verification_status": "Availability to be confirmed",
     "last_verified": "2026-10-10",
@@ -12874,8 +12874,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000338-pioneer-araya-5-bhk-5514-sq-ft-resale",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000338"
+    "slug": "aum-web-000338-pioneer-araya-5-bhk-5514-sq-ft-resale",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000338"
   },
   {
     "property_id": "AUM-WEB-000339",
@@ -12921,8 +12921,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000339-dlf-phase-1-shahtoot-marg-1022-sq-yd-plot",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000339"
+    "slug": "aum-web-000339-dlf-phase-1-shahtoot-marg-1022-sq-yd-plot",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000339"
   },
   {
     "property_id": "AUM-WEB-000340",
@@ -12968,8 +12968,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000340-dlf-phase-1-ashoka-crescent-500-sq-yd-plot",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000340"
+    "slug": "aum-web-000340-dlf-phase-1-ashoka-crescent-500-sq-yd-plot",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000340"
   },
   {
     "property_id": "AUM-WEB-000341",
@@ -13015,8 +13015,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000341-dlf-phase-1-b-block-500-sq-yd-plot-12-m-road",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000341"
+    "slug": "aum-web-000341-dlf-phase-1-b-block-500-sq-yd-plot-12-m-road",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000341"
   },
   {
     "property_id": "AUM-WEB-000342",
@@ -13062,8 +13062,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000342-dlf-phase-1-a-block-500-sq-yd-plot-12-m-road-Building Plan-pass",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000342"
+    "slug": "aum-web-000342-dlf-phase-1-a-block-500-sq-yd-plot-12-m-road-naksha-pass",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000342"
   },
   {
     "property_id": "AUM-WEB-000343",
@@ -13109,8 +13109,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000343-dlf-phase-1-500-sq-yd-plot-9-m-road",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000343"
+    "slug": "aum-web-000343-dlf-phase-1-500-sq-yd-plot-9-m-road",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000343"
   },
   {
     "property_id": "AUM-WEB-000344",
@@ -13156,8 +13156,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000344-dlf-phase-1-duplex-500-sq-yd-duplex-kothi",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000344"
+    "slug": "aum-web-000344-dlf-phase-1-duplex-500-sq-yd-duplex-kothi",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000344"
   },
   {
     "property_id": "AUM-WEB-000345",
@@ -13203,8 +13203,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000345-dlf-phase-1-a-block-400-sq-yd-plot",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000345"
+    "slug": "aum-web-000345-dlf-phase-1-a-block-400-sq-yd-plot",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000345"
   },
   {
     "property_id": "AUM-WEB-000346",
@@ -13250,8 +13250,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000346-dlf-phase-1-478-sq-yd-plot",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000346"
+    "slug": "aum-web-000346-dlf-phase-1-478-sq-yd-plot",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000346"
   },
   {
     "property_id": "AUM-WEB-000347",
@@ -13297,8 +13297,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000347-dlf-phase-1-arjun-marg-360-sq-yd-plot",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000347"
+    "slug": "aum-web-000347-dlf-phase-1-arjun-marg-360-sq-yd-plot",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000347"
   },
   {
     "property_id": "AUM-WEB-000348",
@@ -13344,8 +13344,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000348-dlf-phase-1-bodhi-marg-316-sq-yd-kothi",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000348"
+    "slug": "aum-web-000348-dlf-phase-1-bodhi-marg-316-sq-yd-kothi",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000348"
   },
   {
     "property_id": "AUM-WEB-000349",
@@ -13391,8 +13391,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000349-dlf-phase-1-e-block-300-sq-yd-kothi",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000349"
+    "slug": "aum-web-000349-dlf-phase-1-e-block-300-sq-yd-kothi",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000349"
   },
   {
     "property_id": "AUM-WEB-000350",
@@ -13438,8 +13438,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000350-dlf-phase-1-e-block-300-sq-yd-plot",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000350"
+    "slug": "aum-web-000350-dlf-phase-1-e-block-300-sq-yd-plot",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000350"
   },
   {
     "property_id": "AUM-WEB-000351",
@@ -13485,8 +13485,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000351-dlf-phase-1-311-sq-yd-corner-plot",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000351"
+    "slug": "aum-web-000351-dlf-phase-1-311-sq-yd-corner-plot",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000351"
   },
   {
     "property_id": "AUM-WEB-000352",
@@ -13532,8 +13532,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000352-dlf-phase-1-near-park-200-sq-yd-near-park",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000352"
+    "slug": "aum-web-000352-dlf-phase-1-near-park-200-sq-yd-near-park",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000352"
   },
   {
     "property_id": "AUM-WEB-000353",
@@ -13579,8 +13579,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000353-dlf-phase-2-akashneem-marg-500-sq-yd-plot",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000353"
+    "slug": "aum-web-000353-dlf-phase-2-akashneem-marg-500-sq-yd-plot",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000353"
   },
   {
     "property_id": "AUM-WEB-000354",
@@ -13626,8 +13626,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000354-dlf-phase-2-akashneem-marg-500-sq-yd-plot-Building Plan-pass",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000354"
+    "slug": "aum-web-000354-dlf-phase-2-akashneem-marg-500-sq-yd-plot-naksha-pass",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000354"
   },
   {
     "property_id": "AUM-WEB-000355",
@@ -13673,8 +13673,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000355-dlf-phase-2-m-block-500-sq-yd-plot-Building Plan-pass",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000355"
+    "slug": "aum-web-000355-dlf-phase-2-m-block-500-sq-yd-plot-naksha-pass",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000355"
   },
   {
     "property_id": "AUM-WEB-000356",
@@ -13720,8 +13720,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000356-dlf-phase-2-j-block-500-sq-yd-corner-plot",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000356"
+    "slug": "aum-web-000356-dlf-phase-2-j-block-500-sq-yd-corner-plot",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000356"
   },
   {
     "property_id": "AUM-WEB-000357",
@@ -13767,8 +13767,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000357-dlf-phase-2-m-block-300-sq-yd-plot-Building Plan-pass",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000357"
+    "slug": "aum-web-000357-dlf-phase-2-m-block-300-sq-yd-plot-naksha-pass",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000357"
   },
   {
     "property_id": "AUM-WEB-000358",
@@ -13814,8 +13814,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000358-dlf-phase-2-p-block-400-sq-yd-kothi-with-lift",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000358"
+    "slug": "aum-web-000358-dlf-phase-2-p-block-400-sq-yd-kothi-with-lift",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000358"
   },
   {
     "property_id": "AUM-WEB-000359",
@@ -13861,8 +13861,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000359-dlf-phase-2-400-sq-yd-park-facing-Building Plan-pass",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000359"
+    "slug": "aum-web-000359-dlf-phase-2-400-sq-yd-park-facing-naksha-pass",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000359"
   },
   {
     "property_id": "AUM-WEB-000360",
@@ -13908,8 +13908,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000360-dlf-phase-2-m-block-400-sq-yd-kothi",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000360"
+    "slug": "aum-web-000360-dlf-phase-2-m-block-400-sq-yd-kothi",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000360"
   },
   {
     "property_id": "AUM-WEB-000361",
@@ -13955,8 +13955,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000361-dlf-phase-2-316-sq-yd-kothi",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000361"
+    "slug": "aum-web-000361-dlf-phase-2-316-sq-yd-kothi",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000361"
   },
   {
     "property_id": "AUM-WEB-000362",
@@ -14002,8 +14002,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000362-dlf-phase-2-k-block-300-sq-yd-corner-kothi",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000362"
+    "slug": "aum-web-000362-dlf-phase-2-k-block-300-sq-yd-corner-kothi",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000362"
   },
   {
     "property_id": "AUM-WEB-000363",
@@ -14049,8 +14049,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000363-dlf-phase-2-k-block-300-sq-yd-plot",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000363"
+    "slug": "aum-web-000363-dlf-phase-2-k-block-300-sq-yd-plot",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000363"
   },
   {
     "property_id": "AUM-WEB-000364",
@@ -14096,8 +14096,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000364-dlf-phase-2-250-sq-yd-plot",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000364"
+    "slug": "aum-web-000364-dlf-phase-2-250-sq-yd-plot",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000364"
   },
   {
     "property_id": "AUM-WEB-000365",
@@ -14143,8 +14143,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000365-dlf-phase-2-215-sq-yd-park-facing",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000365"
+    "slug": "aum-web-000365-dlf-phase-2-215-sq-yd-park-facing",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000365"
   },
   {
     "property_id": "AUM-WEB-000366",
@@ -14190,8 +14190,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000366-dlf-phase-2-q-block-200-sq-yd-plot",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000366"
+    "slug": "aum-web-000366-dlf-phase-2-q-block-200-sq-yd-plot",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000366"
   },
   {
     "property_id": "AUM-WEB-000367",
@@ -14237,8 +14237,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000367-dlf-phase-4-garden-villas-316-sq-yd-park-facing",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000367"
+    "slug": "aum-web-000367-dlf-phase-4-garden-villas-316-sq-yd-park-facing",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000367"
   },
   {
     "property_id": "AUM-WEB-000368",
@@ -14284,8 +14284,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000368-dlf-phase-4-360-sq-yd-corner-plot",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000368"
+    "slug": "aum-web-000368-dlf-phase-4-360-sq-yd-corner-plot",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000368"
   },
   {
     "property_id": "AUM-WEB-000369",
@@ -14331,8 +14331,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000369-dlf-phase-4-green-meadows-360-sq-yd-plot",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000369"
+    "slug": "aum-web-000369-dlf-phase-4-green-meadows-360-sq-yd-plot",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000369"
   },
   {
     "property_id": "AUM-WEB-000370",
@@ -14378,8 +14378,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000370-dlf-phase-4-360-sq-yd-north-facing-plot",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000370"
+    "slug": "aum-web-000370-dlf-phase-4-360-sq-yd-north-facing-plot",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000370"
   },
   {
     "property_id": "AUM-WEB-000371",
@@ -14425,8 +14425,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000371-dlf-phase-4-360-sq-yd-plot",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000371"
+    "slug": "aum-web-000371-dlf-phase-4-360-sq-yd-plot",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000371"
   },
   {
     "property_id": "AUM-WEB-000372",
@@ -14472,8 +14472,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000372-dlf-phase-4-270-sq-yd-plot",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000372"
+    "slug": "aum-web-000372-dlf-phase-4-270-sq-yd-plot",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000372"
   },
   {
     "property_id": "AUM-WEB-000373",
@@ -14519,8 +14519,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000373-sushant-lok-1-b-block-500-sq-yd-kothi",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000373"
+    "slug": "aum-web-000373-sushant-lok-1-b-block-500-sq-yd-kothi",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000373"
   },
   {
     "property_id": "AUM-WEB-000374",
@@ -14566,8 +14566,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000374-sushant-lok-1-b-block-500-sq-yd-plot",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000374"
+    "slug": "aum-web-000374-sushant-lok-1-b-block-500-sq-yd-plot",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000374"
   },
   {
     "property_id": "AUM-WEB-000375",
@@ -14613,8 +14613,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000375-sushant-lok-1-c-block-418-sq-yd-corner-plot",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000375"
+    "slug": "aum-web-000375-sushant-lok-1-c-block-418-sq-yd-corner-plot",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000375"
   },
   {
     "property_id": "AUM-WEB-000376",
@@ -14660,8 +14660,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000376-sushant-lok-1-418-sq-yd-park-facing-Building Plan-pass",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000376"
+    "slug": "aum-web-000376-sushant-lok-1-418-sq-yd-park-facing-naksha-pass",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000376"
   },
   {
     "property_id": "AUM-WEB-000377",
@@ -14707,8 +14707,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000377-sushant-lok-1-a-block-467-sq-yd-park-facing-plot",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000377"
+    "slug": "aum-web-000377-sushant-lok-1-a-block-467-sq-yd-park-facing-plot",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000377"
   },
   {
     "property_id": "AUM-WEB-000378",
@@ -14754,8 +14754,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000378-sushant-lok-1-b-block-378-sq-yd-corner-plot",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000378"
+    "slug": "aum-web-000378-sushant-lok-1-b-block-378-sq-yd-corner-plot",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000378"
   },
   {
     "property_id": "AUM-WEB-000379",
@@ -14801,8 +14801,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000379-sushant-lok-1-c-2-block-416-sq-yd-plot-Building Plan-pass",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000379"
+    "slug": "aum-web-000379-sushant-lok-1-c-2-block-416-sq-yd-plot-naksha-pass",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000379"
   },
   {
     "property_id": "AUM-WEB-000380",
@@ -14848,8 +14848,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000380-sushant-lok-1-c-block-300-sq-yd-duplex-kothi",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000380"
+    "slug": "aum-web-000380-sushant-lok-1-c-block-300-sq-yd-duplex-kothi",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000380"
   },
   {
     "property_id": "AUM-WEB-000381",
@@ -14895,8 +14895,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000381-sushant-lok-1-b-block-corner-300-sq-yd-corner-plot",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000381"
+    "slug": "aum-web-000381-sushant-lok-1-b-block-corner-300-sq-yd-corner-plot",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000381"
   },
   {
     "property_id": "AUM-WEB-000382",
@@ -14942,8 +14942,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000382-sushant-lok-1-b-block-300-sq-yd-kothi",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000382"
+    "slug": "aum-web-000382-sushant-lok-1-b-block-300-sq-yd-kothi",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000382"
   },
   {
     "property_id": "AUM-WEB-000383",
@@ -14989,8 +14989,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000383-sushant-lok-1-c-block-300-sq-yd-plot-Building Plan-pass",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000383"
+    "slug": "aum-web-000383-sushant-lok-1-c-block-300-sq-yd-plot-naksha-pass",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000383"
   },
   {
     "property_id": "AUM-WEB-000384",
@@ -15036,8 +15036,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000384-sushant-lok-1-215-sq-yd-plot-Building Plan-pass",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000384"
+    "slug": "aum-web-000384-sushant-lok-1-215-sq-yd-plot-naksha-pass",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000384"
   },
   {
     "property_id": "AUM-WEB-000385",
@@ -15083,8 +15083,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000385-sushant-lok-1-215-sq-yd-east-facing-kothi",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000385"
+    "slug": "aum-web-000385-sushant-lok-1-215-sq-yd-east-facing-kothi",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000385"
   },
   {
     "property_id": "AUM-WEB-000386",
@@ -15130,8 +15130,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000386-sushant-lok-1-215-sq-yd-park-facing-plot",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000386"
+    "slug": "aum-web-000386-sushant-lok-1-215-sq-yd-park-facing-plot",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000386"
   },
   {
     "property_id": "AUM-WEB-000387",
@@ -15177,8 +15177,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000387-suncity-360-sq-yd-park-facing-plot",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000387"
+    "slug": "aum-web-000387-suncity-360-sq-yd-park-facing-plot",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000387"
   },
   {
     "property_id": "AUM-WEB-000388",
@@ -15224,8 +15224,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000388-suncity-316-sq-yd-two-sides-open",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000388"
+    "slug": "aum-web-000388-suncity-316-sq-yd-two-sides-open",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000388"
   },
   {
     "property_id": "AUM-WEB-000389",
@@ -15271,8 +15271,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000389-suncity-275-sq-yd-park-facing-corner-plot",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000389"
+    "slug": "aum-web-000389-suncity-275-sq-yd-park-facing-corner-plot",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000389"
   },
   {
     "property_id": "AUM-WEB-000390",
@@ -15318,8 +15318,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000390-south-city-1-k-block-500-sq-yd-plot",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000390"
+    "slug": "aum-web-000390-south-city-1-k-block-500-sq-yd-plot",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000390"
   },
   {
     "property_id": "AUM-WEB-000391",
@@ -15365,8 +15365,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000391-south-city-1-i-block-360-sq-yd-plot",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000391"
+    "slug": "aum-web-000391-south-city-1-i-block-360-sq-yd-plot",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000391"
   },
   {
     "property_id": "AUM-WEB-000392",
@@ -15412,8 +15412,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000392-south-city-1-p-block-360-sq-yd-plot-Building Plan-pass",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000392"
+    "slug": "aum-web-000392-south-city-1-p-block-360-sq-yd-plot-naksha-pass",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000392"
   },
   {
     "property_id": "AUM-WEB-000393",
@@ -15459,8 +15459,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000393-south-city-2-c-block-500-sq-yd-park-facing-plot",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000393"
+    "slug": "aum-web-000393-south-city-2-c-block-500-sq-yd-park-facing-plot",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000393"
   },
   {
     "property_id": "AUM-WEB-000394",
@@ -15506,8 +15506,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000394-south-city-2-b-block-275-sq-yd-plot",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000394"
+    "slug": "aum-web-000394-south-city-2-b-block-275-sq-yd-plot",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000394"
   },
   {
     "property_id": "AUM-WEB-000395",
@@ -15553,8 +15553,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000395-greenwood-city-c-block-500-sq-yd-plot",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000395"
+    "slug": "aum-web-000395-greenwood-city-c-block-500-sq-yd-plot",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000395"
   },
   {
     "property_id": "AUM-WEB-000396",
@@ -15600,8 +15600,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000396-greenwood-city-a-block-275-sq-yd-kothi",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000396"
+    "slug": "aum-web-000396-greenwood-city-a-block-275-sq-yd-kothi",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000396"
   },
   {
     "property_id": "AUM-WEB-000397",
@@ -15647,8 +15647,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000397-greenwood-city-a-block-275-sq-yd-corner-plot",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000397"
+    "slug": "aum-web-000397-greenwood-city-a-block-275-sq-yd-corner-plot",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000397"
   },
   {
     "property_id": "AUM-WEB-000398",
@@ -15694,8 +15694,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000398-greenwood-city-b-block-240-sq-yd-plot",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000398"
+    "slug": "aum-web-000398-greenwood-city-b-block-240-sq-yd-plot",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000398"
   },
   {
     "property_id": "AUM-WEB-000399",
@@ -15741,8 +15741,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000399-rosewood-city-b-block-525-sq-yd-plot",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000399"
+    "slug": "aum-web-000399-rosewood-city-b-block-525-sq-yd-plot",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000399"
   },
   {
     "property_id": "AUM-WEB-000400",
@@ -15788,8 +15788,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000400-rosewood-city-400-sq-yd-kothi-with-lift",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000400"
+    "slug": "aum-web-000400-rosewood-city-400-sq-yd-kothi-with-lift",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000400"
   },
   {
     "property_id": "AUM-WEB-000401",
@@ -15835,8 +15835,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000401-rosewood-city-c-block-500-sq-yd-plot",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000401"
+    "slug": "aum-web-000401-rosewood-city-c-block-500-sq-yd-plot",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000401"
   },
   {
     "property_id": "AUM-WEB-000402",
@@ -15882,8 +15882,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000402-sushant-lok-3-c-block-500-sq-yd-plot",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000402"
+    "slug": "aum-web-000402-sushant-lok-3-c-block-500-sq-yd-plot",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000402"
   },
   {
     "property_id": "AUM-WEB-000403",
@@ -15929,8 +15929,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000403-sector-45-10-marla",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000403"
+    "slug": "aum-web-000403-sector-45-10-marla",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000403"
   },
   {
     "property_id": "AUM-WEB-000404",
@@ -15976,8 +15976,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000404-sector-45-10-marla",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000404"
+    "slug": "aum-web-000404-sector-45-10-marla",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000404"
   },
   {
     "property_id": "AUM-WEB-000405",
@@ -16023,8 +16023,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000405-sector-45-14-marla",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000405"
+    "slug": "aum-web-000405-sector-45-14-marla",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000405"
   },
   {
     "property_id": "AUM-WEB-000406",
@@ -16070,8 +16070,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000406-sector-45-14-marla-Building Plan-pass",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000406"
+    "slug": "aum-web-000406-sector-45-14-marla-naksha-pass",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000406"
   },
   {
     "property_id": "AUM-WEB-000407",
@@ -16117,8 +16117,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000407-sector-46-14-marla",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000407"
+    "slug": "aum-web-000407-sector-46-14-marla",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000407"
   },
   {
     "property_id": "AUM-WEB-000408",
@@ -16164,8 +16164,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000408-sector-46-10-marla-park-facing",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000408"
+    "slug": "aum-web-000408-sector-46-10-marla-park-facing",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000408"
   },
   {
     "property_id": "AUM-WEB-000409",
@@ -16211,8 +16211,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000409-sector-46-8-marla",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000409"
+    "slug": "aum-web-000409-sector-46-8-marla",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000409"
   },
   {
     "property_id": "AUM-WEB-000410",
@@ -16258,8 +16258,8 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000410-sector-57-14-marla",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000410"
+    "slug": "aum-web-000410-sector-57-14-marla",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000410"
   },
   {
     "property_id": "AUM-WEB-000411",
@@ -16305,7 +16305,7 @@ window.AUM_PUBLIC_INVENTORY = [
       "Exact floor / unit position & viewing slot",
       "Title documents, RERA/HSVP status & recurring charges"
     ],
-    "slug": "Aum-web-000411-sector-57-8-marla",
-    "url": "Https://aumestates.com/properties/detail.html?id=AUM-WEB-000411"
+    "slug": "aum-web-000411-sector-57-8-marla",
+    "url": "https://aumestates.com/properties/detail.html?id=AUM-WEB-000411"
   }
 ];

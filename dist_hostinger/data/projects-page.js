@@ -51,7 +51,7 @@ if(grid){
         <div class="result-bottom">
           <strong class="tabular-nums">${esc(p.price||'Price on Request')}</strong>
           <div class="result-actions">
-            <a class="result-contact" data-project-inquiry="${esc(p.project_name)}" href="https://wa.me/919873813595?text=${waText}" target="_blank" rel="noopener">Inquire on WhatsApp</a>
+            <a class="result-contact" data-project-inquiry="${esc(p.project_name)}" href="https://wa.me/919873813595?text=${waText}" target="_blank" rel="noopener">Enquire on WhatsApp</a>
           </div>
         </div>
       </div>

@@ -11,7 +11,7 @@ window.AUM_APPROVED_PROPERTIES = [
     "image": "assets/property-images/dlf-arbour.jpg",
     "transaction_type": "Sale",
     "category": "Residential",
-    "slug": "Aum-web-000137-dlf-arbour-tower-a",
+    "slug": "aum-web-000137-dlf-arbour-tower-a",
     "image_label": "Representative image"
   },
   {
@@ -26,7 +26,7 @@ window.AUM_APPROVED_PROPERTIES = [
     "image": "assets/property-images/dlf-park-place.jpg",
     "transaction_type": "Rent",
     "category": "Residential",
-    "slug": "Aum-web-000151-dlf-park-place-2282-aravalli",
+    "slug": "aum-web-000151-dlf-park-place-2282-aravalli",
     "image_label": "Representative image"
   },
   {
@@ -41,7 +41,7 @@ window.AUM_APPROVED_PROPERTIES = [
     "image": "assets/property-images/dlf-grove.jpg",
     "transaction_type": "Sale",
     "category": "Commercial",
-    "slug": "Aum-web-000135-dlf-grove-500-sq-yd-4-bhk-office",
+    "slug": "aum-web-000135-dlf-grove-500-sq-yd-4-bhk-office",
     "image_label": "Representative image"
   },
   {
@@ -56,7 +56,7 @@ window.AUM_APPROVED_PROPERTIES = [
     "image": "assets/property-images/elevate-by-hines.webp",
     "transaction_type": "Sale",
     "category": "Residential",
-    "slug": "Aum-web-000194-conscient-elevate-2595-sq-ft-3-bhk-Staff Room",
+    "slug": "aum-web-000194-conscient-elevate-2595-sq-ft-3-bhk-servant",
     "image_label": "Representative image"
   },
   {
@@ -71,7 +71,7 @@ window.AUM_APPROVED_PROPERTIES = [
     "image": null,
     "transaction_type": "Sale",
     "category": "Residential",
-    "slug": "Aum-web-000002-nirvana-deerwood",
+    "slug": "aum-web-000002-nirvana-deerwood",
     "image_label": "Representative image"
   },
   {
@@ -86,7 +86,7 @@ window.AUM_APPROVED_PROPERTIES = [
     "image": "assets/property-images/paras-quartier.jpg",
     "transaction_type": "Sale",
     "category": "Residential",
-    "slug": "Aum-web-000169-paras-quartier-iconic-tower-6000-sq-ft",
+    "slug": "aum-web-000169-paras-quartier-iconic-tower-6000-sq-ft",
     "image_label": "Representative image"
   },
   {
@@ -101,7 +101,7 @@ window.AUM_APPROVED_PROPERTIES = [
     "image": "assets/property-images/pioneer-presidia.jpg",
     "transaction_type": "Sale",
     "category": "Residential",
-    "slug": "Aum-web-000106-pioneer-presidia-3-bhk-Staff Room-2595",
+    "slug": "aum-web-000106-pioneer-presidia-3-bhk-servant-2595",
     "image_label": "Representative image"
   },
   {
@@ -116,7 +116,7 @@ window.AUM_APPROVED_PROPERTIES = [
     "image": "assets/property-images/dlf-the-belaire.webp",
     "transaction_type": "Sale",
     "category": "Residential",
-    "slug": "Aum-web-000253-dlf-the-belaire-dlf-belaire-54-3065-sq-ft-4-bhk-Staff Room",
+    "slug": "aum-web-000253-dlf-the-belaire-dlf-belaire-54-3065-sq-ft-4-bhk-servant",
     "image_label": "Representative image"
   },
   {
@@ -131,7 +131,7 @@ window.AUM_APPROVED_PROPERTIES = [
     "image": "assets/property-images/indiabulls-enigma.jpg",
     "transaction_type": "Sale",
     "category": "Residential",
-    "slug": "Aum-web-000134-indiabulls-enigma-renovated-furnished-4-bhk-Staff Room",
+    "slug": "aum-web-000134-indiabulls-enigma-renovated-furnished-4-bhk-servant",
     "image_label": "Representative image"
   },
   {
@@ -146,7 +146,7 @@ window.AUM_APPROVED_PROPERTIES = [
     "image": "assets/property-images/sukoon-asya-project-photo.jpg",
     "transaction_type": "Sale",
     "category": "Residential",
-    "slug": "Aum-web-000019-asya-smartliving",
+    "slug": "aum-web-000019-asya-smartliving",
     "image_label": "Representative image"
   },
   {
@@ -161,7 +161,7 @@ window.AUM_APPROVED_PROPERTIES = [
     "image": null,
     "transaction_type": "Sale",
     "category": "Commercial",
-    "slug": "Aum-web-000296-udyog-vihar-phase-4-pre-rented-building",
+    "slug": "aum-web-000296-udyog-vihar-phase-4-pre-rented-building",
     "image_label": "Representative image"
   },
   {
@@ -176,7 +176,7 @@ window.AUM_APPROVED_PROPERTIES = [
     "image": null,
     "transaction_type": "Sale",
     "category": "Commercial",
-    "slug": "Aum-web-000269-vantage-aura-self-use-commercial-units",
+    "slug": "aum-web-000269-vantage-aura-self-use-commercial-units",
     "image_label": "Representative image"
   },
   {
@@ -191,7 +191,7 @@ window.AUM_APPROVED_PROPERTIES = [
     "image": null,
     "transaction_type": "Sale",
     "category": "Commercial",
-    "slug": "Aum-web-000084-sahara-mall-shop-065-gf",
+    "slug": "aum-web-000084-sahara-mall-shop-065-gf",
     "image_label": "Representative image"
   },
   {
@@ -206,7 +206,7 @@ window.AUM_APPROVED_PROPERTIES = [
     "image": null,
     "transaction_type": "Sale",
     "category": "Plot",
-    "slug": "Aum-web-000339-dlf-phase-1-shahtoot-marg-1022-sq-yd-plot",
+    "slug": "aum-web-000339-dlf-phase-1-shahtoot-marg-1022-sq-yd-plot",
     "image_label": "Representative image"
   },
   {
@@ -221,7 +221,7 @@ window.AUM_APPROVED_PROPERTIES = [
     "image": null,
     "transaction_type": "Sale",
     "category": "Plot",
-    "slug": "Aum-web-000354-dlf-phase-2-akashneem-marg-500-sq-yd-plot-Building Plan-pass",
+    "slug": "aum-web-000354-dlf-phase-2-akashneem-marg-500-sq-yd-plot-naksha-pass",
     "image_label": "Representative image"
   },
   {
@@ -236,7 +236,7 @@ window.AUM_APPROVED_PROPERTIES = [
     "image": null,
     "transaction_type": "Sale",
     "category": "Plot",
-    "slug": "Aum-web-000204-south-city-1-180-sq-yd-east-and-park-facing-plot",
+    "slug": "aum-web-000204-south-city-1-180-sq-yd-east-and-park-facing-plot",
     "image_label": "Representative image"
   }
 ];

@@ -25,8 +25,8 @@
 
   <link rel="canonical" href="https://aumestates.com/" />
   <meta name="robots" content="index,follow" />
-  <link rel="stylesheet" href="assets/styles.css?v=20261122k" />
-  <link rel="stylesheet" href="assets/motion.css?v=20261122k" />
+  <link rel="stylesheet" href="assets/styles.css?v=20261123b" />
+  <link rel="stylesheet" href="assets/motion.css?v=20261123b" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="alternate icon" href="favicon.ico" />
   <script type="application/ld+json">
@@ -52,8 +52,8 @@
     "areaServed": ["Gurgaon", "Golf Course Road", "DLF Phase 1-5", "Nirvana Country", "Sohna Road", "Dwarka Expressway", "New Delhi NCR"]
   }
   </script>
-  <script src="assets/motion.js?v=20261122k"></script>
-  <script src="assets/lead-client.js?v=20261122k"></script>
+  <script src="assets/motion.js?v=20261123b"></script>
+  <script src="assets/lead-client.js?v=20261123b"></script>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -200,7 +200,7 @@
     <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile Navigation">
       <form action="properties/index.html" method="GET" style="margin-bottom:12px;">
         <div style="position:relative;display:flex;align-items:center;">
-          <input name="q" placeholder="Search corridor, BHK, or project..." style="width:100%;min-height:44px;padding:10px 38px 10px 0;background:none;border:0;border-bottom:1px solid var(--line);border-radius:0;color:var(--ink);font-size:var(--body);" />
+          <input name="q" aria-label="Search properties" placeholder="Search corridor, BHK, or project..." style="width:100%;min-height:44px;padding:10px 38px 10px 0;background:none;border:0;border-bottom:1px solid var(--line);border-radius:0;color:var(--ink);font-size:var(--body);" />
           <button type="submit" aria-label="Submit search" style="position:absolute;right:8px;background:none;border:none;color:var(--accent);cursor:pointer;padding:4px;display:flex;align-items:center;">
             <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
           </button>
@@ -303,8 +303,14 @@
         </div>
         <!-- Expandable Advanced Drawer (Revealed on Click) -->
         <div class="filter-advanced-drawer" id="filter-advanced-drawer">
-        <input class="search-field" type="text" name="q" id="home-keyword-input" placeholder="Keyword (e.g. Park Facing, Corner)..." />
-        <select class="search-field" name="facing" aria-label="Select Facing Direction">
+        <input class="search-field" type="text" name="q" id="home-keyword-input" aria-label="Search by keyword" placeholder="Keyword (e.g. Park Facing, Corner)..." />
+        <!-- No name attribute: the results engine reads seven params and
+             "facing" is not one of them, so a submitted &facing= was silently
+             discarded. The keyword matcher already understands these terms
+             (inventory-search.js aliases "park facing", "east facing",
+             "corner plot"), so the submit handler folds this choice into q
+             as an additional ||-clause instead. -->
+        <select class="search-field" id="home-facing-select" aria-label="Select Facing Direction">
         <option value="">Any Direction Facing</option>
         <option value="Park Facing">Park Facing</option>
         <option value="East Facing">East Facing</option>
@@ -529,7 +535,7 @@
           <p>Confidential representation for acquisitions, divestments, or commercial capital exceeding ₹3 Cr across Gurgaon.</p>
         </div>
         <div class="mandate-concierge-actions">
-          <a class="btn" style="background:var(--accent);color:#ffffff;" href="https://wa.me/919873813595?text=Hello%20AUM%20ESTATES,%20I%20have%20a%20private%20property%20mandate%20to%20discuss." target="_blank" rel="noopener">Inquire via WhatsApp Desk →</a>
+          <a class="btn" style="background:var(--accent);color:#ffffff;" href="https://wa.me/919873813595?text=Hello%20AUM%20ESTATES,%20I%20have%20a%20private%20property%20mandate%20to%20discuss." target="_blank" rel="noopener">Enquire on WhatsApp →</a>
           <a class="btn" style="background:var(--paper);color:var(--ink);border:1px solid var(--line);" href="contact/index.html">Office Directions</a>
         </div>
       </div>
@@ -545,7 +551,7 @@
         <div class="footer-brand">AUM ESTATES</div>
         <div class="footer-tagline">Private Property Advisory · Gurgaon</div>
         <p>C-210, Nirvana Courtyard, Nirvana Country,<br/>Sector 50, Gurgaon, Haryana – 122018</p>
-        <p style="font-size:12.5px;color:#8c787c;margin-top:14px;">Haryana RERA Registered Brokerage.<br/>Principled real estate advisory serving Gurgaon, Golf Course Road, and Delhi NCR since 2002.</p>
+        <p class="footer-compliance">Haryana RERA Registered Brokerage.<br/>Principled real estate advisory serving Gurgaon, Golf Course Road, and Delhi NCR since 2002.</p>
       </div>
 
       <div>
@@ -588,9 +594,9 @@
   <!-- ======================================================================
        Dynamic Data Scripts
        ====================================================================== -->
-  <script src="data/public_inventory.js?v=20261122k"></script>
-  <script src="data/projects_local.js?v=20261122k"></script>
-  <script src="data/approved_properties.js?v=20261122k"></script>
+  <script src="data/public_inventory.js?v=20261123b"></script>
+  <script src="data/projects_local.js?v=20261123b"></script>
+  <script src="data/approved_properties.js?v=20261123b"></script>
 
   <script>
   // Search Form Mode, Category & Gradual Reveal Handling
@@ -626,6 +632,20 @@
         window.location.href = `properties/index.html?q=${encodeURIComponent(query)}`;
       });
     });
+
+    // Facing is not a param the register understands. Rather than submit a
+    // key that gets dropped on the floor, fold the choice into q, which the
+    // keyword matcher splits on '||' and requires every clause to match.
+    const facingSelect = document.getElementById('home-facing-select');
+    const keywordInput = document.getElementById('home-keyword-input');
+    if (facingSelect && keywordInput) {
+      form.addEventListener('submit', () => {
+        const clauses = [keywordInput.value, facingSelect.value]
+          .map(v => String(v || '').trim())
+          .filter(Boolean);
+        keywordInput.value = clauses.join(' || ');
+      });
+    }
 
     // Expandable Drawer Toggle
     const toggleBtn = document.getElementById('filter-expand-toggle');
@@ -689,8 +709,8 @@
             ${specHtml}
             <div class="price tabular-nums">${esc(money(o))}</div>
             <div class="card-actions">
-              <a class="view-details" href="${detailLink}">View Dossier →</a>
-              <a class="result-contact" data-featured-inquiry="${esc(o.property_id)}" href="${wa}" target="_blank" rel="noopener">Inquire via WhatsApp</a>
+              <a class="view-details" href="${detailLink}">Full details →</a>
+              <a class="result-contact" data-featured-inquiry="${esc(o.property_id)}" href="${wa}" target="_blank" rel="noopener">Enquire on WhatsApp</a>
             </div>
           </div>
         </article>
@@ -748,16 +768,25 @@
         corridor: 'Dwarka Expressway & New Gurgaon',
         desc: 'Integrated high-rise townships and direct airport corridor connectivity across Sectors 99–113.'
       },
+      // Was "Commercial & Pre-Rented Assets", which was a category sitting in
+      // a grid of corridors: it double-counted stock the other five tiles
+      // already held, it duplicated the Commercial tile in the section above,
+      // and — because it matched 'commercial' against a register that stores
+      // "Commercial" — it advertised 0 active mandates over 53 real ones.
+      // Sushant Lok is an actual corridor with 36 mandates and had no tile,
+      // so this grid now covers 320 of the 347 records instead of 284.
       {
-        name: 'Commercial & Pre-Rented Assets',
-        sub: 'Offices & Retail',
-        category: 'commercial',
-        desc: 'Pre-leased institutional offices, high-street retail units, and corporate buildings.'
+        name: 'Sushant Lok & Central Gurgaon',
+        sub: 'Established Central Enclaves',
+        corridor: 'Sushant Lok & Central Gurgaon',
+        desc: 'City-centre blocks, established floors and retail frontage across Sushant Lok I–III and central sectors.'
       }
     ];
 
+    const same = (a, b) => String(a ?? '').toLowerCase().trim() === String(b ?? '').toLowerCase().trim();
+
     host.innerHTML = locations.map(l => {
-      const rows = data.filter(o => l.category ? o.category === l.category : o.corridor === l.corridor);
+      const rows = data.filter(o => l.category ? same(o.category, l.category) : same(o.corridor, l.corridor));
       const count = rows.length;
       const href = `properties/index.html?${l.category ? 'category=' + encodeURIComponent(l.category) : 'location=' + encodeURIComponent(l.corridor)}`;
 
@@ -771,9 +800,12 @@
               <strong class="location-tile-count tabular-nums">${count}</strong>
               <span style="display:block;font-size:var(--caption);font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);">${count === 1 ? 'Active Mandate' : 'Active Mandates'}</span>
             </div>
-            <a class="location-view" href="${href}">
-              Explore Corridor →
-            </a>
+            ${count
+              ? `<a class="location-view" href="${href}">Explore Corridor →</a>`
+              // A corridor we hold nothing in gets no link: sending a client
+              // to an empty register reads worse than saying there is nothing
+              // on the books this week.
+              : `<span class="location-view location-view-empty">Nothing on the books →</span>`}
           </div>
         </article>
       `;
@@ -785,13 +817,28 @@
     const d = Array.isArray(window.AUM_PUBLIC_INVENTORY) ? window.AUM_PUBLIC_INVENTORY : [];
     const active = d.filter(x => x && x.transaction_type);
 
-    const norm = v => String(v ?? '').normalize('NFKD').toLowerCase().replace(/[–—]/g, '-').replace(/[^a-z0-9+]+/g, ' ').trim();
-
-    const cat = x => ['commercial', 'plot', 'farmhouse'].includes(x.category) ? x.category : 'residential';
+    // The register stores categories capitalised — "Commercial", "Plot",
+    // "Apartment" — so this list never matched and every one of the 347
+    // records fell through to 'residential'. The Residential tile therefore
+    // claimed the entire inventory while Commercial, Plots and Private
+    // Estates each counted zero and printed the word "Available" instead of
+    // admitting it. These buckets mirror what each tile's own link returns
+    // from matchesCategory(), so the count and the destination cannot drift.
+    const BUCKETS = {
+      residential: ['apartment', 'builder-floor', 'villa'],
+      commercial: ['commercial'],
+      plot: ['plot'],
+      farmhouse: ['farmhouse']
+    };
+    const cat = x => String(x.category ?? '').toLowerCase().trim();
 
     document.querySelectorAll('[data-cat-count]').forEach(e => {
-      const count = active.filter(x => cat(x) === e.dataset.catCount).length;
-      e.textContent = count ? `${count} ${count === 1 ? 'property' : 'properties'}` : 'Available';
+      const wanted = BUCKETS[e.dataset.catCount] || [e.dataset.catCount];
+      const count = active.filter(x => wanted.includes(cat(x))).length;
+      // No count means no stock, and saying so is the point of the figure.
+      e.textContent = count
+        ? `${count} ${count === 1 ? 'property' : 'properties'}`
+        : 'Enquire for availability';
     });
 
     const projects = Array.isArray(window.AUM_PROJECTS_LOCAL) ? window.AUM_PROJECTS_LOCAL : [];
