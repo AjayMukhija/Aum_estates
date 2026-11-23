@@ -68,7 +68,9 @@ A restore into an isolated database was tested during this fix. Copy backups to 
 
 ## Deployment
 
-See [deploy/README.md](deploy/README.md). The supported integrated arrangement is a Node process behind HTTPS nginx, with the website, `/api`, `/crm` and `/shortlist` on one origin. Static Hostinger hosting can serve the catalogue and WhatsApp handoff, but needs an explicitly configured same-origin API proxy to record leads.
+The live site runs the PHP + MariaDB arrangement on Hostinger: see [deploy/HOSTINGER_PHP.md](deploy/HOSTINGER_PHP.md) for the host setup and for the day-to-day loop the principal uses to publish a listing.
+
+The alternative is [deploy/README.md](deploy/README.md), where the supported integrated arrangement is a Node process behind HTTPS nginx, with the website, `/api`, `/crm` and `/shortlist` on one origin. Static Hostinger hosting can serve the catalogue and WhatsApp handoff, but needs an explicitly configured same-origin API proxy to record leads.
 
 Before external deployment, set `NODE_ENV=production`, `AUM_PUBLIC_ORIGIN=https://aumestates.com`, provision a new principal account on that host, configure TLS and enable the backup timer. Do not copy local credentials or database files into `public_html`.
 

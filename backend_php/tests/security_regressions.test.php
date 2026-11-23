@@ -674,6 +674,115 @@ $runTest('Share preview: a property link previews as that property, for every vi
     );
 });
 
+// ---------------------------------------------------------------------------
+// Account provisioning: bin/setup_admin.php
+// ---------------------------------------------------------------------------
+
+/**
+ * Runs the provisioner against a throwaway SQLite file so the test never
+ * touches the real master store. Returns [exitCode, stdout, stderr].
+ */
+function runProvisioner(string $dbFile, array $args, array $env = []): array
+{
+    $script = __DIR__ . '/../bin/setup_admin.php';
+    $cmd = escapeshellarg(PHP_BINARY) . ' ' . escapeshellarg($script);
+    foreach ($args as $a) {
+        $cmd .= ' ' . escapeshellarg($a);
+    }
+
+    // Config::loadEnv() only fills in keys the environment does not already
+    // carry, so setting these here keeps the child off the real master store
+    // even on a machine that has backend_php/.env.
+    $envVars = array_merge(getenv(), [
+        'AUM_DB_DRIVER' => 'sqlite',
+        'AUM_DB_PATH' => $dbFile,
+        'AUM_DB_DIR' => dirname($dbFile)
+    ], $env);
+
+    $descriptors = [1 => ['pipe', 'w'], 2 => ['pipe', 'w']];
+    $proc = proc_open($cmd, $descriptors, $pipes, null, $envVars);
+    $out = stream_get_contents($pipes[1]);
+    $err = stream_get_contents($pipes[2]);
+    fclose($pipes[1]);
+    fclose($pipes[2]);
+    return [proc_close($proc), $out, $err];
+}
+
+function provisionerFixture(): string
+{
+    $file = tempnam(sys_get_temp_dir(), 'aum_provision_') . '.sqlite';
+    $pdo = new PDO('sqlite:' . $file, null, null, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+    $pdo->exec('CREATE TABLE users (user_id INTEGER PRIMARY KEY AUTOINCREMENT, email TEXT UNIQUE, full_name TEXT, role TEXT, password_hash TEXT, password_salt TEXT NOT NULL DEFAULT \'\', is_active INTEGER DEFAULT 1, created_at TEXT)');
+    $pdo->exec('CREATE TABLE sessions (session_id TEXT PRIMARY KEY, user_id INTEGER, csrf_token TEXT, expires_at TEXT, ip_address TEXT, created_at TEXT)');
+    $pdo->exec('CREATE TABLE audit_logs (audit_id INTEGER PRIMARY KEY AUTOINCREMENT, actor_user_id INTEGER, actor_label TEXT, entity_type TEXT, entity_id TEXT, action TEXT, summary TEXT, before_json TEXT, after_json TEXT, created_at TEXT)');
+    $pdo->exec("INSERT INTO users (email, full_name, role, password_hash, created_at) VALUES ('ajay@aumestates.com', 'Ajay Mukhija', 'principal', 'ORIGINAL-HASH', '2026-01-01')");
+    $pdo->exec("INSERT INTO sessions (session_id, user_id, csrf_token, expires_at, created_at) VALUES ('live-session', 1, 'c', '2099-01-01', '2026-01-01')");
+    return $file;
+}
+
+$runTest('Provisioner: an unrecognised flag is refused instead of rotating the credential', function () {
+    $db = provisionerFixture();
+    try {
+        // --help used to fall through to "no password supplied, generate one",
+        // so asking for usage silently reset the principal's sign-in.
+        foreach ([['--help'], ['--generte'], []] as $args) {
+            [$code, , ] = runProvisioner($db, $args);
+            assertTrue2($code !== 1, 'the provisioner must not fail hard on ' . json_encode($args));
+        }
+        $pdo = new PDO('sqlite:' . $db, null, null, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+        $hash = $pdo->query('SELECT password_hash FROM users WHERE user_id = 1')->fetchColumn();
+        assertSame2('ORIGINAL-HASH', $hash, 'no argument short of an explicit password source may rotate the credential');
+    } finally {
+        @unlink($db);
+    }
+});
+
+$runTest('Provisioner: a rotation revokes the account\'s open sessions', function () {
+    $db = provisionerFixture();
+    try {
+        [$code, $out, $err] = runProvisioner($db, [], ['AUM_ADMIN_PASSWORD' => 'a-sufficiently-long-password']);
+        assertSame2(0, $code, 'provisioning must succeed: ' . $err);
+        $pdo = new PDO('sqlite:' . $db, null, null, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+        assertTrue2(
+            $pdo->query('SELECT password_hash FROM users WHERE user_id = 1')->fetchColumn() !== 'ORIGINAL-HASH',
+            'the password must actually change'
+        );
+        assertSame2(
+            0,
+            (int)$pdo->query('SELECT COUNT(*) FROM sessions WHERE user_id = 1')->fetchColumn(),
+            'a cookie stolen before the rotation must not outlive it'
+        );
+        assertTrue2(
+            (int)$pdo->query("SELECT COUNT(*) FROM audit_logs WHERE action = 'rotate_credential'")->fetchColumn() === 1,
+            'the rotation must be auditable'
+        );
+    } finally {
+        @unlink($db);
+    }
+});
+
+$runTest('Provisioner: a generated password is written owner-only, never printed', function () {
+    $db = provisionerFixture();
+    $credFile = dirname($db) . '/admin-credentials.json';
+    @unlink($credFile);
+    try {
+        [$code, $out, $err] = runProvisioner($db, ['--generate']);
+        assertSame2(0, $code, 'generation must succeed: ' . $err);
+        assertTrue2(is_file($credFile), 'the generated credential must be saved somewhere the operator can read it');
+
+        $saved = json_decode((string)file_get_contents($credFile), true);
+        assertTrue2(is_array($saved) && !empty($saved['password']), 'the credentials file must carry the password');
+        assertTrue2(
+            !str_contains($out . $err, $saved['password']),
+            'the password must not reach stdout, where shared-host scrollback and shell history keep it'
+        );
+        assertSame2('0600', substr(sprintf('%o', fileperms($credFile)), -4), 'the credentials file must be owner-only');
+    } finally {
+        @unlink($db);
+        @unlink($credFile);
+    }
+});
+
 echo "\n======================================================================\n";
 echo "Regression Suite Summary: {$passed} passed, {$failed} failed.\n";
 echo "======================================================================\n";

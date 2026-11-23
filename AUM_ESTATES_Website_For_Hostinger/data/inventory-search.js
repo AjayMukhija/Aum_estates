@@ -285,6 +285,17 @@
     return pt===nq || cfg===nq || txt.includes(nq);
   }
 
+  // The configuration string almost always states the bedroom count already
+  // ("3 BHK", "4 BHK + Staff Room"), and 150 of the 156 listings that carry
+  // both fields did, so the card read "3 BHK · 3 BHK · 2,400 sq ft".
+  // Keep the richer configuration and drop the bare repeat.
+  function configLine(o){
+    var cfg = String(o.configuration || '').trim();
+    var bhk = o.bedrooms ? o.bedrooms + ' BHK' : '';
+    if (bhk && new RegExp('\\b' + o.bedrooms + '\\s*BHK\\b', 'i').test(cfg)) bhk = '';
+    return [cfg, bhk, areaLabel(o)].filter(Boolean).join(' · ');
+  }
+
   function matchesSize(o, q){
     if(!q) return true;
     const qn=norm(q);
@@ -512,7 +523,7 @@
     const priceStr = priceLabel(o);
     return `<article class="result-card" data-property-id="${esc(o.property_id || '')}" data-title="${esc(publicName)}" data-price="${esc(priceStr)}" data-location="${esc(locStr)}">${hasPhoto
       ? `<div class="result-photo" data-bg="${imagePathPrefix}${image}"><span class="representative-badge">${badgeText}</span><span class="result-type">${esc(imageLabel)}</span></div>`
-      : `<div class="result-photo photo-placeholder"><span class="photo-placeholder-type">${esc(imageLabel)}</span><span class="photo-placeholder-note">Photography available on enquiry</span></div>`}<div class="result-body"><div class="result-location">${esc(locStr)}</div><h3>${esc(publicName)}</h3><p class="result-config">${esc([o.configuration,o.bedrooms?`${o.bedrooms} BHK`:'',areaLabel(o)].filter(Boolean).join(' · '))}</p><p class="result-desc">${esc(o.public_description||o.key_features||'Property details available on enquiry.')}</p><div class="result-bottom"><strong class="tabular-nums">${esc(priceStr)}</strong><div class="result-actions"><a class="view-details" href="${detailHref}">Full details →</a><a class="result-contact" href="${wa}" target="_blank" rel="noopener">Enquire on WhatsApp</a></div></div>${features.length?`<div class="result-features">${features.map(f=>`<span>${esc(f.trim())}</span>`).join('')}</div>`:''}</div></article>`;
+      : `<div class="result-photo photo-placeholder"><span class="photo-placeholder-type">${esc(imageLabel)}</span><span class="photo-placeholder-note">Photography available on enquiry</span></div>`}<div class="result-body"><div class="result-location">${esc(locStr)}</div><h3>${esc(publicName)}</h3><p class="result-config">${esc(configLine(o))}</p><p class="result-desc">${esc(o.public_description||o.key_features||'Property details available on enquiry.')}</p><div class="result-bottom"><strong class="tabular-nums">${esc(priceStr)}</strong><div class="result-actions"><a class="view-details" href="${detailHref}">Full details →</a><a class="result-contact" href="${wa}" target="_blank" rel="noopener">Enquire on WhatsApp</a></div></div>${features.length?`<div class="result-features">${features.map(f=>`<span>${esc(f.trim())}</span>`).join('')}</div>`:''}</div></article>`;
   }
 
   if (typeof document !== 'undefined') {

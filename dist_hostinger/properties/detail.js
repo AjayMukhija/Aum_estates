@@ -144,7 +144,14 @@ const badgeEl=document.getElementById('detail-badge');
 if (badgeEl) badgeEl.textContent = !hasDetailPhoto ? 'No photograph on file' : (isProjectPhoto ? 'Project Photo' : 'Representative image');
 if (badgeEl && !hasDetailPhoto) badgeEl.style.display='none';
 document.getElementById('detail-description').textContent=data.public_description||data.key_features||'Property details available on enquiry.';
-const facts=[['Configuration',data.configuration],['BHK',data.bedrooms?`${data.bedrooms} BHK`:'' ],['Area',area(data)],['Floor',data.floor_label],['Facing',data.facing],['Road Width',data.road_width],['Furnishing',data.furnishing],['Possession / Availability',data.possession_status],['Transaction',data.transaction_type]].filter(x=>x[1]);
+// 150 of the 156 listings that carry both fields state the bedroom count
+// inside the configuration already ("3 BHK", "4 BHK + Staff Room"), so a
+// separate BHK cell repeated it verbatim one box later. Only show the cell
+// when the configuration does not already say it.
+const bhkLabel = data.bedrooms ? `${data.bedrooms} BHK` : '';
+const bhkStated = bhkLabel
+  && new RegExp(`\\b${data.bedrooms}\\s*BHK\\b`, 'i').test(String(data.configuration || ''));
+const facts=[['Configuration',data.configuration],['BHK',bhkStated?'':bhkLabel],['Area',area(data)],['Floor',data.floor_label],['Facing',data.facing],['Road Width',data.road_width],['Furnishing',data.furnishing],['Possession / Availability',data.possession_status],['Transaction',data.transaction_type]].filter(x=>x[1]);
 document.getElementById('detail-grid').innerHTML=facts.map(([k,v])=>`<div class="detail-spec"><span>${esc(k)}</span><strong>${esc(v)}</strong></div>`).join('');
 const feats=(data.public_features||data.key_features||'').split(';').map(x=>x.trim()).filter(Boolean);
 if(feats.length){
