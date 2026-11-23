@@ -171,6 +171,26 @@ p { margin: 0 0 var(--space-4); }
 }
 
 /* Primary: the one red action on a surface. */
+/* The phone button carries a name AND a number. Uppercased at 0.07em tracking
+   that is ~330px of text on one line, and .btn is white-space: nowrap, so in
+   the 310px dossier sidebar and in the mobile drawer the number ran straight
+   out through the right border. Stack the two over two lines instead: the
+   button then fits any column it is dropped into. */
+.btn-call {
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+  height: auto;
+  padding-block: 8px;
+  line-height: 1.25;
+}
+.btn-call > span { display: block; }
+.btn-call .btn-call-number {
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  opacity: 0.8;
+}
+
 .btn, .search-btn, .keyword-search-submit, .btn-oxblood {
   background: var(--accent);
   border-color: var(--accent);
@@ -1370,6 +1390,18 @@ textarea.form-control { min-height: 120px; padding-top: var(--space-3); resize: 
   /* On a phone these are the first controls anyone touches and they stood
      32px and 36px tall against a 44px minimum. Growing the padding rather
      than the type keeps the row looking the same and the thumb honest. */
+  /* .btn is white-space: nowrap, so a long label simply painted straight out
+     through its container: "Schedule Advisory Consultation →" is 343px
+     uppercased and tracked out, inside a 279px card on a 375px screen, and it
+     pushed the whole About page into a 17px sideways scroll. On a phone a
+     button label wraps and the button fills its column instead. */
+  .btn, .btn-oxblood, .btn-gold, .btn-wa, .search-btn,
+  .keyword-search-submit, .result-contact, .nav-search-btn {
+    max-width: 100%;
+    white-space: normal;
+    text-align: center;
+  }
+
   .search-tab { min-height: 44px; padding: 12px 0; }
   .quick-tag, .keyword-chip { min-height: 44px; padding: 12px 14px; }
   .mandate-concierge-inner, .results-head { flex-direction: column; align-items: flex-start; }
