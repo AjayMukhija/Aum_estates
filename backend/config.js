@@ -21,9 +21,9 @@ const PATHS = {
   crmUiDir: path.join(__dirname, 'crm-ui')
 };
 
-const OFFICIAL_PHONES = ['9873813595', '9811157018'];
+const OFFICIAL_PHONES = ['9873813595', '9667080041', '9266833220'];
 const OFFICIAL_WHATSAPP = '919873813595';
-const OFFICIAL_DIRECT_LINE = '+919811157018';
+const OFFICIAL_DIRECT_LINE = '+919667080041';
 
 const PUBLICATION_STATES = new Set([
   'draft',

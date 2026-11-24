@@ -21,16 +21,7 @@
    ========================================================================== */
 
 :root {
-  /* Motion vocabulary — four durations, three curves. */
-  --dur-1: 140ms;   /* state flips: colour, border */
-  --dur-2: 220ms;   /* hover: lift, scale, slide */
-  --dur-3: 380ms;   /* disclosure: drawers, menus */
-  --dur-4: 620ms;   /* entrance: scroll reveal */
-
-  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);      /* entrances, settles */
-  --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);       /* general purpose */
-  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);   /* reversible states */
-
+  /* Durations and curves live with the other tokens in styles.css. */
   --lift: -3px;
   --reveal-shift: 16px;
 
@@ -99,37 +90,13 @@
 .js-motion [data-reveal-rule].is-in::before { transform: scaleX(1); }
 
 /* --------------------------------------------------------------------------
-   2. Hero entrance
-   Runs once on load rather than on intersection — the hero is already in
-   view, and waiting for an observer tick would show a visible flash.
+   2. Hero
+   No entrance. The hero used to start at opacity 0 and wait for
+   DOMContentLoaded, which on the home page waits for every synchronous
+   script below it, including the 600 KB inventory feed. On a slow
+   connection the first screen was a blank page with a header. The
+   statement and the search desk are the page's purpose; they paint at once.
    -------------------------------------------------------------------------- */
-
-.js-motion .hero-copy > *,
-.js-motion .hero-desk,
-.js-motion .hero-stats-strip .stat-item {
-  opacity: 0;
-  transform: translate3d(0, 18px, 0);
-}
-
-.js-motion .hero-ready .hero-copy > *,
-.js-motion .hero-ready .hero-desk,
-.js-motion .hero-ready .hero-stats-strip .stat-item {
-  opacity: 1;
-  transform: translate3d(0, 0, 0);
-  transition:
-    opacity var(--dur-4) var(--ease-out) var(--d, 0ms),
-    transform var(--dur-4) var(--ease-out) var(--d, 0ms);
-}
-
-.js-motion .hero-ready .hero-copy > *:nth-child(1) { --d: 60ms; }
-.js-motion .hero-ready .hero-copy > *:nth-child(2) { --d: 130ms; }
-.js-motion .hero-ready .hero-copy > *:nth-child(3) { --d: 200ms; }
-.js-motion .hero-ready .hero-copy > *:nth-child(4) { --d: 260ms; }
-.js-motion .hero-ready .hero-desk { --d: 220ms; }
-.js-motion .hero-ready .hero-stats-strip .stat-item:nth-child(1) { --d: 380ms; }
-.js-motion .hero-ready .hero-stats-strip .stat-item:nth-child(2) { --d: 440ms; }
-.js-motion .hero-ready .hero-stats-strip .stat-item:nth-child(3) { --d: 500ms; }
-.js-motion .hero-ready .hero-stats-strip .stat-item:nth-child(4) { --d: 560ms; }
 
 /* --------------------------------------------------------------------------
    3. Header
@@ -138,63 +105,11 @@
    -------------------------------------------------------------------------- */
 
 .header {
-  transition:
-    box-shadow var(--dur-3) var(--ease-soft),
-    border-color var(--dur-3) var(--ease-soft);
+  transition: box-shadow var(--dur-3) var(--ease-soft);
 }
 .header.is-scrolled {
-  box-shadow: 0 1px 0 rgba(27, 33, 30, 0.06), 0 10px 30px -22px rgba(27, 33, 30, 0.5);
-  border-bottom-color: transparent;
+  box-shadow: 0 10px 30px -24px rgba(27, 33, 30, 0.45);
 }
-.header .nav { transition: min-height var(--dur-3) var(--ease-soft); }
-.header.is-scrolled .nav { min-height: 70px; }
-
-/* Nav underline wipes in from the left instead of appearing whole. */
-.nav-link { position: relative; }
-.nav-link,
-.nav-link:hover,
-.nav-link.active { text-decoration: none; }
-.nav-link::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 6px;
-  height: 1px;
-  background: var(--accent);
-  transform: scaleX(0);
-  transform-origin: right center;
-  transition: transform var(--dur-2) var(--ease-out);
-}
-.nav-link:hover::after,
-.nav-link:focus-visible::after,
-.nav-link.active::after {
-  transform: scaleX(1);
-  transform-origin: left center;
-}
-
-.dropdown-menu {
-  transition:
-    opacity var(--dur-2) var(--ease-out),
-    transform var(--dur-2) var(--ease-out),
-    visibility var(--dur-2) var(--ease-out);
-}
-.nav-item:hover .dropdown-menu,
-.nav-item:focus-within .dropdown-menu { transform: translateY(2px); }
-
-.dropdown-item { transition: background var(--dur-1) var(--ease-soft), color var(--dur-1) var(--ease-soft), padding-left var(--dur-2) var(--ease-out); }
-.dropdown-item:hover { padding-left: calc(var(--space-5) + 5px); }
-
-/* Mobile drawer slides rather than snapping open. */
-.mobile-nav.open {
-  animation: aum-drawer-down var(--dur-3) var(--ease-out) both;
-}
-@keyframes aum-drawer-down {
-  from { opacity: 0; transform: translate3d(0, -8px, 0); }
-  to   { opacity: 1; transform: translate3d(0, 0, 0); }
-}
-.mobile-nav a { transition: color var(--dur-1) var(--ease-soft), padding-left var(--dur-2) var(--ease-out); }
-.mobile-nav a:hover { padding-left: 6px; }
 
 /* --------------------------------------------------------------------------
    4. Cards
@@ -202,7 +117,7 @@
    to ink, and the photograph pushes in behind the crop. Nothing bounces.
    -------------------------------------------------------------------------- */
 
-.cat, .benefit, .contact-card, .card, .result-card, .location-tile {
+.cat, .benefit, .card, .result-card, .location-tile {
   overflow: hidden;
   /* Declared for cards that are not reveal targets; the reveal rule
      declares the same composition for those that are. */
@@ -213,7 +128,7 @@
     box-shadow var(--dur-2) var(--ease-soft);
 }
 
-.cat:hover, .benefit:hover, .contact-card:hover,
+.cat:hover, .benefit:hover,
 .card:hover, .result-card:hover, .location-tile:hover {
   --card-y: var(--lift);
   border-color: var(--ink);
@@ -265,30 +180,23 @@
    5. Controls
    -------------------------------------------------------------------------- */
 
-.btn, .search-btn, .keyword-search-submit, .btn-oxblood,
-.btn-gold, .result-contact, .btn-wa, .nav-search-btn,
-.results-search > button[type="submit"], .actions .wa {
+/* Buttons change colour on hover and settle 1px on press. They used to rise
+   2px and throw a shadow as well, which read as a landing-page flourish on
+   controls whose job is to look dependable. */
+.btn, .search-btn, .keyword-search-submit, .btn-oxblood, .btn-secondary,
+.btn-gold, .result-contact, .btn-wa, .header-cta,
+.results-search > button[type="submit"] {
   transition:
-    background var(--dur-1) var(--ease-soft),
+    background-color var(--dur-1) var(--ease-soft),
     color var(--dur-1) var(--ease-soft),
     border-color var(--dur-1) var(--ease-soft),
-    transform var(--dur-2) var(--ease-out),
-    box-shadow var(--dur-2) var(--ease-soft);
-}
-
-.btn:hover, .search-btn:hover, .keyword-search-submit:hover, .btn-oxblood:hover,
-.btn-gold:hover, .result-contact:hover, .btn-wa:hover, .nav-search-btn:hover,
-.results-search > button[type="submit"]:hover, .actions .wa:hover {
-  transform: translate3d(0, -2px, 0);
-  box-shadow: 0 10px 22px -16px rgba(27, 33, 30, 0.7);
+    transform var(--dur-1) var(--ease-soft);
 }
 
 .btn:active, .search-btn:active, .keyword-search-submit:active, .btn-oxblood:active,
-.btn-gold:active, .result-contact:active, .btn-wa:active, .nav-search-btn:active,
-.results-search > button[type="submit"]:active, .actions .wa:active {
-  transform: translate3d(0, 0, 0);
-  box-shadow: none;
-  transition-duration: var(--dur-1);
+.btn-secondary:active, .btn-gold:active, .result-contact:active, .btn-wa:active,
+.header-cta:active, .results-search > button[type="submit"]:active {
+  transform: translate3d(0, 1px, 0);
 }
 
 /* Trailing arrows travel on hover. motion.js strips the literal glyph from
@@ -331,20 +239,9 @@ select.search-field:hover, input.search-field:hover,
   border-bottom-color: var(--muted);
 }
 
-/* The search tabs carry a sliding rule instead of five static underlines.
-   The 24px gap inherited from styles.css pushed five labels onto three rows
-   inside the hero desk's column and cost 160px of vertical space before the
-   first field. At 16px they resolve to two balanced rows at every width the
-   desk occupies. */
-.search-tabs {
-  position: relative;
-  gap: var(--space-3) var(--space-4);
-}
-.search-tab {
-  position: relative;
-  transition: color var(--dur-2) var(--ease-soft);
-}
-.search-tab.active { text-decoration: none; }
+/* The type selector carries one sliding rule, positioned by motion.js,
+   which sits on the strip's bottom border. */
+.search-tabs { position: relative; }
 .search-tabs .tab-rule {
   position: absolute;
   top: 0;
@@ -380,12 +277,7 @@ select.search-field:hover, input.search-field:hover,
 
 /* The drawer's own fields need their own row, since the outer element is now
    a single-row height animator rather than the column grid it used to be. */
-.filter-advanced-drawer .drawer-inner {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-  gap: var(--space-5);
-  align-items: end;
-}
+.filter-advanced-drawer .drawer-inner { align-items: end; }
 
 .pillar-summary { transition: color var(--dur-1) var(--ease-soft); }
 .pillar-summary:hover { color: var(--accent); }
@@ -482,7 +374,6 @@ select.search-field:hover, input.search-field:hover,
 
 .footergrid { grid-template-columns: minmax(0, 1.4fr) repeat(3, minmax(0, 1fr)); }
 
-.founder-heritage-wrap { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); }
 
 /* Specification tables stay on one minimum so the cells line up with each
    other across the two pages that use them. */
@@ -524,29 +415,6 @@ select.search-field:hover, input.search-field:hover,
   .hero-stats-strip { grid-template-columns: minmax(0, 1fr); }
 }
 
-/* On a phone the five tabs stacked into five rows and pushed the fields —
-   the thing the desk exists for — about 300px below the fold. One scrolling
-   row keeps every category reachable and puts the first field back on
-   screen. The rule is absolutely positioned inside the strip, so it scrolls
-   with the tabs and stays under the active one. */
-@media (max-width: 760px) {
-  .search-tabs {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    overflow-y: hidden;
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
-    scroll-snap-type: x proximity;
-    /* Room for the rule, which sits just under the tab's own box. */
-    padding-bottom: var(--space-2);
-  }
-  .search-tabs::-webkit-scrollbar { display: none; }
-  .search-tab {
-    flex: none;
-    scroll-snap-align: start;
-  }
-}
-
 /* --------------------------------------------------------------------------
    8. Corridor index
    The home page used to carry six full corridor panels with three live
@@ -575,11 +443,13 @@ select.search-field:hover, input.search-field:hover,
   border-top: 1px solid var(--line);
 }
 .location-tile-count {
+  display: block;
   font-size: 21px;
   font-weight: 550;
   letter-spacing: -0.03em;
   font-variant-numeric: tabular-nums;
 }
+.location-tile-unit,
 .location-tile-count span {
   display: block;
   font-size: var(--caption);
@@ -606,24 +476,21 @@ select.search-field:hover, input.search-field:hover,
    -------------------------------------------------------------------------- */
 
 @media (prefers-reduced-motion: reduce) {
-  .js-motion [data-reveal],
-  .js-motion .hero-copy > *,
-  .js-motion .hero-desk,
-  .js-motion .hero-stats-strip .stat-item {
+  .js-motion [data-reveal] {
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
   }
   .js-motion [data-reveal-rule]::before { transform: scaleX(1) !important; }
-  .cat:hover, .benefit:hover, .contact-card:hover,
+  .cat:hover, .benefit:hover,
   .card:hover, .result-card:hover, .location-tile:hover,
-  .btn:hover, .search-btn:hover, .btn-gold:hover, .actions .wa:hover {
+  .btn:active, .search-btn:active, .btn-secondary:active, .header-cta:active {
     --card-y: 0px;
     transform: none !important;
   }
   .cat:hover .cat-img, .card:hover .photo,
   .card:hover .approved-card-photo, .result-card:hover .result-photo { transform: none !important; }
-  .mobile-nav.open, .pillar-item[open] .pillar-content { animation: none !important; }
+  .pillar-item[open] .pillar-content { animation: none !important; }
   .has-arrow:hover::after { transform: none !important; }
 }
 
@@ -697,7 +564,7 @@ select.search-field:hover, input.search-field:hover,
 
 /* --------------------------------------------------------------------------
    12. Skip link
-   The header carries two dropdown menus, so reaching the page content by
+   The header carries two menus, so reaching the page content by
    keyboard meant tabbing past roughly twenty links on every page. Off-screen
    until focused, then it sits over the header as an ordinary Datum control.
    -------------------------------------------------------------------------- */

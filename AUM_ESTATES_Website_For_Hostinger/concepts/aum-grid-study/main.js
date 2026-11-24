@@ -11,7 +11,7 @@
   const $ = (selector) => document.querySelector(selector);
   const $$ = (selector) => [...document.querySelectorAll(selector)];
 
-  const ADVISORY_PHONE = '+919811157018';
+  const ADVISORY_PHONE = '+919667080041';
   const WHATSAPP_DESK = '919873813595';
 
   const state = {

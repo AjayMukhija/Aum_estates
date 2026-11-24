@@ -157,7 +157,7 @@ for (const entry of PRODUCTION_ENTRIES) {
 // 3. Post-packaging Full-Tree Privacy & Security Audit
 console.log('\n[STEP 4/4] Conducting full-tree security scan on dist_hostinger/...');
 
-const OFFICIAL_PHONES = ['9873813595', '9811157018'];
+const OFFICIAL_PHONES = ['9873813595', '9667080041', '9266833220'];
 const PRIVATE_KEY_REGEX = /"(?:(?:owner|seller|broker)_(?:contact|name|phone|email|mobile)(?:_cache|_id)?|private_notes|internal_notes|internal_advisor_notes|exact_unit_or_plot_no|_private_broker_metadata|commission_terms|payment_structure_notes|internal_floor_price_inr|raw_whatsapp_text)"\s*:/i;
 const DATA_FEED_LEAK_REGEX = /\b(?:commission|brokerage|broker\s*cut|payout|cheque|cash\s*(?:part|deal|component)|white\s*(?:deal|entry|component|part|ratio)|\d{1,3}\s*[/:]\s*\d{1,3}\s*(?:white|black|cheque|cash)|owner\s*(?:mob|name|phone)|keys?\s*in\s*hand)\b/i;
 

@@ -20,7 +20,7 @@ test('public_inventory.js loads 347 sanitized records with zero privacy leaks', 
 
   // Verify privacy isolation
   const privatePhoneRegex = /(?:\+91[\s-]?)?[6-9]\d{9}\b/;
-  const officialPhones = ['9873813595', '9811157018'];
+  const officialPhones = ['9873813595', '9667080041'];
   const leakKeywords = /\b(?:commission|brokerage|broker\s*cut|payout|\d{2}\s*[\/:]\s*\d{2}\s*(?:white|black)|owner\s*mob|owner\s*name)\b/i;
 
   inventory.forEach((item, idx) => {
@@ -253,9 +253,9 @@ test('production runtime search engine clusters corridors and categories correct
 test('index.html semantic integrity, RERA credentials, and direct advisory phone verification', () => {
   const indexHtml = fs.readFileSync(path.join(distRoot, 'index.html'), 'utf8');
 
-  // Verify direct advisory CTA tel:+919811157018
-  assert.ok(indexHtml.includes('tel:+919811157018'), 'index.html must include direct advisory call link tel:+919811157018');
-  assert.ok(indexHtml.includes('98111 57018'), 'index.html must display Ajay Mukhija direct phone number');
+  // Verify direct advisory CTA tel:+919667080041
+  assert.ok(indexHtml.includes('tel:+919667080041'), 'index.html must include direct advisory call link tel:+919667080041');
+  assert.ok(indexHtml.includes('96670 80041'), 'index.html must display Ajay Mukhija direct phone number');
 
   // Verify WhatsApp desk links
   assert.ok(indexHtml.includes('https://wa.me/919873813595'), 'index.html must route WhatsApp desk inquiries to 919873813595');
@@ -289,7 +289,7 @@ test('properties/detail.js and inventory-search.js CRM hook & lead engine verifi
 
   // 3. Verify contact/index.html CRM hook and direct phone routing
   assert.ok(contactHtml.includes('window.AUM_CRM_HOOK'), 'contact page must dispatch CRM hook on form submission');
-  assert.ok(contactHtml.includes('tel:+919811157018'), 'contact page must route direct calls to Ajay Mukhija (+91 98111 57018)');
+  assert.ok(contactHtml.includes('tel:+919667080041'), 'contact page must route direct calls to Ajay Mukhija (+91 96670 80041)');
 
   // 4. Verify .htaccess blocks .env and dotfiles
   assert.ok(htaccess.includes('env'), '.htaccess must block .env files');

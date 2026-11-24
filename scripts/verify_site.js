@@ -61,7 +61,7 @@ const ALLOWED_FIELDS = new Set(require('../backend/config').ALLOWED_PUBLIC_FIELD
 
 const LEAK_REGEX = /\b(?:commission|brokerage|broker\s*cut|payout|cheque|cash\s*(?:part|deal|component)|white\s*(?:deal|entry|component|part|ratio)|\d{1,3}\s*[\/:]\s*\d{1,3}\s*(?:white|black|cheque|cash)|owner\s*(?:mob|name|phone)|keys?\s*in\s*hand)\b/i;
 const PHONE_GLOBAL_REGEX = /(?:₹|rs\.?\s*|inr\s*)?(?:\+?91[\s.-]?|0)?([6-9]\d(?:[\s.-]?\d){8})\b/gi;
-const OFFICIAL_PHONES = ['9873813595', '9811157018'];
+const OFFICIAL_PHONES = ['9873813595', '9667080041', '9266833220'];
 
 let unwhitelistedKeysFound = 0;
 let leaksFound = 0;
@@ -108,7 +108,7 @@ assertCheck('dist/refinement.css Study 06 styles exist', fs.existsSync(distRefin
 
 const distIndexHtml = fs.readFileSync(distIndexPath, 'utf8');
 assertCheck('dist/index.html includes public_inventory.js script tag', distIndexHtml.includes('data/public_inventory.js'));
-assertCheck('dist/index.html wires direct call to +91 98111 57018', distIndexHtml.includes('tel:+919811157018'));
+assertCheck('dist/index.html wires direct call to +91 96670 80041', distIndexHtml.includes('tel:+919667080041'));
 assertCheck('dist/index.html wires WhatsApp advisory desk', distIndexHtml.includes('https://wa.me/919873813595'));
 
 // 3. Search Engine & Multi-Corridor Wiring
@@ -213,12 +213,12 @@ const detailJs = fs.readFileSync(detailJsPath, 'utf8');
 const searchJs = fs.readFileSync(searchJsPath, 'utf8');
 const contactHtml = fs.readFileSync(contactHtmlPath, 'utf8');
 
-assertCheck('detail.html routes direct call to Ajay Mukhija (+91 98111 57018)', detailHtml.includes('tel:+919811157018'));
+assertCheck('detail.html routes direct call to Ajay Mukhija (+91 96670 80041)', detailHtml.includes('tel:+919667080041'));
 assertCheck('detail.js wires AUM_CRM_HOOK bridge and view tracking', detailJs.includes('AUM_CRM_HOOK'));
 assertCheck('inventory-search.js outputs data-property-id attributes', searchJs.includes('data-property-id'));
 assertCheck('inventory-search.js wires AUM_CRM_HOOK on WhatsApp CTA clicks', searchJs.includes('AUM_CRM_HOOK'));
 assertCheck('contact page form dispatches AUM_CRM_HOOK on mandate registration', contactHtml.includes('AUM_CRM_HOOK'));
-assertCheck('contact page wires direct line to +91 98111 57018', contactHtml.includes('tel:+919811157018'));
+assertCheck('contact page wires direct line to +91 96670 80041', contactHtml.includes('tel:+919667080041'));
 
 // 5. Hostinger Production Server Security (.htaccess)
 console.log('\n5. HOSTINGER PRODUCTION SERVER SECURITY (.htaccess):');

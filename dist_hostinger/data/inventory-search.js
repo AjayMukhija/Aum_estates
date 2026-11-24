@@ -77,6 +77,9 @@
   function isGenericPlaceholderImage(f){ return typeof f==='string' && GENERIC_PLACEHOLDER_IMAGES.indexOf(f.trim().toLowerCase())!==-1; }
 
   function representativeImage(o){
+    if (o && typeof o.image_file === 'string' && o.image_file.trim() && !isGenericPlaceholderImage(o.image_file)) {
+      return o.image_file.trim();
+    }
     const c=representativeCategory(o);
     if(c === 'plot') return 'plot-land-user.jpg';
     const name=String([o.listing_title,o.website_display_name,o.project_name,o.locality,o.micro_location,o.sector,o.public_description,o.key_features].join(' ')).toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
@@ -796,9 +799,9 @@
       host.innerHTML=`<div class="no-results">
         <h3>No exact matches found</h3>
         <p>We represent exclusive private mandates across Golf Course Road, DLF Phase 1–5, and prime Gurgaon enclaves that are held off-market. Contact our principal advisory desk with your exact requirements for a confidential shortlist.</p>
-        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:18px;">
-          <button type="button" class="btn" id="reset-filters-btn" style="background:var(--paper);color:var(--ink);border:1px solid var(--line);">Reset All Filters</button>
-          <a class="btn" style="background:var(--accent);color:#ffffff;" href="https://wa.me/919873813595?text=Hello%20Ajay%20Mukhija%2C%20I%20am%20looking%20for%20a%20property%20in%20Gurgaon." target="_blank" rel="noopener">Request Private Mandate on WhatsApp →</a>
+        <div class="button-row">
+          <button type="button" class="btn-secondary" id="reset-filters-btn">Reset all filters</button>
+          <a class="btn" href="https://wa.me/919873813595?text=Hello%20Ajay%20Mukhija%2C%20I%20am%20looking%20for%20a%20property%20in%20Gurgaon." target="_blank" rel="noopener">Request a private shortlist →</a>
         </div>
       </div>`;
 

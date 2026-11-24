@@ -15,10 +15,12 @@
 
   /* Colour: six roles, no decorative extras. */
   --ink: #1b211e;
+  --ink-soft: #3a423e;
   --muted: #657068;
   --accent: #ab392c;
   --accent-dark: #85291f;
   --line: #dfe3df;
+  --line-strong: #c3cac4;
   --paper: #ffffff;
   --quiet: #f5f6f3;
   --field: #eff0ec;
@@ -54,6 +56,20 @@
   --radius: 0px;
   --transition: 160ms ease;
 
+  /* Motion vocabulary — four durations, three curves. Declared here, with
+     the rest of the tokens, so styles.css does not depend on load order. */
+  --dur-1: 140ms;   /* state flips: colour, border */
+  --dur-2: 220ms;   /* hover: lift, slide, rotate */
+  --dur-3: 380ms;   /* disclosure: drawers, accordions */
+  --dur-4: 620ms;   /* entrance: scroll reveal */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+  /* Chrome */
+  --header-h: 76px;
+  --shadow-panel: 0 28px 48px -32px rgba(27, 33, 30, 0.38), 0 2px 8px -4px rgba(27, 33, 30, 0.10);
+
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: var(--body);
   line-height: 1.5;
@@ -65,7 +81,7 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; scroll-padding-top: 110px; }
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h) + var(--space-6)); }
 
 body {
   margin: 0;
@@ -152,7 +168,7 @@ p { margin: 0 0 var(--space-4); }
    -------------------------------------------------------------------------- */
 
 .btn, .search-btn, .keyword-search-submit, .view-details, .result-contact,
-.btn-oxblood, .btn-gold, .btn-wa, .nav-search-btn {
+.btn-oxblood, .btn-secondary, .btn-gold, .btn-wa {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -217,18 +233,20 @@ p { margin: 0 0 var(--space-4); }
   color: #ffffff;
 }
 
-/* Secondary: outlined, ink. */
-.btn-gold, .btn-wa, .nav-search-btn {
-  background: transparent;
-  border-color: var(--line);
+/* Secondary: outlined, ink. The one secondary control on the site, used
+   beside a primary wherever two actions are offered. (.btn-gold and
+   .btn-wa are older names for the same thing.) */
+.btn-secondary, .btn-gold, .btn-wa {
+  background: var(--paper);
+  border-color: var(--line-strong);
   color: var(--ink);
 }
-.btn-gold:hover, .btn-wa:hover, .nav-search-btn:hover {
+.btn-secondary:hover, .btn-gold:hover, .btn-wa:hover {
   border-color: var(--ink);
 }
 
 /* Tertiary: an underlined text action, Datum's quiet control. */
-.view-details, .keyword-clear, .filter-expand-toggle, .quiet-action {
+.view-details, .keyword-clear, .quiet-action {
   padding: 8px 0;
   border: 0;
   background: none;
@@ -241,7 +259,7 @@ p { margin: 0 0 var(--space-4); }
   font-size: var(--body);
   font-weight: 600;
 }
-.view-details:hover, .keyword-clear:hover, .filter-expand-toggle:hover {
+.view-details:hover, .keyword-clear:hover {
   text-decoration-thickness: 2px;
   text-decoration-color: var(--accent);
 }
@@ -262,6 +280,10 @@ p { margin: 0 0 var(--space-4); }
 
 /* --------------------------------------------------------------------------
    Header
+   One fixed-height bar. It used to shrink from 86px to 70px on scroll, and
+   because a sticky header is in flow that moved every line of the page by
+   16px the moment you started reading. The scrolled state is now a shadow
+   only. Markup: scripts/sync_site_chrome.js. Behaviour: assets/site.js.
    -------------------------------------------------------------------------- */
 
 .header {
@@ -274,146 +296,245 @@ p { margin: 0 0 var(--space-4); }
 
 .header .nav {
   display: flex;
-  align-items: center;
-  gap: var(--space-5);
-  min-height: 86px;
-  padding-block: var(--space-4);
+  align-items: stretch;
+  gap: var(--space-7);
+  height: var(--header-h);
 }
 
-.hero-inner > * { min-width: 0; }
 .header .nav > * { flex-shrink: 0; }
 
-/* Datum uses the wordmark, not a crest. */
-.brand-crest-svg { display: none; }
-
-.brand-lockup { flex-shrink: 0; display: block; }
-.brand-copy { display: block; }
+.brand-lockup {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-shrink: 0;
+}
 
 .brand-name {
   display: block;
-  font-size: 23px;
+  font-size: 21px;
   font-weight: 750;
-  letter-spacing: -0.075em;
-  line-height: 1.05;
+  letter-spacing: -0.065em;
+  line-height: 1;
   color: var(--ink);
   white-space: nowrap;
 }
 
 .brand-tagline {
   display: block;
-  margin-top: 6px;
-  font-size: var(--caption);
+  margin-top: 7px;
+  font-size: 11px;
   font-weight: 600;
-  letter-spacing: 0.07em;
+  letter-spacing: 0.12em;
+  line-height: 1;
   text-transform: uppercase;
   color: var(--muted);
   white-space: nowrap;
 }
 
-.founder-crest-card {
-  padding: var(--space-6);
-}
-.founder-crest-card .crest-emblem {
-  display: none;
-}
-.founder-crest-card h4 {
-  font-size: 23px;
-  font-weight: 750;
-  letter-spacing: -0.06em;
-  margin-bottom: var(--space-2);
-}
-.founder-crest-card .crest-meta {
-  font-size: var(--caption);
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: var(--space-4);
-}
-.founder-crest-card p {
-  font-size: var(--body);
-  color: var(--muted);
+/* Primary navigation. Wayfinding sits with the wordmark on the left;
+   contact actions sit apart on the right. */
+.menu { display: flex; }
+
+.menu-list {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
   margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
-.menu {
-  margin-left: auto;
+.nav-item {
+  position: relative;
   display: flex;
   align-items: center;
-  gap: clamp(14px, 1.9vw, 34px);
 }
+
+/* The location marker lives on the bar's bottom edge, on the item rather
+   than the label, so it lines up with the rule under the header and reads
+   as part of the bar rather than as an underlined word. */
+.nav-item::after {
+  content: '';
+  position: absolute;
+  left: var(--space-3);
+  right: var(--space-3);
+  bottom: -1px;
+  height: 2px;
+  background: var(--line-strong);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform var(--dur-2) var(--ease-out), background-color var(--dur-1) var(--ease-soft);
+}
+.nav-item:hover::after,
+.nav-item.is-open::after { transform: scaleX(1); }
+.nav-item.is-current::after { transform: scaleX(1); background: var(--accent); }
 
 .nav-link {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
   min-height: 44px;
-  padding: 8px 0;
-  font-size: var(--body);
+  padding: 0 var(--space-3);
+  border: 0;
+  background: none;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  color: var(--ink-soft);
+  white-space: nowrap;
+  transition: color var(--dur-1) var(--ease-soft);
+}
+.nav-link:hover,
+.nav-item.is-open > .nav-link,
+.nav-item.is-current > .nav-link { color: var(--ink); }
+.nav-link:focus-visible { outline-offset: -2px; }
+
+.nav-chevron {
+  flex: none;
+  width: 12px;
+  height: 12px;
+  color: var(--muted);
+  transition: transform var(--dur-2) var(--ease-out), color var(--dur-1) var(--ease-soft);
+}
+.nav-item.is-open .nav-chevron { transform: rotate(180deg); color: var(--ink); }
+
+/* Panels. Hung from the bar's bottom edge and aligned so their first
+   column of text starts on the same line as the trigger's label. */
+.nav-panel {
+  position: absolute;
+  top: calc(100% + 1px);
+  left: calc(var(--space-3) - var(--space-2) - var(--space-3) - 1px);
+  z-index: 10;
+  width: 320px;
+  padding: var(--space-2);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-top: 0;
+  box-shadow: var(--shadow-panel);
+  opacity: 0;
+  visibility: hidden;
+  transform: translate3d(0, -6px, 0);
+  transition:
+    opacity var(--dur-1) var(--ease-soft),
+    transform var(--dur-2) var(--ease-out),
+    visibility 0s linear var(--dur-2);
+}
+.nav-panel-wide { width: 560px; }
+
+.nav-item.is-open > .nav-panel,
+html:not(.js-nav) .nav-menu:hover > .nav-panel,
+html:not(.js-nav) .nav-menu:focus-within > .nav-panel {
+  opacity: 1;
+  visibility: visible;
+  transform: translate3d(0, 0, 0);
+  transition:
+    opacity var(--dur-2) var(--ease-soft),
+    transform var(--dur-2) var(--ease-out),
+    visibility 0s;
+}
+
+.nav-panel-list { margin: 0; padding: 0; list-style: none; }
+.nav-panel-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+.nav-panel-label {
+  margin: 0;
+  padding: var(--space-3) var(--space-3) var(--space-2);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.nav-panel-link {
+  display: block;
+  padding: 10px var(--space-3);
+  transition: background-color var(--dur-1) var(--ease-soft);
+}
+.nav-panel-title {
+  display: block;
+  font-size: 15px;
+  font-weight: 550;
+  line-height: 1.35;
+  color: var(--ink);
+  transition: color var(--dur-1) var(--ease-soft);
+}
+.nav-panel-note {
+  display: block;
+  margin-top: 2px;
+  font-size: var(--caption);
+  line-height: 1.45;
+  color: var(--muted);
+}
+.nav-panel-link:hover,
+.nav-panel-link:focus-visible { background: var(--quiet); }
+.nav-panel-link:hover .nav-panel-title,
+.nav-panel-link:focus-visible .nav-panel-title { color: var(--accent); }
+.nav-panel-link:focus-visible,
+.nav-panel-foot:focus-visible { outline-offset: -2px; }
+
+.nav-panel-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin: var(--space-2) calc(-1 * var(--space-2)) calc(-1 * var(--space-2));
+  padding: 14px var(--space-5);
+  border-top: 1px solid var(--line);
+  background: var(--quiet);
+  font-size: var(--caption);
+  font-weight: 600;
+  color: var(--ink);
+  transition: color var(--dur-1) var(--ease-soft);
+}
+.nav-panel-foot span { color: var(--accent); transition: transform var(--dur-2) var(--ease-out); }
+.nav-panel-foot:hover { color: var(--accent); }
+.nav-panel-foot:hover span { transform: translateX(3px); }
+
+/* Actions */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-left: auto;
+}
+
+.header-icon-btn,
+.menu-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid transparent;
+  background: none;
+  color: var(--ink);
+  transition: background-color var(--dur-1) var(--ease-soft), border-color var(--dur-1) var(--ease-soft);
+}
+.header-icon-btn:hover { background: var(--quiet); }
+
+.header-phone {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 var(--space-3);
+  font-size: 15px;
   font-weight: 500;
   color: var(--ink);
   white-space: nowrap;
+  transition: color var(--dur-1) var(--ease-soft);
 }
-.nav-link:hover,
-.nav-link.active {
-  text-decoration: underline;
-  text-decoration-color: var(--accent);
-  text-underline-offset: 7px;
-  text-decoration-thickness: 1px;
-}
+.header-phone:hover { color: var(--accent); }
 
-.caret { color: var(--accent); font-size: 11px; }
-
-.nav-item { position: relative; }
-
-.dropdown-menu {
-  position: absolute;
-  top: 100%;
-  left: -14px;
-  min-width: 262px;
-  padding: var(--space-3) 0;
-  background: var(--paper);
-  border: 1px solid var(--line);
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-4px);
-  transition: opacity var(--transition), transform var(--transition), visibility var(--transition);
-}
-.nav-item:hover .dropdown-menu,
-.nav-item:focus-within .dropdown-menu {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-.dropdown-item {
-  display: block;
-  padding: 10px var(--space-5);
-  font-size: var(--body);
-  color: var(--ink);
-}
-.dropdown-item strong { display: block; font-weight: 600; color: var(--ink); }
-.dropdown-item span { display: block; font-size: 12px; color: var(--muted); margin-top: 2px; }
-.dropdown-item:hover { background: var(--quiet); color: var(--accent); }
-.dropdown-item:hover strong { color: var(--accent); }
-
-.dropdown-divider { height: 1px; margin: var(--space-2) 0; background: var(--line); }
-
-.actions { display: flex; align-items: center; gap: var(--space-4); }
-
-.actions .call {
+.header-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   min-height: 44px;
-  padding: 8px 0;
-  font-size: var(--body);
-  font-weight: 600;
-  color: var(--ink);
-  white-space: nowrap;
-}
-.actions .call:hover { text-decoration: underline; text-underline-offset: 6px; }
-
-.actions .wa {
-  min-height: 44px;
-  padding: 11px 20px;
+  margin-left: var(--space-2);
+  padding: 0 var(--space-5);
   background: var(--accent);
   color: #ffffff;
   font-size: var(--caption);
@@ -421,35 +542,146 @@ p { margin: 0 0 var(--space-4); }
   letter-spacing: 0.07em;
   text-transform: uppercase;
   white-space: nowrap;
-  display: inline-flex;
-  align-items: center;
+  transition: background-color var(--dur-1) var(--ease-soft);
 }
-.actions .wa:hover { background: var(--accent-dark); }
+.header-cta:hover { background: var(--accent-dark); }
+.header-cta-short { display: none; }
 
 .menu-toggle {
   display: none;
-  min-height: 44px;
-  min-width: 44px;
+  border-color: var(--line);
+}
+.menu-toggle:hover { border-color: var(--ink); }
+.menu-toggle path {
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform var(--dur-2) var(--ease-out);
+}
+.menu-toggle[aria-expanded="true"] .menu-icon-top { transform: translateY(4px) rotate(45deg); }
+.menu-toggle[aria-expanded="true"] .menu-icon-bottom { transform: translateY(-4px) rotate(-45deg); }
+
+/* --------------------------------------------------------------------------
+   Drawer (below the desktop breakpoint)
+   A full-height sheet under the bar rather than a list pushed into the
+   header: the page behind it is locked, it has its own gutter, and the two
+   browse sections open in place instead of flattening nine links into one
+   undifferentiated column.
+   -------------------------------------------------------------------------- */
+
+.drawer { display: none; }
+
+html.drawer-open { overflow: hidden; }
+
+.drawer-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  min-height: 100%;
+  padding-block: var(--space-5) var(--space-8);
+}
+
+.drawer-search {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--line-strong);
+  transition: border-color var(--dur-2) var(--ease-soft);
+}
+.drawer-search:focus-within { border-bottom-color: var(--accent); }
+.drawer-search input {
+  flex: 1;
+  min-width: 0;
+  min-height: 48px;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-size: 17px;
+  color: var(--ink);
+  -webkit-appearance: none;
+  appearance: none;
+}
+.drawer-search input:focus { outline: none; }
+.drawer-search input::placeholder { color: var(--muted); }
+.drawer-search input::-webkit-search-cancel-button { -webkit-appearance: none; }
+.drawer-search button {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid var(--line);
+  width: 44px;
+  height: 44px;
+  margin-right: -10px;
+  border: 0;
   background: none;
+  color: var(--ink);
 }
-.menu-toggle svg { width: 20px; height: 20px; }
 
-.mobile-nav {
-  display: none;
-  flex-direction: column;
-  padding: var(--space-4) 0 var(--space-6);
+.drawer-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
   border-top: 1px solid var(--line);
 }
-.mobile-nav.open { display: flex; }
-.mobile-nav a {
-  padding: 13px 0;
-  font-size: var(--body);
-  border-bottom: 1px solid var(--line);
+.drawer-list > li { border-bottom: 1px solid var(--line); }
+
+.drawer-link,
+.drawer-group > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 56px;
+  font-size: 19px;
+  font-weight: 550;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  cursor: pointer;
+  list-style: none;
 }
-.mobile-nav a:hover { color: var(--accent); }
+.drawer-group > summary::-webkit-details-marker { display: none; }
+.drawer-group > summary::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  margin-right: 4px;
+  border-right: 1.5px solid var(--muted);
+  border-bottom: 1.5px solid var(--muted);
+  transform: translateY(-3px) rotate(45deg);
+  transition: transform var(--dur-2) var(--ease-out);
+}
+.drawer-group[open] > summary::after { transform: translateY(2px) rotate(-135deg); }
+.drawer-link.is-current,
+.drawer-group > summary.is-current { color: var(--accent); }
+.drawer-link:focus-visible,
+.drawer-group > summary:focus-visible { outline-offset: -2px; }
+
+.drawer-group ul {
+  margin: 0;
+  padding: 0 0 var(--space-4);
+  list-style: none;
+}
+.drawer-group ul a {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding-left: var(--space-4);
+  border-left: 1px solid var(--line);
+  font-size: var(--body);
+  color: var(--ink-soft);
+}
+.drawer-group ul a:hover { color: var(--accent); border-left-color: var(--accent); }
+.drawer-group ul .drawer-all { font-weight: 600; color: var(--ink); }
+
+.drawer-actions {
+  display: grid;
+  gap: var(--space-3);
+  margin-top: auto;
+}
+.drawer-actions > * { width: 100%; }
+
+.drawer-address {
+  margin: 0;
+  font-size: var(--caption);
+  color: var(--muted);
+}
 
 /* --------------------------------------------------------------------------
    Hero
@@ -516,7 +748,7 @@ p { margin: 0 0 var(--space-4); }
 
 /* Datum keeps discovery in the first viewport: statement left, desk right. */
 .hero-desk { min-width: 0; }
-.hero-desk .search-card { padding: var(--space-6); }
+.hero-desk .search-card { padding: var(--space-6) var(--space-7) var(--space-7); }
 
 .hero-stats-strip {
   display: grid;
@@ -558,40 +790,102 @@ p { margin: 0 0 var(--space-4); }
   padding: var(--space-6);
 }
 
+/* Type selector. Set in the navigation's voice — sentence case, 15px —
+   rather than as tracked capitals, so it reads as a control and not as a
+   row of section labels. One row at every width; on a phone it scrolls. */
 .search-tabs {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: var(--space-5);
-  margin-bottom: var(--space-6);
-  padding-bottom: var(--space-4);
+  margin: 0 0 var(--space-6);
   border-bottom: 1px solid var(--line);
+  overflow-x: auto;
+  scrollbar-width: none;
 }
+.search-tabs::-webkit-scrollbar { display: none; }
 
 .search-tab {
-  padding: 6px 0;
+  flex: none;
+  min-height: 44px;
+  padding: 0 0 2px;
   border: 0;
   background: none;
-  font-size: var(--caption);
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-size: 15px;
+  font-weight: 500;
   color: var(--muted);
+  white-space: nowrap;
+  transition: color var(--dur-1) var(--ease-soft);
 }
 .search-tab:hover { color: var(--ink); }
-.search-tab.active {
-  color: var(--ink);
-  text-decoration: underline;
-  text-decoration-color: var(--accent);
-  text-decoration-thickness: 2px;
-  text-underline-offset: 7px;
+.search-tab.active { color: var(--ink); }
+.search-tab:focus-visible { outline-offset: -2px; }
+
+/* Fields: labelled, on a two-column grid with location across the top. */
+.search-fields,
+.filter-advanced-drawer .drawer-inner {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-5);
+}
+.search-field-wide { grid-column: 1 / -1; }
+
+.search-field-label {
+  font-size: var(--caption);
+  font-weight: 600;
+  color: var(--muted);
 }
 
-.search-row {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+.search-actions {
+  display: flex;
+  align-items: center;
   gap: var(--space-5);
-  align-items: end;
+  margin-top: var(--space-6);
 }
+.search-actions .search-btn { margin-left: auto; min-width: 200px; }
+
+/* The two quiet actions beside the search button: same size and weight,
+   distinguished by colour, underlined only on hover. */
+.filter-expand-toggle,
+.search-reset {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-size: var(--body);
+  font-weight: 600;
+  color: var(--muted);
+  transition: color var(--dur-1) var(--ease-soft);
+}
+.filter-expand-toggle { color: var(--ink); }
+.filter-expand-toggle::after {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: translateY(-2px) rotate(45deg);
+  transition: transform var(--dur-2) var(--ease-out);
+}
+.filter-expand-toggle[aria-expanded="true"]::after { transform: translateY(2px) rotate(-135deg); }
+.filter-expand-toggle:hover,
+.search-reset:hover:not(:disabled) {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  text-decoration-thickness: 1px;
+}
+.search-reset:disabled { opacity: 0.4; cursor: default; }
+
+.search-card .quick-tags {
+  align-items: center;
+  margin-top: var(--space-6);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--line);
+}
+
 
 select.search-field { display: block; height: 44px; flex-direction: row; gap: 0; }
 .search-field, .form-group { display: flex; flex-direction: column; gap: var(--space-2); min-width: 0; }
@@ -666,9 +960,22 @@ textarea.form-control { min-height: 120px; padding-top: var(--space-3); resize: 
   margin-top: var(--space-4);
 }
 
+/* Keyword search and the faceted filters are one instrument, so they share
+   one frame: keyword on top, facets below a hairline, and a clear space
+   before the register begins. They used to be a loose block and a boxed
+   block with the result count butted directly against the box. */
 .results-keyword-search {
-  margin-bottom: var(--space-6);
+  margin-bottom: 0;
+  padding: var(--space-6) var(--space-6) var(--space-5);
+  border: 1px solid var(--line);
+  border-bottom: 0;
 }
+.results-keyword-search .keyword-head .eyebrow { margin-bottom: var(--space-3); }
+.results-keyword-search h3 { margin-bottom: var(--space-2); }
+.results-keyword-search .keyword-head p { margin: 0; color: var(--muted); font-size: var(--caption); }
+.results-keyword-search + .results-search { margin-bottom: var(--space-8); }
+.property-hero + .section { padding-top: var(--space-8); }
+.filter-chips { margin: 0 0 var(--space-6); }
 
 .search-expand-bar {
   display: flex;
@@ -681,6 +988,8 @@ textarea.form-control { min-height: 120px; padding-top: var(--space-3); resize: 
 }
 
 .keyword-chip, .quick-tag {
+  display: inline-flex;
+  align-items: center;
   padding: 7px 13px;
   border: 1px solid var(--line);
   background: none;
@@ -689,6 +998,15 @@ textarea.form-control { min-height: 120px; padding-top: var(--space-3); resize: 
   white-space: nowrap;
 }
 .keyword-chip:hover, .quick-tag:hover { border-color: var(--accent); color: var(--accent); }
+/* The selected filter: ink frame on the quiet tint, so it reads as chosen
+   rather than as hovered. */
+.keyword-chip.active,
+.keyword-chip[aria-pressed="true"] {
+  border-color: var(--ink);
+  background: var(--quiet);
+  color: var(--ink);
+  font-weight: 600;
+}
 
 .quick-tag-label { color: var(--muted); align-self: center; margin-right: var(--space-2); }
 
@@ -762,12 +1080,8 @@ textarea.form-control { min-height: 120px; padding-top: var(--space-3); resize: 
 
 .search-expand-bar { margin-top: var(--space-5); padding-top: var(--space-4); border-top: 1px solid var(--line); }
 
-.filter-advanced-drawer {
-  display: none;
-  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-  gap: var(--space-5);
-  margin-top: var(--space-5);
-}
+/* Height animation lives in motion.css (0fr → 1fr grid rows). */
+.filter-advanced-drawer { display: none; }
 .filter-advanced-drawer.open { display: grid; }
 
 /* --------------------------------------------------------------------------
@@ -785,6 +1099,13 @@ textarea.form-control { min-height: 120px; padding-top: var(--space-3); resize: 
 .section.white, .section.cream { background: var(--paper); }
 .section.warm { background: var(--quiet); }
 .section.warm + .mandate-concierge-strip { border-top: 0; padding-block-start: 0; }
+.section.warm + .mandate-concierge-strip .mandate-concierge-inner::before {
+  content: '';
+  width: 100%;
+  height: 1px;
+  margin-bottom: var(--space-8);
+  background: var(--line);
+}
 
 .head {
   display: flex;
@@ -809,8 +1130,71 @@ textarea.form-control { min-height: 120px; padding-top: var(--space-3); resize: 
 /* Datum's section marker: a red rule, left-aligned. */
 .head .eyebrow { position: relative; }
 
-.editorial-content { max-width: 860px; }
-.editorial-content > p { max-width: var(--measure-body); color: var(--muted); }
+/* Long-form copy keeps the page's left edge and limits its own measure.
+   It used to narrow the container itself to 860px, which centred the text
+   column under a left-aligned hero and left both edges out of line. */
+.editorial-content > * { max-width: 680px; }
+.editorial-content > h2 { margin: var(--space-8) 0 var(--space-4); }
+.editorial-content > .eyebrow + h2 { margin-top: 0; }
+.editorial-content > p { color: var(--muted); }
+
+.pull-quote {
+  margin: var(--space-7) 0;
+  padding: var(--space-2) 0 var(--space-2) var(--space-6);
+  border-left: 3px solid var(--accent);
+}
+.pull-quote blockquote {
+  margin: 0 0 var(--space-4);
+  font-size: clamp(20px, 1.8vw, 24px);
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.pull-quote figcaption { font-size: var(--caption); font-weight: 600; color: var(--muted); }
+
+/* A ruled, numbered list rather than three boxed cards: these are steps of
+   one argument, not three separate products. */
+.principle-list {
+  margin: var(--space-6) 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: principle;
+  border-top: 1px solid var(--line);
+}
+.principle-list li {
+  position: relative;
+  padding: var(--space-5) 0 var(--space-5) var(--space-8);
+  border-bottom: 1px solid var(--line);
+  counter-increment: principle;
+}
+.principle-list li::before {
+  content: counter(principle, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: calc(var(--space-5) + 3px);
+  font-size: var(--caption);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+.principle-list h3 { font-size: 19px; margin-bottom: var(--space-2); }
+.principle-list p { margin: 0; color: var(--muted); max-width: var(--measure-body); }
+
+.cta-panel {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-5);
+  margin-top: var(--space-8);
+  padding: var(--space-6);
+  background: var(--quiet);
+  border: 1px solid var(--line);
+}
+.cta-panel h3 { font-size: 21px; margin-bottom: var(--space-2); }
+.cta-panel p { margin: 0; font-size: var(--caption); color: var(--muted); }
 
 /* --------------------------------------------------------------------------
    Category and content cards
@@ -827,7 +1211,7 @@ textarea.form-control { min-height: 120px; padding-top: var(--space-3); resize: 
   flex-direction: column;
 }
 
-.cat, .benefit, .contact-card, .detail-card, .founder-crest-card {
+.cat, .benefit, .contact-card, .detail-card {
   display: flex;
   flex-direction: column;
   min-width: 0;
@@ -835,7 +1219,7 @@ textarea.form-control { min-height: 120px; padding-top: var(--space-3); resize: 
   border: 1px solid var(--line);
   transition: border-color var(--transition);
 }
-.cat:hover, .benefit:hover, .contact-card:hover { border-color: var(--ink); }
+.cat:hover, .benefit:hover { border-color: var(--ink); }
 
 .cat-img, .approved-card-photo, .photo, .result-photo {
   position: relative;
@@ -1006,6 +1390,18 @@ textarea.form-control { min-height: 120px; padding-top: var(--space-3); resize: 
   text-align: center;
 }
 .no-results p { max-width: var(--measure-body); margin-inline: auto; color: var(--muted); }
+.no-results h3 { margin-bottom: var(--space-3); }
+.no-results .button-row { justify-content: center; margin-top: var(--space-5); }
+
+/* A link inside running text. */
+.text-link {
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-underline-offset: 4px;
+}
+.text-link:hover { color: var(--accent); }
 
 /* --------------------------------------------------------------------------
    Property dossier
@@ -1161,7 +1557,37 @@ textarea.form-control { min-height: 120px; padding-top: var(--space-3); resize: 
 .advisory-card { position: sticky; top: 110px; padding: var(--space-6); }
 .advisory-card h3 { font-size: 21px; margin-bottom: var(--space-3); }
 .advisory-card p { font-size: var(--caption); color: var(--muted); line-height: 1.6; }
-.advisory-card .btn, .advisory-card .btn-gold, .advisory-card .btn-wa { width: 100%; margin-bottom: var(--space-3); }
+.advisory-card .eyebrow { margin-bottom: var(--space-3); }
+.advisory-actions { display: grid; gap: var(--space-3); margin: var(--space-5) 0 var(--space-6); }
+.advisory-actions > * { width: 100%; }
+.advisory-meta {
+  padding-top: var(--space-4);
+  margin-top: var(--space-4);
+  border-top: 1px solid var(--line);
+  font-size: var(--caption);
+  line-height: 1.55;
+  color: var(--muted);
+}
+.advisory-meta strong { display: block; margin-bottom: var(--space-1); color: var(--ink); font-weight: 600; }
+.back-link { font-weight: 600; color: var(--ink); }
+.back-link:hover { color: var(--accent); }
+
+.breadcrumb { border-bottom: 1px solid var(--line); }
+.breadcrumb ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: 0 auto;
+  padding-block: var(--space-3);
+  list-style: none;
+  font-size: var(--caption);
+  color: var(--muted);
+}
+.breadcrumb li + li::before { content: '/'; margin-right: var(--space-2); color: var(--line-strong); }
+.breadcrumb a { color: var(--ink-soft); }
+.breadcrumb a:hover { color: var(--accent); }
+.breadcrumb [aria-current] { color: var(--ink); font-weight: 600; }
+.property-hero-location { color: var(--muted); margin: 0; }
 
 /* --------------------------------------------------------------------------
    Locations
@@ -1195,6 +1621,14 @@ textarea.form-control { min-height: 120px; padding-top: var(--space-3); resize: 
 .location-item span { font-size: var(--caption); color: var(--muted); }
 
 .location-view { font-size: var(--caption); color: var(--accent); font-weight: 600; }
+.location-view:hover { color: var(--ink); }
+
+/* The one footer a content card gets: a rule, then a single quiet link. */
+.card-foot {
+  margin-top: auto;
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--line);
+}
 /* Not a link, so it does not wear the accent that invites a click. */
 .location-view-empty { color: var(--muted); }
 
@@ -1222,21 +1656,35 @@ textarea.form-control { min-height: 120px; padding-top: var(--space-3); resize: 
 
 .benefit-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: var(--space-6); }
 
+/* Founder block: the quote and its attribution on the left, the three
+   commitments it rests on to the right. It used to open with a boxed
+   "AUM ESTATES · Established 2002" card that repeated the header and the
+   footer word for word and pushed the founder's own words off-centre. */
 .founder-heritage-wrap {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-  gap: var(--space-8);
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: clamp(var(--space-7), 6vw, var(--space-10));
   align-items: start;
 }
-.founder-quote-area blockquote {
-  margin: 0;
-  font-size: 23px;
-  line-height: 1.4;
-  letter-spacing: -0.028em;
-  max-width: 26ch;
+.founder-quote {
+  margin: 0 0 var(--space-6);
+  font-size: clamp(22px, 2.2vw, 30px);
+  font-weight: 500;
+  line-height: 1.32;
+  letter-spacing: -0.03em;
+  max-width: 30ch;
 }
-.founder-name { display: block; margin-top: var(--space-5); font-weight: 650; }
-.founder-role, .founder-credentials { display: block; font-size: var(--caption); color: var(--muted); margin-top: var(--space-1); }
+.founder-name { font-weight: 650; }
+.founder-role { margin-top: var(--space-1); font-size: var(--caption); color: var(--muted); }
+
+/* Two actions side by side, wrapping on narrow screens. */
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+}
+.founder-credentials + .button-row { margin-top: var(--space-7); }
 
 .about-hero, .contact-hero { padding-block: var(--space-9) var(--space-7); border-bottom: 1px solid var(--line); }
 .about-hero h1, .contact-hero h1 { margin-bottom: var(--space-3); }
@@ -1251,9 +1699,9 @@ textarea.form-control { min-height: 120px; padding-top: var(--space-3); resize: 
   gap: var(--space-6);
 }
 .mandate-concierge-copy { max-width: var(--measure-body); }
+.mandate-concierge-copy .eyebrow { margin-bottom: var(--space-3); }
 .mandate-concierge-copy h2 { margin-bottom: var(--space-3); }
 .mandate-concierge-copy p { color: var(--muted); margin: 0; }
-.mandate-concierge-actions { display: flex; flex-wrap: wrap; gap: var(--space-4); }
 
 /* --------------------------------------------------------------------------
    Contact
@@ -1274,15 +1722,39 @@ textarea.form-control { min-height: 120px; padding-top: var(--space-3); resize: 
 .contact-method-icon {
   color: var(--accent);
   flex-shrink: 0;
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: var(--quiet);
   border: 1px solid var(--line);
-  font-size: 15px;
 }
+
+/* Shared inside any bordered card: one title size, one intro size. */
+.card-title { font-size: 24px; margin-bottom: var(--space-3); }
+.card-intro { color: var(--muted); max-width: var(--measure-body); margin-bottom: var(--space-6); }
+.contact-card .eyebrow { margin-bottom: var(--space-3); }
+.contact-card { padding: var(--space-7); }
+
+.contact-method-label {
+  display: block;
+  font-size: var(--caption);
+  font-weight: 600;
+  color: var(--muted);
+}
+.contact-method-value {
+  display: block;
+  margin-top: var(--space-1);
+  font-size: 21px;
+  font-weight: 550;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.contact-method-value:hover { color: var(--accent); }
+.contact-method-note { display: block; margin: var(--space-1) 0 var(--space-3); font-size: var(--caption); color: var(--muted); }
+.contact-method-note a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--line-strong); }
+.contact-method-address { margin: var(--space-1) 0 var(--space-3); font-style: normal; color: var(--ink); }
+.form-note { margin: 0; font-size: var(--caption); color: var(--muted); }
 
 /* --------------------------------------------------------------------------
    Footer
@@ -1312,7 +1784,17 @@ textarea.form-control { min-height: 120px; padding-top: var(--space-3); resize: 
 }
 .footer p { margin: 0 0 var(--space-1); font-size: var(--caption); color: var(--muted); line-height: 1.6; }
 
+.footer ul { margin: 0; padding: 0; list-style: none; }
+.footer li + li { margin-top: 2px; }
+.footer address {
+  margin: var(--space-4) 0 0;
+  font-style: normal;
+  font-size: var(--caption);
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
 .footer a { display: block; padding: 5px 0; font-size: var(--caption); color: var(--ink); }
+.footer-meta { display: block; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
 .footer a:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 4px; }
 
 .footer-brand { font-size: 21px; font-weight: 750; letter-spacing: -0.06em; }
@@ -1349,42 +1831,66 @@ textarea.form-control { min-height: 120px; padding-top: var(--space-3); resize: 
   .detail-card { position: static; }
 }
 
-/* The header row needs ~1219px of content plus gutters. Rather than let the
-   labels overlap, the direct line collapses first and the full menu gives way
-   to the drawer while there is still room for it. The drawer threshold is
-   measured, not guessed: the full row needs ~1287px, so 1340px leaves margin.
-   Verified from 320px to 1920px with no overlap and no document overflow. */
-@media (max-width: 1500px) {
-  .actions .call { display: none; }
+/* Header breakpoints, measured in the browser rather than guessed. The full
+   row (wordmark 201px, menu 481px, search, number, CTA, two 40px gaps) needs
+   1,186px of the container, which a 1,480px window provides. Below that the
+   direct line goes; below 1,280px the CTA takes its short label; below
+   1,180px the menu itself no longer fits and the drawer takes over. */
+@media (max-width: 1479px) {
+  .header-phone { display: none; }
 }
 
-@media (max-width: 1340px) {
+@media (max-width: 1279px) {
+  .header-cta-long { display: none; }
+  .header-cta-short { display: inline; }
+}
+
+@media (max-width: 1180px) {
   .menu { display: none; }
   .menu-toggle { display: inline-flex; }
-}
-
-/* Phone header: wordmark, one red action and the drawer. The search control
-   lives in the page itself at this width, so it leaves the bar. */
-@media (max-width: 900px) {
-  .header .nav { gap: var(--space-3); }
-  .actions .nav-search-btn { display: none; }
+  .drawer {
+    display: block;
+    position: fixed;
+    top: var(--header-h);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    background: var(--paper);
+    border-top: 1px solid var(--line);
+    opacity: 0;
+    transform: translate3d(0, -8px, 0);
+    transition: opacity var(--dur-2) var(--ease-soft), transform var(--dur-3) var(--ease-out);
+  }
+  .drawer[hidden] { display: none; }
+  .drawer.is-open { opacity: 1; transform: translate3d(0, 0, 0); }
+  .drawer-body { max-width: 640px; margin-inline: 0; }
 }
 
 @media (max-width: 760px) {
   :root { --heading: 24px; }
-  .header .nav { min-height: 70px; gap: var(--space-3); }
-  .brand-name { font-size: 18px; }
-  .brand-tagline { font-size: 10px; letter-spacing: 0.05em; }
-  .actions { gap: var(--space-2); }
-  .actions .wa { padding: 10px 13px; font-size: 11px; }
+  :root { --header-h: 64px; }
+  .header .nav { gap: var(--space-4); }
+  .brand-name { font-size: 19px; }
+  .brand-tagline { font-size: 10px; margin-top: 6px; }
+  .header-cta { margin-left: 0; padding: 0 var(--space-4); }
+  .header-cta-long { display: none; }
+  .header-cta-short { display: inline; }
   .search-stack, .search-card, .results-search { padding: var(--space-5) var(--space-4); }
-  .search-row, .filter-advanced-drawer.open, .results-search { grid-template-columns: 1fr; }
+  .results-search { grid-template-columns: 1fr; }
+  .hero-desk .search-card { padding: var(--space-5) var(--space-5) var(--space-6); }
+  .search-actions { flex-wrap: wrap; gap: var(--space-3) var(--space-5); }
+  .search-actions .search-btn { order: -1; flex: 1 1 100%; margin-left: 0; }
   .results-grid, .cats, .benefit-grid, .contact-grid, .footergrid { grid-template-columns: 1fr; }
   .section { padding-block: var(--space-9); }
   .hero { padding-block: var(--space-8) var(--space-7); }
   .results-head h2, .results-head > div > h2 { padding-left: 14px; }
   .keyword-head { flex-direction: column; align-items: stretch; gap: var(--space-2); }
-  .keyword-input-wrap { flex-direction: column; align-items: stretch; gap: var(--space-3); }
+  /* Stacked, the row's flex-basis (380px) would become a height. */
+  .keyword-input-wrap { flex: none; flex-direction: column; align-items: stretch; gap: var(--space-3); }
+  .keyword-input-wrap input { flex: none; min-width: 0; }
+  .results-keyword-search { padding: var(--space-5); }
   .keyword-input-wrap .keyword-search-submit { width: 100%; }
   .search-tabs { gap: var(--space-3) var(--space-4); }
   /* On a phone these are the first controls anyone touches and they stood
@@ -1395,25 +1901,35 @@ textarea.form-control { min-height: 120px; padding-top: var(--space-3); resize: 
      uppercased and tracked out, inside a 279px card on a 375px screen, and it
      pushed the whole About page into a 17px sideways scroll. On a phone a
      button label wraps and the button fills its column instead. */
-  .btn, .btn-oxblood, .btn-gold, .btn-wa, .search-btn,
-  .keyword-search-submit, .result-contact, .nav-search-btn {
+  .btn, .btn-oxblood, .btn-secondary, .btn-gold, .btn-wa, .search-btn,
+  .keyword-search-submit, .result-contact {
     max-width: 100%;
     white-space: normal;
     text-align: center;
   }
 
-  .search-tab { min-height: 44px; padding: 12px 0; }
   .quick-tag, .keyword-chip { min-height: 44px; padding: 12px 14px; }
+  /* One scrolling row of shortcuts instead of five stacked rows of them. */
+  .keyword-chips, .search-card .quick-tags {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    scroll-snap-type: x proximity;
+  }
+  .keyword-chips::-webkit-scrollbar, .search-card .quick-tags::-webkit-scrollbar { display: none; }
+  .keyword-chips > *, .search-card .quick-tags > * { flex: none; scroll-snap-align: start; }
   .mandate-concierge-inner, .results-head { flex-direction: column; align-items: flex-start; }
   .detail-grid { grid-template-columns: repeat(auto-fit, minmax(135px, 1fr)); }
 }
 
 @media (max-width: 460px) {
-  :root { --gutter: 16px; }
+  :root { --gutter: 20px; }
   .brand-tagline { display: none; }
-  .actions .wa { padding: 10px 11px; font-size: 10px; letter-spacing: 0.05em; }
-  .actions .wa span { display: none; }
-  .actions .wa::after { content: 'Enquire'; }
+  .actions { gap: var(--space-1); }
+}
+
+@media (max-width: 360px) {
+  .header-icon-btn { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {

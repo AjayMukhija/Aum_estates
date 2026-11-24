@@ -16,9 +16,9 @@ final class Config
     public const PROPERTY_ID_REGEX = '/^AUM-[A-Z0-9]+-\d+$/i';
 
     // Official contacts
-    public const OFFICIAL_PHONES = ['9873813595', '9811157018'];
+    public const OFFICIAL_PHONES = ['9873813595', '9667080041', '9266833220'];
     public const OFFICIAL_WHATSAPP = '919873813595';
-    public const OFFICIAL_DIRECT_LINE = '+919811157018';
+    public const OFFICIAL_DIRECT_LINE = '+919667080041';
 
     // Publication & Domain States
     public const PUBLICATION_STATES = [

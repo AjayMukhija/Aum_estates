@@ -50,7 +50,6 @@
     '.benefit-strip > *',
     '.contact-grid > *',
     '.location-panel',
-    '.founder-crest-card',
     '.founder-quote-area',
     '.mandate-concierge-inner > *',
     '.detail-section',
@@ -126,21 +125,6 @@
         if (r.top < vh && r.bottom > 0) el.classList.add('is-in', 'is-done');
       });
     }, 3000);
-  }
-
-  /* ----------------------------------------------------------------------
-     Hero entrance
-     ---------------------------------------------------------------------- */
-
-  function hero() {
-    var h = document.querySelector('.hero, .property-hero, .about-hero');
-    if (!h) return;
-    // One frame so the initial (hidden) state is painted before the
-    // transition target lands — otherwise the browser coalesces both and
-    // nothing animates.
-    requestAnimationFrame(function () {
-      requestAnimationFrame(function () { h.classList.add('hero-ready'); });
-    });
   }
 
   /* ----------------------------------------------------------------------
@@ -224,7 +208,12 @@
     if (document.fonts && document.fonts.ready) {
       document.fonts.ready.then(move).catch(function () {});
     }
+    // Place the rule without animating it, or every page load shows it
+    // sliding down from the top of the strip to its resting place.
+    rule.style.transition = 'none';
     move();
+    void rule.offsetWidth;
+    rule.style.transition = '';
   }
 
   /* ----------------------------------------------------------------------
@@ -338,7 +327,6 @@
     header();
     tabs();
     counters();
-    hero();
     watchLate();
   });
 })();

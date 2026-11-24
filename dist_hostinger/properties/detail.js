@@ -29,7 +29,7 @@ if(!data){
   const locEl=document.getElementById('detail-location'); if(locEl) locEl.textContent='The requested property dossier is not available or has been archived.';
   const photoEl=document.getElementById('detail-photo'); if(photoEl) photoEl.style.display='none';
   const priceEl=document.getElementById('detail-price'); if(priceEl) priceEl.style.display='none';
-  const descEl=document.getElementById('detail-description'); if(descEl) descEl.innerHTML='Please browse our <a href="index.html" style="color:var(--accent);text-decoration:underline;font-weight:600;">complete collection of public references</a> or contact our advisory desk directly.';
+  const descEl=document.getElementById('detail-description'); if(descEl) descEl.innerHTML='Please browse our <a class="text-link" href="index.html">complete collection of public references</a> or contact our advisory desk directly.';
   return;
 }
 
@@ -62,12 +62,17 @@ const GENERIC_PLACEHOLDER_IMAGES=['apartment.jpg','builder-floor.jpg','building.
 function isGenericPlaceholderImage(f){ return typeof f==='string' && GENERIC_PLACEHOLDER_IMAGES.indexOf(f.trim().toLowerCase())!==-1; }
 
 function representativeImage(o){
+  if (o && typeof o.image_file === 'string' && o.image_file.trim() && !isGenericPlaceholderImage(o.image_file)) {
+    return o.image_file.trim();
+  }
   const c=representativeCategory(o);
   // User-approved image rule: all Plot/Plots/Land inventory uses the supplied plot photograph.
   if(c === 'plot') return 'plot-land-user.jpg';
   const name=String([o.listing_title,o.website_display_name,o.project_name,o.locality,o.micro_location,o.sector,o.public_description,o.key_features].join(' ')).toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
   const projectImages=[
+    [/sector 46 guest house|guest house/.test(name),'commercial.jpg'],
     [/asya smartliving|sukoon/.test(name),'sukoon-asya-project-photo.jpg'],
+    [/puri the aravallis|puri aravallis/.test(name),'puri-the-aravalis.jpg'],
     [/privana|privana south|privana north/.test(name),'privana.jpg'],
     [/sobha aranya/.test(name),'sobha-aranya.jpg'],
     [/indiabulls enigma/.test(name),'indiabulls-enigma.jpg'],
@@ -92,6 +97,8 @@ function representativeImage(o){
     [/sushant lok/.test(name),'sushant-lok.jpg'],
     [/m3m capital 113|m3m capital/.test(name),'m3m-capital-113.webp'],
     [/south city 2/.test(name),'south-city-2.jpg'],
+    [/close north/.test(name),'close-north.jpg'],
+    [/close south/.test(name),'close-south.jpg'],
     [/vipul world/.test(name),'vipul-world.jpg'],
     [/godrej meridian|godrej meridien/.test(name),'godrej-meridian.jpg'],
     [/malibu towne|malibu town/.test(name),'malibu-towne.jpg'],
