@@ -88,6 +88,7 @@ fs.mkdirSync(crmDest, { recursive: true });
 fs.copyFileSync(path.join(CRM_UI_DIR, 'index.html'), path.join(crmDest, 'index.html'));
 fs.copyFileSync(path.join(CRM_UI_DIR, 'crm.js'), path.join(crmDest, 'crm.js'));
 fs.copyFileSync(path.join(CRM_UI_DIR, 'crm.css'), path.join(crmDest, 'crm.css'));
+fs.copyFileSync(path.join(CRM_UI_DIR, 'shortlist.html'), path.join(crmDest, 'shortlist.html'));
 fs.copyFileSync(path.join(CRM_UI_DIR, 'shortlist.html'), path.join(PUBLIC_HTML_DIR, 'shortlist.html'));
 
 // Copy PHP Backend

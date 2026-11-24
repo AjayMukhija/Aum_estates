@@ -82,6 +82,11 @@ class Router
         return Auth::getAuthenticatedSession($this->pdo, $this->server, $this->cookies);
     }
 
+    public function destroySession(): void
+    {
+        Auth::destroySession($this->pdo, $this->server, $this->cookies);
+    }
+
     public function requireAuth(): array
     {
         $session = $this->getSession();

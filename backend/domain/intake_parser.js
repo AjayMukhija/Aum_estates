@@ -456,7 +456,7 @@ function parseXlsxBuffer(buffer) {
 
   for (const rMatch of sheetXml.matchAll(/<row\b[^>]*>([\s\S]*?)<\/row>/g)) {
     const rowArr = [];
-    for (const cMatch of rMatch[1].matchAll(/<c\b([^>]*)>([\s\S]*?)<\/c>/g)) {
+    for (const cMatch of rMatch[1].matchAll(/<c\b([^>\/]*)>([\s\S]*?)<\/c>/g)) {
       const attrs = cMatch[1];
       const inner = cMatch[2];
       const refMatch = attrs.match(/\br="([A-Z]+)\d+"/);

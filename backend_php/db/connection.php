@@ -139,24 +139,32 @@ final class Connection
     }
 
     /**
-     * Generates a safe prefixed sequence identifier, e.g. SL-2026-0001 or LEAD-2026-0001
+     * Generates a safe prefixed sequence identifier, e.g. AUM-WEB-000412, CNT-0002, SL-2026-0001
+     *
+     * Matches only rows whose ID is strictly `{prefix}-{digits}` so sub-prefixed IDs
+     * (like `CNT-OWN-001` or `CNT-WEB-0001` when allocating `CNT`) never collide or
+     * hijack lexicographical SQL sorting.
      */
-    public static function allocatePrefixedId(PDO $pdo, string $table, string $idColumn, string $prefix): string
+    public static function allocatePrefixedId(PDO $pdo, string $table, string $idColumn, string $prefix, ?int $padDigits = null): string
     {
         $likePattern = "{$prefix}-%";
-        $stmt = $pdo->prepare("SELECT {$idColumn} FROM {$table} WHERE {$idColumn} LIKE ? ORDER BY {$idColumn} DESC LIMIT 1");
+        $stmt = $pdo->prepare("SELECT {$idColumn} FROM {$table} WHERE {$idColumn} LIKE ?");
         $stmt->execute([$likePattern]);
-        $row = $stmt->fetch();
+        $rows = $stmt->fetchAll(PDO::FETCH_COLUMN);
 
-        $nextSeq = 1;
-        if ($row && isset($row[$idColumn])) {
-            $parts = explode('-', (string)$row[$idColumn]);
-            $lastNum = (int)end($parts);
-            if ($lastNum > 0) {
-                $nextSeq = $lastNum + 1;
+        $maxNum = 0;
+        $regex = '/^' . preg_quote($prefix, '/') . '-(\d+)$/i';
+        foreach ($rows as $idVal) {
+            if (preg_match($regex, (string)$idVal, $m)) {
+                $num = (int)$m[1];
+                if ($num > $maxNum) {
+                    $maxNum = $num;
+                }
             }
         }
 
-        return sprintf('%s-%04d', $prefix, $nextSeq);
+        $nextSeq = $maxNum + 1;
+        $digits = $padDigits ?? (($table === 'properties' || str_starts_with(strtoupper($prefix), 'AUM-')) ? 6 : 4);
+        return sprintf("%s-%0{$digits}d", $prefix, $nextSeq);
     }
 }

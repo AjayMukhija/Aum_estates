@@ -128,8 +128,8 @@ final class CrmRoutes
         }
 
         if ($path === '/api/crm/auth/logout' && $method === 'POST') {
-            Auth::destroySession($pdo, $_SERVER, $_COOKIE);
-            $expiredCookie = Config::SESSION_COOKIE_NAME . '=; Path=/; HttpOnly; SameSite=Strict; Max-Age=0';
+            $router->destroySession();
+            $expiredCookie = Auth::buildSessionCookie('', 0);
             Router::sendJson(200, ['ok' => true], ['Set-Cookie' => $expiredCookie]);
             return true;
         }
@@ -302,7 +302,7 @@ final class CrmRoutes
             if ($action === 'approve' && $method === 'POST') {
                 $router->requireRole(['principal'], $session);
 
-                $chk = $pdo->prepare('SELECT publication_state FROM properties WHERE property_id = ?');
+                $chk = $pdo->prepare('SELECT * FROM properties WHERE property_id = ?');
                 $chk->execute([$propId]);
                 $current = $chk->fetch();
                 if (!$current) {
@@ -313,6 +313,22 @@ final class CrmRoutes
                     Router::sendJson(409, [
                         'ok' => false,
                         'error' => "Property {$propId} is archived. Restore it to draft before approving it for the public catalogue."
+                    ]);
+                    return true;
+                }
+
+                // Validate through the Fiduciary Privacy Gate before allowing approved_public
+                // so a draft carrying leaked phone numbers, commission terms, or cheque notes
+                // cannot enter approved_public and poison the static feed publisher.
+                $gateCheck = PrivacyGate::validateAndProjectPublicRecord(array_merge($current, [
+                    'publication_state' => 'approved_public',
+                    'availability_state' => 'available'
+                ]));
+                if (!$gateCheck['ok']) {
+                    Router::sendJson(422, [
+                        'ok' => false,
+                        'error' => "Fiduciary Privacy Gate blocked public approval:\n" . implode("\n", $gateCheck['errors']),
+                        'validationErrors' => $gateCheck['errors']
                     ]);
                     return true;
                 }
@@ -344,18 +360,28 @@ final class CrmRoutes
             // Re-verify action
             if ($action === 'reverify' && $method === 'POST') {
                 $router->requireRole(['principal', 'advisor'], $session);
+
+                $chk = $pdo->prepare('SELECT 1 FROM properties WHERE property_id = ?');
+                $chk->execute([$propId]);
+                if (!$chk->fetch()) {
+                    Router::sendJson(404, ['ok' => false, 'error' => "Property not found: {$propId}"]);
+                    return true;
+                }
+
                 $nowIso = gmdate('Y-m-d\TH:i:s.v\Z');
-                $nextDue = gmdate('Y-m-d', strtotime('+30 days'));
+                $today = gmdate('Y-m-d');
+                $nextDue = gmdate('Y-m-d', strtotime('+120 days'));
 
                 $up = $pdo->prepare('
                     UPDATE properties
                     SET verification_state = \'recently_reverified\',
+                        verification_status = \'Recently re-verified\',
                         last_verified = ?,
                         next_reverify_due = ?,
                         updated_at = ?
                     WHERE property_id = ?
                 ');
-                $up->execute([$nowIso, $nextDue, $nowIso, $propId]);
+                $up->execute([$today, $nextDue, $nowIso, $propId]);
 
                 Connection::recordAuditLog($pdo, [
                     'actorUserId' => $userId,
@@ -363,10 +389,17 @@ final class CrmRoutes
                     'entityType' => 'property',
                     'entityId' => $propId,
                     'action' => 'reverify_property',
-                    'summary' => "Re-verified property {$propId}"
+                    'summary' => "Re-verified property {$propId} (next due {$nextDue})"
                 ]);
 
-                Router::sendJson(200, ['ok' => true, 'property_id' => $propId, 'verification_state' => 'recently_reverified']);
+                Router::sendJson(200, [
+                    'ok' => true,
+                    'property_id' => $propId,
+                    'verification_state' => 'recently_reverified',
+                    'verification_status' => 'Recently re-verified',
+                    'last_verified' => $today,
+                    'next_reverify_due' => $nextDue
+                ]);
                 return true;
             }
 
@@ -445,99 +478,26 @@ final class CrmRoutes
                 return true;
             }
 
-            // If commit is requested, save directly as draft
+            // If commit is requested, save directly as draft via upsertPropertyMaster
             if (!empty($body['commit'])) {
                 $draft = $parsed['publicDraft'];
                 $vault = $parsed['privateVault'];
                 $propId = Connection::allocatePrefixedId($pdo, 'properties', 'property_id', 'AUM-DRF');
-                $nowIso = gmdate('Y-m-d\TH:i:s.v\Z');
 
-                Connection::withTransaction($pdo, function (PDO $db) use ($propId, $draft, $vault, $userId, $userLabel, $nowIso) {
-                    $ins = $db->prepare('
-                        INSERT INTO properties (
-                            property_id, publication_state, availability_state, project_name, city, locality,
-                            sector, micro_location, corridor, property_type, category, transaction_type,
-                            listing_title, configuration, bedrooms, bedrooms_int, area_value, area_unit,
-                            area_sqft_norm, floor_label, facing, price_value, price_unit, price_text,
-                            price_inr_norm, rent_value, rent_unit, rent_inr_monthly_norm, key_features,
-                            public_description, image_file, slug, created_at, updated_at
-                        ) VALUES (
-                            ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
-                            ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
-                        )
-                    ');
-                    $ins->execute([
-                        $propId,
-                        'pending_approval',
-                        'available',
-                        $draft['project_name'],
-                        $draft['city'],
-                        $draft['locality'],
-                        $draft['sector'],
-                        $draft['micro_location'],
-                        $draft['corridor'],
-                        $draft['property_type'],
-                        $draft['category'],
-                        $draft['transaction_type'],
-                        $draft['listing_title'],
-                        $draft['configuration'],
-                        $draft['bedrooms'],
-                        $draft['bedrooms_int'],
-                        $draft['area_value'],
-                        $draft['area_unit'],
-                        $draft['area_sqft_norm'],
-                        $draft['floor_label'],
-                        $draft['facing'],
-                        $draft['price_value'],
-                        $draft['price_unit'],
-                        $draft['price_text'],
-                        $draft['price_inr_norm'],
-                        $draft['rent_value'],
-                        $draft['rent_unit'],
-                        $draft['rent_inr_monthly_norm'],
-                        $draft['key_features'],
-                        $draft['public_description'],
-                        $draft['image_file'],
-                        $draft['slug'],
-                        $nowIso,
-                        $nowIso
-                    ]);
-
-                    $insV = $db->prepare('
-                        INSERT INTO property_private (
-                            property_id, broker_name_cache, broker_phone_cache, owner_email_cache,
-                            source_group_name, exact_unit_or_plot_no, internal_floor_price_inr,
-                            commission_terms, payment_structure_notes, raw_whatsapp_text,
-                            internal_advisor_notes, updated_at
-                        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-                    ');
-                    $insV->execute([
-                        $propId,
-                        $vault['broker_name_cache'],
-                        $vault['broker_phone_cache'],
-                        $vault['owner_email_cache'],
-                        $vault['source_group_name'],
-                        $vault['exact_unit_or_plot_no'],
-                        $vault['internal_floor_price_inr'],
-                        $vault['commission_terms'],
-                        $vault['payment_structure_notes'],
-                        $vault['raw_whatsapp_text'],
-                        $vault['internal_advisor_notes'],
-                        $nowIso
-                    ]);
-
-                    Connection::recordAuditLog($db, [
-                        'actorUserId' => $userId,
-                        'actorLabel' => $userLabel,
-                        'entityType' => 'property',
-                        'entityId' => $propId,
-                        'action' => 'whatsapp_intake_committed',
-                        'summary' => "Created intake mandate {$propId} from WhatsApp broadcast"
-                    ]);
+                $saved = Connection::withTransaction($pdo, function (PDO $db) use ($propId, $draft, $vault, $session) {
+                    return self::upsertPropertyMaster(
+                        $db,
+                        [
+                            'public' => array_merge($draft, ['property_id' => $propId, 'publication_state' => 'pending_approval']),
+                            'private' => $vault
+                        ],
+                        $session,
+                        null
+                    );
                 });
 
                 $parsed['property_id'] = $propId;
-                $parsed['item'] = array_merge($draft, ['property_id' => $propId, 'publication_state' => 'pending_approval']);
+                $parsed['item'] = $saved['public'];
             }
 
             Router::sendJson(200, array_merge(['ok' => true], $parsed));
@@ -755,7 +715,93 @@ final class CrmRoutes
                 $nowIso
             ]);
 
+            Connection::recordAuditLog($pdo, [
+                'actorUserId' => $userId,
+                'actorLabel' => $userLabel,
+                'entityType' => 'contact',
+                'entityId' => $contactId,
+                'action' => 'create_contact',
+                'summary' => "Added {$contactType} contact: {$name}"
+            ]);
+
             Router::sendJson(201, ['ok' => true, 'contact_id' => $contactId]);
+            return true;
+        }
+
+        if (preg_match('#^/api/crm/contacts/([A-Za-z0-9-]+)$#', $path, $m) && in_array($method, ['PUT', 'PATCH'], true)) {
+            $router->requireRole(['principal', 'advisor'], $session);
+            $contactId = $m[1];
+            $body = $router->getJsonBody();
+
+            $chk = $pdo->prepare('SELECT * FROM contacts WHERE contact_id = ?');
+            $chk->execute([$contactId]);
+            $existingContact = $chk->fetch();
+            if (!$existingContact) {
+                Router::sendJson(404, ['ok' => false, 'error' => "Contact not found: {$contactId}"]);
+                return true;
+            }
+
+            $name = array_key_exists('full_name', $body)
+                ? Normalizer::cleanWhitespace((string)$body['full_name'])
+                : $existingContact['full_name'];
+            if (!$name) {
+                Router::sendJson(400, ['ok' => false, 'error' => 'Full name is required']);
+                return true;
+            }
+
+            $contactType = array_key_exists('contact_type', $body)
+                ? (Normalizer::cleanWhitespace((string)$body['contact_type']) ?? $existingContact['contact_type'])
+                : $existingContact['contact_type'];
+            if (!in_array($contactType, Config::CONTACT_TYPES, true)) {
+                Router::sendJson(400, [
+                    'ok' => false,
+                    'error' => "Unknown contact type '{$contactType}'. Permitted: " . implode(', ', Config::CONTACT_TYPES)
+                ]);
+                return true;
+            }
+
+            $phone = array_key_exists('phone_primary', $body)
+                ? Normalizer::cleanWhitespace($body['phone_primary'])
+                : $existingContact['phone_primary'];
+            $phoneNorm = $phone ? substr(preg_replace('/\D/', '', $phone), -10) : null;
+            if ($phoneNorm === '') {
+                $phoneNorm = null;
+            }
+            $contactEmail = array_key_exists('email', $body)
+                ? Normalizer::cleanWhitespace($body['email'])
+                : $existingContact['email'];
+            $firm = array_key_exists('firm_or_syndicate', $body)
+                ? Normalizer::cleanWhitespace($body['firm_or_syndicate'])
+                : (array_key_exists('firm_name', $body) ? Normalizer::cleanWhitespace($body['firm_name']) : $existingContact['firm_or_syndicate']);
+            $trustTier = array_key_exists('trust_tier', $body)
+                ? (Normalizer::cleanWhitespace($body['trust_tier']) ?? $existingContact['trust_tier'])
+                : $existingContact['trust_tier'];
+            $notes = array_key_exists('private_notes', $body)
+                ? Normalizer::cleanWhitespace($body['private_notes'])
+                : $existingContact['private_notes'];
+            $nowIso = gmdate('Y-m-d\TH:i:s.v\Z');
+
+            $up = $pdo->prepare('
+                UPDATE contacts
+                SET contact_type = ?, full_name = ?, firm_or_syndicate = ?, phone_primary = ?,
+                    phone_norm = ?, email = ?, trust_tier = ?, private_notes = ?, updated_at = ?
+                WHERE contact_id = ?
+            ');
+            $up->execute([$contactType, $name, $firm, $phone, $phoneNorm, $contactEmail, $trustTier, $notes, $nowIso, $contactId]);
+
+            $chk->execute([$contactId]);
+            $updatedContact = $chk->fetch();
+
+            Connection::recordAuditLog($pdo, [
+                'actorUserId' => $userId,
+                'actorLabel' => $userLabel,
+                'entityType' => 'contact',
+                'entityId' => $contactId,
+                'action' => 'update_contact',
+                'summary' => "Updated {$contactType} contact: {$name}"
+            ]);
+
+            Router::sendJson(200, ['ok' => true, 'contact_id' => $contactId, 'contact' => $updatedContact]);
             return true;
         }
 
@@ -1144,11 +1190,17 @@ final class CrmRoutes
             }
 
             $introNote = Normalizer::cleanWhitespace($body['advisor_intro_note'] ?? null);
-            Shortlist::assertClientText('advisor_intro_note', $introNote);
-
             $commentaries = (array)($body['commentaries'] ?? []);
-            foreach ($commentaries as $cText) {
-                Shortlist::assertClientText('advisor_commentary', (string)$cText);
+            try {
+                Shortlist::assertClientText('title', $title);
+                Shortlist::assertClientText('client_name', $clientName);
+                Shortlist::assertClientText('advisor_intro_note', $introNote);
+                foreach ($commentaries as $cText) {
+                    Shortlist::assertClientText('advisor_commentary', (string)$cText);
+                }
+            } catch (\Throwable $e) {
+                Router::sendJson(422, ['ok' => false, 'error' => $e->getMessage()]);
+                return true;
             }
 
             $leadId = Normalizer::cleanWhitespace($body['lead_id'] ?? null);
@@ -1274,6 +1326,13 @@ final class CrmRoutes
             $router->requireRole(['principal', 'advisor'], $session);
             $slId = $m[1];
 
+            $chk = $pdo->prepare('SELECT 1 FROM client_shortlists WHERE shortlist_id = ?');
+            $chk->execute([$slId]);
+            if (!$chk->fetch()) {
+                Router::sendJson(404, ['ok' => false, 'error' => 'Shortlist not found']);
+                return true;
+            }
+
             $up = $pdo->prepare('UPDATE client_shortlists SET is_active = 0 WHERE shortlist_id = ?');
             $up->execute([$slId]);
 
@@ -1391,18 +1450,42 @@ final class CrmRoutes
         }
         $listingTitle = Normalizer::cleanListingTitle($rawTitle ?: 'Gurugram Property Mandate', $projectName);
 
-        $areaValueRaw = $pickVal($pubIn, 'area_value', $existing['area_value'] ?? null);
+        $pickNullable = fn($obj, $key, $fallback = null) => array_key_exists($key, $obj) ? $obj[$key] : ($fallback ?? null);
+
+        $areaValueRaw = $pickNullable($pubIn, 'area_value', $existing['area_value'] ?? null);
+        if ($areaValueRaw !== null && $areaValueRaw !== '' && (!is_numeric($areaValueRaw) || (float)$areaValueRaw < 0)) {
+            throw new \RuntimeException('area_value must be a non-negative number', 400);
+        }
         $areaValue = ($areaValueRaw !== null && $areaValueRaw !== '') ? (float)$areaValueRaw : null;
         $areaUnit = Normalizer::cleanWhitespace((string)$pickVal($pubIn, 'area_unit', $existing['area_unit'] ?? ''));
         $areaSqFtNorm = Normalizer::normalizeAreaSqFt($areaValue, $areaUnit);
 
         $transactionType = Normalizer::cleanWhitespace((string)$pickVal($pubIn, 'transaction_type', $existing['transaction_type'] ?? 'Sale')) ?: 'Sale';
-        $priceValueRaw = $pickVal($pubIn, 'price_value', $existing['price_value'] ?? null);
+        $priceValueRaw = $pickNullable($pubIn, 'price_value', $existing['price_value'] ?? null);
+        if ($priceValueRaw !== null && $priceValueRaw !== '' && (!is_numeric($priceValueRaw) || (float)$priceValueRaw < 0)) {
+            throw new \RuntimeException('price_value must be a non-negative number', 400);
+        }
         $priceValue = ($priceValueRaw !== null && $priceValueRaw !== '') ? (float)$priceValueRaw : null;
         $priceUnit = Normalizer::cleanWhitespace((string)$pickVal($pubIn, 'price_unit', $existing['price_unit'] ?? ''));
-        $priceText = Normalizer::cleanWhitespace((string)$pickVal($pubIn, 'price_text', $existing['price_text'] ?? ''));
+        $priceText = Normalizer::cleanWhitespace((string)$pickNullable($pubIn, 'price_text', $existing['price_text'] ?? ''));
 
-        $rentValueRaw = $pickVal($pubIn, 'rent_value', $existing['rent_value'] ?? null);
+        // If the advisor edited price_value or price_unit in the CRM form without manually changing
+        // the old price_text label, refresh price_text so the website does not keep showing the stale label.
+        if ($existing && array_key_exists('price_value', $pubIn)) {
+            $oldPriceVal = ($existing['price_value'] !== null && $existing['price_value'] !== '') ? (float)$existing['price_value'] : null;
+            $oldPriceUnit = Normalizer::cleanWhitespace((string)($existing['price_unit'] ?? ''));
+            $oldPriceText = Normalizer::cleanWhitespace((string)($existing['price_text'] ?? ''));
+            if (($priceValue !== $oldPriceVal || $priceUnit !== $oldPriceUnit) && $priceText === $oldPriceText) {
+                $priceText = ($priceValue !== null && $priceValue > 0)
+                    ? trim('₹' . $priceValue . ($priceUnit ? " {$priceUnit}" : ' Cr'))
+                    : null;
+            }
+        }
+
+        $rentValueRaw = $pickNullable($pubIn, 'rent_value', $existing['rent_value'] ?? null);
+        if ($rentValueRaw !== null && $rentValueRaw !== '' && (!is_numeric($rentValueRaw) || (float)$rentValueRaw < 0)) {
+            throw new \RuntimeException('rent_value must be a non-negative number', 400);
+        }
         $rentValue = ($rentValueRaw !== null && $rentValueRaw !== '') ? (float)$rentValueRaw : null;
         $rentUnit = Normalizer::cleanWhitespace((string)$pickVal($pubIn, 'rent_unit', $existing['rent_unit'] ?? ''));
 
@@ -1462,9 +1545,13 @@ final class CrmRoutes
             'rent_value' => $rentValue,
             'rent_unit' => $rentUnit ?: null,
             'rent_inr_monthly_norm' => $rentInrNorm,
-            'key_features' => Normalizer::cleanWhitespace((string)$pickVal($pubIn, 'key_features', $existing['key_features'] ?? '')) ?: null,
-            'public_description' => Normalizer::cleanWhitespace((string)$pickVal($pubIn, 'public_description', $existing['public_description'] ?? '')) ?: null,
-            'public_features' => Normalizer::cleanWhitespace((string)$pickVal($pubIn, 'public_features', $existing['public_features'] ?? '')) ?: null,
+            'key_features' => Normalizer::cleanWhitespace((string)$pickNullable($pubIn, 'key_features', $existing['key_features'] ?? '')) ?: null,
+            'public_description' => Normalizer::cleanWhitespace((string)$pickNullable($pubIn, 'public_description', $existing['public_description'] ?? '')) ?: null,
+            'public_features' => array_key_exists('public_features', $pubIn)
+                ? (Normalizer::cleanWhitespace((string)$pubIn['public_features']) ?: null)
+                : (array_key_exists('key_features', $pubIn)
+                    ? (Normalizer::cleanWhitespace((string)$pubIn['key_features']) ?: null)
+                    : (Normalizer::cleanWhitespace((string)($existing['public_features'] ?? '')) ?: null)),
             'image_label' => Normalizer::cleanWhitespace((string)$pickVal($pubIn, 'image_label', $existing['image_label'] ?? 'Representative Reference Photograph')) ?: 'Representative Reference Photograph',
             'verification_status' => Normalizer::cleanWhitespace((string)$pickVal($pubIn, 'verification_status', $existing['verification_status'] ?? 'Availability to be confirmed')) ?: 'Availability to be confirmed',
             'verification_state' => Normalizer::cleanWhitespace((string)$pickVal($pubIn, 'verification_state', $existing['verification_state'] ?? 'needs_confirmation')) ?: 'needs_confirmation',
@@ -1491,9 +1578,9 @@ final class CrmRoutes
             }
         }
 
-        $rawFloor = $pickVal($privIn, 'internal_floor_price_inr', $existing['internal_floor_price_inr'] ?? null);
+        $rawFloor = $pickNullable($privIn, 'internal_floor_price_inr', $existing['internal_floor_price_inr'] ?? null);
         $floorInr = null;
-        if ($rawFloor !== null && $rawFloor !== '') {
+        if ($rawFloor !== null && $rawFloor !== '' && is_numeric($rawFloor)) {
             $fn = (float)$rawFloor;
             if ($fn > 0) {
                 $floorInr = $fn < 500 ? (int)round($fn * 1e7) : (int)round($fn);

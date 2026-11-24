@@ -123,11 +123,17 @@ try {
     // 4. Tokenized Shortlist Viewer (/shortlist/{token})
     if (preg_match('#^/shortlist/([A-Za-z0-9_-]{12,64})/?$#', $path)) {
         $paths = Config::getPaths();
-        $shortlistHtml = $paths['crm_ui_dir'] . '/shortlist.html';
-        if (file_exists($shortlistHtml)) {
-            header('Content-Type: text/html; charset=utf-8');
-            readfile($shortlistHtml);
-            exit;
+        $shortlistCandidates = [
+            $paths['crm_ui_dir'] . '/shortlist.html',
+            dirname($paths['crm_ui_dir']) . '/shortlist.html',
+            ($_SERVER['DOCUMENT_ROOT'] ?? '') . '/shortlist.html'
+        ];
+        foreach ($shortlistCandidates as $shortlistHtml) {
+            if ($shortlistHtml && is_file($shortlistHtml)) {
+                header('Content-Type: text/html; charset=utf-8');
+                readfile($shortlistHtml);
+                exit;
+            }
         }
     }
 
@@ -224,7 +230,11 @@ try {
 
     http_response_code(404);
     header('Content-Type: text/html; charset=utf-8');
-    echo "404 Not Found";
+    if ($staticRoot !== false && is_file($staticRoot . '/404.html')) {
+        readfile($staticRoot . '/404.html');
+    } else {
+        echo "404 Not Found";
+    }
 } catch (\Throwable $e) {
     http_response_code(500);
     header('Content-Type: application/json; charset=utf-8');

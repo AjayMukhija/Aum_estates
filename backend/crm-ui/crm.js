@@ -239,6 +239,9 @@
     pendingBadge.hidden = !inv.pending_approval;
 
     const newLeadsCount = (data.pipeline || []).find((s) => s.stage === 'new_inquiry')?.count || 0;
+    const activePipelineCount = (data.pipeline || [])
+      .filter((s) => !['closed_won', 'closed_lost'].includes(s.stage))
+      .reduce((acc, s) => acc + (Number(s.count) || 0), 0);
     const leadsBadge = document.getElementById('nav-badge-leads');
     leadsBadge.textContent = String(newLeadsCount);
     leadsBadge.hidden = !newLeadsCount;
@@ -266,7 +269,7 @@
       </div>
       <div class="kpi-box">
         <span class="eyebrow">ACTIVE PIPELINE</span>
-        <div class="kpi-value">${(data.recentLeads || []).length}</div>
+        <div class="kpi-value">${activePipelineCount || (data.recentLeads || []).length}</div>
         <span class="kpi-sub">${newLeadsCount} new inbound inquiry</span>
       </div>
     `;
@@ -330,6 +333,10 @@
     document.getElementById('inv-reverify').checked = true;
     switchTab('inventory');
   });
+  document.getElementById('view-all-pending')?.addEventListener('click', () => {
+    document.getElementById('inv-pub').value = 'pending_approval';
+    switchTab('inventory');
+  });
 
   // Delegated quick actions
   document.addEventListener('click', async (e) => {
@@ -386,7 +393,7 @@
       corridor,
       category,
       reverifyDueOnly,
-      limit: '200'
+      limit: '500'
     });
 
     const data = await api(`/api/crm/properties?${params.toString()}`);
@@ -572,7 +579,7 @@
             </div>
           </div>
 
-          <div class="form-grid-2" style="margin-top:12px">
+          <div class="form-grid-3" style="margin-top:12px">
             <div class="field">
               <label for="pf-rent">Monthly Rent (INR, if Rent)</label>
               <input id="pf-rent" name="rent_value" type="number" step="any" min="0" value="${esc(item.rent_value ?? '')}">
@@ -581,11 +588,53 @@
               <label for="pf-facing">Facing / Orientation</label>
               <input id="pf-facing" name="facing" type="text" value="${esc(item.facing || '')}" placeholder="North-East / Park Facing">
             </div>
+            <div class="field">
+              <label for="pf-floor">Floor / Position</label>
+              <input id="pf-floor" name="floor_label" type="text" value="${esc(item.floor_label || '')}" placeholder="Higher Floor / Ground Floor">
+            </div>
+          </div>
+
+          <div class="form-grid-3" style="margin-top:12px">
+            <div class="field">
+              <label for="pf-road">Road Width</label>
+              <input id="pf-road" name="road_width" type="text" value="${esc(item.road_width || '')}" placeholder="60 metre road / 18m">
+            </div>
+            <div class="field">
+              <label for="pf-furn">Furnishing</label>
+              <input id="pf-furn" name="furnishing" type="text" value="${esc(item.furnishing || '')}" placeholder="Semi-Furnished / Unfurnished">
+            </div>
+            <div class="field">
+              <label for="pf-poss">Possession / Status</label>
+              <input id="pf-poss" name="possession_status" type="text" value="${esc(item.possession_status || '')}" placeholder="Ready to Move">
+            </div>
+          </div>
+
+          <div class="form-grid-3" style="margin-top:12px">
+            <div class="field">
+              <label for="pf-corridor">Corridor (Auto-classified if blank)</label>
+              <select id="pf-corridor" name="corridor">
+                <option value="">Auto-detect from Locality / Sector</option>
+                ${CORRIDOR_OPTIONS.map((c) => `<option value="${esc(c)}" ${item.corridor === c ? 'selected' : ''}>${esc(c)}</option>`).join('')}
+              </select>
+            </div>
+            <div class="field">
+              <label for="pf-category">Category (Auto-classified if blank)</label>
+              <select id="pf-category" name="category">
+                <option value="">Auto-detect from Property Type</option>
+                ${CATEGORY_OPTIONS.map(([val, label]) => `<option value="${esc(val)}" ${item.category === val ? 'selected' : ''}>${esc(label)}</option>`).join('')}
+              </select>
+            </div>
+            <div class="field" style="display:flex;align-items:flex-end;padding-bottom:6px">
+              <label class="checkbox-pill">
+                <input type="checkbox" name="is_featured_approved" ${item.is_featured_approved ? 'checked' : ''}>
+                <span>Feature on Homepage</span>
+              </label>
+            </div>
           </div>
 
           <div class="field" style="margin-top:12px">
             <label for="pf-feat">Public Key Features (Fiduciary Firewall Scanned — No phones, commissions, or cheque notes)</label>
-            <textarea id="pf-feat" name="key_features" rows="2">${esc(item.key_features || '')}</textarea>
+            <textarea id="pf-feat" name="key_features" rows="2">${esc(item.key_features || item.public_features || '')}</textarea>
           </div>
           <div class="field" style="margin-top:12px">
             <label for="pf-desc">Public Advisory Description</label>
@@ -717,7 +766,15 @@
           price_text: f.get('price_text'),
           rent_value: f.get('rent_value'),
           facing: f.get('facing'),
+          floor_label: f.get('floor_label'),
+          road_width: f.get('road_width'),
+          furnishing: f.get('furnishing'),
+          possession_status: f.get('possession_status'),
+          corridor: f.get('corridor') || undefined,
+          category: f.get('category') || undefined,
+          is_featured_approved: f.get('is_featured_approved') ? 1 : 0,
           key_features: f.get('key_features'),
+          public_features: f.get('key_features'),
           public_description: f.get('public_description')
         },
         private: {
@@ -741,7 +798,8 @@
           { method: isNew ? 'POST' : 'PUT', body: payload }
         );
         closeDrawer();
-        showToast(`Saved ${res.item.property_id} (${res.item.listing_title}).`);
+        const needsSync = res.item.publication_state === 'approved_public' || item.publication_state === 'approved_public';
+        showToast(`Saved ${res.item.property_id} (${res.item.listing_title}).${needsSync ? ' Click "Sync Public Feeds" to update the live website.' : ''}`);
         if (state.activeTab === 'inventory') loadInventory();
         else loadOverview();
       } catch (err) {
@@ -1099,7 +1157,39 @@
           <button type="button" class="btn btn-primary btn-sm" id="create-shortlist-btn">Generate Shareable Client Shortlist →</button>
         </div>
 
+        <div class="field" style="margin-bottom:10px">
+          <label for="sl-intro-input">Optional Advisory Intro Note for Client Shortlist</label>
+          <input id="sl-intro-input" type="text" placeholder="e.g. Curated options with verified HSVP title and immediate inspection availability.">
+        </div>
+
         <div id="shortlist-share-result"></div>
+
+        ${(data.shortlists || []).length ? `
+          <div style="margin:10px 0 14px">
+            <span class="eyebrow">SHARED CLIENT SHORTLISTS (${data.shortlists.length})</span>
+            <div class="compact-list" style="margin-top:6px">
+              ${data.shortlists.map((sl) => {
+                const slUrl = `${location.origin}/shortlist/${encodeURIComponent(sl.share_token)}`;
+                const isActive = Number(sl.is_active) === 1;
+                const views = Number(sl.view_count) || 0;
+                return `
+                  <div class="compact-item">
+                    <div>
+                      <strong>${esc(sl.title)} <span class="pill ${isActive ? 'pill-public' : 'pill-muted'}">${isActive ? 'Active' : 'Revoked'}</span></strong>
+                      <small>${esc(sl.shortlist_id)} · Views: ${views} · Created: ${esc((sl.created_at || '').slice(0, 10))} · <code>${esc(slUrl)}</code></small>
+                    </div>
+                    <div class="btn-row">
+                      ${isActive ? `
+                        <a class="btn btn-secondary btn-sm" href="${esc(slUrl)}" target="_blank" rel="noopener">Open ↗</a>
+                        <button type="button" class="btn btn-secondary btn-sm" data-revoke-sl="${esc(sl.shortlist_id)}">Revoke</button>
+                      ` : ''}
+                    </div>
+                  </div>
+                `;
+              }).join('')}
+            </div>
+          </div>
+        ` : ''}
 
         <div id="lead-matches-list">
           ${data.matches.length === 0
@@ -1179,21 +1269,41 @@
       openLeadDrawer(leadId);
     });
 
+    drawerBody.querySelectorAll('[data-revoke-sl]').forEach((btn) => {
+      btn.addEventListener('click', async () => {
+        try {
+          await api(`/api/crm/shortlists/${encodeURIComponent(btn.dataset.revokeSl)}/revoke`, { method: 'POST', body: {} });
+          showToast(`Revoked shortlist ${btn.dataset.revokeSl}.`);
+          openLeadDrawer(leadId);
+        } catch (err) {
+          alert(err.message);
+        }
+      });
+    });
+
     drawerBody.querySelector('#create-shortlist-btn').addEventListener('click', async () => {
       const checked = [...drawerBody.querySelectorAll('input[name="sl-prop"]:checked')].map((el) => el.value);
       if (!checked.length) {
         alert('Tick at least one matched property to include in the client shortlist.');
         return;
       }
-      const res = await api('/api/crm/shortlists', {
-        method: 'POST',
-        body: {
-          lead_id: leadId,
-          client_name: l.client_name,
-          title: `AUM ESTATES — Curated Shortlist for ${l.client_name}`,
-          property_ids: checked
-        }
-      });
+      const introNoteVal = drawerBody.querySelector('#sl-intro-input')?.value.trim() || undefined;
+      let res;
+      try {
+        res = await api('/api/crm/shortlists', {
+          method: 'POST',
+          body: {
+            lead_id: leadId,
+            client_name: l.client_name,
+            title: `AUM ESTATES — Curated Shortlist for ${l.client_name}`,
+            advisor_intro_note: introNoteVal,
+            property_ids: checked
+          }
+        });
+      } catch (err) {
+        alert(err.message);
+        return;
+      }
       const waMsg = `Hello ${l.client_name}, I have prepared a curated property dossier based on your requirements (${checked.length} options): ${res.share_url}`;
       const phoneDigits = (l.client_phone || '').replace(/\D/g, '');
       const waUrl = `https://wa.me/${phoneDigits || ''}?text=${encodeURIComponent(waMsg)}`;
@@ -1233,17 +1343,19 @@
   // ==========================================================================
   // TAB 5: CONTACTS VAULT
   // ==========================================================================
+  let cachedContacts = [];
   async function loadContacts() {
     const q = document.getElementById('cnt-q').value.trim();
     const type = document.getElementById('cnt-type').value;
     const data = await api(`/api/crm/contacts?q=${encodeURIComponent(q)}&type=${encodeURIComponent(type)}`);
+    cachedContacts = data.items || [];
     const tbody = document.getElementById('contacts-tbody');
-    if (!data.items.length) {
+    if (!cachedContacts.length) {
       tbody.innerHTML = '<tr><td colspan="6" class="fineprint">No contacts found.</td></tr>';
       return;
     }
-    tbody.innerHTML = data.items.map((c) => `
-      <tr>
+    tbody.innerHTML = cachedContacts.map((c) => `
+      <tr class="clickable-row" data-open-contact="${esc(c.contact_id)}">
         <td class="mono-id">${esc(c.contact_id)}</td>
         <td>
           <strong>${esc(c.full_name)}</strong>
@@ -1260,48 +1372,50 @@
     `).join('');
   }
 
-  document.getElementById('cnt-q').addEventListener('input', loadContacts);
-  document.getElementById('cnt-type').addEventListener('change', loadContacts);
-  document.getElementById('new-contact-btn').addEventListener('click', () => {
+  function openContactDrawer(contact = null) {
+    const isNew = !contact;
+    const c = contact || { contact_type: 'buyer' };
     openDrawer(
-      'RELATIONSHIP DIRECTORY',
-      'Add Contact to Fiduciary Vault',
+      isNew ? 'RELATIONSHIP DIRECTORY' : `CONTACT · ${c.contact_id}`,
+      isNew ? 'Add Contact to Fiduciary Vault' : c.full_name,
       `
       <form id="new-cnt-form" class="stack-form">
         <div class="form-grid-2">
           <div class="field">
             <label for="nc-name">Full Name *</label>
-            <input id="nc-name" name="full_name" type="text" required>
+            <input id="nc-name" name="full_name" type="text" required value="${esc(c.full_name || '')}">
           </div>
           <div class="field">
             <label for="nc-type">Role</label>
             <select id="nc-type" name="contact_type">
-              <option value="buyer">Buyer / Investor</option>
-              <option value="seller_owner">Property Owner / Seller</option>
-              <option value="channel_broker">Channel Partner Broker</option>
-              <option value="family_office">Family Office</option>
+              <option value="buyer" ${c.contact_type === 'buyer' ? 'selected' : ''}>Buyer / Investor</option>
+              <option value="seller_owner" ${c.contact_type === 'seller_owner' ? 'selected' : ''}>Property Owner / Seller</option>
+              <option value="channel_broker" ${c.contact_type === 'channel_broker' ? 'selected' : ''}>Channel Partner Broker</option>
+              <option value="family_office" ${c.contact_type === 'family_office' ? 'selected' : ''}>Family Office</option>
+              <option value="tenant" ${c.contact_type === 'tenant' ? 'selected' : ''}>Tenant</option>
+              <option value="developer" ${c.contact_type === 'developer' ? 'selected' : ''}>Developer</option>
             </select>
           </div>
         </div>
         <div class="form-grid-2">
           <div class="field">
             <label for="nc-firm">Firm / Syndicate / Office</label>
-            <input id="nc-firm" name="firm_or_syndicate" type="text">
+            <input id="nc-firm" name="firm_or_syndicate" type="text" value="${esc(c.firm_or_syndicate || '')}">
           </div>
           <div class="field">
             <label for="nc-phone">Primary Phone</label>
-            <input id="nc-phone" name="phone_primary" type="text" placeholder="+91 98110 XXXXX">
+            <input id="nc-phone" name="phone_primary" type="text" placeholder="+91 98110 XXXXX" value="${esc(c.phone_primary || '')}">
           </div>
         </div>
         <div class="field">
           <label for="nc-email">Email</label>
-          <input id="nc-email" name="email" type="email">
+          <input id="nc-email" name="email" type="email" value="${esc(c.email || '')}">
         </div>
         <div class="field">
           <label for="nc-notes">Confidential Relationship Notes</label>
-          <textarea id="nc-notes" name="private_notes" rows="3"></textarea>
+          <textarea id="nc-notes" name="private_notes" rows="3">${esc(c.private_notes || '')}</textarea>
         </div>
-        <button type="submit" class="btn btn-primary">Save Contact</button>
+        <button type="submit" class="btn btn-primary">${isNew ? 'Save Contact' : 'Update Contact'}</button>
       </form>
       `
     );
@@ -1309,14 +1423,24 @@
     drawerBody.querySelector('#new-cnt-form').addEventListener('submit', async (e) => {
       e.preventDefault();
       const f = new FormData(e.currentTarget);
-      await api('/api/crm/contacts', {
-        method: 'POST',
+      await api(isNew ? '/api/crm/contacts' : `/api/crm/contacts/${encodeURIComponent(c.contact_id)}`, {
+        method: isNew ? 'POST' : 'PUT',
         body: Object.fromEntries(f.entries())
       });
       closeDrawer();
-      showToast('Contact saved to Fiduciary Directory.');
+      showToast(isNew ? 'Contact saved to Fiduciary Directory.' : `Updated contact ${c.contact_id}.`);
       loadContacts();
     });
+  }
+
+  document.getElementById('cnt-q').addEventListener('input', loadContacts);
+  document.getElementById('cnt-type').addEventListener('change', loadContacts);
+  document.getElementById('new-contact-btn').addEventListener('click', () => openContactDrawer(null));
+  document.getElementById('contacts-tbody').addEventListener('click', (e) => {
+    const row = e.target.closest('[data-open-contact]');
+    if (!row) return;
+    const found = cachedContacts.find((x) => x.contact_id === row.dataset.openContact);
+    if (found) openContactDrawer(found);
   });
 
   // ==========================================================================

@@ -293,15 +293,48 @@ final class PublicRoutes
                 if (!preg_match('/sell|lease out/i', $intent)) {
                     $reqId = Connection::allocatePrefixedId($db, 'buyer_requirements', 'requirement_id', 'REQ-2026');
                     $initialCorridors = $validProp ? [$validProp['corridor']] : [];
+                    $initialCategories = [];
+
+                    if (!$validProp && $location && !in_array(mb_strtolower($location, 'UTF-8'), ['gurugram', 'gurgaon', 'general advisory', 'all'], true)) {
+                        if (mb_strtolower($location, 'UTF-8') === 'commercial') {
+                            $initialCategories[] = 'commercial';
+                        } else {
+                            $classifiedCorridor = Normalizer::classifyCorridor(['locality' => $location, 'listing_title' => $location]);
+                            if ($classifiedCorridor !== 'Gurugram Central & Other') {
+                                $initialCorridors[] = $classifiedCorridor;
+                            }
+                        }
+                    }
+
+                    $minBudgetInr = null;
+                    $maxBudgetInr = null;
+                    if ($budget) {
+                        if (preg_match('/(\d+(?:\.\d+)?)\s*(?:cr|crore|lakh|lac)?\s*(?:[-–—]|to)\s*(?:₹|rs\.?|inr)?\s*(\d+(?:\.\d+)?)\s*(cr|crore|lakh|lac)/iu', $budget, $bm)) {
+                            $mult = stripos($bm[3], 'l') === 0 ? 1e5 : 1e7;
+                            $minBudgetInr = (int)round((float)$bm[1] * $mult);
+                            if (!str_contains($budget, '+')) {
+                                $maxBudgetInr = (int)round((float)$bm[2] * $mult);
+                            }
+                        } elseif (preg_match('/(\d+(?:\.\d+)?)\s*(cr|crore|lakh|lac)\s*\+/iu', $budget, $bm)) {
+                            $mult = stripos($bm[2], 'l') === 0 ? 1e5 : 1e7;
+                            $minBudgetInr = (int)round((float)$bm[1] * $mult);
+                        } else {
+                            $parsedB = Normalizer::parsePriceFromText($budget);
+                            if ($parsedB) {
+                                $maxBudgetInr = $parsedB;
+                            }
+                        }
+                    }
+
                     $mustHave = implode(' · ', array_filter([
                         $budget ? "Stated budget: {$budget}" : null,
                         $message
                     ])) ?: null;
                     $insReq = $db->prepare('
                         INSERT INTO buyer_requirements (
-                            requirement_id, lead_id, contact_id, intent, corridors_json,
-                            include_off_market, must_have_notes, created_at, updated_at
-                        ) VALUES (?, ?, ?, ?, ?, 1, ?, ?, ?)
+                            requirement_id, lead_id, contact_id, intent, corridors_json, categories_json,
+                            min_budget_inr, max_budget_inr, include_off_market, must_have_notes, created_at, updated_at
+                        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, 1, ?, ?, ?)
                     ');
                     $insReq->execute([
                         $reqId,
@@ -309,6 +342,9 @@ final class PublicRoutes
                         $contactId,
                         $intent,
                         json_encode($initialCorridors, JSON_UNESCAPED_SLASHES),
+                        json_encode($initialCategories, JSON_UNESCAPED_SLASHES),
+                        $minBudgetInr,
+                        $maxBudgetInr,
                         $mustHave,
                         $nowIso,
                         $nowIso
@@ -382,6 +418,15 @@ final class PublicRoutes
             ');
             $itemStmt->execute([$sl['shortlist_id']]);
             $rawItems = $itemStmt->fetchAll();
+
+            try {
+                Shortlist::assertClientText('title', $sl['title'] ?? null);
+                Shortlist::assertClientText('client_name', $sl['client_name'] ?? null);
+                Shortlist::assertClientText('advisor_intro_note', $sl['advisor_intro_note'] ?? null);
+            } catch (\Throwable $e) {
+                Router::sendJson(422, ['ok' => false, 'error' => $e->getMessage()]);
+                return true;
+            }
 
             $projectedItems = [];
             foreach ($rawItems as $raw) {

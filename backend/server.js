@@ -284,7 +284,18 @@ function upsertPropertyMaster(db, payload, actor, existingId = null) {
     throw Object.assign(new Error('price_value must be a non-negative number'), { statusCode: 400 });
   }
   const priceUnit = cleanWhitespace(pickVal(pubIn, 'price_unit', existing?.price_unit));
-  const priceText = cleanWhitespace(pickVal(pubIn, 'price_text', existing?.price_text));
+  let priceText = cleanWhitespace(pickVal(pubIn, 'price_text', existing?.price_text));
+
+  if (existing && Object.hasOwn(pubIn, 'price_value')) {
+    const oldPriceVal = existing.price_value != null && existing.price_value !== '' ? Number(existing.price_value) : null;
+    const oldPriceUnit = cleanWhitespace(existing.price_unit);
+    const oldPriceText = cleanWhitespace(existing.price_text);
+    if ((priceValue !== oldPriceVal || priceUnit !== oldPriceUnit) && priceText === oldPriceText) {
+      priceText = priceValue != null && priceValue > 0
+        ? `₹${priceValue} ${priceUnit || 'Cr'}`.trim()
+        : null;
+    }
+  }
 
   const rentValueRaw = pickVal(pubIn, 'rent_value', existing?.rent_value);
   const rentValue = rentValueRaw != null && rentValueRaw !== '' ? Number(rentValueRaw) : null;
@@ -351,7 +362,11 @@ function upsertPropertyMaster(db, payload, actor, existingId = null) {
     rent_inr_monthly_norm: rentInrNorm,
     key_features: cleanWhitespace(pickVal(pubIn, 'key_features', existing?.key_features)),
     public_description: cleanWhitespace(pickVal(pubIn, 'public_description', existing?.public_description)),
-    public_features: cleanWhitespace(pickVal(pubIn, 'public_features', existing?.public_features)),
+    public_features: Object.hasOwn(pubIn, 'public_features')
+      ? cleanWhitespace(pubIn.public_features)
+      : (Object.hasOwn(pubIn, 'key_features')
+        ? cleanWhitespace(pubIn.key_features)
+        : cleanWhitespace(existing?.public_features)),
     image_label: cleanWhitespace(pickVal(pubIn, 'image_label', existing?.image_label)) || 'Representative Reference Photograph',
     verification_status: cleanWhitespace(pickVal(pubIn, 'verification_status', existing?.verification_status)) || 'Availability to be confirmed',
     verification_state: cleanWhitespace(pickVal(pubIn, 'verification_state', existing?.verification_state)) || 'needs_confirmation',
@@ -761,16 +776,53 @@ function createAppServer(db, options = {}) {
           if (!/sell|lease out/i.test(intent)) {
             const reqId = allocatePrefixedId(db, 'buyer_requirements', 'requirement_id', 'REQ-2026');
             const initialCorridors = validProp ? [validProp.corridor] : [];
+            const initialCategories = [];
+
+            if (!validProp && preferredLocation && !['gurugram', 'gurgaon', 'general advisory', 'all'].includes(preferredLocation.toLowerCase())) {
+              if (preferredLocation.toLowerCase() === 'commercial') {
+                initialCategories.push('commercial');
+              } else {
+                const classified = classifyCorridor({ locality: preferredLocation, listing_title: preferredLocation });
+                if (classified !== 'Gurugram Central & Other') {
+                  initialCorridors.push(classified);
+                }
+              }
+            }
+
+            let minBudgetInr = null;
+            let maxBudgetInr = null;
+            if (budgetText) {
+              const rangeMatch = budgetText.match(/(\d+(?:\.\d+)?)\s*(?:cr|crore|lakh|lac)?\s*(?:[-–—]|to)\s*(?:₹|rs\.?|inr)?\s*(\d+(?:\.\d+)?)\s*(cr|crore|lakh|lac)/i);
+              const plusMatch = budgetText.match(/(\d+(?:\.\d+)?)\s*(cr|crore|lakh|lac)\s*\+/i);
+              if (rangeMatch) {
+                const mult = /^l/i.test(rangeMatch[3]) ? 1e5 : 1e7;
+                minBudgetInr = Math.round(Number(rangeMatch[1]) * mult);
+                if (!budgetText.includes('+')) {
+                  maxBudgetInr = Math.round(Number(rangeMatch[2]) * mult);
+                }
+              } else if (plusMatch) {
+                const mult = /^l/i.test(plusMatch[2]) ? 1e5 : 1e7;
+                minBudgetInr = Math.round(Number(plusMatch[1]) * mult);
+              } else {
+                const single = normalizePriceInr({ priceText: budgetText, transactionType: 'Sale' });
+                if (single) maxBudgetInr = single;
+              }
+            }
+
             db.prepare(`
               INSERT INTO buyer_requirements (
-                requirement_id, lead_id, contact_id, intent, corridors_json, include_off_market, must_have_notes
-              ) VALUES (?, ?, ?, ?, ?, 1, ?)
+                requirement_id, lead_id, contact_id, intent, corridors_json, categories_json,
+                min_budget_inr, max_budget_inr, include_off_market, must_have_notes
+              ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, 1, ?)
             `).run(
               reqId,
               leadId,
               contactId,
               intent,
               JSON.stringify(initialCorridors),
+              JSON.stringify(initialCategories),
+              minBudgetInr,
+              maxBudgetInr,
               [budgetText ? `Stated budget: ${budgetText}` : null, message].filter(Boolean).join(' · ') || null
             );
           }
@@ -1230,7 +1282,54 @@ function createAppServer(db, options = {}) {
           });
 
           const created = db.prepare('SELECT * FROM contacts WHERE contact_id = ?').get(contactId);
-          return sendJson(res, 201, { ok: true, item: created });
+          return sendJson(res, 201, { ok: true, contact_id: contactId, item: created });
+        }
+
+        const crmContactMatch = pathname.match(/^\/api\/crm\/contacts\/([A-Za-z0-9-]+)$/);
+        if (crmContactMatch && (req.method === 'PUT' || req.method === 'PATCH')) {
+          const contactId = crmContactMatch[1];
+          const existingContact = db.prepare('SELECT * FROM contacts WHERE contact_id = ?').get(contactId);
+          if (!existingContact) return sendJson(res, 404, { ok: false, error: `Contact not found: ${contactId}` });
+
+          const body = await readJsonBody(req);
+          const fullName = Object.hasOwn(body, 'full_name') ? cleanWhitespace(body.full_name) : existingContact.full_name;
+          if (!fullName) return sendJson(res, 400, { ok: false, error: 'full_name is required' });
+
+          const cType = Object.hasOwn(body, 'contact_type') ? body.contact_type : existingContact.contact_type;
+          if (!CONTACT_TYPES.has(cType)) return sendJson(res, 400, { ok: false, error: `Unknown contact type: ${cType}` });
+
+          const phonePrimary = Object.hasOwn(body, 'phone_primary') ? cleanWhitespace(body.phone_primary) : existingContact.phone_primary;
+          const email = Object.hasOwn(body, 'email') ? cleanWhitespace(body.email) : existingContact.email;
+          const firm = Object.hasOwn(body, 'firm_or_syndicate') ? cleanWhitespace(body.firm_or_syndicate) : existingContact.firm_or_syndicate;
+          const notes = Object.hasOwn(body, 'private_notes') ? cleanWhitespace(body.private_notes) : existingContact.private_notes;
+
+          db.prepare(`
+            UPDATE contacts
+            SET contact_type = ?, full_name = ?, firm_or_syndicate = ?, phone_primary = ?,
+                phone_norm = ?, email = ?, private_notes = ?, updated_at = strftime('%Y-%m-%dT%H:%M:%fZ', 'now')
+            WHERE contact_id = ?
+          `).run(
+            cType,
+            fullName,
+            firm,
+            phonePrimary,
+            normalizePhoneDigits(phonePrimary),
+            email,
+            notes,
+            contactId
+          );
+
+          recordAuditLog(db, {
+            actorUserId: actor.userId,
+            actorLabel: actor.label,
+            entityType: 'contact',
+            entityId: contactId,
+            action: 'update_contact',
+            summary: `Updated ${cType} contact: ${fullName}`
+          });
+
+          const updated = db.prepare('SELECT * FROM contacts WHERE contact_id = ?').get(contactId);
+          return sendJson(res, 200, { ok: true, contact_id: contactId, item: updated });
         }
 
         // Leads & Deal Pipeline

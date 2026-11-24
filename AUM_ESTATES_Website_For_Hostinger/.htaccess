@@ -23,8 +23,8 @@ Options -Indexes -MultiViews
 # so aumestates.com always serves the website.
 DirectoryIndex index.html index.php
 
-# 2. Prevent Public Access to Hidden Files, Git, Backups, and Internal System Files
-<FilesMatch "(\.(bak|backup|config|dist|fla|inc|ini|log|psd|sh|sql|swp|txt|md|jsonl|ndjson|env|git.*)|~)$">
+# 2. Prevent Public Access to Hidden Files, Git, Backups, Databases, and Internal System Files
+<FilesMatch "(\.(bak|backup|config|dist|fla|inc|ini|log|psd|sh|sql|sqlite|sqlite-wal|sqlite-shm|db|swp|txt|md|jsonl|ndjson|env|git.*)|~)$">
     <IfModule mod_authz_core.c>
         Require all denied
     </IfModule>

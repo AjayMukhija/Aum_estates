@@ -14,14 +14,26 @@ final class Migrations
 
         $migrations = [
             1 => function (PDO $db) {
-                $db->exec('CREATE TABLE IF NOT EXISTS inventory_undo (
-                    change_id INT AUTO_INCREMENT PRIMARY KEY,
-                    property_id VARCHAR(64) NOT NULL,
-                    before_json LONGTEXT NULL,
-                    after_json LONGTEXT NOT NULL,
-                    undone TINYINT(1) NOT NULL DEFAULT 0,
-                    created_at VARCHAR(32) NOT NULL
-                )');
+                $driver = $db->getAttribute(PDO::ATTR_DRIVER_NAME);
+                if ($driver === 'sqlite') {
+                    $db->exec('CREATE TABLE IF NOT EXISTS inventory_undo (
+                        change_id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        property_id TEXT NOT NULL,
+                        before_json TEXT NULL,
+                        after_json TEXT NOT NULL,
+                        undone INTEGER NOT NULL DEFAULT 0,
+                        created_at TEXT NOT NULL
+                    )');
+                } else {
+                    $db->exec('CREATE TABLE IF NOT EXISTS inventory_undo (
+                        change_id INT AUTO_INCREMENT PRIMARY KEY,
+                        property_id VARCHAR(64) NOT NULL,
+                        before_json LONGTEXT NULL,
+                        after_json LONGTEXT NOT NULL,
+                        undone TINYINT(1) NOT NULL DEFAULT 0,
+                        created_at VARCHAR(32) NOT NULL
+                    )');
+                }
 
                 $fixes = [
                     ['AUM-WEB-000142', 'AUM-WEB-000137', 'Arbour'],
@@ -67,9 +79,14 @@ final class Migrations
                     WHERE property_id IN (SELECT property_id FROM property_private WHERE owner_email_cache='vsinghania@example.org' OR raw_whatsapp_text LIKE 'Elevate Hines Sec 59 | 3395 sqft%')
                     AND property_id IN ('AUM-OFF-000001','AUM-DRF-000001')");
 
-                $db->exec("UPDATE leads SET stage='closed_lost', lead_title=CONCAT('[DEMO] ', lead_title) WHERE client_email='s.malhotra@example.org' AND lead_id='LEAD-2026-0001' AND lead_title NOT LIKE '[DEMO]%'");
-
-                $db->exec("UPDATE contacts SET trust_tier='demo_fixture', full_name=CONCAT('[DEMO] ', full_name) WHERE (email IN ('vsinghania@example.org','s.malhotra@example.org') OR (contact_id='CNT-BRK-001' AND phone_norm='9810277310')) AND full_name NOT LIKE '[DEMO]%'");
+                $driver = $db->getAttribute(PDO::ATTR_DRIVER_NAME);
+                if ($driver === 'sqlite') {
+                    $db->exec("UPDATE leads SET stage='closed_lost', lead_title='[DEMO] ' || lead_title WHERE client_email='s.malhotra@example.org' AND lead_id='LEAD-2026-0001' AND lead_title NOT LIKE '[DEMO]%'");
+                    $db->exec("UPDATE contacts SET trust_tier='demo_fixture', full_name='[DEMO] ' || full_name WHERE (email IN ('vsinghania@example.org','s.malhotra@example.org') OR (contact_id='CNT-BRK-001' AND phone_norm='9810277310')) AND full_name NOT LIKE '[DEMO]%'");
+                } else {
+                    $db->exec("UPDATE leads SET stage='closed_lost', lead_title=CONCAT('[DEMO] ', lead_title) WHERE client_email='s.malhotra@example.org' AND lead_id='LEAD-2026-0001' AND lead_title NOT LIKE '[DEMO]%'");
+                    $db->exec("UPDATE contacts SET trust_tier='demo_fixture', full_name=CONCAT('[DEMO] ', full_name) WHERE (email IN ('vsinghania@example.org','s.malhotra@example.org') OR (contact_id='CNT-BRK-001' AND phone_norm='9810277310')) AND full_name NOT LIKE '[DEMO]%'");
+                }
             },
             3 => function (PDO $db) {
                 $setTitle = $db->prepare('UPDATE properties SET listing_title = ?, slug = ? WHERE property_id = ?');

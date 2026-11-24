@@ -32,7 +32,7 @@
         <p id="login-error" class="form-error" role="alert" hidden></p>
         <button type="submit" class="btn btn-primary btn-block" id="login-submit">Enter Advisory Desk →</button>
       </form>
-      <p class="auth-footnote">Bound to loopback · Strict table-level isolation between Public Catalogue and Private Fiduciary Vault.</p>
+      <p class="auth-footnote">Strict table-level isolation between Public Catalogue and Private Fiduciary Vault.</p>
     </div>
   </section>
 
@@ -72,10 +72,10 @@
       </nav>
 
       <div class="sidebar-links">
-        <span class="eyebrow">LIVE FRONTENDS</span>
-        <a href="/v16/" target="_blank" rel="noopener">Brand Study v16 (Live API) ↗</a>
-        <a href="/grid/" target="_blank" rel="noopener">Architectural Grid 06 ↗</a>
-        <a href="/" target="_blank" rel="noopener">Production Hostinger Site ↗</a>
+        <span class="eyebrow">LIVE WEBSITE</span>
+        <a href="/" target="_blank" rel="noopener">Homepage ↗</a>
+        <a href="/properties/" target="_blank" rel="noopener">Public Portfolio ↗</a>
+        <a href="/projects/" target="_blank" rel="noopener">Curated Projects ↗</a>
       </div>
 
       <div class="sidebar-user">
@@ -112,7 +112,10 @@
                 <span class="eyebrow">HUMAN-IN-THE-LOOP GATEKEEPER</span>
                 <h2>Pending Public Approval</h2>
               </div>
-              <button type="button" class="btn-link" data-jump-tab="intake">Paste WhatsApp ＋</button>
+              <div class="btn-row">
+                <button type="button" class="btn-link" id="view-all-pending">View all pending →</button>
+                <button type="button" class="btn-link" data-jump-tab="intake">Paste WhatsApp ＋</button>
+              </div>
             </div>
             <div id="overview-pending-list" class="compact-list"></div>
           </div>

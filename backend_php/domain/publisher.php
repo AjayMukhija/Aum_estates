@@ -302,16 +302,25 @@ final class Publisher
                 'name' => $matchingPub['listing_title'],
                 'location' => implode(', ', $locParts),
                 'type' => $r['property_type'],
-                'description' => $r['public_description'] ?: ($r['key_features'] ?: ''),
+                'description' => $matchingPub['public_description'] ?: (PrivacyGate::stripSourcingProvenance($r['key_features'] ?? null) ?: ''),
                 'price_text' => $effectivePrice,
                 'price_value' => preg_replace('/^₹/', '', $effectivePrice),
                 'features' => implode(' · ', $featureList),
-                'image' => 'assets/property-images/' . ($r['image_file'] ?: 'apartment.jpg'),
+                'image' => (Normalizer::isGenericPlaceholderImage($r['image_file'] ?? null) || empty($r['image_file']))
+                    ? null
+                    : ('assets/property-images/' . $r['image_file']),
                 'transaction_type' => $r['transaction_type'] ?: 'Sale',
                 'category' => $catLabel,
                 'slug' => $matchingPub['slug'],
-                'image_label' => $r['image_label'] ?: 'Representative Visual'
+                'image_label' => $r['image_label'] ?: 'Representative image'
             ];
+
+            $verbatimCardFields = ['property_id', 'slug', 'image', 'price_value'];
+            foreach ($card as $k => $v) {
+                if (is_string($v) && !in_array($k, $verbatimCardFields, true)) {
+                    $card[$k] = Normalizer::normalizePublicVocabulary($v);
+                }
+            }
 
             foreach ($card as $k => $v) {
                 if (is_string($v)) {
@@ -330,10 +339,11 @@ final class Publisher
             throw new \DomainException("Fiduciary Privacy Gate blocked publication with {$count} error(s):\n- {$top10}");
         }
 
-        $inventoryJsonStr = json_encode($publicRecords, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) . "\n";
-        $inventoryJsStr = "window.AUM_PUBLIC_INVENTORY = " . json_encode($publicRecords, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) . ";\n";
-        $projectsJsStr = "window.AUM_PROJECTS_LOCAL = " . json_encode($publicProjects, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) . ";\n";
-        $featuredJsStr = "window.AUM_APPROVED_PROPERTIES = " . json_encode($publicFeatured, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) . ";\n";
+        $jsonFlags = JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE;
+        $inventoryJsonStr = json_encode($publicRecords, $jsonFlags) . "\n";
+        $inventoryJsStr = "window.AUM_PUBLIC_INVENTORY = " . json_encode($publicRecords, $jsonFlags) . ";\n";
+        $projectsJsStr = "window.AUM_PROJECTS_LOCAL = " . json_encode($publicProjects, $jsonFlags) . ";\n";
+        $featuredJsStr = "window.AUM_APPROVED_PROPERTIES = " . json_encode($publicFeatured, $jsonFlags) . ";\n";
 
         $datePart = gmdate('Y-m-d\TH-i-s');
         $randPart = bin2hex(random_bytes(4));

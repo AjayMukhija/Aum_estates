@@ -783,6 +783,215 @@ $runTest('Provisioner: a generated password is written owner-only, never printed
     }
 });
 
+// ---------------------------------------------------------------------------
+$runTest('Contacts: sequential creation skips CNT-OWN/CNT-WEB collisions and PUT updates existing contacts', function () {
+    $pdo = makeDb();
+    $s = signIn($pdo, 'ajay@aumestates.com', 'Principal-Test-2026!');
+
+    // Master DB contains CNT-0001, CNT-OWN-001..152, CNT-WEB-0001..0002.
+    // Creating two contacts sequentially used to fail on the 2nd insert with UNIQUE constraint failed: contacts.contact_id (CNT-0002).
+    $c1 = dispatch($pdo, 'POST', '/api/crm/contacts', [
+        'session_id' => $s['sid'],
+        'headers' => ['x-csrf-token' => $s['csrf']],
+        'body' => ['full_name' => 'Sequential Contact 1', 'phone_primary' => '9811000001', 'contact_type' => 'buyer']
+    ]);
+    assertSame2(201, $c1['status'], '1st contact creation must succeed');
+
+    $c2 = dispatch($pdo, 'POST', '/api/crm/contacts', [
+        'session_id' => $s['sid'],
+        'headers' => ['x-csrf-token' => $s['csrf']],
+        'body' => ['full_name' => 'Sequential Contact 2', 'phone_primary' => '9811000002', 'contact_type' => 'seller_owner']
+    ]);
+    assertSame2(201, $c2['status'], '2nd contact creation must not collide with CNT-0002');
+    assertTrue2($c1['json']['contact_id'] !== $c2['json']['contact_id'], 'Each contact must receive a unique ID');
+
+    // Update the contact via PUT /api/crm/contacts/{id}
+    $upd = dispatch($pdo, 'PUT', '/api/crm/contacts/' . $c2['json']['contact_id'], [
+        'session_id' => $s['sid'],
+        'headers' => ['x-csrf-token' => $s['csrf']],
+        'body' => ['full_name' => 'Updated Seller Owner', 'firm_or_syndicate' => 'AUM Test Holdings', 'trust_tier' => 'verified']
+    ]);
+    assertSame2(200, $upd['status'], 'PUT /api/crm/contacts/{id} must succeed');
+    assertSame2('Updated Seller Owner', $upd['json']['contact']['full_name']);
+    assertSame2('AUM Test Holdings', $upd['json']['contact']['firm_or_syndicate']);
+});
+
+// ---------------------------------------------------------------------------
+$runTest('Properties: 6-digit ID allocation, price_text auto-refresh, public_features sync, and nullable floor price clearing', function () {
+    $pdo = makeDb();
+    $s = signIn($pdo, 'ajay@aumestates.com', 'Principal-Test-2026!');
+
+    $create = dispatch($pdo, 'POST', '/api/crm/properties', [
+        'session_id' => $s['sid'],
+        'headers' => ['x-csrf-token' => $s['csrf']],
+        'body' => [
+            'listing_title' => 'Sector 65 Luxury Residence',
+            'transaction_type' => 'Sale',
+            'property_type' => 'Apartment',
+            'micro_market' => 'Sector 65',
+            'price_value' => 4.5,
+            'price_unit' => 'Cr',
+            'price_text' => '₹4.5 Cr',
+            'key_features' => 'Park facing; 2 car parks',
+            'internal_floor_price_inr' => 42000000
+        ]
+    ]);
+    assertSame2(201, $create['status']);
+    $pid = $create['json']['property_id'];
+    assertTrue2((bool)preg_match('/^AUM-WEB-\d{6}$/', $pid), "Property ID must use 6-digit padding, got {$pid}");
+
+    // Now update price_value to 5.25 without changing price_text, update key_features, and clear internal_floor_price_inr.
+    $update = dispatch($pdo, 'PUT', '/api/crm/properties/' . $pid, [
+        'session_id' => $s['sid'],
+        'headers' => ['x-csrf-token' => $s['csrf']],
+        'body' => [
+            'price_value' => 5.25,
+            'price_unit' => 'Cr',
+            'price_text' => '₹4.5 Cr', // stale text sent by form when advisor only edits numeric price
+            'key_features' => 'Corner unit; private lift lobby; 3 car parks',
+            'internal_floor_price_inr' => ''
+        ]
+    ]);
+    assertSame2(200, $update['status']);
+
+    $detail = dispatch($pdo, 'GET', '/api/crm/properties/' . $pid, [
+        'session_id' => $s['sid']
+    ]);
+    assertSame2(200, $detail['status']);
+    assertSame2('₹5.25 Cr', $detail['json']['property']['price_text'], 'Stale price_text must refresh when numeric price changes');
+    assertSame2('Corner unit; private lift lobby; 3 car parks', $detail['json']['property']['public_features'], 'public_features must sync with key_features');
+    assertSame2(null, $detail['json']['property']['internal_floor_price_inr'], 'Clearing internal_floor_price_inr must set NULL in DB');
+});
+
+// ---------------------------------------------------------------------------
+$runTest('Reverify: unknown ID returns 404, valid ID advances next_reverify_due by 120 days and exits dashboard queue', function () {
+    $pdo = makeDb();
+    $s = signIn($pdo, 'ajay@aumestates.com', 'Principal-Test-2026!');
+
+    $missing = dispatch($pdo, 'POST', '/api/crm/properties/AUM-NO-SUCH-0000/reverify', [
+        'session_id' => $s['sid'],
+        'headers' => ['x-csrf-token' => $s['csrf']]
+    ]);
+    assertSame2(404, $missing['status']);
+
+    // Force a property into the reverify queue
+    $pid = $pdo->query("SELECT property_id FROM properties WHERE availability_state='available' LIMIT 1")->fetchColumn();
+    $pdo->prepare("UPDATE properties SET next_reverify_due = '2026-01-01' WHERE property_id = ?")->execute([$pid]);
+
+    $rev = dispatch($pdo, 'POST', "/api/crm/properties/{$pid}/reverify", [
+        'session_id' => $s['sid'],
+        'headers' => ['x-csrf-token' => $s['csrf']]
+    ]);
+    assertSame2(200, $rev['status']);
+    assertTrue2($rev['json']['next_reverify_due'] > gmdate('Y-m-d', strtotime('+60 days')), 'next_reverify_due must be pushed beyond the 30-day dashboard window');
+
+    $dash = dispatch($pdo, 'GET', '/api/crm/dashboard', ['session_id' => $s['sid']]);
+    $queuedIds = array_column($dash['json']['reverifyQueue'] ?? [], 'property_id');
+    assertTrue2(!in_array($pid, $queuedIds, true), 'Reverified property must leave the dashboard reverifyQueue immediately');
+});
+
+// ---------------------------------------------------------------------------
+$runTest('Approval: POST /api/crm/properties/{id}/approve blocks drafts containing leaked phone or cheque notes with 422', function () {
+    $pdo = makeDb();
+    $s = signIn($pdo, 'ajay@aumestates.com', 'Principal-Test-2026!');
+
+    $create = dispatch($pdo, 'POST', '/api/crm/properties', [
+        'session_id' => $s['sid'],
+        'headers' => ['x-csrf-token' => $s['csrf']],
+        'body' => [
+            'listing_title' => 'Unscrubbed Draft Mandate',
+            'transaction_type' => 'Sale',
+            'public_description' => 'Call owner directly at 9811223344 for cash/cheque deal',
+            'publication_state' => 'draft'
+        ]
+    ]);
+    $pid = $create['json']['property_id'];
+
+    $approve = dispatch($pdo, 'POST', "/api/crm/properties/{$pid}/approve", [
+        'session_id' => $s['sid'],
+        'headers' => ['x-csrf-token' => $s['csrf']]
+    ]);
+    assertSame2(422, $approve['status'], 'Approving a draft with leaked phone/cheque prose must fail with 422');
+});
+
+// ---------------------------------------------------------------------------
+$runTest('Shortlists: leaked phone in advisor note returns 422 (not 500) and revoking unknown shortlist returns 404', function () {
+    $pdo = makeDb();
+    $s = signIn($pdo, 'ajay@aumestates.com', 'Principal-Test-2026!');
+
+    $live = $pdo->query("SELECT property_id FROM properties WHERE publication_state='approved_public' AND availability_state='available' LIMIT 1")->fetchAll(PDO::FETCH_COLUMN);
+
+    $bad = dispatch($pdo, 'POST', '/api/crm/shortlists', [
+        'session_id' => $s['sid'],
+        'headers' => ['x-csrf-token' => $s['csrf']],
+        'body' => [
+            'client_name' => 'Client Leak Test',
+            'advisor_intro_note' => 'Call seller directly on 9810098100',
+            'property_ids' => $live
+        ]
+    ]);
+    assertSame2(422, $bad['status'], 'Privacy violation in shortlist note must return 422 instead of 500');
+
+    $rev = dispatch($pdo, 'POST', '/api/crm/shortlists/SHL-9999/revoke', [
+        'session_id' => $s['sid'],
+        'headers' => ['x-csrf-token' => $s['csrf']]
+    ]);
+    assertSame2(404, $rev['status'], 'Revoking non-existent shortlist must return 404');
+});
+
+// ---------------------------------------------------------------------------
+$runTest('IntakeParser: multi-line quoted CSV cells and XLSX self-closing empty styled cells preserve column alignment', function () {
+    $csv = "property_id,listing_title,public_description,price_text\n"
+         . "AUM-CSV-000001,\"Magnolias Duplex\",\"Line 1 description\nLine 2 description\",\"₹28 Cr\"\n";
+    $rows = \AumEstates\Domain\IntakeParser::parseCsvText($csv);
+    assertSame2(1, count($rows), 'Multi-line quoted CSV row must parse as 1 record, not split across lines');
+    assertSame2('₹28 Cr', $rows[0]['price_text']);
+
+    // Build a minimal XLSX zip with a self-closing styled cell <c r="B2" s="1"/> between A2 and C2
+    $tmpZip = tempnam(sys_get_temp_dir(), 'aum_xlsx_') . '.xlsx';
+    $zip = new \ZipArchive();
+    $zip->open($tmpZip, \ZipArchive::CREATE | \ZipArchive::OVERWRITE);
+    $zip->addFromString('xl/sharedStrings.xml', '<?xml version="1.0"?><sst><si><t>ColA</t></si><si><t>ColB</t></si><si><t>ColC</t></si><si><t>ValA</t></si><si><t>ValC</t></si></sst>');
+    $zip->addFromString('xl/worksheets/sheet1.xml', '<?xml version="1.0"?><worksheet><sheetData>'
+        . '<row r="1"><c r="A1" t="s"><v>0</v></c><c r="B1" t="s"><v>1</v></c><c r="C1" t="s"><v>2</v></c></row>'
+        . '<row r="2"><c r="A2" t="s"><v>3</v></c><c r="B2" s="1"/><c r="C2" t="s"><v>4</v></c></row>'
+        . '</sheetData></worksheet>');
+    $zip->close();
+
+    try {
+        $xlsxRows = \AumEstates\Domain\IntakeParser::parseXlsxBuffer((string)file_get_contents($tmpZip));
+        assertSame2(1, count($xlsxRows));
+        assertSame2('ValA', $xlsxRows[0]['ColA']);
+        assertSame2('', $xlsxRows[0]['ColB'], 'Self-closing empty styled cell B2 must remain empty');
+        assertSame2('ValC', $xlsxRows[0]['ColC'], 'Cell C2 must not be swallowed by self-closing cell B2');
+    } finally {
+        @unlink($tmpZip);
+    }
+});
+
+// ---------------------------------------------------------------------------
+$runTest('Enquiries: public inquiry scaffolds corridor and budget range into buyer_requirements', function () {
+    $pdo = makeDb();
+    $r = dispatch($pdo, 'POST', '/api/public/inquiries', [
+        'ip' => '198.51.100.88',
+        'body' => [
+            'name' => 'Budget Buyer',
+            'phone' => '9811998877',
+            'configuration' => '4 BHK',
+            'location' => 'Golf Course Road',
+            'budget' => '₹5 Cr – ₹10 Cr',
+            'message' => 'Looking for ready move apartment'
+        ]
+    ]);
+    assertSame2(201, $r['status']);
+    $stmt = $pdo->prepare('SELECT corridors_json, min_budget_inr, max_budget_inr FROM buyer_requirements WHERE lead_id = ?');
+    $stmt->execute([$r['json']['lead_id']]);
+    $req = $stmt->fetch();
+    assertSame2(['Golf Course Road'], json_decode($req['corridors_json'], true));
+    assertSame2(50000000.0, (float)$req['min_budget_inr']);
+    assertSame2(100000000.0, (float)$req['max_budget_inr']);
+});
+
 echo "\n======================================================================\n";
 echo "Regression Suite Summary: {$passed} passed, {$failed} failed.\n";
 echo "======================================================================\n";

@@ -308,36 +308,45 @@ final class IntakeParser
     }
 
     /**
-     * Parses CSV or TSV string into associative rows using the header row
+     * Parses CSV or TSV string into associative rows using the header row.
+     * Uses an in-memory stream so multi-line quoted CSV cells are preserved intact.
      */
     public static function parseCsvText(string $text, string $delimiter = ','): array
     {
-        $lines = preg_split('/\r\n|\r|\n/u', trim($text));
-        if (empty($lines)) {
+        $trimmed = trim($text);
+        if ($trimmed === '') {
             return [];
         }
+
+        $fp = fopen('php://temp', 'r+');
+        if ($fp === false) {
+            return [];
+        }
+        fwrite($fp, $trimmed);
+        rewind($fp);
 
         $headers = null;
         $rows = [];
 
-        foreach ($lines as $line) {
-            $line = trim($line);
-            if ($line === '') {
+        while (($parsed = fgetcsv($fp, 0, $delimiter, '"', "\\")) !== false) {
+            if ($parsed === [null] || empty(array_filter($parsed, fn($v) => $v !== null && trim((string)$v) !== ''))) {
                 continue;
             }
-            $parsed = str_getcsv($line, $delimiter, '"', "\\");
             if ($headers === null) {
-                $headers = array_map(fn($h) => trim((string)$h), $parsed);
+                $headers = array_map(fn($h) => trim(preg_replace('/^\xEF\xBB\xBF/', '', (string)$h)), $parsed);
                 continue;
             }
 
             $row = [];
             foreach ($headers as $idx => $header) {
-                $row[$header] = isset($parsed[$idx]) ? trim($parsed[$idx]) : '';
+                if ($header !== '') {
+                    $row[$header] = isset($parsed[$idx]) ? trim((string)$parsed[$idx]) : '';
+                }
             }
             $rows[] = $row;
         }
 
+        fclose($fp);
         return $rows;
     }
 
@@ -400,7 +409,7 @@ final class IntakeParser
         if (preg_match_all('/<row\b[^>]*>(.*?)<\/row>/s', $sheetXml, $rMatches)) {
             foreach ($rMatches[1] as $rowContent) {
                 $rowArr = [];
-                if (preg_match_all('/<c\b([^>]*)>(.*?)<\/c>/s', $rowContent, $cMatches, PREG_SET_ORDER)) {
+                if (preg_match_all('/<c\b([^>\/]*)>(.*?)<\/c>/s', $rowContent, $cMatches, PREG_SET_ORDER)) {
                     foreach ($cMatches as $c) {
                         $attrs = $c[1];
                         $cellBody = $c[2];
